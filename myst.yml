@@ -1,0 +1,67 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 492c0fd0-6de5-4738-b5ab-8c08e34fb954
+  title: UCF CAP-6318
+  description: Computational Analysis of Social Complexity
+  # keywords: []
+  authors:
+    - name: Spencer Lyon
+      email: spencer.lyon@ucf.edu
+      orcid: 0009-0001-6461-885X
+      affiliations:
+        - University of Central Florida
+        - Valorum Data
+  # github:
+  toc:
+    - file: week01/L01.01_welcome.ipynb
+    - title: Week 01
+      children:
+        - file: week01/L01.02_setup.ipynb
+        - file: week01/L01.03_julia_basics.ipynb
+    - title: Week 02
+      children:
+        - file: week02/L02.01_julia_types_methods.ipynb
+    - title: Week 03
+      children:
+        - file: week03/L03.01_graphs.ipynb
+        - file: week03/L03.02_strong_weak_ties.ipynb
+    - title: Week 04
+      children:
+        - file: week04/L04.01_homophily.ipynb
+        - file: week04/L04.02_weighted_graphs.ipynb
+        - file: week04/L04.03_structural_balance.ipynb
+    - title: Week 05
+      children:
+        - file: week05/L05.01_production_networks.ipynb
+    - title: Week 06
+      children:
+        - file: week06/L06.01_game_theory_intro.ipynb
+        - file: week06/L06.02_network_traffic.ipynb
+    - title: Week 07
+      children:
+        - file: week07/L07.01_mixed_strategies.ipynb
+        - file: week07/L07.02_markov_perf.ipynb
+        - file: week07/L07.03_auctions.ipynb
+    - title: Week 09
+      children:
+        - file: week09/L09.01_abm_concepts.ipynb
+        - file: week09/L09.02_julia_skills.ipynb
+        - file: week09/L09.03_shelling_agents.ipynb
+    - title: Week 10
+      children:
+        - file: week10/L10.01_abm_money.ipynb
+    - title: Week 11
+      children:
+        - file: week11/L11.01_intro_to_blockchains.ipynb
+    - title: Week 12
+      children:
+        - file: week12/L12.01-ethereum.ipynb
+        - file: week12/L12.02-defi.ipynb
+        - file: week12/L12.03-nft.ipynb
+
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
