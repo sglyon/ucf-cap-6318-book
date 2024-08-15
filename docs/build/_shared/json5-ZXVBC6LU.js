@@ -1,1 +1,1 @@
-import{a}from"https://sglyon.github.io/ucf-cap-6318-book/docs/build/_shared/chunk-FQEDH26A.js";import"https://sglyon.github.io/ucf-cap-6318-book/docs/build/_shared/chunk-R66E6AZX.js";import"https://sglyon.github.io/ucf-cap-6318-book/docs/build/_shared/chunk-2NH4LW52.js";export default a();
+import{a}from"https://ucf-cap-6318.spencerlyon.com/build/_shared/chunk-FQEDH26A.js";import"https://ucf-cap-6318.spencerlyon.com/build/_shared/chunk-R66E6AZX.js";import"https://ucf-cap-6318.spencerlyon.com/build/_shared/chunk-2NH4LW52.js";export default a();

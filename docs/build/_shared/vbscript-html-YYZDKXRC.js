@@ -1,1 +1,1 @@
-import{c as t}from"https://sglyon.github.io/ucf-cap-6318-book/docs/build/_shared/chunk-2NH4LW52.js";var i=t((a,n)=>{function e(s){return{name:"VBScript in HTML",subLanguage:"xml",contains:[{begin:"<%",end:"%>",subLanguage:"vbscript"}]}}n.exports=e});export default i();
+import{c as t}from"https://ucf-cap-6318.spencerlyon.com/build/_shared/chunk-2NH4LW52.js";var i=t((a,n)=>{function e(s){return{name:"VBScript in HTML",subLanguage:"xml",contains:[{begin:"<%",end:"%>",subLanguage:"vbscript"}]}}n.exports=e});export default i();

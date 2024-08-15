@@ -1,3 +1,3 @@
 build:
-	BASE_URL="https://sglyon.github.io/ucf-cap-6318-book/docs" myst build --html --execute
+	BASE_URL="https://ucf-cap-6318.spencerlyon.com" myst build --html --execute
 	rsync -az --delete --info=progress2 ./_build/html/ ./docs/
