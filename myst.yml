@@ -4,7 +4,7 @@ project:
   id: 492c0fd0-6de5-4738-b5ab-8c08e34fb954
   title: UCF CAP-6318
   description: Computational Analysis of Social Complexity
-  github: sglyon/ucf-cap6318-book
+  # github: sglyon/ucf-cap-6318-book
   # keywords: []
   authors:
     - name: Spencer Lyon
@@ -63,6 +63,8 @@ project:
 
 site:
   template: book-theme
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
+  options:
+    favicon: icon.png
+    logo: logo.png
+    logo_dark: logo-dark.png
+    hide_toc: false
