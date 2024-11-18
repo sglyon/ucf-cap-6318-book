@@ -50,7 +50,7 @@ project:
     - title: Game Theory 2
       children:
         - file: week09/L09.01_mixed_strategies.ipynb
-        - file: week09/L09.02_markov_perf.ipynb
+        # - file: week09/L09.02_markov_perf.ipynb
         - file: week09/L09.03_auctions.ipynb
     - title: Blockchain 1
       children:
@@ -60,6 +60,15 @@ project:
         - file: week12/L12.01-ethereum.ipynb
         - file: week12/L12.02-defi.ipynb
         - file: week12/L12.03-nft.ipynb
+    - title: Reinforcement Learning
+      children:
+        - file: reinforcement_learning/rl.01.ipynb
+        - file: reinforcement_learning/rl.02-tdlearning.ipynb
+        - file: reinforcement_learning/rl.03_qlearning.ipynb
+        - file: reinforcement_learning/rl.04_career_rl.ipynb
+        - file: reinforcement_learning/rl.05_continuous_S.ipynb
+        - file: reinforcement_learning/rl.06_dqn_intro.ipynb
+        - file: reinforcement_learning/rl.07_deepmind.ipynb
 
 site:
   template: book-theme

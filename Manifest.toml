@@ -1,8 +1,8 @@
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.10.4"
+julia_version = "1.10.5"
 manifest_format = "2.0"
-project_hash = "371ddf9893f089e671444ff33253b11a545da36b"
+project_hash = "37d20715a9b90e1cb79a6af4bae29d96dc8ade8d"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -145,6 +145,12 @@ version = "0.4.7"
 
 [[deps.Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
+
+[[deps.BasisMatrices]]
+deps = ["Combinatorics", "LinearAlgebra", "QuantEcon", "SparseArrays", "Statistics"]
+git-tree-sha1 = "49b8f4cea223292ba6f34a8083cbc3098e3a627f"
+uuid = "08854c51-b66b-5062-a90d-8e7ae4547a49"
+version = "0.7.1"
 
 [[deps.BenchmarkTools]]
 deps = ["JSON", "Logging", "Printf", "Profile", "Statistics", "UUIDs"]
@@ -2624,7 +2630,7 @@ version = "0.15.1+0"
 [[deps.libblastrampoline_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
-version = "5.8.0+1"
+version = "5.11.0+0"
 
 [[deps.libdecor_jll]]
 deps = ["Artifacts", "Dbus_jll", "JLLWrappers", "Libdl", "Libglvnd_jll", "Pango_jll", "Wayland_jll", "xkbcommon_jll"]
