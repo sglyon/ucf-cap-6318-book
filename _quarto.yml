@@ -1,0 +1,72 @@
+project:
+  type: book
+
+book:
+  title: "CAP-6318"
+  author: "Spencer Lyon"
+  date: "11/18/2024"
+  chapters:
+    - index.md
+    - part: Julia 1
+      chapters:
+        - week01/L01.02_setup.ipynb
+        - week01/L01.03_julia_basics.ipynb
+    - part: Julia 2
+      chapters:
+        - week02/L02.01_julia_types_methods.ipynb
+    - part: Graph Theory 1
+      chapters:
+        - week03/L03.01_graphs.ipynb
+        - week03/L03.02_strong_weak_ties.ipynb
+    - part: Graph Theory 2
+      chapters:
+        - week04/L04.01_homophily.ipynb
+        - week04/L04.02_weighted_graphs.ipynb
+        - week04/L04.03_structural_balance.ipynb
+    - part: Production Networks
+      chapters:
+        - week05/L05.01_production_networks.ipynb
+    - part: ABM 1
+      chapters:
+        - week06/L06.01_abm_concepts.ipynb
+        - week06/L06.02_julia_skills.ipynb
+        - week06/L06.03_shelling_agents.ipynb
+    - part: ABM 2
+      chapters:
+        - week07/L07.01_abm_money.ipynb
+    - part: Game Theory 1
+      chapters:
+        - week08/L08.01_game_theory_intro.ipynb
+        - week08/L08.02_network_traffic.ipynb
+    - part: Game Theory 2
+      chapters:
+        - week09/L09.01_mixed_strategies.ipynb
+        - week09/L09.03_auctions.ipynb
+    - part: Blockchain 1
+      chapters:
+        - week11/L11.01_intro_to_blockchains.ipynb
+    - part: Blockchain 2
+      chapters:
+        - week12/L12.01-ethereum.ipynb
+        - week12/L12.02-defi.ipynb
+        - week12/L12.03-nft.ipynb
+    - part: Reinforcement Learning
+      chapters:
+        - reinforcement_learning/rl.01.ipynb
+        - reinforcement_learning/rl.02-tdlearning.ipynb
+        - reinforcement_learning/rl.03_qlearning.ipynb
+        - reinforcement_learning/rl.04_career_rl.ipynb
+        - reinforcement_learning/rl.05_continuous_S.ipynb
+        - reinforcement_learning/rl.06_dqn_intro.ipynb
+        - reinforcement_learning/rl.07_deepmind.ipynb
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: lux
+  pdf:
+    documentclass: scrreprt
+
+
+

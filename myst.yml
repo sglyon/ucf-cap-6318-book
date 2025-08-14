@@ -73,7 +73,7 @@ project:
 site:
   template: book-theme
   options:
-    favicon: icon.png
+    favicon: favicon.ico
     logo: logo.png
     logo_dark: logo-dark.png
     hide_toc: false
