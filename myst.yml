@@ -20,55 +20,55 @@ project:
       children:
         - file: week01/L01.02_setup.ipynb
         - file: week01/L01.03_julia_basics.ipynb
-    - title: Julia 2
-      children:
-        - file: week02/L02.01_julia_types_methods.ipynb
-    - title: Graph Theory 1
-      children:
-        - file: week03/L03.01_graphs.ipynb
-        - file: week03/L03.02_strong_weak_ties.ipynb
-    - title: Graph Theory 2
-      children:
-        - file: week04/L04.01_homophily.ipynb
-        - file: week04/L04.02_weighted_graphs.ipynb
-        - file: week04/L04.03_structural_balance.ipynb
-    - title: Production Networks
-      children:
-        - file: week05/L05.01_production_networks.ipynb
-    - title: ABM 1
-      children:
-        - file: week06/L06.01_abm_concepts.ipynb
-        - file: week06/L06.02_julia_skills.ipynb
-        - file: week06/L06.03_shelling_agents.ipynb
-    - title: ABM 2
-      children:
-        - file: week07/L07.01_abm_money.ipynb
-    - title: Game Theory 1
-      children:
-        - file: week08/L08.01_game_theory_intro.ipynb
-        - file: week08/L08.02_network_traffic.ipynb
-    - title: Game Theory 2
-      children:
-        - file: week09/L09.01_mixed_strategies.ipynb
-        # - file: week09/L09.02_markov_perf.ipynb
-        - file: week09/L09.03_auctions.ipynb
-    - title: Blockchain 1
-      children:
-        - file: week11/L11.01_intro_to_blockchains.ipynb
-    - title: Blockchain 2
-      children:
-        - file: week12/L12.01-ethereum.ipynb
-        - file: week12/L12.02-defi.ipynb
-        - file: week12/L12.03-nft.ipynb
-    - title: Reinforcement Learning
-      children:
-        - file: reinforcement_learning/rl.01.ipynb
-        - file: reinforcement_learning/rl.02-tdlearning.ipynb
-        - file: reinforcement_learning/rl.03_qlearning.ipynb
-        - file: reinforcement_learning/rl.04_career_rl.ipynb
-        - file: reinforcement_learning/rl.05_continuous_S.ipynb
-        - file: reinforcement_learning/rl.06_dqn_intro.ipynb
-        - file: reinforcement_learning/rl.07_deepmind.ipynb
+    # - title: Julia 2
+    #   children:
+    #     - file: week02/L02.01_julia_types_methods.ipynb
+    # - title: Graph Theory 1
+    #   children:
+    #     - file: week03/L03.01_graphs.ipynb
+    #     - file: week03/L03.02_strong_weak_ties.ipynb
+    # - title: Graph Theory 2
+    #   children:
+    #     - file: week04/L04.01_homophily.ipynb
+    #     - file: week04/L04.02_weighted_graphs.ipynb
+    #     - file: week04/L04.03_structural_balance.ipynb
+    # - title: Production Networks
+    #   children:
+    #     - file: week05/L05.01_production_networks.ipynb
+    # - title: ABM 1
+    #   children:
+    #     - file: week06/L06.01_abm_concepts.ipynb
+    #     - file: week06/L06.02_julia_skills.ipynb
+    #     - file: week06/L06.03_shelling_agents.ipynb
+    # - title: ABM 2
+    #   children:
+    #     - file: week07/L07.01_abm_money.ipynb
+    # - title: Game Theory 1
+    #   children:
+    #     - file: week08/L08.01_game_theory_intro.ipynb
+    #     - file: week08/L08.02_network_traffic.ipynb
+    # - title: Game Theory 2
+    #   children:
+    #     - file: week09/L09.01_mixed_strategies.ipynb
+    #     # - file: week09/L09.02_markov_perf.ipynb
+    #     - file: week09/L09.03_auctions.ipynb
+    # - title: Blockchain 1
+    #   children:
+    #     - file: week11/L11.01_intro_to_blockchains.ipynb
+    # - title: Blockchain 2
+    #   children:
+    #     - file: week12/L12.01-ethereum.ipynb
+    #     - file: week12/L12.02-defi.ipynb
+    #     - file: week12/L12.03-nft.ipynb
+    # - title: Reinforcement Learning
+    #   children:
+    #     - file: reinforcement_learning/rl.01.ipynb
+    #     - file: reinforcement_learning/rl.02-tdlearning.ipynb
+    #     - file: reinforcement_learning/rl.03_qlearning.ipynb
+    #     - file: reinforcement_learning/rl.04_career_rl.ipynb
+    #     - file: reinforcement_learning/rl.05_continuous_S.ipynb
+    #     - file: reinforcement_learning/rl.06_dqn_intro.ipynb
+    #     - file: reinforcement_learning/rl.07_deepmind.ipynb
 
 site:
   template: book-theme
