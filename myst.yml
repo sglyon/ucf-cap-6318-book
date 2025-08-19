@@ -20,9 +20,9 @@ project:
       children:
         - file: week01/L01.02_setup.ipynb
         - file: week01/L01.03_julia_basics.ipynb
-    # - title: Julia 2
-    #   children:
-    #     - file: week02/L02.01_julia_types_methods.ipynb
+    - title: Julia 2
+      children:
+        - file: week02/L02.01_julia_types_methods.ipynb
     # - title: Graph Theory 1
     #   children:
     #     - file: week03/L03.01_graphs.ipynb
