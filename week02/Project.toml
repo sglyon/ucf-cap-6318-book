@@ -1,0 +1,5 @@
+[deps]
+CAP6318 = "8b4527b1-c17c-4ce8-a82d-b872f04552bb"
+PkgTemplates = "14b8a8f1-9102-5b29-a752-f990bacb7fe1"
+VegaDatasets = "0ae4a718-28b7-58ec-9efb-cded64d6d5b4"
+VegaLite = "112f6efa-9a02-5b7d-90c0-432ed331239a"
