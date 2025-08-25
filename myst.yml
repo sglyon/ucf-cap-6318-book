@@ -23,6 +23,8 @@ project:
     - title: Julia 2
       children:
         - file: week02/L02.01_julia_types_methods.ipynb
+        - file: week02/L02.02_code_organization.ipynb
+        - file: week02/L02.03_julia_packages.ipynb
     # - title: Graph Theory 1
     #   children:
     #     - file: week03/L03.01_graphs.ipynb
