@@ -25,10 +25,10 @@ project:
         - file: week02/L02.01_julia_types_methods.ipynb
         - file: week02/L02.02_code_organization.ipynb
         - file: week02/L02.03_julia_packages.ipynb
-    # - title: Graph Theory 1
-    #   children:
-    #     - file: week03/L03.01_graphs.ipynb
-    #     - file: week03/L03.02_strong_weak_ties.ipynb
+    - title: Graph Theory 1
+      children:
+        - file: week03/L03.01_graphs.ipynb
+        - file: week03/L03.02_strong_weak_ties.ipynb
     # - title: Graph Theory 2
     #   children:
     #     - file: week04/L04.01_homophily.ipynb
