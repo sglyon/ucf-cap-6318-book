@@ -29,11 +29,11 @@ project:
       children:
         - file: week03/L03.01_graphs.ipynb
         - file: week03/L03.02_strong_weak_ties.ipynb
-    # - title: Graph Theory 2
-    #   children:
-    #     - file: week04/L04.01_homophily.ipynb
-    #     - file: week04/L04.02_weighted_graphs.ipynb
-    #     - file: week04/L04.03_structural_balance.ipynb
+    - title: Graph Theory 2
+      children:
+        - file: week04/L04.01_homophily.ipynb
+        - file: week04/L04.02_weighted_graphs.ipynb
+        - file: week04/L04.03_structural_balance.ipynb
     # - title: Production Networks
     #   children:
     #     - file: week05/L05.01_production_networks.ipynb
