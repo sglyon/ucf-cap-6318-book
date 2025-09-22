@@ -34,9 +34,9 @@ project:
         - file: week04/L04.01_homophily.ipynb
         - file: week04/L04.02_weighted_graphs.ipynb
         - file: week04/L04.03_structural_balance.ipynb
-    # - title: Production Networks
-    #   children:
-    #     - file: week05/L05.01_production_networks.ipynb
+    - title: Production Networks
+      children:
+        - file: week05/L05.01_production_networks.ipynb
     # - title: ABM 1
     #   children:
     #     - file: week06/L06.01_abm_concepts.ipynb
