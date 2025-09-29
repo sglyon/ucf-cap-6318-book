@@ -23,7 +23,9 @@ IMPORTANT: In my lecture notes I often leave exercises partially completed. This
 
 1. Carefully review all .ipynb files in LECTURE_NOTE_DIRECTORY
 2. Think harder about the following
-    * Any logical errors
+    * Logical errors
+    * Typos or grammar errors
+    * Opportunities to add or change an example to be more compelling for students
 3. Produce a report
 
 ## Output Format
