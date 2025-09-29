@@ -37,11 +37,10 @@ project:
     - title: Production Networks
       children:
         - file: week05/L05.01_production_networks.ipynb
-    # - title: ABM 1
-    #   children:
-    #     - file: week06/L06.01_abm_concepts.ipynb
-    #     - file: week06/L06.02_julia_skills.ipynb
-    #     - file: week06/L06.03_shelling_agents.ipynb
+    - title: ABM 1
+      children:
+        - file: week06/L06.01_abm_concepts.ipynb
+        - file: week06/L06.02_schelling_agents.ipynb
     # - title: ABM 2
     #   children:
     #     - file: week07/L07.01_abm_money.ipynb
