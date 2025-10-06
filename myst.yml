@@ -41,9 +41,9 @@ project:
       children:
         - file: week06/L06.01_abm_concepts.ipynb
         - file: week06/L06.02_schelling_agents.ipynb
-    # - title: ABM 2
-    #   children:
-    #     - file: week07/L07.01_abm_money.ipynb
+    - title: ABM 2
+      children:
+        - file: week07/L07.01_abm_money.ipynb
     # - title: Game Theory 1
     #   children:
     #     - file: week08/L08.01_game_theory_intro.ipynb
