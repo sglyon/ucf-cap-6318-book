@@ -44,6 +44,7 @@ project:
     - title: ABM 2
       children:
         - file: week07/L07.01_abm_money.ipynb
+        - file: week07/L07.02_abm_paper_virality.ipynb
     # - title: Game Theory 1
     #   children:
     #     - file: week08/L08.01_game_theory_intro.ipynb
