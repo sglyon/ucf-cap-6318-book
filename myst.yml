@@ -45,10 +45,10 @@ project:
       children:
         - file: week07/L07.01_abm_money.ipynb
         - file: week07/L07.02_abm_paper_virality.ipynb
-    # - title: Game Theory 1
-    #   children:
-    #     - file: week08/L08.01_game_theory_intro.ipynb
-    #     - file: week08/L08.02_network_traffic.ipynb
+    - title: Game Theory 1
+      children:
+        - file: week08/L08.01_game_theory_intro.ipynb
+        - file: week08/L08.02_network_traffic.ipynb
     # - title: Game Theory 2
     #   children:
     #     - file: week09/L09.01_mixed_strategies.ipynb

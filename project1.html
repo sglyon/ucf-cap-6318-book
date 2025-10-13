@@ -1,0 +1,323 @@
+<h1 id="project-1">Project 1</h1>
+<p>Computational Analysis of Social Complexity - CAP 6318</p>
+<p><strong>Due Date:</strong> Three weeks from assignment date
+<strong>Groups:</strong> 2-3 students (randomly assigned)
+<strong>Weight:</strong> 15% of course grade</p>
+<h2 id="overview">Overview</h2>
+<p>This project is your opportunity to apply the computational and
+theoretical concepts from weeks 1-6 to a real-world problem. You will
+work in teams to analyze a network using Julia, demonstrate your
+understanding of graph theory concepts, and present clear,
+well-documented findings.</p>
+<p>The project is intentionally open-ended to allow you to explore
+topics that interest you. You may focus on any combination of concepts
+covered so far: basic graph theory, strong/weak ties, homophily,
+weighted graphs, structural balance, production networks, or agent-based
+models.</p>
+<h2 id="instructions">Instructions</h2>
+<ol type="1">
+<li><strong>Select a domain and dataset</strong>: Choose a real-world
+network to analyze. This could be:
+<ul>
+<li>Social networks (Twitter/X connections, Facebook friendships,
+collaboration networks)</li>
+<li>Economic networks (trade relationships, supply chains, input-output
+tables)</li>
+<li>Biological networks (protein interactions, food webs, neural
+connections)</li>
+<li>Infrastructure networks (transportation, power grids, communication
+networks)</li>
+<li>Any other network that interests you and has publicly available
+data</li>
+</ul></li>
+<li><strong>Formulate research questions</strong>: Develop 2-3 specific
+questions about your network. Examples:
+<ul>
+<li>“Do high-degree nodes in this social network exhibit homophily in
+political affiliation?”</li>
+<li>“What is the impact of disruptions to key sectors in a regional
+economic network?”</li>
+<li>“How does the clustering coefficient vary across different
+communities in this network?”</li>
+<li>“Can we identify weak ties that serve as bridges between
+communities?”</li>
+</ul></li>
+<li><strong>Conduct computational analysis</strong>: Use Julia to:
+<ul>
+<li>Load and preprocess your network data</li>
+<li>Compute relevant network metrics (degree distribution, clustering
+coefficients, centrality measures, etc.)</li>
+<li>Implement or apply appropriate algorithms (BFS, shortest path,
+community detection, etc.)</li>
+<li>Generate visualizations of your network and findings</li>
+<li>Test hypotheses or explore patterns related to your research
+questions</li>
+</ul></li>
+<li><strong>Document your work</strong>: Create a Jupyter notebook
+(<code>.ipynb</code>) that includes:
+<ul>
+<li>Clear markdown sections explaining your approach</li>
+<li>Well-commented Julia code</li>
+<li>Visualizations with appropriate labels and captions</li>
+<li>Interpretation of your results</li>
+</ul></li>
+<li><strong>Write supporting code</strong>: If your analysis requires
+custom functions or data processing:
+<ul>
+<li>Organize reusable code into <code>.jl</code> files</li>
+<li>Use modules to structure your code cleanly</li>
+<li>Include docstrings for your functions</li>
+<li>Demonstrate good software engineering practices</li>
+</ul></li>
+</ol>
+<h2 id="deliverables">Deliverables</h2>
+<p>Your team will submit:</p>
+<ol type="1">
+<li><strong>Jupyter Notebook</strong> (<code>project1.ipynb</code>):
+Your main analysis document containing:
+<ul>
+<li>Introduction: domain background, dataset description, research
+questions</li>
+<li>Methods: description of your computational approach and algorithms
+used</li>
+<li>Results: visualizations, computed metrics, and findings</li>
+<li>Discussion: interpretation of results and connection to course
+concepts</li>
+<li>Conclusion: summary of key insights and limitations</li>
+</ul></li>
+<li><strong>Julia Scripts</strong> (<code>*.jl</code> files): Any
+supporting code files containing:
+<ul>
+<li>Custom functions you developed</li>
+<li>Data preprocessing scripts</li>
+<li>Module definitions (if applicable)</li>
+</ul></li>
+<li><strong>Data</strong> (if not too large): Include your dataset or
+provide clear instructions for obtaining it
+<ul>
+<li>If dataset is large (&gt;10 MB), include a
+<code>data_README.md</code> explaining how to obtain it</li>
+<li>Include any preprocessing scripts needed to go from raw data to
+analysis-ready format</li>
+</ul></li>
+<li><strong>Project Environment</strong> (<code>Project.toml</code>):
+Your Julia project dependencies
+<ul>
+<li>Ensure your code can be reproduced by running
+<code>Pkg.instantiate()</code></li>
+</ul></li>
+<li><strong>README</strong> (<code>README.md</code>): Brief overview
+including:
+<ul>
+<li>Project title and team members</li>
+<li>Brief description (2-3 sentences)</li>
+<li>Instructions to run your analysis</li>
+<li>List of key findings (3-5 bullet points)</li>
+</ul></li>
+</ol>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><strong>Course materials</strong>: Lecture notebooks from weeks 1-6
+provide examples and reference implementations</li>
+<li><strong>Julia packages</strong>: Consider using:
+<ul>
+<li><code>Graphs.jl</code> and <code>SimpleWeightedGraphs.jl</code> for
+network analysis</li>
+<li><code>GraphPlot.jl</code>, <code>NetworkLayout.jl</code>, or
+<code>PlotlyBase.jl</code> for visualization</li>
+<li><code>CSV.jl</code> and <code>DataFrames.jl</code> for data
+handling</li>
+<li><code>LinearAlgebra</code> for matrix operations</li>
+<li>Any other packages relevant to your analysis</li>
+</ul></li>
+<li><strong>Datasets</strong>:
+<ul>
+<li><a href="http://snap.stanford.edu/data/">Stanford Large Network
+Dataset Collection (SNAP)</a></li>
+<li><a href="https://networkrepository.com/">Network Repository</a></li>
+<li><a href="https://networkdata.ics.uci.edu/">UCI Network Data
+Repository</a></li>
+<li>Government data portals (BEA, Census, etc.)</li>
+<li>Domain-specific repositories in your area of interest</li>
+</ul></li>
+<li><strong>Julia documentation</strong>: <a
+href="https://docs.julialang.org">docs.julialang.org</a></li>
+<li><strong>Course textbooks</strong>:
+<ul>
+<li>Easley &amp; Kleinberg - Networks, Crowds, and Markets (chapters
+2-5)</li>
+<li>QuantEcon Networks lectures (chapters 1-2)</li>
+</ul></li>
+</ul>
+<h2 id="grading-rubric">Grading Rubric</h2>
+<p>Your project will be evaluated on three equally-weighted
+dimensions:</p>
+<h3 id="julia-proficiency-33-points">1. Julia Proficiency (33
+points)</h3>
+<p><strong>Excellent (30-33 points)</strong></p>
+<ul>
+<li>Code is clean, well-organized, and follows Julia best practices</li>
+<li>Effective use of Julia-specific features (multiple dispatch,
+broadcasting, etc.)</li>
+<li>Custom functions are well-designed with appropriate type
+annotations</li>
+<li>Code is efficient and makes good use of available packages</li>
+<li>Project environment is properly configured with
+<code>Project.toml</code></li>
+<li>All code runs without errors and produces expected outputs</li>
+</ul>
+<p><strong>Good (24-29 points)</strong></p>
+<ul>
+<li>Code is mostly clean and functional</li>
+<li>Uses Julia packages appropriately</li>
+<li>Some custom functions defined, though may lack polish</li>
+<li>Minor inefficiencies or style issues present</li>
+<li>Code runs with only minor issues</li>
+</ul>
+<p><strong>Satisfactory (18-23 points)</strong></p>
+<ul>
+<li>Code is functional but may be poorly organized</li>
+<li>Limited use of Julia-specific features</li>
+<li>Heavy reliance on examples without adaptation</li>
+<li>Some errors or required manual intervention to run</li>
+<li>Minimal code documentation</li>
+</ul>
+<p><strong>Needs Improvement (0-17 points)</strong></p>
+<ul>
+<li>Code is difficult to understand or poorly structured</li>
+<li>Significant errors prevent execution</li>
+<li>Little evidence of Julia understanding beyond copying examples</li>
+<li>Missing or incomplete documentation</li>
+</ul>
+<h3 id="theoretical-understanding-33-points">2. Theoretical
+Understanding (33 points)</h3>
+<p><strong>Excellent (30-33 points)</strong></p>
+<ul>
+<li>Research questions are thoughtful and well-motivated</li>
+<li>Analysis demonstrates deep understanding of relevant graph theory
+concepts</li>
+<li>Correctly applies multiple concepts from course material</li>
+<li>Shows insight into why certain metrics or approaches are
+appropriate</li>
+<li>Makes meaningful connections between theory and empirical
+findings</li>
+<li>Discusses limitations and assumptions clearly</li>
+</ul>
+<p><strong>Good (24-29 points)</strong></p>
+<ul>
+<li>Research questions are reasonable and relevant</li>
+<li>Correctly applies course concepts to the problem</li>
+<li>Shows understanding of the theory behind the methods used</li>
+<li>Makes some connections between theory and findings</li>
+<li>Acknowledges some limitations</li>
+</ul>
+<p><strong>Satisfactory (18-23 points)</strong></p>
+<ul>
+<li>Basic research questions stated</li>
+<li>Uses course concepts but with limited depth</li>
+<li>Some theoretical understanding evident but superficial</li>
+<li>Limited discussion of why methods are appropriate</li>
+<li>Minimal discussion of limitations</li>
+</ul>
+<p><strong>Needs Improvement (0-17 points)</strong></p>
+<ul>
+<li>Unclear or poorly motivated research questions</li>
+<li>Misapplies theoretical concepts</li>
+<li>Little evidence of understanding beyond mechanics</li>
+<li>No discussion of appropriateness or limitations</li>
+</ul>
+<h3 id="presentation-and-communication-34-points">3. Presentation and
+Communication (34 points)</h3>
+<p><strong>Excellent (31-34 points)</strong></p>
+<ul>
+<li>Notebook has clear narrative structure with logical flow</li>
+<li>Visualizations are publication-quality with proper labels and
+captions</li>
+<li>Writing is clear, concise, and free of errors</li>
+<li>Code is well-commented and easy to follow</li>
+<li>Results are interpreted thoughtfully</li>
+<li>README provides all necessary information</li>
+<li>Overall professional presentation</li>
+</ul>
+<p><strong>Good (25-30 points)</strong></p>
+<ul>
+<li>Notebook structure is logical and easy to follow</li>
+<li>Visualizations effectively communicate findings</li>
+<li>Writing is generally clear with few errors</li>
+<li>Code comments are present and mostly helpful</li>
+<li>Results are interpreted reasonably</li>
+<li>README is complete</li>
+</ul>
+<p><strong>Satisfactory (19-24 points)</strong></p>
+<ul>
+<li>Basic structure present but may lack coherence</li>
+<li>Visualizations present but may lack polish or clarity</li>
+<li>Writing is understandable but may have errors or be verbose</li>
+<li>Code comments are sparse or unhelpful</li>
+<li>Limited interpretation of results</li>
+<li>README is minimal</li>
+</ul>
+<p><strong>Needs Improvement (0-18 points)</strong></p>
+<ul>
+<li>Poorly organized or difficult to follow</li>
+<li>Visualizations are missing, unclear, or misleading</li>
+<li>Writing is unclear or has significant errors</li>
+<li>Code lacks comments or documentation</li>
+<li>Results presented without interpretation</li>
+<li>README is missing or incomplete</li>
+</ul>
+<h2 id="tips-for-success">Tips for Success</h2>
+<ol type="1">
+<li><p><strong>Start early</strong>: Three weeks may seem like a lot of
+time, but finding the right dataset and getting it into the right format
+can take longer than you expect.</p></li>
+<li><p><strong>Communicate with your team</strong>: Establish regular
+meeting times and use version control (Git) if possible to coordinate
+your work.</p></li>
+<li><p><strong>Keep it focused</strong>: It’s better to do a thorough
+analysis of 2-3 well-chosen questions than a superficial analysis of
+many questions.</p></li>
+<li><p><strong>Test your code frequently</strong>: Don’t wait until the
+end to run your entire notebook. Make sure each cell works before moving
+on.</p></li>
+<li><p><strong>Use the discussion board</strong>: If you’re stuck on a
+technical issue, post to the course discussion forum. Your classmates
+and TAs are resources!</p></li>
+<li><p><strong>Iterate on visualizations</strong>: Your first plot is
+rarely your best plot. Take time to make your figures clear and
+informative.</p></li>
+<li><p><strong>Document as you go</strong>: Don’t leave all the writing
+for the end. Document your thought process as you work.</p></li>
+<li><p><strong>Review course materials</strong>: The lecture notebooks
+contain many examples and patterns you can adapt for your
+project.</p></li>
+<li><p><strong>Cite your sources</strong>: If you use external resources
+(datasets, code snippets, ideas), cite them appropriately.</p></li>
+<li><p><strong>Have fun</strong>: This is your chance to explore
+something you find interesting. Choose a problem you’re genuinely
+curious about!</p></li>
+</ol>
+<h2 id="academic-integrity">Academic Integrity</h2>
+<p>Remember the course AI policy: you are encouraged to use GenAI tools
+(ChatGPT, Claude, Copilot, etc.) to help with your project, but you
+must:</p>
+<ul>
+<li>Disclose all AI usage in your notebook</li>
+<li>Include prompts you used</li>
+<li>Take responsibility for the accuracy of any AI-generated
+content</li>
+<li>Ensure you understand any code or concepts produced with AI
+assistance</li>
+</ul>
+<p>You are responsible for your work. You should be able to explain
+every line of code and every conclusion in your project.</p>
+<h2 id="questions">Questions?</h2>
+<p>If you have questions about the project:</p>
+<ul>
+<li>Post to the course discussion forum for technical questions</li>
+<li>Contact the instructor or TA during office hours for guidance on
+scope or approach</li>
+<li>Discuss with your team members to clarify requirements</li>
+</ul>
+<p>Good luck, and enjoy exploring the fascinating world of network
+analysis!</p>
