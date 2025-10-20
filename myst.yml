@@ -49,11 +49,11 @@ project:
       children:
         - file: week08/L08.01_game_theory_intro.ipynb
         - file: week08/L08.02_network_traffic.ipynb
-    # - title: Game Theory 2
-    #   children:
-    #     - file: week09/L09.01_mixed_strategies.ipynb
-    #     # - file: week09/L09.02_markov_perf.ipynb
-    #     - file: week09/L09.03_auctions.ipynb
+    - title: Game Theory 2
+      children:
+        - file: week09/L09.01_mixed_strategies.ipynb
+        - file: week09/L09.03_auctions.ipynb
+        - file: week09/L09.04_game_theory_lab.ipynb
     # - title: Blockchain 1
     #   children:
     #     - file: week11/L11.01_intro_to_blockchains.ipynb
