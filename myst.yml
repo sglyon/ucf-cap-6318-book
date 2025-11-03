@@ -54,6 +54,11 @@ project:
         - file: week09/L09.01_mixed_strategies.ipynb
         - file: week09/L09.03_auctions.ipynb
         - file: week09/L09.04_game_theory_lab.ipynb
+    - title: Agents 1
+      children:
+        - file: weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb
+        - file: weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb
+        - file: weekA01/L.A1.03_multi_agent_conversations.ipynb
     # - title: Blockchain 1
     #   children:
     #     - file: week11/L11.01_intro_to_blockchains.ipynb

@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:ai.pydantic.dev)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": [],
     "ask": []

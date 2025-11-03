@@ -2,7 +2,7 @@
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "37d20715a9b90e1cb79a6af4bae29d96dc8ade8d"
+project_hash = "168351a5b6a16dbccb301feebc69b12749d0af2e"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "60665b326b75db6517939d0e1875850bc4a54368"
@@ -583,6 +583,12 @@ version = "0.25.120"
 git-tree-sha1 = "7442a5dfe1ebb773c29cc2962a8980f47221d76c"
 uuid = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 version = "0.9.5"
+
+[[deps.DotEnv]]
+deps = ["PrecompileTools"]
+git-tree-sha1 = "92e88cb68a5b10545234f46dfaeb2fa8a8a50c45"
+uuid = "4dc1fcf4-5e3b-5448-94ab-0c38ec0385c1"
+version = "1.0.0"
 
 [[deps.Downloads]]
 deps = ["ArgTools", "FileWatching", "LibCURL", "NetworkOptions"]
@@ -2857,7 +2863,7 @@ uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
 version = "1.59.0+0"
 
 [[deps.oneTBB_jll]]
-deps = ["Artifacts", "JLLWrappers", "Libdl"]
+deps = ["Artifacts", "JLLWrappers", "LazyArtifacts", "Libdl"]
 git-tree-sha1 = "d5a767a3bb77135a99e433afe0eb14cd7f6914c3"
 uuid = "1317d2d5-d96f-522e-a858-c73665f53c3e"
 version = "2022.0.0+0"
