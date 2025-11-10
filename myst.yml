@@ -59,6 +59,11 @@ project:
         - file: weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb
         - file: weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb
         - file: weekA01/L.A1.03_multi_agent_conversations.ipynb
+    - title: Agents 2
+      children:
+        - file: weekA02/L.A2.01_function_calling_and_tools.ipynb
+        - file: weekA02/L.A2.02_type_safe_agents_pydantic_patterns.ipynb
+        - file: weekA02/L.A02.03_evaluations.ipynb
     # - title: Blockchain 1
     #   children:
     #     - file: week11/L11.01_intro_to_blockchains.ipynb

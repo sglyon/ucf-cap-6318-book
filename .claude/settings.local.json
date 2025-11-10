@@ -3,7 +3,8 @@
     "allow": [
       "WebSearch",
       "WebFetch(domain:ai.pydantic.dev)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(uv run:*)"
     ],
     "deny": [],
     "ask": []
