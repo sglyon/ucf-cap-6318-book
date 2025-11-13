@@ -115,119 +115,146 @@ We begin by establishing the conceptual and technical foundations for understand
 
 ## Week A2: Agentic Workflows and Tool Integration
 
-This week focuses on making AI agents capable of taking actions in the real world through tool use and workflow orchestration. We connect to the course's emphasis on networks and system interactions. We'll study PydanticAI—a minimalist, type-safe framework from the creators of Pydantic—as a conceptual model, then implement similar patterns in Julia leveraging its powerful type system and multiple dispatch.
+This week focuses on making AI agents capable of taking actions in the real world through tool use and workflow orchestration. We connect to the course's emphasis on networks and system interactions. We use PydanticAI—a minimalist, type-safe framework from the creators of Pydantic—to learn production-ready patterns for building AI agents.
 
-**Note on Language Bridge:** While PydanticAI is Python-only, its design principles (type safety, validation-first, dependency injection) translate beautifully to Julia's strengths. We'll examine PydanticAI's elegant patterns and recreate them using Julia's native capabilities.
+**Note on Implementation:** This week's lectures use Python and PydanticAI directly (rather than Julia) to leverage the mature ecosystem and demonstrate industry-standard patterns. The principles covered (type safety, validation-first development, dependency injection) are language-agnostic and can be adapted to any production system.
 
 **Assignment:** Build a multi-agent system that can analyze a social network dataset, identify influential nodes using methods from Week 3-5, and generate a report with visualizations.
 
 ### Lecture A2.01: Function Calling and Tool Use
 
-**Prerequisites:** Julia functions, API concepts
+**Prerequisites:** L.A1.01 (LLMs and API calls), L.A1.02 (RAG systems), Graph theory/Network Science (Week 3-5)
 
 **Learning Outcomes:**
-- Implement function calling for LLMs
-- Design safe and effective tool interfaces
-- Understand the Model Context Protocol (MCP)
-- Build agents that can execute code and analyze results
+- Implement function calling with modern LLM APIs
+- Design JSON schemas for tool definitions
+- Build agents that execute code and analyze computational results
+- Create a network analysis toolkit accessible to AI agents
 
 **Topics:**
-1. **From Text to Action**
-   - Function calling in modern LLMs
-   - JSON schema for tool definitions
-   - Error handling and retry logic
-   - Sandboxing and security considerations
+1. **From Conversation to Computation**
+   - Limitations of text-only agents
+   - The basic pattern: define tools → agent decides → execute → return results
+   - Why function calling beats code-in-prompt approaches
+   - Importance for computational social science
 
-2. **The MCP Revolution**
-   - Model Context Protocol architecture
-   - Building MCP servers in Julia
-   - Connecting to databases, APIs, and file systems
-   - Comparison to traditional API design
+2. **JSON Schemas: Defining Tool Interfaces**
+   - Manual JSON schema format and structure
+   - Anatomy of tool definitions (name, description, parameters)
+   - PydanticAI's automatic schema generation from docstrings
+   - Using the `@agent.tool` decorator pattern
 
-3. **Computational Tools for Agents**
-   - Code interpreter integration
-   - Data analysis capabilities
-   - Visualization generation
-   - Connection to Julia's computational ecosystem
+3. **Building Function-Calling Agents**
+   - Calculator agent example with PydanticAI
+   - Multi-turn conversations and tool chaining
+   - Model-agnostic design (OpenAI, Anthropic, Google)
+   - Understanding tool call execution flow
 
 4. **Network Analysis Toolkit**
-   - Expose Graphs.jl functions to AI agents
-   - Automated centrality calculations
-   - Community detection via AI orchestration
-   - Report generation with embedded visualizations
+   - Exposing NetworkX functions to AI agents (Python implementation)
+   - Dependency injection pattern with RunContext
+   - Creating networks, calculating centrality, finding paths
+   - Multi-step analysis with multiple tool calls
+
+5. **Safety and Sandboxing**
+   - Dangers of unrestricted tool use
+   - Safe tool design patterns (read-only, explicit boundaries, confirmation)
+   - Code execution risks and mitigation strategies
+   - Security analysis of network analysis tools
 
 ### Lecture A2.02: Type-Safe Agent Development with PydanticAI Patterns
 
-**Prerequisites:** L.A2.01, Type systems concepts
+**Prerequisites:** L.A2.01 (Function calling concepts), Python type hints and type safety, Basic agent architectures
 
 **Learning Outcomes:**
 - Understand type-safe agent development principles
-- Implement validation-first agent architectures
+- Implement validation-first agent architectures with Pydantic
 - Apply dependency injection patterns for testable agents
-- Bridge Python patterns to Julia's type system
+- Build production-ready AI agents with PydanticAI
 
 **Topics:**
-1. **The PydanticAI Philosophy**
-   - Type safety and validation as first-class citizens
-   - Schema-driven development for LLM interactions
-   - Minimalist toolkit approach vs. framework complexity
-   - Python example → Julia implementation pattern
+1. **Why Type Safety Matters**
+   - The problem: unvalidated agent systems and runtime failures
+   - Benefits: fail fast, self-documenting code, refactoring confidence
+   - Concrete examples comparing unvalidated vs type-safe approaches
 
-2. **Core Agent Components**
-   - System prompts: static and dynamic generation
-   - Tool registration with automatic schema inference
-   - Structured outputs with validation
+2. **The PydanticAI Philosophy**
+   - What is PydanticAI and why it was created
+   - "Chef's knife and cutting board" - minimalist toolkit approach
+   - Core principles: type safety first, validation before computation, dependency injection, explicit over implicit
+   - Comparison with LangChain (when to use each)
+
+3. **Core Agent Components**
+   - Agent definition (model, system prompt)
+   - Tool functions with `@agent.tool` decorator
+   - Structured outputs using Pydantic BaseModel
    - RunContext for dependency injection
 
-3. **Julia Implementation of PydanticAI Patterns**
-   - Using Julia's type system for agent validation
-   - Multiple dispatch for tool registration
-   - Structs as Pydantic model equivalents
-   - Building type-safe agent containers
-   - Testing with mock dependencies (inspired by PydanticAI's RunContext)
-
 4. **Building a Research Assistant**
-   - Define agent with typed inputs/outputs
-   - Register Julia functions as tools
-   - Implement validation pipelines
-   - Human-in-the-loop with tool approval flags
-   - Observability: logging, tracing, and cost tracking
+   - Define output structures (Paper, ResearchSummary models with Field validation)
+   - Define dependencies using dataclasses
+   - Create agent with typed dependencies and outputs
+   - Register tools: search_papers, get_paper_details
+   - Run agent and analyze results
+   - Dynamic system prompts based on context
 
-### Lecture A2.03: Agent Frameworks Comparison Lab
+5. **Production-Ready Patterns**
+   - Why this pattern scales (type safety, separation of concerns, composability)
+   - Observability with Logfire integration
+   - Key takeaways and quick reference guide
 
-**Prerequisites:** All previous A-series lectures
+### Lecture A2.03: Evaluating AI Systems
+
+**Prerequisites:** Pydantic AI Agents and Tools, Python programming fundamentals, Basic understanding of testing concepts
 
 **Learning Outcomes:**
-- Compare different agent frameworks empirically
-- Implement the same task in multiple frameworks
-- Analyze trade-offs in design choices
-- Select appropriate frameworks for different use cases
+- Understand why systematic evaluation is critical for AI systems
+- Identify when and what to evaluate in AI agents
+- Implement deterministic and LLM-based evaluators
+- Design evaluation datasets using code-first approaches
+- Analyze and compare evaluation results across experiments
+- Connect evaluation practices to production deployment concerns
 
 **Topics:**
-1. **Framework Landscape**
-   - PydanticAI vs. CrewAI vs. AutoGen
-   - Type-safe vs. workflow-focused approaches
-   - Semantic Kernel and enterprise patterns
-   - Julia-native alternatives and pattern adaptation
-   - When to build from scratch
+1. **Introduction: The AI Testing Problem**
+   - Why testing AI is different from traditional software
+   - Non-deterministic outputs and the challenge
+   - Motivating scenario: The Support Bot Problem
+   - Overview of Pydantic Evals framework
 
-2. **Comparative Implementation**
-   - Task: Economic data analysis pipeline
-   - Implementation in three different frameworks
-   - Performance metrics: speed, cost, accuracy
-   - Code complexity and maintainability
+2. **Core Concepts: The Evaluation Framework**
+   - Cases: Individual test scenarios
+   - Datasets: Collections of test cases
+   - Experiments: Evaluation runs
+   - Example: Simple support bot intent classification dataset
 
-3. **Production Considerations**
-   - Scaling agent systems
-   - State persistence and recovery
-   - Observability and debugging
-   - Cost management strategies
+3. **Evaluators: How to Score Outputs**
+   - Two types: Deterministic vs Non-Deterministic
+   - Built-in evaluators: EqualsExpected, IsInstance, Contains, MaxDuration
+   - LLM as Judge: When correctness is subjective
+   - Custom evaluators for domain-specific checks
+   - Adding evaluators to datasets
 
-4. **Open Problems**
-   - Agent reliability and consistency
-   - Handling adversarial inputs
-   - Ethical considerations in autonomous systems
-   - Connection to mechanism design
+4. **Running Evaluations: From Code to Reports**
+   - Defining task functions
+   - Running experiments with evaluate()
+   - Analyzing results programmatically
+   - Visualizing results with Logfire
+   - Comparing experiments to track improvements
+
+5. **Advanced Topics**
+   - Span-based evaluation: evaluating the process, not just output
+   - HasMatchingSpan evaluator for tool usage validation
+   - Generating datasets with LLMs
+   - RAG-specific evaluation (retrieval and generation metrics)
+   - PrecisionAtK, RecallAtK, and Faithfulness metrics
+
+6. **Integration and Best Practices**
+   - When to use each evaluation type
+   - Tips for effective evaluation (start small, balance coverage, make evaluators specific)
+   - Version control for datasets
+   - Automating evaluations in CI/CD
+   - Connections to course themes: game theory, networks, emergence
 
 ---
 
