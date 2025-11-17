@@ -64,6 +64,10 @@ project:
         - file: weekA02/L.A2.01_function_calling_and_tools.ipynb
         - file: weekA02/L.A2.02_type_safe_agents_pydantic_patterns.ipynb
         - file: weekA02/L.A02.03_evaluations.ipynb
+    - title: Agents 3
+      children:
+        - file: weekA03/L.A03.01_MCP_with_fastmcp.ipynb
+        - file: weekA03/L.A03.02_ai_agent_security.ipynb
     # - title: Blockchain 1
     #   children:
     #     - file: week11/L11.01_intro_to_blockchains.ipynb

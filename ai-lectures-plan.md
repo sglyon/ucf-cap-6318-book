@@ -258,116 +258,267 @@ This week focuses on making AI agents capable of taking actions in the real worl
 
 ---
 
-## Week A3: Complex Agent Systems and Emergence
+## Week A3: MCP Integration and Security
 
-We explore how collections of AI agents create complex adaptive systems, connecting to the course's themes of emergence, network effects, and strategic interaction.
+Building on Week A2's introduction to type-safe agents and tool use with PydanticAI, we now explore how to make AI agent tools distributed and reusable through the Model Context Protocol (MCP), then address the critical security challenges that emerge when agents have access to tools, data, and external systems. This week shifts from Julia to Python, using FastMCP for MCP servers and continuing with PydanticAI for agents.
 
-**Assignment:** Design and implement a market simulation where AI agents trade resources, demonstrating emergent price discovery and market dynamics. Compare to equilibrium predictions from economic theory.
+**Note on Implementation:** This week uses Python exclusively with PydanticAI and FastMCP. When connecting to earlier course topics (networks, game theory, ABMs), we'll use the canonical Python libraries: NetworkX for network science, quantecon.game_theory for game theory, and Mesa for agent-based models.
 
-### Lecture A3.01: AI Agent Swarms and Collective Intelligence
+**Assignment:** Build a secure MCP server that exposes network analysis or game theory tools from earlier in the course. Implement comprehensive security measures including input validation, rate limiting, and proper authentication. Perform a threat modeling exercise and demonstrate how your defenses prevent common attack vectors. Bonus: Integrate your MCP server with a PydanticAI agent and evaluate its security using techniques from Week A2.03.
 
-**Prerequisites:** ABMs (Week 6-7), Network theory (Week 3-4)
+### Lecture A3.01: Building Agent Tools with FastMCP
 
-**Learning Outcomes:**
-- Design swarm intelligence systems with AI agents
-- Implement distributed problem-solving algorithms
-- Analyze emergent behaviors in large agent populations
-- Apply network science to agent communication patterns
-
-**Topics:**
-1. **From Individual to Collective**
-   - Scaling from single agents to swarms
-   - Communication topologies: fully connected, small world, scale-free
-   - Information propagation in agent networks
-   - Consensus and divergence dynamics
-
-2. **Distributed Problem Solving**
-   - Parallel hypothesis generation and testing
-   - Genetic algorithm patterns with AI agents
-   - Collaborative filtering and recommendation
-   - Connection to wisdom of crowds
-
-3. **Emergent Specialization**
-   - Division of labor without central assignment
-   - Skill development through reinforcement
-   - Market-based task allocation
-   - Comparison to biological swarms
-
-4. **Case Study: Scientific Discovery Swarm**
-   - Agents specialized in different research methods
-   - Collaborative paper analysis and synthesis
-   - Hypothesis generation and testing
-   - Emergent research directions
-
-### Lecture A3.02: Game Theory with AI Agents
-
-**Prerequisites:** Game Theory (Week 8-9), L.A1.01
+**Prerequisites:**
+- L.A2.01 (Function calling and tool use)
+- L.A2.02 (Type-safe agents with PydanticAI)
+- L.A2.03 (Agent evaluations)
+- Basic understanding of client-server architecture
 
 **Learning Outcomes:**
-- Implement game-playing AI agents
-- Analyze how LLMs learn strategic behavior
-- Design mechanisms for AI agent markets
-- Understand AI safety through game-theoretic lens
+- Understand the Model Context Protocol (MCP) and its role in the AI ecosystem
+- Create MCP servers using FastMCP to expose computational tools
+- Integrate MCP servers with PydanticAI agents for distributed tool access
+- Deploy and test MCP servers in multiple environments (local, HTTP, Claude Desktop)
+- Apply MCP patterns to course domains: network analysis, game theory, and agent-based models
 
 **Topics:**
-1. **LLMs as Strategic Players**
-   - Teaching games through prompting
-   - In-context strategy learning
-   - Comparison to Nash equilibrium predictions
-   - Bounded rationality in AI agents
 
-2. **Mechanism Design for AI Systems**
-   - Auction mechanisms for computational resources
-   - Incentive alignment in multi-agent systems
-   - Truth-telling and strategic manipulation
-   - Connection to blockchain smart contracts
+1. **Introduction: From Embedded Tools to Distributed Tools**
+   - Review: Week A2 pattern with `@agent.tool` decorator (embedded tools)
+   - The reusability problem: same tools reimplemented across applications
+   - The integration challenge: tools locked into specific frameworks
+   - MCP as "USB-C for AI": universal standard for connecting LLMs to capabilities
+   - The three MCP primitives: Tools (functions), Resources (data), Prompts (templates)
+   - Why this matters: write tools once, use with any MCP-compatible client
+   - Real-world analogy: MCP servers as microservices for AI
 
-3. **Cooperative AI**
-   - Prisoner's dilemma with AI agents
-   - Reputation systems and repeated games
-   - Coalition formation and stability
-   - Bargaining and negotiation protocols
+2. **FastMCP Fundamentals**
+   - What is FastMCP? Production-ready Python framework from Pydantic team
+   - Core concepts: Server creation, tool decoration, automatic schema generation
+   - Transport protocols: stdio (local), StreamableHTTP (remote)
+   - Your first MCP server: Calculator example
+   - Running servers: Direct execution vs FastMCP CLI
+   - Deployment options: Local → HTTP → FastMCP Cloud
 
-4. **AI Safety as Game Theory**
-   - Alignment as principal-agent problem
-   - Reward hacking and specification gaming
-   - Multi-stakeholder AI governance
-   - Connection to social choice theory
+3. **Building Course-Specific MCP Servers**
+   - Network Analysis MCP Server (Weeks 3-5 concepts)
+     - Tools: create_network, calculate_centrality, find_shortest_path
+     - Using NetworkX for graph operations
+     - State management with Context
+     - Type safety with Pydantic validation
+   - Game Theory MCP Server (Weeks 8-9 concepts)
+     - Tools: create_game, find_nash_equilibria, check_dominant_strategy
+     - Using quantecon.game_theory for equilibrium computation
+     - Natural language interface to game-theoretic analysis
+   - Agent-Based Model Controller (Weeks 6-7 concepts)
+     - Tools: create_schelling_model, step_model, get_segregation_metric
+     - Using Mesa for ABM simulations
+     - AI agents as computational scientists
+   - Implementation patterns: Dependencies, validation, error handling
 
-### Lecture A3.03: Digital Twins and Simulation
+4. **Resources and Prompts**
+   - MCP Resources: Read-only data access patterns
+   - URI schemes and resource templates (RFC 6570)
+   - Use cases: datasets, simulation results, documentation
+   - Resource implementation example: Network adjacency matrices
+   - MCP Prompts: Reusable message templates
+   - Use cases: analysis workflows, report generation, educational scaffolding
+   - Distinguishing tools vs resources vs prompts
 
-**Prerequisites:** Production networks (Week 5), ABMs
+5. **Connecting MCP Servers to PydanticAI Agents**
+   - Integration architecture: Agent → MCP Client → MCP Server
+   - Using FastMCP Client with PydanticAI
+   - Bridging pattern: MCP tools → PydanticAI tools
+   - Dynamic tool registration from MCP server schema
+   - Multi-server agents: connecting to multiple MCP servers
+   - Orchestration: agent decides which server to query
+
+6. **Deployment and Integration Patterns**
+   - Local development with stdio transport
+   - Claude Desktop integration: `fastmcp install claude-desktop`
+   - HTTP deployment for remote access
+   - FastMCP Cloud: GitHub → automatic deployment
+   - Testing MCP servers with pytest
+   - Integration with evaluation frameworks (Week A2.03)
+
+7. **Advanced Patterns**
+   - Server composition: Import and mount patterns
+   - Tool transformation: Enhanced versions without duplication
+   - Proxy servers: Forward to remote MCP servers
+   - Progress reporting for long-running computations
+   - Security considerations (preview for A3.02)
+
+8. **Connecting to Course Themes**
+   - Network Science: Natural language interface to graph analysis
+   - Game Theory: AI agents solve games and explain strategic reasoning
+   - ABMs: AI agents run experiments and interpret emergence
+   - Emergence at protocol level: Simple standard → rich ecosystem
+   - Network effects: More MCP servers → more valuable for all clients
+
+**References:**
+- [Model Context Protocol Specification](https://modelcontextprotocol.io/)
+- [FastMCP Documentation](https://gofastmcp.com/)
+- [FastMCP GitHub Repository](https://github.com/jlowin/fastmcp)
+- [Anthropic MCP Announcement](https://www.anthropic.com/news/model-context-protocol)
+- [Server Examples Repository](https://github.com/modelcontextprotocol/servers)
+
+### Lecture A3.02: Security for AI Agents - The Lethal Trifecta
+
+**Prerequisites:**
+- L.A2.01 (Function calling and tool use)
+- L.A2.02 (Type-safe agents with PydanticAI)
+- L.A2.03 (Evaluating AI systems)
+- L.A3.01 (Model Context Protocol and MCP servers)
+- Game theory (Week 8-9: strategic adversarial thinking)
 
 **Learning Outcomes:**
-- Build digital twin systems with AI agents
-- Implement predictive simulation environments
-- Calibrate agent models from real data
-- Design intervention experiments
+- Identify the three components of "the lethal trifecta" and explain why their combination creates critical security vulnerabilities
+- Analyze real-world AI agent security incidents and extract defensive lessons
+- Implement validation-first security patterns using type safety and sandboxing
+- Design secure tool architectures that minimize attack surfaces
+- Evaluate security trade-offs in production AI agent systems
+- Apply game-theoretic reasoning to adversarial AI security scenarios
 
 **Topics:**
-1. **Digital Twin Architecture**
-   - Physical system modeling with AI agents
-   - Real-time data synchronization
-   - Predictive simulation capabilities
-   - Connection to production networks
 
-2. **Social System Simulation**
-   - Modeling human behavior with AI agents
-   - Calibration from social media data
-   - Policy intervention testing
-   - Validation against real outcomes
+1. **The Wake-Up Call: When Copilot Leaked Fortune 500 Data**
+   - Opening hook: Microsoft CVE-2025-32711 "EchoLeak" incident
+   - Zero-click attack on M365 Copilot via malicious email
+   - Automatic data exfiltration without user awareness
+   - The uncomfortable truth: Every major AI system has been compromised
+   - 35% of AI security incidents from simple prompts
+   - OpenAI CISO: "Prompt injection remains unsolved"
+   - Why students building agents need to understand this
 
-3. **Economic Digital Twins**
-   - Market microstructure simulation
-   - Supply chain dynamics with AI agents
-   - Macro-economic agent models
-   - Connection to input-output analysis
+2. **The Lethal Trifecta: Understanding the Core Vulnerability**
+   - Simon Willison's three ingredients for disaster:
+     1. Access to private data (Week A2: RunContext with databases)
+     2. Exposure to untrusted content (RAG systems, user inputs)
+     3. Ability to exfiltrate data (tools with external communication)
+   - Why this combination is lethal: LLMs can't distinguish instructions from data
+   - Example walkthrough: Email scanning → database access → data leak
+   - Connection to game theory: Security as adversarial game
+   - Attacker moves second (adapts to defenses)
+   - Nash equilibrium: imperfect defenses lead to exploitation
 
-4. **Case Study: Urban Mobility Twin**
-   - Traffic flow with AI driver agents
-   - Public transit optimization
-   - Emergency response simulation
-   - Comparison to Braess' paradox
+3. **Attack Vectors: How Agents Get Compromised**
+   - Direct prompt injection (relatively easy to defend)
+   - Indirect prompt injection (the real danger)
+     - Hidden instructions in emails, web pages, PDFs, database entries
+     - GitHub MCP attack example: malicious issue hijacks agent
+   - Jailbreaking and context manipulation
+   - Tool abuse and confused deputy problem
+   - Data poisoning and context pollution
+   - Supply chain attacks via MCP servers
+   - Exercises in threat modeling and attack pattern recognition
+
+4. **Defense Mechanisms: What Actually Works**
+   - The uncomfortable truth: No perfect defense exists
+   - Defense-in-depth approach required
+   - Architectural patterns:
+     - Dual LLM / Quarantine pattern (privileged vs quarantined)
+     - Spotlighting (Microsoft Research: mark untrusted content)
+     - Avoiding the trifecta (don't combine all three)
+     - Type safety as security (PydanticAI validation)
+   - Input validation and sandboxing:
+     - Tool permission models from Week A2.01
+     - Code execution sandboxing (Docker, gVisor)
+     - PydanticAI safety patterns with allowlisting
+   - Detection and monitoring:
+     - Runtime monitoring and anomaly detection
+     - Prompt shields (Azure)
+     - Evaluation-based detection (Week A2.03)
+   - MCP-specific security:
+     - Verify server sources
+     - Review permissions before installation
+     - User context propagation
+     - Monitoring for tool definition changes
+
+5. **Security in Production: OWASP Top 10 for LLMs**
+   - OWASP LLM Top 10 (2025 edition)
+   - Focus on LLM06: Excessive Agency
+   - 2025 as "year of LLM agents" → unprecedented autonomy
+   - Production security practices:
+     - Least privilege, defense-in-depth
+     - Monitoring, audit trails, incident response
+     - Regular security audits
+   - Cost-benefit analysis: Security has usability costs
+   - Game theory: Optimal security level (not maximum)
+   - Risk-based approach
+
+6. **Game Theory of AI Security**
+   - Adversarial thinking (Week 8-9 connection)
+   - Security game: Defender vs Attacker
+   - Sequential game: Attacker observes and adapts
+   - Mixed strategies in security (randomize defenses)
+   - Mechanism design for alignment
+   - Principal-agent problem: delegating to AI agents
+   - Exercise: Model security as game, find Nash equilibrium
+
+7. **Case Studies: Learning from Real Incidents**
+   - Microsoft 365 Copilot - EchoLeak (CVE-2025-32711)
+   - GitHub MCP Server Vulnerability
+   - Slack AI Data Exposure
+   - ChatGPT Plugin Vulnerabilities
+   - Comparative analysis: Common patterns
+   - Which defenses would have prevented each?
+   - Exercise: Incident response simulation
+
+8. **Building Secure Agents: Practical Guidelines**
+   - Security checklist for AI agents:
+     - Design phase: Map data flows, identify trifecta, threat model
+     - Implementation phase: Pydantic validation, least privilege, logging
+     - Testing phase: Adversarial evaluation (Week A2.03)
+     - Deployment phase: Monitoring, incident response, gradual rollout
+     - MCP server phase: Verify sources, review permissions, monitor
+   - When to say "no" to agentic features
+   - Risk assessment framework
+   - Exercises: Secure agent implementation and peer review
+
+9. **The Future: Emerging Threats and Defenses**
+   - Emerging attack vectors: Multi-modal injection, agent-to-agent attacks
+   - Promising research: Formal verification, cryptographic commitments
+   - The arms race: Attackers adapt, defenses improve
+   - Optimism and pragmatism: Challenges are solvable enough
+   - Connection to course themes: Networks, game theory, ABMs, blockchains
+   - Final reflection: Build useful agents we can trust
+
+**References:**
+
+**Core Security Research:**
+- Willison, Simon (2025). "The Lethal Trifecta." https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/
+- Willison, Simon (2025). "Design Patterns for Securing LLM Agents." https://simonwillison.net/2025/Jun/13/prompt-injection-design-patterns/
+- Willison, Simon (2025). "New Prompt Injection Papers: Agents Rule of Two and The Attacker Moves Second." https://simonwillison.net/2025/Nov/2/new-prompt-injection-papers/
+- Hines, K. et al. (2024). "Defending Against Indirect Prompt Injection Attacks With Spotlighting." arXiv:2403.14720
+- Microsoft Security (2025). "How Microsoft Defends Against Indirect Prompt Injection Attacks."
+
+**OWASP and Security Standards:**
+- OWASP (2025). "OWASP Top 10 for Large Language Model Applications 2025." https://owasp.org/www-project-top-10-for-large-language-model-applications/
+- OWASP (2025). "LLM01:2025 Prompt Injection." https://genai.owasp.org/llm-top-10/
+- Obsidian Security (2025). "Prompt Injection Attacks: The Most Common AI Exploit in 2025."
+
+**MCP Security:**
+- Model Context Protocol (2025). "Security Best Practices." https://modelcontextprotocol.io/specification/draft/basic/security_best_practices
+- Red Hat (2025). "Model Context Protocol: Understanding Security Risks and Controls."
+- Pillar Security (2025). "The Security Risks of Model Context Protocol."
+
+**Real-World Incidents:**
+- CVE-2025-32711: "AI Command Injection in M365 Copilot." Microsoft Security Update
+- Lasso Security (2025). "Microsoft Copilot Vulnerability Exposes Fortune 500 Data."
+- Fortune (2025). "Microsoft Copilot Zero-Click Attack Raises Alarms About AI Agent Security."
+- TechCrunch (2025). "The Glaring Security Risks with AI Browser Agents."
+
+**Defense Techniques:**
+- Amir Malik (2025). "Code Sandboxes for LLMs and AI Agents."
+- Microsoft Azure (2025). "Enhance AI Security with Azure Prompt Shields."
+- Threat Model Co. "The Dual LLM Pattern for LLM Agents."
+- Protect AI (2025). "A Tale of Two LLMs - Safety vs. Complexity."
+
+**Additional Resources:**
+- OWASP AI Security and Privacy Guide
+- PydanticAI Documentation: Type Safety and Validation
+- FastMCP Security Best Practices
+- NIST AI Risk Management Framework
 
 ---
 
@@ -488,25 +639,51 @@ The final week focuses on cutting-edge applications and prepares students for th
 
 This AI module synthesizes and extends the course's core concepts:
 
-- **Julia Type System** (Week 2): PydanticAI's validation-first approach mirrors Julia's type system emphasis
-- **Networks** (Weeks 3-5): Agent communication networks, information flow, API ecosystems
-- **Game Theory** (Weeks 8-9): Strategic agent interaction, mechanism design, alignment
-- **ABMs** (Weeks 6-7): From programmed to learned behaviors, emergence at scale
-- **Production Networks** (Week 5): Digital twins, economic simulation
-- **Blockchain** (Weeks 11-12): Decentralized agent coordination, smart contracts for agents
-- **Software Engineering**: PydanticAI's minimalist philosophy aligns with Julia's "composability over complexity" principle
+- **Julia Type System** (Week 2): PydanticAI's validation-first approach mirrors Julia's type system emphasis; type safety as security mechanism
+- **Networks** (Weeks 3-5):
+  - MCP servers expose network analysis tools (centrality, paths, clustering)
+  - Agent communication via MCP protocol creates network ecosystems
+  - Information flow and trust propagation in agent networks
+  - Security as network problem: attack surfaces, trust boundaries
+- **Game Theory** (Weeks 8-9):
+  - Strategic agent interaction and mechanism design
+  - Security as adversarial game: defender vs attacker
+  - Principal-agent problem in AI alignment
+  - MCP servers for game-theoretic analysis and equilibrium computation
+- **ABMs** (Weeks 6-7):
+  - From programmed to learned behaviors
+  - MCP servers control Mesa simulations
+  - AI agents as computational scientists
+  - Emergent security properties in multi-agent systems
+- **Production Networks** (Week 5):
+  - MCP as infrastructure for distributed AI tools
+  - Microservices architecture for agent capabilities
+  - Supply chain security for MCP servers
+- **Blockchain** (Weeks 11-12):
+  - Decentralized trust models for agents
+  - Smart contracts for agent coordination
+  - Comparison: blockchain consensus vs agent coordination
+- **Software Engineering**:
+  - PydanticAI and FastMCP share minimalist philosophy
+  - Type safety and validation prevent entire classes of vulnerabilities
+  - Defense-in-depth mirrors layered system design
 
 ## Pedagogical Approach
 
 Following the course's established pattern:
-- **Julia-first**: All implementations in Julia, leveraging existing course infrastructure
-- **Pattern adaptation**: Study best practices from Python frameworks (PydanticAI), implement in Julia
-- **Type-safe development**: Emphasize validation and type safety following PydanticAI's philosophy
-- **Progressive complexity**: Simple API calls → type-safe agents → multi-agent systems → production
-- **Real-world grounding**: Industry examples, actual APIs, production considerations
-- **Balance theory and practice**: Mathematical foundations with hands-on implementation
-- **Interactive exploration**: Live coding, experiments, parameter sweeps
-- **Minimalist approach**: Following PydanticAI's "chef's knife and cutting board" philosophy—powerful but simple tools
+- **Language flexibility**: Julia for Weeks 1-9, Python for Weeks A1-A4 (leveraging best tools for each domain)
+- **Pattern adaptation**: Study production frameworks (PydanticAI, FastMCP), apply patterns universally
+- **Type-safe development**: Emphasize validation and type safety as foundation for correctness and security
+- **Progressive complexity**:
+  - Week A1: Simple LLM calls and RAG
+  - Week A2: Type-safe agents with embedded tools
+  - Week A3: Distributed tools via MCP + security fundamentals
+  - Week A4: Production deployment and scaling
+- **Real-world grounding**: Industry examples, actual APIs, security incidents, production considerations
+- **Balance theory and practice**: Mathematical foundations (game theory, networks) with hands-on implementation
+- **Interactive exploration**: Live coding, experiments, threat modeling exercises
+- **Minimalist approach**: Powerful but simple tools (PydanticAI, FastMCP philosophy)
+- **Security-first**: Address security concerns early and continuously, not as afterthought
 
 ## Assessment Strategy
 
