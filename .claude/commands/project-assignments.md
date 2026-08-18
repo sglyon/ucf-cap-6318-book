@@ -20,7 +20,7 @@ As part of their training, students are required to form groups of two to three 
 
 ## Task
 
-1. Read the course syllabus to get an overall understanding of the course: @syllabus_2025.md
+1. Read the course syllabus to get an overall understanding of the course: @syllabus_2026.md
 2. Study all lecture notes (.ipynb files) in LECTURE_NOTES directories
 3. Ultrathink about how we can establish the first course project assignment. Consider topics we have covered in LECTURE_NOTES directories, the learning outcomes in the syllabus, and the duration/weight of the project in the scope of the entire course.
 4. Ask the user any follow up questions needed for you to fully understand the goals of the assignment

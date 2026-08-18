@@ -1,6 +1,6 @@
 ## Course Information
 
-Term: Fall 2025
+Term: Fall 2026
 Class Meeting Days: M
 Class Meeting Time: 06:00PM - 08:50PM
 **Class Meeting Location:** BA1 O115
@@ -39,7 +39,7 @@ After successful completion of this course, students will be able to:
 - Arrange hierarchical, relationship oriented data into a graph or network
 - Organize complex strategic interactions and scenarios into a structured representation using game theory
 - Set up, simulate, and analyze outcomes for an agent based models
-- Explain the key concepts of blockchain technology including public key cryptography, decentralized + distributed. ledgers, proof of work, proof of stake, smart contracts, decentralized finance, and non-fungible tokens
+- Explain the economics of multisided platforms and marketplaces including network effects, critical mass and tipping, platform pricing, and matching markets, and analyze them computationally
 - Develop algorithms to solve tasks in networks science, agent based modeling, and game theory.
 
 ## Required Course Materials and Resources
@@ -118,18 +118,18 @@ The schedule below is subject to change, but is the most accurate forecast for w
 | Week | Topic |
 | --- | --- |
 | 1 | Julia 1 |
-| 2 | Julia 1 |
+| 2 | Julia 2 |
 | 3 | Network science 1 |
 | 4 | Network science 2 |
 | 5 | Network science 3 |
 | 6 | Agent Based Models 1 |
 | 7 | Agent Based Models 2 |
-| 8 | Agent Based Models 3 |
-| 9 | Game Theory 1 |
-| 10 | Game Theory 2 |
-| 11 | Blockchain 1 |
-| 12 | Blockchain 2 |
-| 13 | Blockchain 3 |
+| 8 | Game Theory 1 |
+| 9 | Game Theory 2 |
+| 10 | AI Agents 1 |
+| 11 | AI Agents 2 |
+| 12 | Platforms & Marketplaces 1 |
+| 13 | Platforms & Marketplaces 2 (Marketplace Lab) |
 | 14 | Student Project Presentations |
 | 15 |  |
 | 16 |  |
