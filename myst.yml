@@ -68,15 +68,14 @@ project:
       children:
         - file: weekA03/L.A03.01_MCP_with_fastmcp.ipynb
         - file: weekA03/L.A03.02_ai_agent_security.ipynb
-    # Platforms & Marketplaces unit (Fall 2026, replaces Blockchain) — uncomment as lectures are written
-    # - title: Platforms 1
-    #   children:
-    #     - file: week11/L11.01_platform_economics.ipynb
-    #     - file: week11/L11.02_ignition_and_tipping.ipynb
-    # - title: Platforms 2
-    #   children:
-    #     - file: week12/L12.01_platform_pricing.ipynb
-    #     - file: week12/L12.02_matching_markets.ipynb
+    - title: Platforms 1
+      children:
+        - file: week11/L11.01_platform_economics.ipynb
+        - file: week11/L11.02_ignition_and_tipping.ipynb
+    - title: Platforms 2
+      children:
+        - file: week12/L12.01_platform_pricing.ipynb
+        - file: week12/L12.02_matching_markets.ipynb
     # - title: Reinforcement Learning
     #   children:
     #     - file: reinforcement_learning/rl.01.ipynb
