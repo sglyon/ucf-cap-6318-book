@@ -29,10 +29,10 @@ The rules of the exam are given in the EXAM_RULES_FILE
 
 1. Study all lecture notes (.ipynb files) in LECTURE_NOTES directories
 2. Think harder about appropriate exam questions. They should be related to the lecture notes, but not exact copies of examples or exercises. We want the students to demonstrate mastery
-3. Create 3 variations for each of the 4 exam questions
+3. Create 3 variations for each of the exam questions described in the exam rules
 
 ## Output format
 
 Write your results to a new Jupyter notebook called OUTPUT_FILE_NAME
 
-The notebook should have markdown cells for the questions, code cells for the code chunks we should execute, and should be clearly organized by original question type (1-4 in the exam rules).
+The notebook should have markdown cells for the questions, code cells for the code chunks we should execute, and should be clearly organized by original question type as described in the exam rules
