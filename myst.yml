@@ -16,15 +16,11 @@ project:
   # github:
   toc:
     - file: week01/L01.01_welcome.ipynb
-    - title: Julia 1
+    - title: Python Intro
       children:
         - file: week01/L01.02_setup.ipynb
-        - file: week01/L01.03_julia_basics.ipynb
-    - title: Julia 2
-      children:
-        - file: week02/L02.01_julia_types_methods.ipynb
-        - file: week02/L02.02_code_organization.ipynb
-        - file: week02/L02.03_julia_packages.ipynb
+        - file: week01/L01.03_python_basics.ipynb
+        - file: week01/L01.04_python_types_packages.ipynb
     - title: Graph Theory 1
       children:
         - file: week03/L03.01_graphs.ipynb

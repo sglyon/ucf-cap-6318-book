@@ -1,6 +1,8 @@
 # CAP-6318 Book
 
-This project contains the source code for the book used in teaching CAP-6318 Computational Analysis of Social Complexity at UCF in Fall 2024.
+This project contains the source code for the book used in teaching CAP-6318 Computational Analysis of Social Complexity at UCF. All course material is in Python (numpy, pandas, networkx, quantecon, mesa, matplotlib).
+
+Set up the environment with [uv](https://docs.astral.sh/uv/): `uv sync --all-groups`.
 
 To build the book run `make build`.
 

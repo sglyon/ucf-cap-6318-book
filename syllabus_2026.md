@@ -29,13 +29,13 @@ CAP 6318 ECS-EECS 3(3,0)Computational Analysis of Social Complexity: PR: CAP 531
 
 CAP-6318 is a hands-on survey of a variety of topics in the fascinating field of computational social science. You will learn the theory behind modern network analysis, social network modeling, natural language processing, and game theory. Applications include some or all of: disease spread through geographic networks, information dissemination through social networks, computational analysis of strategic decision making, and more.
 
-To implement our analysis we will use the exciting [Julia programming language](https://julialang.org/). Julia is a relativelynew programming language (first public release 2012, v1.0 in 2018) targeted specifically at numerical computing. Julia combines Python-level friendly syntax with C-level execution speeds. Julia is a particularly good tool for the types of computations done in the social sciences: iterating over edges in a graph, simulating agent based models, etc. Prior programming experience is not required, but it will definitely help!
+To implement our analysis we will use the [Python programming language](https://www.python.org/). Python is the de facto standard language of data science and scientific computing, with a mature ecosystem of numerical libraries (numpy, pandas, scipy, networkx, and more). Python combines a friendly, readable syntax with an unmatched collection of tools for the types of computations done in the social sciences: iterating over edges in a graph, simulating agent based models, etc. Prior programming experience is not required, but it will definitely help!
 
 ## Student Learning Outcomes
 
 After successful completion of this course, students will be able to:
 
-- Effectively read, write, and execute programs in the Julia programming language
+- Effectively read, write, and execute programs in the Python programming language
 - Arrange hierarchical, relationship oriented data into a graph or network
 - Organize complex strategic interactions and scenarios into a structured representation using game theory
 - Set up, simulate, and analyze outcomes for an agent based models
@@ -107,7 +107,7 @@ Computation and programming is not something you can learn from reading a book a
 
 **Practice**. Some homework assignments may afford you the flexibility of choosing a subset of questions to complete for evaluation. This is our way of acknowledging that you have many commitments outside this class. We still suggest that you attempt all questions -- we view them as learning opportunities.
 
-We also recommend you **practice coding** whenever you have the chance. Start small. Write short programs to do anything that crosses your mind. Use Julia to do things you would ordinarily do in another tool like Python or Excel. If permissable, try doing assignments from other courses in Julia. At first this will be more work than doing it by hand or in your current preferred tool, but once you have some experience it is our experience that things ar typically be easier in Julia. Even if that's not the case, the practice will expand your skill set.
+We also recommend you **practice coding** whenever you have the chance. Start small. Write short programs to do anything that crosses your mind. Use Python to do things you would ordinarily do in another tool like Excel. If permissable, try doing assignments from other courses in Python. At first this will be more work than doing it by hand or in your current preferred tool, but once you have some experience it is our experience that things are typically easier in Python. Even if that's not the case, the practice will expand your skill set.
 
 ## Class Schedule
 
@@ -117,20 +117,20 @@ The schedule below is subject to change, but is the most accurate forecast for w
 
 | Week | Topic |
 | --- | --- |
-| 1 | Julia 1 |
-| 2 | Julia 2 |
-| 3 | Network science 1 |
-| 4 | Network science 2 |
-| 5 | Network science 3 |
-| 6 | Agent Based Models 1 |
-| 7 | Agent Based Models 2 |
-| 8 | Game Theory 1 |
-| 9 | Game Theory 2 |
-| 10 | AI Agents 1 |
-| 11 | AI Agents 2 |
-| 12 | Platforms & Marketplaces 1 |
-| 13 | Platforms & Marketplaces 2 (Marketplace Lab) |
-| 14 | Student Project Presentations |
+| 1 | Python Intro |
+| 2 | Network science 1 |
+| 3 | Network science 2 |
+| 4 | Network science 3 |
+| 5 | Agent Based Models 1 |
+| 6 | Agent Based Models 2 |
+| 7 | Game Theory 1 |
+| 8 | Game Theory 2 |
+| 9 | AI Agents 1 |
+| 10 | AI Agents 2 |
+| 11 | Platforms & Marketplaces 1 |
+| 12 | Platforms & Marketplaces 2 (Marketplace Lab) |
+| 13 | Student Project Presentations |
+| 14 |  |
 | 15 |  |
 | 16 |  |
 

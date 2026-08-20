@@ -1,103 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="http://localhost:3001/sitemap_style.xsl" ?>
+<?xml-stylesheet type="text/xsl" href="http://localhost:3000/sitemap_style.xsl" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:3001</loc>
+    <loc>http://localhost:3000</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l01-02-setup</loc>
+    <loc>http://localhost:3000/l01-02-setup</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l01-03-julia-basics</loc>
+    <loc>http://localhost:3000/l01-03-python-basics</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l02-01-julia-types-methods</loc>
+    <loc>http://localhost:3000/l01-04-python-types-packages</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l02-02-code-organization</loc>
+    <loc>http://localhost:3000/l03-01-graphs</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l02-03-julia-packages</loc>
+    <loc>http://localhost:3000/l03-02-strong-weak-ties</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l03-01-graphs</loc>
+    <loc>http://localhost:3000/l04-01-homophily</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l03-02-strong-weak-ties</loc>
+    <loc>http://localhost:3000/l04-02-weighted-graphs</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l04-01-homophily</loc>
+    <loc>http://localhost:3000/l04-03-structural-balance</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l04-02-weighted-graphs</loc>
+    <loc>http://localhost:3000/l05-01-production-networks</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l04-03-structural-balance</loc>
+    <loc>http://localhost:3000/l06-01-abm-concepts</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l05-01-production-networks</loc>
+    <loc>http://localhost:3000/l06-02-schelling-agents</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l06-01-abm-concepts</loc>
+    <loc>http://localhost:3000/l07-01-abm-money</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l06-02-schelling-agents</loc>
+    <loc>http://localhost:3000/l07-02-abm-paper-virality</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l07-01-abm-money</loc>
+    <loc>http://localhost:3000/l08-01-game-theory-intro</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l07-02-abm-paper-virality</loc>
+    <loc>http://localhost:3000/l08-02-network-traffic</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l08-01-game-theory-intro</loc>
+    <loc>http://localhost:3000/l09-01-mixed-strategies</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l08-02-network-traffic</loc>
+    <loc>http://localhost:3000/l09-03-auctions</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l09-01-mixed-strategies</loc>
+    <loc>http://localhost:3000/l09-04-game-theory-lab</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l09-03-auctions</loc>
+    <loc>http://localhost:3000/l-a1-01-from-rule-based-to-learning-agents</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l09-04-game-theory-lab</loc>
+    <loc>http://localhost:3000/l-a1-02-rag-pattern-augmented-knowledge</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l-a1-01-from-rule-based-to-learning-agents</loc>
+    <loc>http://localhost:3000/l-a1-03-multi-agent-conversations</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l-a1-02-rag-pattern-augmented-knowledge</loc>
+    <loc>http://localhost:3000/l-a2-01-function-calling-and-tools</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l-a1-03-multi-agent-conversations</loc>
+    <loc>http://localhost:3000/l-a2-02-type-safe-agents-pydantic-patterns</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l-a2-01-function-calling-and-tools</loc>
+    <loc>http://localhost:3000/l-a02-03-evaluations</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l-a2-02-type-safe-agents-pydantic-patterns</loc>
+    <loc>http://localhost:3000/l-a03-01-mcp-with-fastmcp</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l-a02-03-evaluations</loc>
+    <loc>http://localhost:3000/l-a03-02-ai-agent-security</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l-a03-01-mcp-with-fastmcp</loc>
+    <loc>http://localhost:3000/l11-01-platform-economics</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l-a03-02-ai-agent-security</loc>
+    <loc>http://localhost:3000/l11-02-ignition-and-tipping</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l11-01-platform-economics</loc>
+    <loc>http://localhost:3000/l12-01-platform-pricing</loc>
   </url>
   <url>
-    <loc>http://localhost:3001/l11-02-ignition-and-tipping</loc>
-  </url>
-  <url>
-    <loc>http://localhost:3001/l12-01-platform-pricing</loc>
-  </url>
-  <url>
-    <loc>http://localhost:3001/l12-02-matching-markets</loc>
+    <loc>http://localhost:3000/l12-02-matching-markets</loc>
   </url>
 </urlset>
