@@ -4,7 +4,9 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["mystmd>=1.6.0"]
+dependencies = [
+    "mystmd>=1.6.0",
+]
 
 [tool.uv.workspace]
 members = ["weekA02"]
@@ -14,6 +16,7 @@ dev = [
   "fastmcp>=2.13.0.2",
   "ipykernel>=7.1.0",
   "ipython>=9.7.0",
+  "jupyter-server>=2.20.0",
   "mesa>=3.3.1",
   "networkx>=3.5",
   "pydantic-ai>=1.12.0",
