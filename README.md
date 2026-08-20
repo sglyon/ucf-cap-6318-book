@@ -12,13 +12,18 @@ The `build` Makefile rule will automatically copy the built output into this dir
 
 The Makefile rule does not execute the notebooks. We assume that the notebooks are already executed and contents are saved within.
 
-**Known gap:** the weekA01 notebooks were converted from Julia with empty outputs and
-need one live execution to restore stored results (the Julia edition shipped with
-outputs). With `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` exported and funded, run:
+## Executing the LLM lectures
+
+The `weekA01` lectures make live API calls. Their keys live in the 1Password item
+`UCF-CAP-6318` (vault `UCF`) and are injected at run time -- no key is ever stored
+in this repo:
 
 ```bash
-for f in weekA01/*.ipynb; do
-  uv run jupyter nbconvert --to notebook --execute --inplace "$f"
-done
-make build
+make op-check      # verify both keys resolve, without printing them
+make execute-llm   # execute weekA01 notebooks in place, then rebuild the site
 ```
+
+Authentication is either a 1Password service account token in
+`~/.config/op/cap6318.env` (headless, works over SSH) or your own interactive
+session via `eval $(op signin)`. Override the scope with
+`make execute-llm LLM_NOTEBOOKS="weekA01/*.ipynb weekA02/*.ipynb"`.
