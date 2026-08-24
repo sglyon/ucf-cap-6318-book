@@ -1,21 +1,40 @@
 ## Course Information
 
+CAP 6318 - 0057 - Computational Analysis of Social Complexity
+College of Engineering and Computer Science, Department of Computer Science
+
 Term: Fall 2026
+Section: 0057
 Class Meeting Days: M
 Class Meeting Time: 06:00PM - 08:50PM
-**Class Meeting Location:** BA1 O115
+Class Meeting Location: ENG2 0205
 Modality: P
 Credit Hours: 3.00
 
 ## Instructor Information
 
+Name: Spencer Lyon
+Email: [Spencer.Lyon@ucf.edu](mailto:Spencer.Lyon@ucf.edu)
+Office Location: By Appointment
+Office Hours: [https://calendar.app.google/S1HdUdh34T7yaMka8](https://calendar.app.google/S1HdUdh34T7yaMka8)
+
 ## Teaching Assistants
 
-Siddhi Kanta Mishra, [SiddhiKanta.Mishra@ucf.edu](https://ucf.simplesyllabus.com/en-US/doc-preview/617e8319-14da-4900-a09c-d87b66384784/syllabus/)
+Siddhi Kanta Mishra, [SiddhiKanta.Mishra@ucf.edu](mailto:SiddhiKanta.Mishra@ucf.edu)
 
 ## Office Hours
 
-Office Hours by appointment at [https://cal.spencerlyon.com/sglyon/office-hours](https://cal.spencerlyon.com/sglyon/office-hours)
+Office hours by appointment at [https://calendar.app.google/S1HdUdh34T7yaMka8](https://calendar.app.google/S1HdUdh34T7yaMka8)
+
+## Communication Expectations
+
+**Preferred method: the [Discussions page](https://webcourses.ucf.edu/courses/1490662/discussion_topics) in WebCourses.** Please post course questions there rather than sending email. Two reasons: your classmates almost certainly have the same question, and a public answer helps everyone at once. Answering questions posted by other students is also one of the ways you earn participation credit.
+
+**Response time: within 48 hours, excluding Sundays.** I do not read or respond to course messages on Sundays; a question posted Saturday or Sunday will be answered by Monday. Plan accordingly --- if an assignment is due Monday, post your question by Friday, not over the weekend.
+
+**When to use email instead.** Use email only for matters that are personal or confidential --- grades, accommodations, illness, or extenuating circumstances. The same 48-hour, no-Sundays window applies.
+
+**What makes a question easy to answer quickly.** Include the assignment or lecture you are working on, the code you ran, and the full error message (copied as text, not a screenshot of a screenshot). A well-posed question usually gets a same-day answer; a vague one costs us both a round trip.
 
 ## Getting Help
 
@@ -25,7 +44,7 @@ The bottom line: **If you're stuck, ask for help**. Really. Don't be a hero, ask
 
 ## Course Description
 
-CAP 6318 ECS-EECS 3(3,0)Computational Analysis of Social Complexity: PR: CAP 5316. Computational concepts, principles, modeling and simulation approaches used to analyze complex social and economic phenomena, leveraging the availability of large amounts of data, and elements of complexity theory. Odd Spring.
+CAP 6318 ENGR-COMP SCI 3(3,0) Computational Analysis of Social Complexity: PR: CAP 5316. Computational concepts, principles, modeling and simulation approaches used to analyze complex social and economic phenomena, leveraging the availability of large amounts of data, and elements of complexity theory. Odd Spring.
 
 CAP-6318 is a hands-on survey of a variety of topics in the fascinating field of computational social science. You will learn the theory behind modern network analysis, social network modeling, natural language processing, and game theory. Applications include some or all of: disease spread through geographic networks, information dissemination through social networks, computational analysis of strategic decision making, and more.
 
@@ -43,6 +62,53 @@ After successful completion of this course, students will be able to:
 - Develop algorithms to solve tasks in networks science, agent based modeling, and game theory.
 
 ## Required Course Materials and Resources
+
+### Required Texts (both freely available online)
+
+**Networks, Crowds, and Markets** (cited as **EK**)
+Subtitle: Reasoning About a Highly Connected World
+ISBN: 9781282724891
+Authors: David Easley, Jon Kleinberg
+Publisher: Cambridge University Press
+Publication Date: 2010
+Online Access: [https://www.cs.cornell.edu/home/kleinber/networks-book/](https://www.cs.cornell.edu/home/kleinber/networks-book/)
+Notes: Can access for free at link above. Primary text for network science (ch. 2-5), game theory (ch. 6, 8, 9), matching markets (ch. 10), network effects (ch. 17), and cascading behavior (ch. 19)
+
+**Economic Networks** (cited as **SS**)
+Subtitle: Theory and Computation
+ISBN: 9781009456364
+Authors: Thomas J. Sargent, John Stachurski
+Publisher: Cambridge University Press
+Publication Date: 2024-04-25
+Online Access: [https://networks.quantecon.org/](https://networks.quantecon.org/)
+Notes: Can access for free at the link above. Used for production networks and the computational treatment of network models
+
+### Recommended Texts (Platforms and Marketplaces)
+
+No purchase is required. The Platforms and Marketplaces unit is self-contained in the lecture notes plus freely available articles; the books below are optional background reading for students who want more depth.
+
+**Matchmakers** (cited as **ES**)
+Subtitle: The New Economics of Multisided Platforms
+ISBN: 9781633691728
+Authors: David Sparks Evans, Richard Schmalensee
+Publisher: Harvard Business Review Press
+Publication Date: 2016
+Notes: This is optional, supplementary reading. Referenced in all four Platforms and Marketplaces lectures (ch. 1-3, 5, and 11)
+
+**Who Gets What--and why** (cited as **Roth**)
+Subtitle: The New Economics of Matchmaking and Market Design
+ISBN: 9780544705289
+Authors: Alvin E. Roth
+Publisher: Mariner Books/Houghton Mifflin Harcourt
+Publication Date: 2016
+Notes: This is optional, supplementary material. Background for the matching markets and market design lecture
+
+### Additional Required Resources (no cost)
+
+- Lecture notes on the course website: [https://ucf-cap-6318.spencerlyon.com/](https://ucf-cap-6318.spencerlyon.com/)
+- The [Julia programming language](https://julialang.org/), free and open source; installation instructions are given in week 1
+- Articles assigned in the lecture notes, all freely available online, including Katz and Shapiro (1985), Arthur (1989), Gale and Shapley (1962), Rochet and Tirole (*Two-Sided Markets: An Overview*), and Hagiu and Wright (2014)
+- Free-tier or student-credit access to at least one LLM API provider for the AI Agents unit; alternatives will be provided for students who cannot obtain access
 
 ## Course Assessment and Grading Procedure
 
@@ -74,7 +140,7 @@ Graded work for this course includes the following:
 
 ### Makeup Work Policy
 
-There will be no opportunity for makeup work. There are many assignments in this course, so a poor grade on any one assignment will not be too detrimental to your final grade.
+Other than circumstances mentioned below, there will be no opportunity for makeup work. There are many assignments in this course, so a poor grade on any one assignment will not be too detrimental to your final grade.
 
 ### Missed/Late Assignments
 
@@ -83,6 +149,14 @@ I do not accept late work. If you are unable to complete an assignment on time, 
 ### Attendance
 
 Attendance is mandatory. If you cannot See the "Participation" item in the grading section above for more information.
+
+## Make-up Assignments for Authorized University Event or Co-curricular Activities
+
+Students who represent the university at an authorized event or activity (for example, student athletes) and who are unable to meet a course deadline due to a conflict with that event must provide the instructor with documentation in advance to arrange a make-up. No penalty will be applied if the student gives advance notice and communicates with the instructor following UCF policy. In the case of an authorized university activity, it is your responsibility to show the instructor a signed copy of the Program Verification Form for which you will be absent, prior to the class in which the absence occurs or due date you need extended. For more information, see [UCF Policy 4-401](https://policies.ucf.edu/documents/4-401.pdf).
+
+## Make-up Assignments for Religious Observances
+
+A student who desires to observe a religious holy day of his or her religious faith must notify their instructor as soon as practicable prior to the observance. Students who are absent because of religious observances will be permitted a reasonable amount of time to complete any missed work. For more information, see [UCF Regulation 5-020](https://regulations.ucf.edu/wp-content/uploads/sites/23/2021/12/5.020ReligiousObservancesFINALDec2021.pdf).
 
 ## Artificial Intelligence (AI) Use Policy
 
@@ -115,24 +189,24 @@ The course is designed to be cover material at whatever pace the class is capabl
 
 The schedule below is subject to change, but is the most accurate forecast for what we will cover each week in class
 
-| Week | Topic |
-| --- | --- |
-| 1 | Julia 1 |
-| 2 | Julia 2 |
-| 3 | Network science 1 |
-| 4 | Network science 2 |
-| 5 | Network science 3 |
-| 6 | Agent Based Models 1 |
-| 7 | Agent Based Models 2 |
-| 8 | Game Theory 1 |
-| 9 | Game Theory 2 |
-| 10 | AI Agents 1 |
-| 11 | AI Agents 2 |
-| 12 | Platforms & Marketplaces 1 |
-| 13 | Platforms & Marketplaces 2 (Marketplace Lab) |
-| 14 | Student Project Presentations |
-| 15 |  |
-| 16 |  |
+Reading abbreviations: **EK** = Easley and Kleinberg, *Networks, Crowds, and Markets*; **SS** = Sargent and Stachurski, *Economic Networks*; **ES** = Evans and Schmalensee, *Matchmakers* (optional); **Roth** = *Who Gets What--and why* (optional). Everything else is a freely available article or documentation page linked in the lecture notes.
+
+| Week | Topic | Assigned Reading(s) |
+| --- | --- | --- |
+| 1 | Julia 1 | QuantEcon Julia: [Setting up Julia](https://julia.quantecon.org/getting_started_julia/getting_started.html), Git/VS Code, and editors; [Julia documentation](https://docs.julialang.org/en/v1/); package docs for Graphs.jl, DataFrames.jl, Plots.jl |
+| 2 | Julia 2 | Julia manual on [types](https://docs.julialang.org/en/v1/manual/types/), [methods](https://docs.julialang.org/en/v1/manual/methods/), and [modules](https://docs.julialang.org/en/v1/manual/modules/); [Pkg.jl docs](https://pkgdocs.julialang.org/v1/); QuantEcon [types and generic programming](https://julia.quantecon.org/getting_started_julia/introduction_to_types.html) |
+| 3 | Networks 1 | EK ch. 2 (graphs) and ch. 3 (strong and weak ties) |
+| 4 | Networks 2 | EK ch. 4 (esp. 4.1, homophily) and ch. 5 (esp. 5.1-5.3, weighted graphs and structural balance) |
+| 5 | Networks 3 | SS ch. 1-2 (esp. 1.2, production networks) |
+| 6 | Agent Based Models 1 | Cioffi-Revilla, *Introduction to Computational Social Science*, ch. 10; [Agents.jl tutorial](https://juliadynamics.github.io/Agents.jl/stable/tutorial/); QuantEcon [Schelling segregation lecture](https://julia.quantecon.org/multi_agent_models/schelling.html) |
+| 7 | Agent Based Models 2 | [Agents.jl documentation](https://juliadynamics.github.io/Agents.jl/stable/) and the [wealth distribution example](https://juliadynamics.github.io/AgentsExampleZoo.jl/dev/examples/wealth_distribution/); Datseris et al., [Agents.jl SciPy paper](https://proceedings.scipy.org/articles/Majora-7b98e3ed-009.pdf) |
+| 8 | Game Theory 1 | EK ch. 6 (games and Nash equilibrium) and ch. 8 (network traffic and Braess' paradox) |
+| 9 | Game Theory 2 | EK ch. 6 (mixed strategies) and ch. 9 (auctions); Ljungqvist and Sargent, *Recursive Macroeconomic Theory*, ch. 7 (Markov perfect equilibrium) |
+| 10 | AI Agents 1 | Vaswani et al. (2017), ["Attention Is All You Need"](https://arxiv.org/abs/1706.03762); Brown et al. (2020), ["Language Models are Few-Shot Learners"](https://arxiv.org/abs/2005.14165); Lewis et al. (2020), ["Retrieval-Augmented Generation"](https://arxiv.org/abs/2005.11401); Gao et al. (2023), [RAG survey](https://arxiv.org/abs/2312.10997) |
+| 11 | AI Agents 2 | [OpenAI function calling guide](https://platform.openai.com/docs/guides/function-calling); [Anthropic tool use docs](https://docs.anthropic.com/claude/docs/tool-use); Schick et al. (2023), ["Toolformer"](https://arxiv.org/abs/2302.04761); [PydanticAI docs](https://ai.pydantic.dev/) including [evals](https://ai.pydantic.dev/evals/index.md); [Model Context Protocol spec](https://modelcontextprotocol.io/) and [FastMCP docs](https://gofastmcp.com/); Willison (2025), ["The Lethal Trifecta"](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/); [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) |
+| 12 | Platforms and Marketplaces 1 | EK ch. 17 (network effects) and ch. 19 (cascading behavior); [Katz and Shapiro (1985)](https://idv.sinica.edu.tw/kongpin/teaching/io/KatzShapiro1.pdf); Arthur (1989), "Competing Technologies, Increasing Returns, and Lock-In by Historical Events"; ES ch. 1-3 and 5 (optional) |
+| 13 | Platforms and Marketplaces 2 | EK ch. 17 (pricing) and ch. 10 (matching markets); [Rochet and Tirole, *Two-Sided Markets: An Overview*](https://web.mit.edu/14.271/www/rochet_tirole.pdf); [Hagiu and Wright (2014)](https://www.hbs.edu/ris/Publication%20Files/15-037_cb5afe51-6150-4be9-ace2-39c6a8ace6d4.pdf); Gale and Shapley (1962), "College Admissions and the Stability of Marriage"; [Nobel Prize 2012, *Stable Allocations and the Practice of Market Design*](https://www.nobelprize.org/uploads/2018/06/popular-economicsciences2012.pdf); ES ch. 11 and Roth (optional) |
+| 14, 15, 16 | Student Project Presentations | No new reading; review lecture notes and project guidelines |
 
 ## Disability Access & Accommodations
 
@@ -144,7 +218,7 @@ Approved accommodations are shared with course instructors via the SAS Course Ac
 
 Students should familiarize themselves with UCF's Code of Conduct at Student Conduct and Integrity Office. According to Section 1, "Academic Misconduct," students are prohibited from engaging in:
 
-1. Academic misconduct is defined as any submitted work or behavior that obstructs the instructor of record's ability to accurately assess the student's understanding or completion of course materials or degree requirements (e.g., assignment, quiz, and/or exam). Examples of academic misconduct include but are not limited to: plagiarism, unauthorized assistance to complete an academic exercise; unauthorized communication with others during an examination, course assignment, or project; falsifying or misrepresenting academic work; providing misleading information to create a personal advantage to complete course/degree requirements; or multiple submission(s) of academic work without permission of the instructor of record.
+1. Academic misconduct is defined as any submitted work or behavior that obstructs the instructor of record's ability to accurately assess the student's understanding or completion of course materials or degree requirements (e.g., assignment, quiz, and/or exam). Examples of academic misconduct include but are not limited to: plagiarism, unauthorized assistance to complete an academic exercise; unauthorized communication with others during an examination, course assessment, or project; falsifying or misrepresenting academic work; providing misleading information to create a personal advantage to complete course/degree requirements; or multiple submission(s) of academic work without permission of the instructor of record.
 2. Any student who knowingly helps another violate academic behavior standards is also in violation of the standards.
 3. Commercial Use of Academic Material. Selling of course material to another person and/or uploading course material to a third-party vendor without authorization or without the express permission of the University and the instructor of record. Course materials include but are not limited to class notes, the instructor of record's slide deck, tests, quizzes, labs, instruction sheets, homework, study guides, and handouts.
 4. Soliciting assistance with academic coursework and/or degree requirements. The solicitation of assistance with an assignment, lab, quiz, test, paper, etc., without authorization of the instructor of record or designee is prohibited. This includes but is not limited to asking for answers to a quiz, trading answers, or offering to pay another to complete an assignment. It is considered Academic Misconduct to solicit assistance with academic coursework and/or degree requirements, even if the solicitation did not yield actual assistance (for example, if there was no response to the solicitation).
@@ -182,13 +256,13 @@ Students who are deployed active-duty military and/or National Guard personnel a
 At UCF's Public Safety and Police, safety is the top priority. Emergencies on campus are rare, but if one should arise, it's important to be familiar with some basic safety and security concepts.
 
 - In an emergency, always dial 911.
-- Every UCF Classroom has an Emergency Procedure Guide posted on a wall near the door, which will show you how to respond to a variety of situations. This guide can also be found found online [here](https://police.ucf.edu/about-us/department-of-emergency-management/emergency-guides).
+- Every UCF Classroom has an Emergency Procedure Guide posted on a wall near the door, which will show you how to respond to a variety of situations. This guide can also be found online [here](https://police.ucf.edu/about-us/department-of-emergency-management/emergency-guides).
 - In the event of an active threat, remember **AVOID**, **DENY**, **DEFEND**. Choose the best course of action and act immediately. Watch the video [here](https://www.youtube.com/watch?v=9uU7yqZmMuc) to learn more.
  	- **AVOID**. Pay attention to your surroundings and have an exit plan. Get as much distance and as many barriers between you and the threat as quickly as possible.
- 	- **DENY**. When avoiding is difficult or impossible, deny the threat access to you and your space. Lockdown by creating barriers, turning the lights off and remaining quiet and out of sight. Make sure your cell phone is silenced, but do not turn it off.
+ 	- **DENY**. When avoiding is difficult or impossible, deny the threat access to you and your space. Lockdown by creating barriers, turning the lights off and remaining quiet and out of sight. Make sure your phone is silenced, but do not turn it off.
  	- **DEFEND**. When you are unable to put distance between yourself and the threat, be prepared to protect yourself. Commit to your actions, be aggressive and do not fight fairly. Do whatever it takes to survive.
 - For emergencies on campus, UCF will utilize the [UCF Alert](https://police.ucf.edu/ucfalert) system. All UCF students, faculty, and staff are automatically enrolled to receive these email and text alerts, however, it's a good idea to frequently ensure your [contact information is up to date](http://www.getrave.com/login/ucf).
 
 ## Financial Aid Accountability
 
-All instructors/faculty are required to document students' academic activity at the beginning of each course. In order to document that you began this course, please complete this activity by the end of the first week of classes or as soon as possible after adding the course. Failure to do so may result in a delay in the disbursement of your financial aid.
+All instructors are required to document students' academic activity at the beginning of each course. In order to document that you began this course, please complete this activity by the end of the first week of classes or as soon as possible after adding the course. Failure to do so may result in a delay in the disbursement of your financial aid.
