@@ -28,7 +28,7 @@ Office hours by appointment at [https://calendar.app.google/S1HdUdh34T7yaMka8](h
 
 ## Communication Expectations
 
-**Preferred method: the [Discussions page](https://webcourses.ucf.edu/courses/1490662/discussion_topics) in WebCourses.** Please post course questions there rather than sending email. Two reasons: your classmates almost certainly have the same question, and a public answer helps everyone at once. Answering questions posted by other students is also one of the ways you earn participation credit.
+**Preferred method: the [Discussions page](https://webcourses.ucf.edu/courses/1517971/discussion_topics) in WebCourses.** Please post course questions there rather than sending email. Two reasons: your classmates almost certainly have the same question, and a public answer helps everyone at once. Answering questions posted by other students is also one of the ways you earn participation credit.
 
 **Response time: within 48 hours, excluding Sundays.** I do not read or respond to course messages on Sundays; a question posted Saturday or Sunday will be answered by Monday. Plan accordingly --- if an assignment is due Monday, post your question by Friday, not over the weekend.
 
@@ -38,7 +38,7 @@ Office hours by appointment at [https://calendar.app.google/S1HdUdh34T7yaMka8](h
 
 ## Getting Help
 
-This course has a strong **support system** to help you when you run into problems --- and anyone who codes runs into problems. When (not if) you get stuck, we encourage you to reach out to the teacher, graduate assistant, the internet at large, and especially your classmates. We encourage you to post questions to the [Discussions page](https://webcourses.ucf.edu/courses/1490662/discussion_topics) on [WebCourses](https://webcourses.ucf.edu/)
+This course has a strong **support system** to help you when you run into problems --- and anyone who codes runs into problems. When (not if) you get stuck, we encourage you to reach out to the teacher, graduate assistant, the internet at large, and especially your classmates. We encourage you to post questions to the [Discussions page](https://webcourses.ucf.edu/courses/1517971/discussion_topics) on [WebCourses](https://webcourses.ucf.edu/)
 
 The bottom line: **If you're stuck, ask for help**. Really. Don't be a hero, ask for help.
 
