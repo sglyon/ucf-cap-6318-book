@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="title desc" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title id="title">The two structures allowed by balance</title><desc id="desc">Two complete signed graphs on four nodes. The first has only positive edges. The second has positive edges within groups X and Y, and negative edges between the groups.</desc>
+<defs><filter id="shadow" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter></defs>
+<rect width="960" height="430" rx="12" fill="#FFFFFF"/>
+<text x="480" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">The two structures allowed by balance</text>
+<text x="480" y="57" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Every pair of nodes is connected. Edge signs describe friendship (+) or hostility (−).</text>
+<g transform="translate(20,77)">
+<rect width="450" height="328" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="225" y="29" text-anchor="middle" font-size="15" font-weight="600" fill="#1E40AF">Everyone is friends</text>
+<line x1="120" y1="100" x2="330" y2="100" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="225" cy="100" r="12" fill="#FFFFFF"/>
+<text x="225" y="105" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<line x1="120" y1="235" x2="330" y2="235" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="225" cy="235" r="12" fill="#FFFFFF"/>
+<text x="225" y="240" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<line x1="120" y1="100" x2="120" y2="235" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="120" cy="169" r="12" fill="#FFFFFF"/>
+<text x="120" y="174" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<line x1="330" y1="100" x2="330" y2="235" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="330" cy="169" r="12" fill="#FFFFFF"/>
+<text x="330" y="174" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<line x1="120" y1="100" x2="330" y2="235" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="184" cy="141" r="12" fill="#FFFFFF"/>
+<text x="184" y="146" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<line x1="330" y1="100" x2="120" y2="235" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="266" cy="141" r="12" fill="#FFFFFF"/>
+<text x="266" y="146" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<circle cx="120" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="120" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<circle cx="330" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="330" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">B</text>
+<circle cx="120" cy="235" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="120" y="239" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">C</text>
+<circle cx="330" cy="235" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="330" y="239" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">D</text>
+<text x="225" y="300" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">All edges are positive.</text>
+</g>
+<g transform="translate(490,77)">
+<rect width="450" height="328" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="225" y="29" text-anchor="middle" font-size="15" font-weight="600" fill="#1E40AF">Two groups of friends</text>
+<rect x="65" y="49" width="110" height="222" rx="12" fill="#DBEAFE"/>
+<text x="120" y="68" text-anchor="middle" font-size="13" font-weight="600" fill="#1E40AF">X</text>
+<rect x="275" y="49" width="110" height="222" rx="12" fill="#DBEAFE"/>
+<text x="330" y="68" text-anchor="middle" font-size="13" font-weight="600" fill="#1E40AF">Y</text>
+<line x1="120" y1="100" x2="330" y2="100" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="6,4"/>
+<circle cx="225" cy="100" r="12" fill="#FFFFFF"/>
+<text x="225" y="105" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">−</text>
+<line x1="120" y1="235" x2="330" y2="235" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="6,4"/>
+<circle cx="225" cy="235" r="12" fill="#FFFFFF"/>
+<text x="225" y="240" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">−</text>
+<line x1="120" y1="100" x2="120" y2="235" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="120" cy="169" r="12" fill="#FFFFFF"/>
+<text x="120" y="174" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<line x1="330" y1="100" x2="330" y2="235" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="330" cy="169" r="12" fill="#FFFFFF"/>
+<text x="330" y="174" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<line x1="120" y1="100" x2="330" y2="235" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="6,4"/>
+<circle cx="184" cy="141" r="12" fill="#FFFFFF"/>
+<text x="184" y="146" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">−</text>
+<line x1="330" y1="100" x2="120" y2="235" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="6,4"/>
+<circle cx="266" cy="141" r="12" fill="#FFFFFF"/>
+<text x="266" y="146" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">−</text>
+<circle cx="120" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="120" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<circle cx="330" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="330" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">B</text>
+<circle cx="120" cy="235" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="120" y="239" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">C</text>
+<circle cx="330" cy="235" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="330" y="239" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">D</text>
+<text x="225" y="300" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Positive within each group; negative between groups.</text>
+</g>
+</svg>
