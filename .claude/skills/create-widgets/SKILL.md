@@ -77,6 +77,30 @@ An anywidget-compatible `.mjs` module placed beside a lecture notebook, embedded
 
 4. Stop the server; if publishing, run `make build` to sync `_build/html/` → `docs/`.
 
+## Downloaded Notebooks (spike-verified 2026-09-21)
+
+The site's download button serves the **source `.ipynb` only** (a hashed copy under `_build/html/build/`); sibling `.mjs` files do not travel with it. In Jupyter, the `{anywidget}` directive cell renders as an inert code block — the directive is site-only.
+
+If a demo must also work in the downloaded notebook, add a **code cell** with a Python `anywidget.AnyWidget` class alongside the directive. **Runtime prerequisite:** this path only works with a live kernel and `anywidget` installed in the student's environment (`pip install anywidget`) — URL/inline `_esm` alone does not make the notebook runnable in a stock Jupyter install. This repo's own environment deliberately does NOT depend on `anywidget`; spike validation used ephemeral installs (`uv run --with anywidget ...`) — do not add it to `pyproject.toml` without Spencer's explicit ask. Verified behavior of the `_esm` forms (JupyterLab 4, anywidget via `uv run --with anywidget`):
+
+1. **URL** — `_esm = "https://ucf-cap-6318.spencerlyon.com/widget_name.mjs"`. Renders and syncs through the kernel (clicks verified). Requires: (a) the `.mjs` listed under `project.static_files` in `myst.yml`, which copies it verbatim to the site root for a stable URL (verified in `_build/html/`), and (b) CORS — the host MUST send `Access-Control-Allow-Origin` or the front-end's module import silently renders nothing (observed with plain `http.server`; the live course site on GitHub Pages returns `access-control-allow-origin: *`, checked 2026-09-21). Recommended: one source of truth, needs network. After deploying, `curl -sI` the `.mjs` URL to confirm it serves with the CORS header before relying on it.
+2. **Inline string** — `_esm = """function render({ model, el }) {...}"""`. Fully self-contained after download; duplicates the module source. Use when offline execution matters.
+3. **`pathlib.Path("widget_name.mjs")`** — works only where the sibling file exists (this repo). Broken in a downloaded notebook; authoring convenience only.
+
+State is shared via `traitlets` with `sync=True`:
+
+```python
+import anywidget, traitlets
+
+class Counter(anywidget.AnyWidget):
+    _esm = "https://ucf-cap-6318.spencerlyon.com/counter.mjs"
+    count = traitlets.Int(0).tag(sync=True)
+
+Counter(count=0)
+```
+
+**On the static site this code cell does NOT hydrate** — it shows an "ipywidgets - a Jupyter kernel connection is required" placeholder (verified). So the directive and the code cell are complementary, not alternatives: directive = site, code cell = downloaded notebook. To keep the placeholder off the site, tag the code cell `remove-cell` — but note that also strips it from the rendered page, while the download still contains it; `hide-cell` collapses it instead (MyST cell-tag docs: https://mystmd.org/guide/notebook-configuration).
+
 ## Pedagogical Fit
 
 Good widget candidates in this course: parameter sliders driving a plotted curve, Schelling/ABM grid simulations (JS tick loop), network formation/contagion demos, game-theory payoff explorers, matching-market (deferred acceptance) walkthroughs, platform tipping-point dynamics. Keep each widget focused on one manipulable idea; put the lesson in the lecture prose, not the widget.
