@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "mystmd>=1.6.0",
+    "mystmd>=1.11.0",
 ]
 
 [tool.uv.workspace]

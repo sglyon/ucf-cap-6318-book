@@ -4,7 +4,10 @@ project:
   id: 492c0fd0-6de5-4738-b5ab-8c08e34fb954
   title: UCF CAP-6318
   description: Computational Analysis of Social Complexity
-  # github: sglyon/ucf-cap-6318-book
+  github: sglyon/ucf-cap-6318-book
+  static_files:
+    - CNAME
+    - .nojekyll
   # keywords: []
   authors:
     - name: Spencer Lyon
@@ -13,7 +16,6 @@ project:
       affiliations:
         - University of Central Florida
         - Valorum Data
-  # github:
   toc:
     - file: week01/L01.01_welcome.ipynb
     - title: Julia 1
