@@ -2,7 +2,7 @@
 
 > Computational Analysis of Social Complexity
 >
-> Fall 2025, Spencer Lyon
+> Fall 2026, Spencer Lyon
 
 **Due Date:** Three weeks from assignment date
 **Weight:** 15% of final grade

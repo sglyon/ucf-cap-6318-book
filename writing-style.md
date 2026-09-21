@@ -519,7 +519,7 @@ end
 
 > Computational Analysis of Social Complexity
 >
-> Fall 2025, Spencer Lyon
+> Fall 2026, Spencer Lyon
 
 **Prerequisites**
 - [List of prior concepts/lectures]

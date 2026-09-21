@@ -47,7 +47,7 @@ The rules of the exam are given in the EXAM_RULES_FILE
 <preamble>
 # Oral Exam 2 - Student Version {STUDENT_NUMBER}
 
-## Fall 2025
+## Fall 2026
 
 **Instructions:**
 - You have 20 minutes to complete this exam
