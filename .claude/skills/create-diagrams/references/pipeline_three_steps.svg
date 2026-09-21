@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 370" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7C3AED"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="370" rx="12" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="425" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Inside the Pipeline -- Three Steps</text>
+
+  <!-- ============================================================ -->
+  <!-- STEP 1: Tokenize                                              -->
+  <!-- ============================================================ -->
+  <g transform="translate(20, 55)">
+    <!-- Card -->
+    <rect width="240" height="240" rx="12" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2" filter="url(#shadow)"/>
+
+    <!-- Header bar -->
+    <rect width="240" height="36" rx="12" fill="#7C3AED"/>
+    <rect y="24" width="240" height="12" fill="#7C3AED"/>
+    <text x="120" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="white">1. Tokenize</text>
+
+    <!-- Input text -->
+    <text x="120" y="56" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">Input (raw text):</text>
+    <rect x="12" y="62" width="216" height="22" rx="4" fill="white" stroke="#DDD6FE" stroke-width="1"/>
+    <text x="120" y="78" text-anchor="middle" font-size="9" fill="#1E293B" font-family="'Courier New', monospace">"Hugging Face makes NLP easy!"</text>
+
+    <!-- Subword splits -->
+    <text x="120" y="100" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">Subword splits:</text>
+    <!-- Row 1 of tokens -->
+    <g transform="translate(14, 106)">
+      <rect width="52" height="18" rx="3" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="0.8"/>
+      <text x="26" y="13" text-anchor="middle" font-size="7.5" fill="#5B21B6" font-family="'Courier New', monospace">hugging</text>
+    </g>
+    <g transform="translate(70, 106)">
+      <rect width="38" height="18" rx="3" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="0.8"/>
+      <text x="19" y="13" text-anchor="middle" font-size="7.5" fill="#5B21B6" font-family="'Courier New', monospace">face</text>
+    </g>
+    <g transform="translate(112, 106)">
+      <rect width="46" height="18" rx="3" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="0.8"/>
+      <text x="23" y="13" text-anchor="middle" font-size="7.5" fill="#5B21B6" font-family="'Courier New', monospace">makes</text>
+    </g>
+    <g transform="translate(162, 106)">
+      <rect width="26" height="18" rx="3" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="0.8"/>
+      <text x="13" y="13" text-anchor="middle" font-size="7.5" fill="#5B21B6" font-family="'Courier New', monospace">nl</text>
+    </g>
+    <g transform="translate(192, 106)">
+      <rect width="32" height="18" rx="3" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="0.8"/>
+      <text x="16" y="13" text-anchor="middle" font-size="7.5" fill="#5B21B6" font-family="'Courier New', monospace">##p</text>
+    </g>
+    <!-- Row 2 of tokens -->
+    <g transform="translate(60, 128)">
+      <rect width="38" height="18" rx="3" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="0.8"/>
+      <text x="19" y="13" text-anchor="middle" font-size="7.5" fill="#5B21B6" font-family="'Courier New', monospace">easy</text>
+    </g>
+    <g transform="translate(102, 128)">
+      <rect width="22" height="18" rx="3" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="0.8"/>
+      <text x="11" y="13" text-anchor="middle" font-size="7.5" fill="#5B21B6" font-family="'Courier New', monospace">!</text>
+    </g>
+
+    <!-- Down arrow -->
+    <line x1="120" y1="152" x2="120" y2="162" stroke="#7C3AED" stroke-width="1.5"/>
+    <polygon points="115,160 120,168 125,160" fill="#7C3AED"/>
+
+    <!-- Token IDs -->
+    <text x="120" y="180" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">Token IDs:</text>
+    <rect x="20" y="186" width="200" height="22" rx="4" fill="white" stroke="#DDD6FE" stroke-width="1"/>
+    <text x="120" y="201" text-anchor="middle" font-size="9" fill="#5B21B6" font-family="'Courier New', monospace">[101, 17662, 2227, 3084, ...]</text>
+
+    <!-- Label -->
+    <rect x="55" y="216" width="130" height="20" rx="10" fill="#7C3AED"/>
+    <text x="120" y="230" text-anchor="middle" font-size="10" font-weight="600" fill="white">AutoTokenizer</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- Arrow 1→2                                                     -->
+  <!-- ============================================================ -->
+  <line x1="268" y1="175" x2="298" y2="175" stroke="#7C3AED" stroke-width="3" marker-end="url(#arrow-purple)"/>
+
+  <!-- ============================================================ -->
+  <!-- STEP 2: Model Forward Pass                                    -->
+  <!-- ============================================================ -->
+  <g transform="translate(305, 55)">
+    <!-- Card -->
+    <rect width="240" height="240" rx="12" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2" filter="url(#shadow)"/>
+
+    <!-- Header bar -->
+    <rect width="240" height="36" rx="12" fill="#7C3AED"/>
+    <rect y="24" width="240" height="12" fill="#7C3AED"/>
+    <text x="120" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="white">2. Model Forward Pass</text>
+
+    <!-- Input -->
+    <text x="120" y="56" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">Input (token IDs):</text>
+    <rect x="30" y="62" width="180" height="22" rx="4" fill="white" stroke="#DDD6FE" stroke-width="1"/>
+    <text x="120" y="78" text-anchor="middle" font-size="9" fill="#5B21B6" font-family="'Courier New', monospace">[101, 17662, 2227, ...]</text>
+
+    <!-- Transformer block icon (stacked rectangles) -->
+    <g transform="translate(70, 92)">
+      <!-- Bottom layer -->
+      <rect x="8" y="48" width="84" height="20" rx="4" fill="#DDD6FE" stroke="#A78BFA" stroke-width="1"/>
+      <text x="50" y="62" text-anchor="middle" font-size="7" fill="#5B21B6">Attention + FFN</text>
+      <!-- Middle layer -->
+      <rect x="4" y="32" width="92" height="20" rx="4" fill="#C4B5FD" stroke="#8B5CF6" stroke-width="1"/>
+      <text x="50" y="46" text-anchor="middle" font-size="7" fill="#4C1D95">Attention + FFN</text>
+      <!-- Top layer -->
+      <rect x="0" y="16" width="100" height="20" rx="4" fill="#A78BFA" stroke="#7C3AED" stroke-width="1"/>
+      <text x="50" y="30" text-anchor="middle" font-size="7" fill="white" font-weight="600">Attention + FFN</text>
+      <!-- Label -->
+      <text x="50" y="10" text-anchor="middle" font-size="8" fill="#7C3AED" font-weight="600">Transformer</text>
+    </g>
+
+    <!-- Down arrow -->
+    <line x1="120" y1="166" x2="120" y2="176" stroke="#7C3AED" stroke-width="1.5"/>
+    <polygon points="115,174 120,182 125,174" fill="#7C3AED"/>
+
+    <!-- Logits output -->
+    <text x="120" y="196" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">Output (logits):</text>
+    <rect x="45" y="202" width="150" height="22" rx="4" fill="white" stroke="#DDD6FE" stroke-width="1"/>
+    <text x="120" y="217" text-anchor="middle" font-size="10" fill="#5B21B6" font-family="'Courier New', monospace">[-1.59, 1.59]</text>
+
+    <!-- Label -->
+    <rect x="50" y="230" width="140" height="20" rx="10" fill="#7C3AED"/>
+    <text x="120" y="244" text-anchor="middle" font-size="10" font-weight="600" fill="white" font-family="'Courier New', monospace">AutoModelFor*</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- Arrow 2→3                                                     -->
+  <!-- ============================================================ -->
+  <line x1="553" y1="175" x2="583" y2="175" stroke="#7C3AED" stroke-width="3" marker-end="url(#arrow-purple)"/>
+
+  <!-- ============================================================ -->
+  <!-- STEP 3: Post-Process                                          -->
+  <!-- ============================================================ -->
+  <g transform="translate(590, 55)">
+    <!-- Card -->
+    <rect width="240" height="240" rx="12" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2" filter="url(#shadow)"/>
+
+    <!-- Header bar -->
+    <rect width="240" height="36" rx="12" fill="#7C3AED"/>
+    <rect y="24" width="240" height="12" fill="#7C3AED"/>
+    <text x="120" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="white">3. Post-Process</text>
+
+    <!-- Input logits -->
+    <text x="120" y="56" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">Input (logits):</text>
+    <rect x="45" y="62" width="150" height="22" rx="4" fill="white" stroke="#DDD6FE" stroke-width="1"/>
+    <text x="120" y="78" text-anchor="middle" font-size="10" fill="#5B21B6" font-family="'Courier New', monospace">[-1.59, 1.59]</text>
+
+    <!-- Softmax step -->
+    <line x1="120" y1="88" x2="120" y2="96" stroke="#7C3AED" stroke-width="1.5"/>
+    <polygon points="115,94 120,102 125,94" fill="#7C3AED"/>
+    <rect x="60" y="104" width="120" height="22" rx="11" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1"/>
+    <text x="120" y="119" text-anchor="middle" font-size="10" font-weight="600" fill="#5B21B6">softmax</text>
+
+    <!-- Probabilities -->
+    <line x1="120" y1="128" x2="120" y2="136" stroke="#7C3AED" stroke-width="1.5"/>
+    <polygon points="115,134 120,142 125,134" fill="#7C3AED"/>
+    <rect x="45" y="144" width="150" height="22" rx="4" fill="white" stroke="#DDD6FE" stroke-width="1"/>
+    <text x="120" y="159" text-anchor="middle" font-size="10" fill="#5B21B6" font-family="'Courier New', monospace">[0.04, 0.96]</text>
+
+    <!-- Argmax step -->
+    <line x1="120" y1="168" x2="120" y2="176" stroke="#7C3AED" stroke-width="1.5"/>
+    <polygon points="115,174 120,182 125,174" fill="#7C3AED"/>
+    <rect x="60" y="184" width="120" height="22" rx="11" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1"/>
+    <text x="120" y="199" text-anchor="middle" font-size="10" font-weight="600" fill="#5B21B6">argmax</text>
+
+    <!-- Result -->
+    <line x1="120" y1="208" x2="120" y2="214" stroke="#7C3AED" stroke-width="1.5"/>
+    <polygon points="115,212 120,220 125,212" fill="#7C3AED"/>
+    <rect x="30" y="222" width="180" height="24" rx="12" fill="#7C3AED"/>
+    <text x="120" y="238" text-anchor="middle" font-size="11" font-weight="700" fill="white">POSITIVE (0.96)</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- Bottom code one-liner                                         -->
+  <!-- ============================================================ -->
+  <rect x="100" y="315" width="650" height="36" rx="8" fill="#1E1B4B" filter="url(#shadow)"/>
+  <text x="425" y="338" text-anchor="middle" font-size="12" fill="#C4B5FD" font-family="'Courier New', monospace">pipeline("sentiment-analysis")("Hugging Face makes NLP easy!")</text>
+</svg>
