@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 370" role="img" aria-labelledby="title desc" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title id="title">Three triangles force the remaining signs</title><desc id="desc">In a balanced complete graph, the two signs incident to A determine the third sign. Within X and within Y it is positive; between X and Y it is negative.</desc>
+<defs><filter id="shadow" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter></defs>
+<rect width="960" height="370" rx="12" fill="#FFFFFF"/>
+<text x="480" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Three triangles force the remaining signs</text>
+<text x="480" y="56" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Known signs: blue. Forced signs: amber. Every balanced triangle has 1 or 3 positive edges.</text>
+<g transform="translate(20,75)">
+<rect width="290" height="270" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="145" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1E40AF">1. Within X</text>
+<line x1="145" y1="80" x2="60" y2="195" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="99" cy="133" r="12" fill="#FFFFFF"/>
+<text x="99" y="138" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<line x1="145" y1="80" x2="230" y2="195" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="191" cy="133" r="12" fill="#FFFFFF"/>
+<text x="191" y="138" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<line x1="60" y1="195" x2="230" y2="195" stroke="#F59E0B" stroke-width="3"/>
+<circle cx="145" cy="195" r="12" fill="#FFFFFF"/>
+<text x="145" y="200" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">+</text>
+<circle cx="145" cy="80" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="145" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<circle cx="60" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="60" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">B</text>
+<circle cx="230" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="230" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">C</text>
+<text x="145" y="247" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">3 positive edges</text>
+</g>
+<g transform="translate(335,75)">
+<rect width="290" height="270" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="145" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1E40AF">2. Within Y</text>
+<line x1="145" y1="80" x2="60" y2="195" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="6,4"/>
+<circle cx="99" cy="133" r="12" fill="#FFFFFF"/>
+<text x="99" y="138" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">−</text>
+<line x1="145" y1="80" x2="230" y2="195" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="6,4"/>
+<circle cx="191" cy="133" r="12" fill="#FFFFFF"/>
+<text x="191" y="138" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">−</text>
+<line x1="60" y1="195" x2="230" y2="195" stroke="#F59E0B" stroke-width="3"/>
+<circle cx="145" cy="195" r="12" fill="#FFFFFF"/>
+<text x="145" y="200" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">+</text>
+<circle cx="145" cy="80" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="145" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<circle cx="60" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="60" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">D</text>
+<circle cx="230" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="230" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">E</text>
+<text x="145" y="247" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">1 positive edge</text>
+</g>
+<g transform="translate(650,75)">
+<rect width="290" height="270" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="145" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1E40AF">3. Between X and Y</text>
+<line x1="145" y1="80" x2="60" y2="195" stroke="#3B82F6" stroke-width="1.5"/>
+<circle cx="99" cy="133" r="12" fill="#FFFFFF"/>
+<text x="99" y="138" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">+</text>
+<line x1="145" y1="80" x2="230" y2="195" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="6,4"/>
+<circle cx="191" cy="133" r="12" fill="#FFFFFF"/>
+<text x="191" y="138" text-anchor="middle" font-size="17" font-weight="700" fill="#1E40AF">−</text>
+<line x1="60" y1="195" x2="230" y2="195" stroke="#F59E0B" stroke-width="3" stroke-dasharray="6,4"/>
+<circle cx="145" cy="195" r="12" fill="#FFFFFF"/>
+<text x="145" y="200" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">−</text>
+<circle cx="145" cy="80" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="145" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<circle cx="60" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="60" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">B</text>
+<circle cx="230" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="230" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">E</text>
+<text x="145" y="247" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">1 positive edge</text>
+</g>
+</svg>

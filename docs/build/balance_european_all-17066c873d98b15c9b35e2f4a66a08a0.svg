@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 895" role="img" aria-labelledby="title desc" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title id="title">European alliances, 1872–1907</title>
+<desc id="desc">Six historical schematics preserve the relationships and missing edges in Easley and Kleinberg Figure 5.5. Early stages are incomplete signed graphs; the final stage is complete with two internally friendly groups.</desc>
+<defs>
+  <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+    <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+  </filter>
+</defs>
+<rect width="1020" height="895" rx="12" fill="#FFFFFF"/>
+<text x="510" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">European alliances, 1872–1907</text>
+<line x1="120" y1="64" x2="162" y2="64" stroke="#3B82F6" stroke-width="2"/>
+<text x="233" y="69" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">+ Friendship</text>
+<line x1="355" y1="64" x2="397" y2="64" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="461" y="69" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">− Enmity</text>
+<text x="741" y="69" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">No line: relationship not shown</text>
+<!-- Panel (a): 3 positive edges, 6 negative edges. -->
+<g id="stage-a" data-stage="a" transform="translate(15,90)">
+<rect width="320" height="333" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="160" y="27" text-anchor="middle" font-size="14" font-weight="600" fill="#1E40AF">(a) Three Emperors’ League</text>
+<text x="160" y="49" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">1872–81</text>
+<line x1="75" y1="100" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-AH" data-sign="-"/>
+<line x1="75" y1="100" x2="30" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-Fr" data-sign="-"/>
+<line x1="75" y1="100" x2="75" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-Ru" data-sign="-"/>
+<line x1="30" y1="180" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-AH" data-sign="-"/>
+<line x1="30" y1="180" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-Ge" data-sign="-"/>
+<line x1="30" y1="180" x2="75" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-Ru" data-sign="-"/>
+<line x1="245" y1="100" x2="290" y2="180" stroke="#3B82F6" stroke-width="2" data-edge="AH-Ge" data-sign="+"/>
+<line x1="245" y1="100" x2="75" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="AH-Ru" data-sign="+"/>
+<line x1="290" y1="180" x2="75" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="Ge-Ru" data-sign="+"/>
+<circle cx="75" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">GB</text>
+<circle cx="245" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">AH</text>
+<circle cx="30" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="30" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Fr</text>
+<circle cx="290" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="290" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ge</text>
+<circle cx="75" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ru</text>
+<circle cx="245" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">It</text>
+<text x="160" y="311" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Incomplete signed graph</text>
+</g>
+<!-- Panel (b): 5 positive edges, 6 negative edges. -->
+<g id="stage-b" data-stage="b" transform="translate(350,90)">
+<rect width="320" height="333" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="160" y="27" text-anchor="middle" font-size="14" font-weight="600" fill="#1E40AF">(b) Triple Alliance</text>
+<text x="160" y="49" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">1882</text>
+<line x1="75" y1="100" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-AH" data-sign="-"/>
+<line x1="75" y1="100" x2="30" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-Fr" data-sign="-"/>
+<line x1="75" y1="100" x2="75" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-Ru" data-sign="-"/>
+<line x1="30" y1="180" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-AH" data-sign="-"/>
+<line x1="30" y1="180" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-Ge" data-sign="-"/>
+<line x1="30" y1="180" x2="75" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-Ru" data-sign="-"/>
+<line x1="245" y1="100" x2="290" y2="180" stroke="#3B82F6" stroke-width="2" data-edge="AH-Ge" data-sign="+"/>
+<line x1="245" y1="100" x2="75" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="AH-Ru" data-sign="+"/>
+<line x1="290" y1="180" x2="75" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="Ge-Ru" data-sign="+"/>
+<line x1="245" y1="100" x2="245" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="AH-It" data-sign="+"/>
+<line x1="290" y1="180" x2="245" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="Ge-It" data-sign="+"/>
+<circle cx="75" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">GB</text>
+<circle cx="245" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">AH</text>
+<circle cx="30" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="30" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Fr</text>
+<circle cx="290" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="290" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ge</text>
+<circle cx="75" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ru</text>
+<circle cx="245" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">It</text>
+<text x="160" y="311" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Incomplete signed graph</text>
+</g>
+<!-- Panel (c): 3 positive edges, 8 negative edges. -->
+<g id="stage-c" data-stage="c" transform="translate(685,90)">
+<rect width="320" height="333" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="160" y="27" text-anchor="middle" font-size="14" font-weight="600" fill="#1E40AF">(c) German–Russian lapse</text>
+<text x="160" y="49" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">1890</text>
+<line x1="75" y1="100" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-AH" data-sign="-"/>
+<line x1="75" y1="100" x2="30" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-Fr" data-sign="-"/>
+<line x1="75" y1="100" x2="75" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-Ru" data-sign="-"/>
+<line x1="30" y1="180" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-AH" data-sign="-"/>
+<line x1="30" y1="180" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-Ge" data-sign="-"/>
+<line x1="30" y1="180" x2="75" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-Ru" data-sign="-"/>
+<line x1="75" y1="260" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Ru-AH" data-sign="-"/>
+<line x1="75" y1="260" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Ru-Ge" data-sign="-"/>
+<line x1="245" y1="100" x2="290" y2="180" stroke="#3B82F6" stroke-width="2" data-edge="AH-Ge" data-sign="+"/>
+<line x1="245" y1="100" x2="245" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="AH-It" data-sign="+"/>
+<line x1="290" y1="180" x2="245" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="Ge-It" data-sign="+"/>
+<circle cx="75" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">GB</text>
+<circle cx="245" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">AH</text>
+<circle cx="30" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="30" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Fr</text>
+<circle cx="290" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="290" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ge</text>
+<circle cx="75" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ru</text>
+<circle cx="245" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">It</text>
+<text x="160" y="311" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Incomplete signed graph</text>
+</g>
+<!-- Panel (d): 4 positive edges, 7 negative edges. -->
+<g id="stage-d" data-stage="d" transform="translate(15,442)">
+<rect width="320" height="333" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="160" y="27" text-anchor="middle" font-size="14" font-weight="600" fill="#1E40AF">(d) French–Russian Alliance</text>
+<text x="160" y="49" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">1891–94</text>
+<line x1="75" y1="100" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-AH" data-sign="-"/>
+<line x1="75" y1="100" x2="30" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-Fr" data-sign="-"/>
+<line x1="75" y1="100" x2="75" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-Ru" data-sign="-"/>
+<line x1="30" y1="180" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-AH" data-sign="-"/>
+<line x1="30" y1="180" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-Ge" data-sign="-"/>
+<line x1="75" y1="260" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Ru-AH" data-sign="-"/>
+<line x1="75" y1="260" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Ru-Ge" data-sign="-"/>
+<line x1="245" y1="100" x2="290" y2="180" stroke="#3B82F6" stroke-width="2" data-edge="AH-Ge" data-sign="+"/>
+<line x1="245" y1="100" x2="245" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="AH-It" data-sign="+"/>
+<line x1="290" y1="180" x2="245" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="Ge-It" data-sign="+"/>
+<line x1="30" y1="180" x2="75" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="Fr-Ru" data-sign="+"/>
+<circle cx="75" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">GB</text>
+<circle cx="245" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">AH</text>
+<circle cx="30" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="30" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Fr</text>
+<circle cx="290" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="290" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ge</text>
+<circle cx="75" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ru</text>
+<circle cx="245" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">It</text>
+<text x="160" y="311" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Incomplete signed graph</text>
+</g>
+<!-- Panel (e): 5 positive edges, 6 negative edges. -->
+<g id="stage-e" data-stage="e" transform="translate(350,442)">
+<rect width="320" height="333" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="160" y="27" text-anchor="middle" font-size="14" font-weight="600" fill="#1E40AF">(e) Entente Cordiale</text>
+<text x="160" y="49" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">1904</text>
+<line x1="75" y1="100" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-AH" data-sign="-"/>
+<line x1="75" y1="100" x2="75" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-Ru" data-sign="-"/>
+<line x1="30" y1="180" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-AH" data-sign="-"/>
+<line x1="30" y1="180" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-Ge" data-sign="-"/>
+<line x1="75" y1="260" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Ru-AH" data-sign="-"/>
+<line x1="75" y1="260" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Ru-Ge" data-sign="-"/>
+<line x1="245" y1="100" x2="290" y2="180" stroke="#3B82F6" stroke-width="2" data-edge="AH-Ge" data-sign="+"/>
+<line x1="245" y1="100" x2="245" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="AH-It" data-sign="+"/>
+<line x1="290" y1="180" x2="245" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="Ge-It" data-sign="+"/>
+<line x1="30" y1="180" x2="75" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="Fr-Ru" data-sign="+"/>
+<line x1="75" y1="100" x2="30" y2="180" stroke="#3B82F6" stroke-width="2" data-edge="GB-Fr" data-sign="+"/>
+<circle cx="75" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">GB</text>
+<circle cx="245" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">AH</text>
+<circle cx="30" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="30" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Fr</text>
+<circle cx="290" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="290" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ge</text>
+<circle cx="75" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ru</text>
+<circle cx="245" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">It</text>
+<text x="160" y="311" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Incomplete signed graph</text>
+</g>
+<!-- Panel (f): 6 positive edges, 9 negative edges. -->
+<g id="stage-f" data-stage="f" transform="translate(685,442)">
+<rect width="320" height="333" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="160" y="27" text-anchor="middle" font-size="14" font-weight="600" fill="#1E40AF">(f) British–Russian Alliance</text>
+<text x="160" y="49" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">1907</text>
+<line x1="75" y1="100" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-AH" data-sign="-"/>
+<line x1="75" y1="100" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-Ge" data-sign="-"/>
+<line x1="75" y1="100" x2="245" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="GB-It" data-sign="-"/>
+<line x1="30" y1="180" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-AH" data-sign="-"/>
+<line x1="30" y1="180" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-Ge" data-sign="-"/>
+<line x1="30" y1="180" x2="245" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Fr-It" data-sign="-"/>
+<line x1="75" y1="260" x2="245" y2="100" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Ru-AH" data-sign="-"/>
+<line x1="75" y1="260" x2="290" y2="180" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Ru-Ge" data-sign="-"/>
+<line x1="75" y1="260" x2="245" y2="260" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4" data-edge="Ru-It" data-sign="-"/>
+<line x1="75" y1="100" x2="30" y2="180" stroke="#3B82F6" stroke-width="2" data-edge="GB-Fr" data-sign="+"/>
+<line x1="75" y1="100" x2="75" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="GB-Ru" data-sign="+"/>
+<line x1="30" y1="180" x2="75" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="Fr-Ru" data-sign="+"/>
+<line x1="245" y1="100" x2="290" y2="180" stroke="#3B82F6" stroke-width="2" data-edge="AH-Ge" data-sign="+"/>
+<line x1="245" y1="100" x2="245" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="AH-It" data-sign="+"/>
+<line x1="290" y1="180" x2="245" y2="260" stroke="#3B82F6" stroke-width="2" data-edge="Ge-It" data-sign="+"/>
+<circle cx="75" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">GB</text>
+<circle cx="245" cy="100" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">AH</text>
+<circle cx="30" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="30" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Fr</text>
+<circle cx="290" cy="180" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="290" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ge</text>
+<circle cx="75" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="75" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Ru</text>
+<circle cx="245" cy="260" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="245" y="264" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">It</text>
+<text x="160" y="311" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Complete signed graph</text>
+</g>
+<text x="510" y="810" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">GB: Great Britain · Fr: France · Ru: Russia</text>
+<text x="510" y="834" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">AH: Austria-Hungary · Ge: Germany · It: Italy</text>
+<text x="510" y="871" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">The balance theorem above applies to complete signed graphs.</text>
+</svg>
