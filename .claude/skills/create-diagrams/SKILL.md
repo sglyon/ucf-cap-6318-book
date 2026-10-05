@@ -26,7 +26,7 @@ You create hand-authored SVG diagrams for CAP-6318 lecture notebooks, matching t
    - Read the SVG file with the `:img` selector (rasterizes to PNG) and inspect it, or open it in a browser tab and screenshot.
    - Check: no text clipping/overflow, no overlapping elements, readable font sizes, correct palette, proper spacing.
    - Fix and re-check until clean.
-5. **Embed** in the lecture notebook (markdown cell) with a MyST figure directive:
+5. **Embed** in the lecture notebook. For downloadable notebooks, use the portable attachment recipe in `references/diagram-guide.md` under **Notebook Downloads**. Standard Jupyter displays MyST figure directives as code blocks, and sibling SVGs do not travel with the downloaded notebook. For site-only material, use a MyST figure directive:
 
    ````markdown
    ```{figure} img/diagram_name.svg

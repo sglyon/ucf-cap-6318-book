@@ -30,6 +30,52 @@ Caption describing what the diagram shows.
 ```
 ````
 
+## Notebook Downloads
+
+For notebooks that visitors download from the site, embed each SVG as a base64
+`image/svg+xml` markdown-cell attachment. Keep the SVG in `weekWW/img/` as the
+editable source. Use native Markdown in the image cell:
+
+```markdown
+<a name="fig-descriptive-label">&#8203;</a>
+
+![A short description](attachment:diagram_name.svg)
+```
+
+Give that cell a stable `id` (for example, `diagram-name`) and metadata:
+
+```json
+{
+  "label": "fig-descriptive-label",
+  "caption": "Caption describing what the diagram shows.",
+  "diagram_source": "img/diagram_name.svg"
+}
+```
+
+MyST resolves the attachment and uses `label` and `caption` to create a numbered
+figure. Jupyter renders the attached SVG without a kernel, network access, or
+neighboring files. Add a following Markdown cell with id `diagram-name-caption`,
+the caption as its source, and `{"tags": ["remove-cell"]}` as its metadata.
+Jupyter displays this caption; MyST hides the extra cell to avoid duplication.
+Use nonempty reference text, such as `[the diagram below](#fig-descriptive-label)`,
+so references remain visible in standard Jupyter too.
+
+Run `uv run python scripts/sync_diagram_attachments.py` after editing SVGs or
+captions and before a direct MyST build. `make build` and `make run` do this
+automatically. The script refreshes attachments and notebook-only captions from
+the source SVGs and figure metadata. PNG, JPEG, GIF, and WebP figures can use the
+same recipe with their matching MIME types. For ordinary Markdown images within
+a prose cell, store their files in `img/`, use `attachment:filename.png` in the
+image link, and record `"attachment_sources": {"filename.png": "img/filename.png"}`
+in cell metadata. These images do not need figure or caption metadata. Preserve
+original remote URLs in `attachment_source_urls` (or `diagram_source_url` for a
+figure), along with any existing attribution in the prose or caption.
+
+Validate the actual `.ipynb` files linked by each built page's
+`frontmatter.exports`: open an isolated copy in Jupyter, or render it with
+nbconvert and check that every diagram is an embedded SVG image. Also verify
+that the website still has one caption per figure and resolved cross-references.
+
 ## Visual Style Conventions
 
 ### Colors

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350" role="img" aria-labelledby="title desc" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title id="title">Four kinds of signed triangle</title>
+<desc id="desc">Cases a and c are balanced with three and one positive edges respectively. Cases b and d are unbalanced with two and zero positive edges.</desc>
+<defs>
+  <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+    <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+  </filter>
+</defs>
+<rect width="1000" height="350" rx="12" fill="#FFFFFF"/>
+<text x="500" y="33" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Four kinds of signed triangle</text>
+<text x="500" y="56" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">A triangle is balanced when exactly 1 or 3 of its edges are positive.</text>
+<!-- Case (a): signs AB, AC, BC = +, +, + -->
+<g transform="translate(15,76)">
+<rect width="229" height="255" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="114" y="27" text-anchor="middle" font-size="15" font-weight="600" fill="#1E40AF">(a) Balanced</text>
+<line x1="114" y1="73" x2="44" y2="179" stroke="#3B82F6" stroke-width="2"/>
+<circle cx="75" cy="122" r="11" fill="#FFFFFF"/>
+<text x="75" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#1E40AF">+</text>
+<line x1="114" y1="73" x2="185" y2="179" stroke="#3B82F6" stroke-width="2"/>
+<circle cx="154" cy="122" r="11" fill="#FFFFFF"/>
+<text x="154" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#1E40AF">+</text>
+<line x1="44" y1="179" x2="185" y2="179" stroke="#3B82F6" stroke-width="2"/>
+<circle cx="114" cy="179" r="11" fill="#FFFFFF"/>
+<text x="114" y="183" text-anchor="middle" font-size="16" font-weight="700" fill="#1E40AF">+</text>
+<circle cx="114" cy="73" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="114" y="77" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<circle cx="44" cy="179" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="44" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">B</text>
+<circle cx="185" cy="179" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="185" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">C</text>
+<text x="114" y="230" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">3 positive edges</text>
+</g>
+<!-- Case (b): signs AB, AC, BC = +, +, - -->
+<g transform="translate(262,76)">
+<rect width="229" height="255" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="114" y="27" text-anchor="middle" font-size="15" font-weight="600" fill="#1E40AF">(b) Not balanced</text>
+<line x1="114" y1="73" x2="44" y2="179" stroke="#3B82F6" stroke-width="2"/>
+<circle cx="75" cy="122" r="11" fill="#FFFFFF"/>
+<text x="75" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#1E40AF">+</text>
+<line x1="114" y1="73" x2="185" y2="179" stroke="#3B82F6" stroke-width="2"/>
+<circle cx="154" cy="122" r="11" fill="#FFFFFF"/>
+<text x="154" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#1E40AF">+</text>
+<line x1="44" y1="179" x2="185" y2="179" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4"/>
+<circle cx="114" cy="179" r="11" fill="#FFFFFF"/>
+<text x="114" y="183" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">−</text>
+<circle cx="114" cy="73" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="114" y="77" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<circle cx="44" cy="179" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="44" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">B</text>
+<circle cx="185" cy="179" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="185" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">C</text>
+<text x="114" y="230" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">2 positive edges</text>
+</g>
+<!-- Case (c): signs AB, AC, BC = +, -, - -->
+<g transform="translate(509,76)">
+<rect width="229" height="255" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="114" y="27" text-anchor="middle" font-size="15" font-weight="600" fill="#1E40AF">(c) Balanced</text>
+<line x1="114" y1="73" x2="44" y2="179" stroke="#3B82F6" stroke-width="2"/>
+<circle cx="75" cy="122" r="11" fill="#FFFFFF"/>
+<text x="75" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#1E40AF">+</text>
+<line x1="114" y1="73" x2="185" y2="179" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4"/>
+<circle cx="154" cy="122" r="11" fill="#FFFFFF"/>
+<text x="154" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">−</text>
+<line x1="44" y1="179" x2="185" y2="179" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4"/>
+<circle cx="114" cy="179" r="11" fill="#FFFFFF"/>
+<text x="114" y="183" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">−</text>
+<circle cx="114" cy="73" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="114" y="77" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<circle cx="44" cy="179" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="44" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">B</text>
+<circle cx="185" cy="179" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="185" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">C</text>
+<text x="114" y="230" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">1 positive edge</text>
+</g>
+<!-- Case (d): signs AB, AC, BC = -, -, - -->
+<g transform="translate(756,76)">
+<rect width="229" height="255" rx="12" fill="#EFF6FF" stroke="#3B82F6" filter="url(#shadow)"/>
+<text x="114" y="27" text-anchor="middle" font-size="15" font-weight="600" fill="#1E40AF">(d) Not balanced</text>
+<line x1="114" y1="73" x2="44" y2="179" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4"/>
+<circle cx="75" cy="122" r="11" fill="#FFFFFF"/>
+<text x="75" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">−</text>
+<line x1="114" y1="73" x2="185" y2="179" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4"/>
+<circle cx="154" cy="122" r="11" fill="#FFFFFF"/>
+<text x="154" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">−</text>
+<line x1="44" y1="179" x2="185" y2="179" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4"/>
+<circle cx="114" cy="179" r="11" fill="#FFFFFF"/>
+<text x="114" y="183" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">−</text>
+<circle cx="114" cy="73" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="114" y="77" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<circle cx="44" cy="179" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="44" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">B</text>
+<circle cx="185" cy="179" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+<text x="185" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">C</text>
+<text x="114" y="230" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">0 positive edges</text>
+</g>
+</svg>
