@@ -75,7 +75,7 @@ module.exports = function createWarmup(players) {
   function submit(id, value) {
     if (!round || round.status !== "open" || !round.roster.includes(id)) return { error: "No open round" };
     if (round.kind === "beauty") {
-      const v = Number(value);
+      const v = value === "" || value === null || value === undefined ? NaN : Number(value);
       if (!Number.isFinite(v) || v < 0 || v > 100) return { error: "Pick a number from 0 to 100" };
       choices.set(id, Math.round(v * 10) / 10);
     } else {
@@ -112,13 +112,15 @@ module.exports = function createWarmup(players) {
       const outcomes = {}; // playerId -> {mine, theirs, payoff, role}
       for (const [a, b] of round.pairs) {
         const ra = choices.has(a) ? choices.get(a) : null;
-        const rb = b ? (choices.has(b) ? choices.get(b) : null) : botAction(g, 1);
-        if (ra === null || rb === null) continue; // someone didn't choose
-        cells[ra][rb] += 1;
-        const [pa, pb] = g.payoff[ra][rb];
-        outcomes[a] = { role: 0, mine: ra, theirs: rb, payoff: pa, partner: b ? name(b) : "Bot" };
-        scores.set(a, (scores.get(a) || 0) + pa);
-        if (b) { outcomes[b] = { role: 1, mine: rb, theirs: ra, payoff: pb, partner: name(a) }; scores.set(b, (scores.get(b) || 0) + pb); }
+        const rb = b && choices.has(b) ? choices.get(b) : null;
+        if (ra === null && rb === null) continue; // neither chose
+        // If only one side chose, a bot stands in for the other.
+        const ra2 = ra ?? botAction(g, 0), rb2 = rb ?? botAction(g, 1);
+        const aName = ra === null ? "Bot (stand-in)" : name(a), bName = !b ? "Bot" : rb === null ? "Bot (stand-in)" : name(b);
+        cells[ra2][rb2] += 1;
+        const [pa, pb] = g.payoff[ra2][rb2];
+        if (ra !== null) { outcomes[a] = { role: 0, mine: ra2, theirs: rb2, payoff: pa, partner: bName }; scores.set(a, (scores.get(a) || 0) + pa); }
+        if (b && rb !== null) { outcomes[b] = { role: 1, mine: rb2, theirs: ra2, payoff: pb, partner: aName }; scores.set(b, (scores.get(b) || 0) + pb); }
       }
       const byRole = [[0, 0], [0, 0]];
       for (const o of Object.values(outcomes)) byRole[o.role][o.mine] += 1;
@@ -130,7 +132,8 @@ module.exports = function createWarmup(players) {
   function setMode(m, g) {
     if (m) mode = m === "matrix" ? "matrix" : "beauty";
     if (g && GAMES[g] && g !== gameKey) { gameKey = g; scores.clear(); }
-    if (round && round.status === "open") round = null;
+    // Clear the current round when the selection changes, so the projector never mixes game types.
+    if (round && (round.status === "open" || round.kind !== mode || (mode === "matrix" && round.game !== gameKey))) round = null;
   }
 
   function reset() { round = null; roundNo = 0; choices.clear(); scores.clear(); history.length = 0; }

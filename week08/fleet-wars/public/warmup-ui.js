@@ -66,7 +66,7 @@ function renderWarmPlay(el, state, myId) {
           <div class="muted">Round ${r.no}</div>
           <div class="wbig">Pick a number from 0 to 100</div>
           <div>The winner is whoever is closest to <b>2/3 of the class average</b>.</div>
-          <form id="bform" class="row" style="display:flex; gap:8px"><input id="bval" type="number" inputmode="decimal" min="0" max="100" step="any" style="flex:1; font-size:22px"><button class="primary">Submit</button></form>
+          <form id="bform" class="row" style="display:flex; gap:8px"><input id="bval" required type="number" inputmode="decimal" min="0" max="100" step="any" style="flex:1; font-size:22px"><button class="primary">Submit</button></form>
           <div id="bmsg" class="muted"></div></div>`;
         el.querySelector("#bform").onsubmit = async (e) => {
           e.preventDefault();

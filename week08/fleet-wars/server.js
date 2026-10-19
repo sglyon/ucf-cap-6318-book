@@ -164,7 +164,9 @@ function body(req) {
   return new Promise((resolve) => {
     let b = "";
     req.on("data", (c) => (b += c));
-    req.on("end", () => { try { resolve(JSON.parse(b || "{}")); } catch { resolve({}); } });
+    req.on("end", () => {
+      try { const v = JSON.parse(b || "{}"); resolve(v && typeof v === "object" && !Array.isArray(v) ? v : {}); } catch { resolve({}); }
+    });
   });
 }
 function json(res, code, obj) { res.writeHead(code, { "content-type": "application/json" }); res.end(JSON.stringify(obj)); }
@@ -182,7 +184,8 @@ function csv(rows) {
 }
 
 const server = http.createServer(async (req, res) => {
-  const url = new URL(req.url, "http://x");
+  let url;
+  try { url = new URL(req.url, "http://x"); } catch { res.writeHead(400); return res.end("bad request"); }
   const p = url.pathname;
   const isAdmin = url.searchParams.get("key") === ADMIN_KEY;
 
@@ -291,6 +294,10 @@ const server = http.createServer(async (req, res) => {
 
   res.writeHead(404); res.end("not found");
 });
+
+// Never let one bad request take down the class.
+process.on("unhandledRejection", (e) => console.error("unhandled", e));
+process.on("uncaughtException", (e) => console.error("uncaught", e));
 
 server.listen(PORT, () => {
   console.log(`Fleet Wars on http://localhost:${PORT}`);

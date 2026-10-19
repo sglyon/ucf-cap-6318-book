@@ -72,7 +72,7 @@ document.getElementById("wreveal").onclick = () => api("w/reveal");
 document.getElementById("tofleet").onclick = () => api("activity", { activity: "fleet" });
 let state = null, offset = 0, editing = false;
 
-document.querySelectorAll(".preset button").forEach((b) => (b.onclick = () => api("config", JSON.parse(b.dataset.p))));
+document.querySelectorAll("[data-p]").forEach((b) => (b.onclick = () => api("config", JSON.parse(b.dataset.p))));
 ["companies", "duration", "info"].forEach((k) => {
   const el = document.getElementById(k);
   el.onfocus = () => (editing = true);
@@ -98,9 +98,9 @@ function render() {
     document.getElementById("duration").value = c.duration;
     document.getElementById("info").value = c.info;
   }
-  const w = document.getElementById("worm");
-  w.textContent = c.wormhole ? "Open: click to close" : "Closed: click to open";
-  w.style.borderColor = c.wormhole ? "var(--worm)" : "";
+  const wb = document.getElementById("worm");
+  wb.textContent = c.wormhole ? "Open: click to close" : "Closed: click to open";
+  wb.style.borderColor = c.wormhole ? "var(--worm)" : "";
   const left = r && r.status === "running" ? Math.ceil(Math.max(0, (r.endsAt - (Date.now() + offset)) / 1000)) : null;
   document.getElementById("status").innerHTML = r
     ? `<b>Round ${r.no}</b> · ${r.status === "running" ? `${left}s left` : "finished"} · ${r.companies.length === state.players.length ? "solo" : r.companies.length + " companies"} · wormhole ${r.wormhole ? "open" : "closed"} · class avg <b>${fmt(r.live?.avg)}</b> · equilibrium ${fmt(r.benchmark.ne)} · planner ${fmt(r.benchmark.planner, 2)}`
