@@ -145,7 +145,7 @@ function renderWarmScreen(el, state) {
         ${r.status === "open"
           ? `<div class="big">${k} / ${n} submitted</div><div class="progress"><div style="width:${n ? (k / n) * 100 : 0}%"></div></div><div class="muted" style="font-size:20px">Pick a number from 0 to 100 on your phone. Closest to 2/3 of the class average wins.</div>`
           : `<div style="display:flex; gap:40px"><div><div class="muted">Average</div><div class="big">${fmt(res.avg)}</div></div><div><div class="muted">2/3 of average</div><div class="big" style="color:var(--accent)">${fmt(res.target)}</div></div><div><div class="muted">Winner</div><div style="font-size:28px; font-weight:700; margin-top:10px">${res.winners.map(esc).join(", ") || "–"}</div></div></div>
-             <div style="margin-top:48px">${histogram(res.values, [[res.target, `2/3 avg ${fmt(res.target)}`, "var(--accent)"], [res.avg, `avg ${fmt(res.avg)}`, "var(--muted)"], [0.4, "NE 0", "var(--good)"]])}</div>`}
+             <div style="margin-top:48px">${histogram(res.values, [[res.target, `2/3 avg ${fmt(res.target)}`, "var(--accent)"], [res.avg, `avg ${fmt(res.avg)}`, "var(--muted)"], ...(w.showNe ? [[0.4, "NE 0", "var(--good)"]] : [])])}</div>`}
       </section>
       <section class="card" style="align-content:start"><div class="muted">Rounds</div><table><thead><tr><th>#</th><th class="n">n</th><th class="n">Avg</th><th class="n">Target</th><th>Winner</th></tr></thead><tbody>${past}</tbody></table>${past ? "" : `<div class="muted" style="margin-top:8px">Results appear here after each reveal.</div>`}</section></div>`;
     return;

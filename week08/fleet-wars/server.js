@@ -276,6 +276,7 @@ const server = http.createServer(async (req, res) => {
       if (round && round.status === "running") endRound(); // don't leave a Fleet Wars round scoring in the background
       activity = "warmup"; const r = W.start(); broadcast(); return json(res, r.error ? 400 : 200, r); }
     if (action === "w/reveal") { W.reveal(); broadcast(); return json(res, 200, { ok: true }); }
+    if (action === "w/ne") { W.toggleNe(); broadcast(); return json(res, 200, { ok: true }); }
     if (action === "w/reset") { W.reset(); broadcast(); return json(res, 200, { ok: true }); }
     if (action === "kick") {
       players.delete(b.id);

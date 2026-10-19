@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fleet Wars Admin</title>
-<script src="/common.js?v=5"></script>
+<script src="/common.js?v=6"></script>
 <style>
   main { max-width:760px; margin:0 auto; padding:16px; display:grid; gap:12px; }
   h1 { margin:0; font-size:24px; }
@@ -31,7 +31,7 @@
       <button data-w='{"mode":"matrix","game":"market"}'>Marketing game</button>
       <button data-w='{"mode":"matrix","game":"pennies"}'>Matching pennies</button>
     </div>
-    <div class="row"><button class="primary" id="wstart">Start warm-up round</button><button id="wreveal">Reveal</button><span style="flex:1"></span><button id="tofleet">Switch everyone to Fleet Wars</button></div>
+    <div class="row"><button class="primary" id="wstart">Start warm-up round</button><button id="wreveal">Reveal</button><button id="wne">Show NE line</button><span style="flex:1"></span><button id="tofleet">Switch everyone to Fleet Wars</button></div>
   </div>
 
   <div class="card" style="display:grid; gap:12px">
@@ -69,6 +69,7 @@ document.getElementById("exWarm").href = `/export/warmups.csv?key=${encodeURICom
 document.querySelectorAll("[data-w]").forEach((b) => (b.onclick = () => api("w/mode", JSON.parse(b.dataset.w))));
 document.getElementById("wstart").onclick = () => api("w/start");
 document.getElementById("wreveal").onclick = () => api("w/reveal");
+document.getElementById("wne").onclick = () => api("w/ne");
 document.getElementById("tofleet").onclick = () => api("activity", { activity: "fleet" });
 let state = null, offset = 0, editing = false;
 
@@ -104,6 +105,9 @@ function render() {
     (wr ? ` · Round ${wr.no} ${wr.status === "open" ? `open, ${wr.submitted.length}/${wr.roster.length} in` : "revealed"}` : "") +
     (wr && wr.status === "open" && wr.submitted.length < wr.roster.length
       ? ` · Waiting on: ${wr.roster.filter((id) => !wr.submitted.includes(id)).map((id) => state.players.find((p) => p.id === id)?.name ?? "?").join(", ")}` : "");
+  const wne = document.getElementById("wne");
+  wne.hidden = w.mode !== "beauty";
+  wne.textContent = w.showNe ? "Hide NE line" : "Show NE line";
   document.querySelectorAll("[data-w]").forEach((b) => { const d = JSON.parse(b.dataset.w); b.style.borderColor = d.mode === w.mode && (d.mode === "beauty" || d.game === w.gameKey) ? "var(--accent)" : ""; });
   if (!editing) {
     document.getElementById("companies").value = c.companies;

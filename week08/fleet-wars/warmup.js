@@ -47,6 +47,7 @@ module.exports = function createWarmup(players) {
   const choices = new Map(); // playerId -> number (beauty) or action index (matrix)
   const scores = new Map(); // playerId -> cumulative points for current game
   const history = []; // revealed round summaries
+  let showNe = false; // 2/3 game: the instructor reveals the Nash equilibrium line when ready
 
   function start() {
     choices.clear();
@@ -153,7 +154,9 @@ module.exports = function createWarmup(players) {
     delete round.roles[id];
   }
 
-  function reset() { round = null; roundNo = 0; choices.clear(); scores.clear(); history.length = 0; }
+  function toggleNe() { showNe = !showNe; }
+
+  function reset() { showNe = false; round = null; roundNo = 0; choices.clear(); scores.clear(); history.length = 0; }
 
   function publicState() {
     const g = GAMES[gameKey];
@@ -169,6 +172,7 @@ module.exports = function createWarmup(players) {
       },
       history: history.filter((h) => (mode === "beauty" ? h.kind === "beauty" : h.kind === "matrix" && h.game === gameKey)),
       leaderboard,
+      showNe,
       gameName: g.name,
     };
   }
@@ -179,5 +183,5 @@ module.exports = function createWarmup(players) {
       : { round: h.no, game: h.game, n: "", avg: "", target: "", winners: "", cells: JSON.stringify(h.cells), row_actions: JSON.stringify(h.byRole[0]), col_actions: JSON.stringify(h.byRole[1]) });
   }
 
-  return { start, submit, reveal, setMode, reset, drop, publicState, exportRows, choices };
+  return { start, submit, reveal, setMode, reset, drop, toggleNe, publicState, exportRows, choices };
 };
