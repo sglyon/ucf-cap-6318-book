@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fleet Wars</title>
-<script src="/common.js"></script>
+<script src="/common.js?v=3"></script>
 <style>
   main { max-width:520px; margin:0 auto; padding:16px; display:grid; gap:12px; }
   h1 { font-size:22px; margin:0; }
@@ -118,7 +118,8 @@ function render() {
     row.querySelector(".time").textContent = live?.times[i] != null ? `${fmt(live.times[i])} min` : "";
     sliders[i].disabled = r.status !== "running" || (i === 2 && !r.wormhole);
   });
-  document.getElementById("r2").hidden = !r.wormhole;
+  // Inline style so a stale cached stylesheet can never leave the row visible.
+  document.getElementById("r2").style.display = r.wormhole ? "" : "none";
   document.getElementById("key").innerHTML = networkKey(r.wormhole);
   showShares();
   drawNetwork(document.getElementById("net"), live?.edges, r.wormhole, { showFlows: r.info !== "own" });

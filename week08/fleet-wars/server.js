@@ -166,7 +166,7 @@ function json(res, code, obj) { res.writeHead(code, { "content-type": "applicati
 function sendFile(res, file, type) {
   fs.readFile(path.join(__dirname, "public", file), (err, buf) => {
     if (err) { res.writeHead(404); return res.end("not found"); }
-    res.writeHead(200, { "content-type": type }); res.end(buf);
+    res.writeHead(200, { "content-type": type, "cache-control": "no-store" }); res.end(buf);
   });
 }
 function csv(rows) {
