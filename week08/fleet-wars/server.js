@@ -65,7 +65,7 @@ function newRound() {
     acc: {}, // company id -> {sum, n} over scoring window
     live: null,
   };
-  for (const p of active) p.raw = config.wormhole ? [1, 1, 1] : [1, 1, 0];
+  for (const p of active) p.raw = config.wormhole ? [50, 50, 50] : [50, 50, 0];
   return { ok: true };
 }
 
@@ -138,7 +138,7 @@ function publicState() {
     config,
     publicUrl: PUBLIC_URL,
     serverTime: Date.now(),
-    players: [...players.values()].map((p) => ({ id: p.id, name: p.name, company: p.company })),
+    players: [...players.values()].map((p) => ({ id: p.id, name: p.name, company: p.company, raw: p.raw })),
     round: round && {
       no: round.no, status: round.status, wormhole: round.wormhole, info: round.info, duration: round.duration,
       startedAt: round.startedAt, endsAt: round.endsAt, benchmark: round.benchmark,
@@ -211,7 +211,7 @@ const server = http.createServer(async (req, res) => {
     const name = String(b.name || "").replace(/[<>&"'`]/g, "").trim().slice(0, 20);
     if (!name) return json(res, 400, { error: "Pick a name" });
     let pl = b.id && players.get(b.id);
-    if (!pl) { pl = { id: crypto.randomBytes(6).toString("hex"), raw: [1, 1, 0], company: null }; players.set(pl.id, pl); }
+    if (!pl) { pl = { id: crypto.randomBytes(6).toString("hex"), raw: [50, 50, 0], company: null }; players.set(pl.id, pl); }
     pl.name = name;
     broadcast();
     return json(res, 200, { id: pl.id });
@@ -265,10 +265,18 @@ const server = http.createServer(async (req, res) => {
     if (action === "stop") { endRound(); broadcast(); return json(res, 200, { ok: true }); }
     if (action === "activity") { activity = b.activity === "warmup" ? "warmup" : "fleet"; broadcast(); return json(res, 200, { activity }); }
     if (action === "w/mode") { W.setMode(b.mode, b.game); activity = "warmup"; broadcast(); return json(res, 200, { ok: true }); }
-    if (action === "w/start") { activity = "warmup"; const r = W.start(); broadcast(); return json(res, r.error ? 400 : 200, r); }
+    if (action === "w/start") {
+      if (round && round.status === "running") endRound(); // don't leave a Fleet Wars round scoring in the background
+      activity = "warmup"; const r = W.start(); broadcast(); return json(res, r.error ? 400 : 200, r); }
     if (action === "w/reveal") { W.reveal(); broadcast(); return json(res, 200, { ok: true }); }
     if (action === "w/reset") { W.reset(); broadcast(); return json(res, 200, { ok: true }); }
-    if (action === "kick") { players.delete(b.id); broadcast(); return json(res, 200, { ok: true }); }
+    if (action === "kick") {
+      players.delete(b.id);
+      // Drop them from the running round too, so they stop counting as traffic or team size.
+      if (round) for (const c of round.companies) c.members = c.members.filter((m) => m !== b.id);
+      broadcast();
+      return json(res, 200, { ok: true });
+    }
     if (action === "reset") {
       round = null; roundNo = 0; history.length = 0; tickLog.length = 0;
       if (b.players) { players.clear(); W.reset(); }

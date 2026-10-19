@@ -58,8 +58,11 @@ let name = null; try { name = localStorage.getItem("fw-name"); } catch {}
 let state = null, lastRoundNo = null, dragging = false, offset = 0;
 const sliders = [0, 1, 2].map((i) => document.querySelector(`#r${i} input`));
 
+let joining = false;
 async function join(n) {
-  const r = await post("/api/join", { id, name: n });
+  if (joining) return;
+  joining = true;
+  const r = await post("/api/join", { id, name: n }).finally(() => (joining = false));
   if (r.id) { id = r.id; name = n; try { localStorage.setItem("fw-id", id); localStorage.setItem("fw-name", n); } catch {} }
   render();
 }
@@ -84,10 +87,12 @@ function showShares() { shares().forEach((s, i) => (document.querySelector(`#r${
 
 connect((s) => {
   state = s; offset = s.serverTime - Date.now();
-  // New round: reset sliders to the server's starting split.
-  if (s.round && s.round.no !== lastRoundNo) {
-    lastRoundNo = s.round.no;
-    sliders[0].value = 50; sliders[1].value = 50; sliders[2].value = s.round.wormhole ? 50 : 0;
+  // New round, or first load (e.g. after a reload): sync sliders to the split the server has for me.
+  const me = s.players.find((p) => p.id === id);
+  if (s.round && me && s.round.startedAt !== lastRoundNo) {
+    lastRoundNo = s.round.startedAt;
+    const raw = me.raw || [50, 50, 0];
+    sliders.forEach((sl, i) => (sl.value = raw[i]));
   }
   render();
 });
