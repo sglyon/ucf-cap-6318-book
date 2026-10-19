@@ -74,6 +74,8 @@ One to two pages, written by your team (not drafted by AI and lightly edited; I'
 5. The biggest risk to the project and your fallback plan
 6. A short team agreement: how you'll split work, how often you'll meet, how you'll handle disagreements
 
+**Tip:** Give the proposal real time. It is only one or two pages, but it is where you make the decisions that shape the rest of the project. A team that has a specific question, data in hand, and a clear minimum result on November 1 will have a much easier time executing over the following four weeks than a team that is still deciding what to study.
+
 ### M2: Check-in (due Nov 15)
 
 By this point your code should run end to end on real inputs, even if the results are rough. Submit:
