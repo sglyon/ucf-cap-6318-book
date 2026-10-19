@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fleet Wars Admin</title>
+<script src="/common.js"></script>
+<style>
+  main { max-width:760px; margin:0 auto; padding:16px; display:grid; gap:12px; }
+  h1 { margin:0; font-size:24px; }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+  @media (max-width:600px) { .grid { grid-template-columns:1fr; } }
+  label { display:grid; gap:4px; font-size:14px; color:var(--muted); }
+  .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .preset button { flex:1; }
+  ul { margin:6px 0 0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:6px 14px; }
+  #msg { min-height:1.4em; }
+  .danger { color:var(--bad); }
+</style>
+</head>
+<body>
+<main>
+  <div class="row" style="justify-content:space-between"><h1>Fleet Wars console</h1><a href="/screen" target="_blank">Open projector view</a></div>
+  <div class="card" id="status"></div>
+
+  <div class="card" style="display:grid; gap:12px">
+    <div class="muted">Suggested sequence (click to load settings, then Start round)</div>
+    <div class="row preset">
+      <button data-p='{"companies":0,"wormhole":false}'>1. Solo, no wormhole</button>
+      <button data-p='{"companies":0,"wormhole":true}'>2. Solo + wormhole</button>
+      <button data-p='{"companies":4,"wormhole":true}'>3. 4 companies</button>
+      <button data-p='{"companies":2,"wormhole":true}'>4. 2 companies</button>
+      <button data-p='{"companies":1,"wormhole":true}'>5. One company</button>
+    </div>
+    <div class="grid">
+      <label>Companies (0 = everyone independent)<input id="companies" type="number" min="0" max="12"></label>
+      <label>Round length (seconds)<input id="duration" type="number" min="10" max="600"></label>
+      <label>Information shown to players<select id="info"><option value="full">Full: everyone's flows on the map</option><option value="own">Limited: route times only</option></select></label>
+      <label>Wormhole (applies immediately, even mid-round)<button id="worm"></button></label>
+    </div>
+    <div class="row"><button class="primary" id="start">Start round</button><button id="stop">End round now</button><span id="msg" class="muted"></span></div>
+  </div>
+
+  <div class="card"><div class="muted" id="pcount">Players</div><ul id="players"></ul></div>
+
+  <div class="card row">
+    <a id="exRounds" href="#">Download rounds CSV</a> · <a id="exTicks" href="#">Download tick-level CSV</a>
+    <span style="flex:1"></span>
+    <button id="resetScores">Reset rounds</button><button id="resetAll" class="danger">Reset everything</button>
+  </div>
+</main>
+<script>
+const key = new URLSearchParams(location.search).get("key") || "";
+const api = (a, d) => post(`/api/admin/${a}?key=${encodeURIComponent(key)}`, d).then((r) => { document.getElementById("msg").textContent = r.error || ""; return r; });
+document.getElementById("exRounds").href = `/export/rounds.csv?key=${encodeURIComponent(key)}`;
+document.getElementById("exTicks").href = `/export/ticks.csv?key=${encodeURIComponent(key)}`;
+let state = null, offset = 0, editing = false;
+
+document.querySelectorAll(".preset button").forEach((b) => (b.onclick = () => api("config", JSON.parse(b.dataset.p))));
+["companies", "duration", "info"].forEach((k) => {
+  const el = document.getElementById(k);
+  el.onfocus = () => (editing = true);
+  el.onblur = () => (editing = false);
+  el.onchange = () => api("config", { [k]: k === "info" ? el.value : Number(el.value) });
+});
+document.getElementById("worm").onclick = () => api("config", { wormhole: !state.config.wormhole });
+document.getElementById("start").onclick = () => api("start");
+document.getElementById("stop").onclick = () => api("stop");
+document.getElementById("resetScores").onclick = () => api("reset", {});
+document.getElementById("resetAll").onclick = () => { if (document.getElementById("resetAll").dataset.armed) api("reset", { players: true }); else { document.getElementById("resetAll").dataset.armed = 1; document.getElementById("resetAll").textContent = "Click again to confirm"; } };
+
+connect((s) => { state = s; offset = s.serverTime - Date.now(); render(); });
+function render() {
+  const c = state.config, r = state.round;
+  if (!editing) {
+    document.getElementById("companies").value = c.companies;
+    document.getElementById("duration").value = c.duration;
+    document.getElementById("info").value = c.info;
+  }
+  const w = document.getElementById("worm");
+  w.textContent = c.wormhole ? "Open: click to close" : "Closed: click to open";
+  w.style.borderColor = c.wormhole ? "var(--worm)" : "";
+  const left = r && r.status === "running" ? Math.ceil(Math.max(0, (r.endsAt - (Date.now() + offset)) / 1000)) : null;
+  document.getElementById("status").innerHTML = r
+    ? `<b>Round ${r.no}</b> · ${r.status === "running" ? `${left}s left` : "finished"} · ${r.companies.length === state.players.length ? "solo" : r.companies.length + " companies"} · wormhole ${r.wormhole ? "open" : "closed"} · class avg <b>${fmt(r.live?.avg)}</b> · equilibrium ${fmt(r.benchmark.ne)} · planner ${fmt(r.benchmark.planner, 2)}`
+    : `${state.players.length} players joined. No round yet.`;
+  document.getElementById("pcount").textContent = `Players (${state.players.length})`;
+  document.getElementById("players").innerHTML = state.players.map((p) => `<li>${p.name} <a href="#" data-kick="${p.id}" class="muted">remove</a></li>`).join("") || "<li class='muted'>Nobody yet</li>";
+  document.querySelectorAll("[data-kick]").forEach((a) => (a.onclick = (e) => { e.preventDefault(); api("kick", { id: a.dataset.kick }); }));
+}
+setInterval(() => state && render(), 1000);
+</script>
+</body>
+</html>

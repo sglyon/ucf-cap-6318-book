@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fleet Wars</title>
+<script src="/common.js"></script>
+<style>
+  main { max-width:520px; margin:0 auto; padding:16px; display:grid; gap:12px; }
+  h1 { font-size:22px; margin:0; }
+  .row { display:flex; align-items:center; gap:10px; }
+  .route { display:grid; grid-template-columns: 1fr auto; gap:4px 10px; align-items:center; }
+  .route b { font-size:17px; }
+  .route .time { font-variant-numeric: tabular-nums; text-align:right; }
+  input[type=range] { width:100%; height:34px; grid-column: 1 / -1; accent-color: var(--accent); }
+  .big { font-size:30px; font-weight:700; font-variant-numeric: tabular-nums; white-space:nowrap; }
+  .stat { display:flex; justify-content:space-between; align-items:baseline; }
+  .pill { display:inline-block; padding:4px 10px; border-radius:999px; font-weight:600; color:#fff; }
+  .disabled { opacity:.35; }
+  svg { width:100%; height:auto; }
+</style>
+</head>
+<body>
+<main>
+  <div class="row" style="justify-content:space-between"><h1>Fleet Wars</h1><span id="me" class="muted"></span></div>
+
+  <section id="join" class="card" hidden>
+    <p style="margin-top:0">You run a fleet of cars commuting from <b>A</b> to <b>B</b>. Split your fleet across routes to get the lowest average commute for your company.</p>
+    <form id="joinForm" class="row"><input id="name" placeholder="Your name" maxlength="20" style="flex:1" autocomplete="off"><button class="primary">Join</button></form>
+  </section>
+
+  <section id="game" hidden>
+    <div class="card" style="display:grid; gap:10px">
+      <div class="stat"><span id="company"></span><span id="clock" class="muted"></span></div>
+      <div class="stat"><span class="muted">Your company's avg commute</span><span class="big" id="score">–</span></div>
+      <div id="teammates" class="muted" style="font-size:14px"></div>
+    </div>
+
+    <div class="card" style="display:grid; gap:14px; margin-top:12px">
+      <div class="muted" style="font-size:14px">Drag to split your fleet. Shares are normalized to 100%.</div>
+      <div class="route" id="r0"><b>Via C: A → C → B</b><span class="time"></span><input type="range" min="0" max="100" value="50"><span class="muted share"></span></div>
+      <div class="route" id="r1"><b>Via D: A → D → B</b><span class="time"></span><input type="range" min="0" max="100" value="50"><span class="muted share"></span></div>
+      <div class="route" id="r2"><b>Wormhole: A → C → D → B</b><span class="time"></span><input type="range" min="0" max="100" value="0"><span class="muted share"></span></div>
+    </div>
+
+    <div class="card" style="margin-top:12px"><svg id="net"></svg></div>
+  </section>
+
+  <section id="wait" class="card" hidden><p style="margin:0" id="waitMsg">Waiting for the next round…</p></section>
+</main>
+<script>
+let id = null; try { id = localStorage.getItem("fw-id"); } catch {}
+let name = null; try { name = localStorage.getItem("fw-name"); } catch {}
+let state = null, lastRoundNo = null, dragging = false, offset = 0;
+const sliders = [0, 1, 2].map((i) => document.querySelector(`#r${i} input`));
+
+async function join(n) {
+  const r = await post("/api/join", { id, name: n });
+  if (r.id) { id = r.id; name = n; try { localStorage.setItem("fw-id", id); localStorage.setItem("fw-name", n); } catch {} }
+  render();
+}
+document.getElementById("joinForm").onsubmit = (e) => { e.preventDefault(); const n = document.getElementById("name").value.trim(); if (n) join(n); };
+if (id && name) join(name);
+
+let sendTimer = null;
+function sendSplit() {
+  clearTimeout(sendTimer);
+  sendTimer = setTimeout(() => post("/api/split", { id, raw: sliders.map((s) => Number(s.value)) }), 80);
+  showShares();
+}
+sliders.forEach((s) => { s.oninput = sendSplit; s.onpointerdown = () => (dragging = true); s.onpointerup = () => (dragging = false); });
+
+function shares() {
+  const w = state?.round?.wormhole;
+  const v = sliders.map((s, i) => (i === 2 && !w ? 0 : Number(s.value)));
+  const t = v.reduce((a, b) => a + b, 0);
+  return t ? v.map((x) => x / t) : (w ? [1/3, 1/3, 1/3] : [0.5, 0.5, 0]);
+}
+function showShares() { shares().forEach((s, i) => (document.querySelector(`#r${i} .share`).textContent = `${Math.round(s * 100)}% of your cars`)); }
+
+connect((s) => {
+  state = s; offset = s.serverTime - Date.now();
+  // New round: reset sliders to the server's starting split.
+  if (s.round && s.round.no !== lastRoundNo) {
+    lastRoundNo = s.round.no;
+    sliders[0].value = 50; sliders[1].value = 50; sliders[2].value = s.round.wormhole ? 50 : 0;
+  }
+  render();
+});
+
+function render() {
+  const me = state && id && state.players.find((p) => p.id === id);
+  document.getElementById("join").hidden = !!me;
+  if (!me) { document.getElementById("game").hidden = true; document.getElementById("wait").hidden = true; document.getElementById("me").textContent = ""; return; }
+  document.getElementById("me").textContent = me.name;
+  const r = state.round;
+  const inRound = r && me.company !== null && me.company !== undefined && r.companies[me.company]?.members.includes(id);
+  document.getElementById("game").hidden = !inRound;
+  document.getElementById("wait").hidden = !!inRound;
+  if (!inRound) {
+    document.getElementById("waitMsg").textContent = r ? "You joined mid-round. You'll be placed in a company when the next round starts." : "You're in! Waiting for the first round to start…";
+    return;
+  }
+  const c = r.companies[me.company];
+  const col = COLORS[c.name] || "var(--accent)";
+  const solo = c.members.length === 1;
+  document.getElementById("company").innerHTML = solo ? `<span class="pill" style="background:var(--accent)">Independent fleet</span>` : `<span class="pill" style="background:${col}">${c.name} company</span>`;
+  const mates = c.members.filter((m) => m !== id).map((m) => state.players.find((p) => p.id === m)?.name).filter(Boolean);
+  document.getElementById("teammates").textContent = solo ? "You score on your own fleet's average commute." : `Teammates: ${mates.join(", ")}. Everyone in your company scores on the company's average commute.`;
+  const live = r.live;
+  const companyAvg = live?.companies.find((x) => x.id === c.id)?.avg;
+  document.getElementById("score").textContent = `${fmt(companyAvg)} min`;
+  const left = Math.max(0, (r.endsAt - (Date.now() + offset)) / 1000);
+  document.getElementById("clock").textContent = r.status === "running" ? `Round ${r.no} · ${Math.ceil(left)}s left` : `Round ${r.no} finished`;
+  [0, 1, 2].forEach((i) => {
+    const row = document.getElementById(`r${i}`);
+    row.querySelector(".time").textContent = live?.times[i] != null ? `${fmt(live.times[i])} min` : "";
+    sliders[i].disabled = r.status !== "running" || (i === 2 && !r.wormhole);
+  });
+  document.getElementById("r2").hidden = !r.wormhole;
+  showShares();
+  drawNetwork(document.getElementById("net"), live?.edges, r.wormhole, { showFlows: r.info !== "own" });
+}
+setInterval(() => state && render(), 1000);
+</script>
+</body>
+</html>
