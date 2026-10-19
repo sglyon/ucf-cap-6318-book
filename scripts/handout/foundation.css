@@ -1,0 +1,111 @@
+/* ============================================================
+   html-artifacts foundation — "Editorial" theme (Lumist palette)
+   Inline this verbatim as the FIRST <style> block of every
+   artifact, then add a second <style> block for anything the
+   content needs. Override tokens there; never edit this copy
+   inside an artifact retroactively.
+   Scheme: follows the reader's OS by default (color-scheme:
+   light dark + light-dark() tokens). Force a scheme by setting
+   style="color-scheme: light" (or dark) on <html> — the
+   .scheme-toggle snippet in SKILL.md does exactly that.
+   Palette borrowed from lumistlabs.ai: cream ground, ink text,
+   iris accent, jade ok; serif display headings, mono eyebrows.
+   ============================================================ */
+
+:root {
+  color-scheme: light dark;
+
+  --font-sans: "Geist Sans", "Inter", -apple-system, "Segoe UI", Helvetica, sans-serif;
+  --font-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius: 8px; --r-pill: 999px;
+  --tracking-eyebrow: .12em;
+
+  --bg: light-dark(#f3efe6, #111418);
+  --panel: light-dark(#fbf8f1, #1a1e24);
+  --ink: light-dark(#111418, #f3efe6);
+  --ink-soft: light-dark(#43474b, #c5c1b6);
+  --ink-faint: light-dark(#616463, #8b8e8c);
+  --rule: light-dark(#c9c3b5, #383d44);
+  --rule-soft: light-dark(#ddd8cb, #262b31);
+  --accent: light-dark(#5943c0, #afa3ff);
+  --accent-soft: light-dark(#e6e2f8, #2b2650);
+  --ok: light-dark(#3e8e7e, #7fc4b4);
+  --ok-soft: light-dark(#dcebe6, #1c332e);
+  --warn: light-dark(#9a6712, #e0c341);
+  --warn-soft: light-dark(#fff7b8, #37300d);
+  --bad: light-dark(#b23c2e, #f0907f);
+  --bad-soft: light-dark(#ffe3d7, #402019);
+  --shadow: 0 1px 3px light-dark(rgba(17,20,24,.08), rgba(0,0,0,.4));
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 16px/1.65 var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 860px; margin: 0 auto; padding: 48px 28px 72px; }
+
+h1 { font-family: var(--font-serif); font-weight: 400; font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.05; margin: 0 0 .5rem; }
+h2 { font-family: var(--font-serif); font-weight: 500; font-size: 1.5rem; letter-spacing: -0.02em; line-height: 1.2; margin: 2.6rem 0 .9rem; padding-bottom: .4rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.06rem; letter-spacing: -0.01em; line-height: 1.25; margin: 1.8rem 0 .6rem; }
+h4 { letter-spacing: -0.01em; line-height: 1.25; }
+p { margin: .7rem 0; }
+a { color: var(--accent); }
+.lede { font-size: 1.12rem; color: var(--ink-soft); max-width: 52ch; margin: 0; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+/* eyebrow — Lumist's mono uppercase kicker; use above h1 or standalone */
+.eyebrow { font-family: var(--font-mono); font-size: .7rem; font-weight: 700; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--accent); margin: 0 0 .8rem; }
+
+code { font-family: var(--font-mono); font-size: .86em; background: var(--panel); border: 1px solid var(--rule-soft); border-radius: 4px; padding: .08em .35em; }
+pre { background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px 18px; overflow-x: auto; font-size: .84rem; line-height: 1.55; }
+pre code { background: none; border: 0; padding: 0; font-size: inherit; }
+.kbd { font-family: var(--font-mono); font-size: .78em; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: .05em .45em; background: var(--panel); }
+
+/* scheme toggle — pair with the snippet in SKILL.md */
+.scheme-toggle { position: fixed; top: 14px; right: 16px; z-index: 20; font-family: var(--font-mono); font-size: .64rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-faint); background: var(--panel); border: 1px solid var(--rule); border-radius: var(--r-pill); padding: .32rem .8rem; cursor: pointer; }
+.scheme-toggle:hover { color: var(--ink); border-color: var(--ink-faint); }
+
+/* meta header */
+.meta { display: flex; flex-wrap: wrap; gap: .35rem 1.6rem; margin: 1.1rem 0 0; font-size: .85rem; color: var(--ink-faint); }
+.meta b { font-family: var(--font-mono); font-size: .68rem; font-weight: 700; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--ink-soft); margin-right: .2rem; }
+
+/* pills — bordered rounded-full, mono uppercase (Lumist chip style) */
+.pill { display: inline-block; font-family: var(--font-mono); font-size: .66rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: .18rem .7rem; border-radius: var(--r-pill); border: 1px solid var(--rule); background: var(--panel); color: var(--ink-faint); white-space: nowrap; }
+.pill.ok   { background: var(--ok-soft);   border-color: var(--ok);   color: var(--ok); }
+.pill.warn { background: var(--warn-soft); border-color: var(--warn); color: var(--warn); }
+.pill.bad  { background: var(--bad-soft);  border-color: var(--bad);  color: var(--bad); }
+.pill.info { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+/* callouts */
+.callout { border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 var(--radius) var(--radius) 0; padding: .8rem 1.1rem; margin: 1rem 0; }
+.callout.ok   { border-color: var(--ok);   background: var(--ok-soft); }
+.callout.warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout.bad  { border-color: var(--bad);  background: var(--bad-soft); }
+.callout > :first-child { margin-top: 0; } .callout > :last-child { margin-bottom: 0; }
+
+/* cards & KPIs */
+.card { background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.05rem 1.25rem; margin: 1rem 0; box-shadow: var(--shadow); }
+.card h4 { margin: 0 0 .4rem; font-size: .95rem; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; margin: 1.2rem 0; }
+.kpi { background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius); padding: .85rem 1rem; box-shadow: var(--shadow); }
+.kpi .v { font-family: var(--font-serif); font-size: 1.7rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; }
+.kpi .l { font-family: var(--font-mono); font-size: .64rem; font-weight: 700; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--ink-faint); margin-top: .3rem; }
+.kpi.ok .v { color: var(--ok); } .kpi.warn .v { color: var(--warn); } .kpi.bad .v { color: var(--bad); }
+
+/* tables */
+table { border-collapse: collapse; width: 100%; margin: 1.1rem 0; font-size: .92rem; }
+th { text-align: left; font-family: var(--font-mono); font-size: .66rem; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--ink-faint); font-weight: 700; padding: .5rem .8rem; border-bottom: 2px solid var(--rule); }
+td { padding: .55rem .8rem; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+tbody tr:hover { background: var(--panel); }
+.num { text-align: right; font-family: var(--font-mono); font-size: .85em; }
+
+/* toc */
+.toc { background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius); padding: .9rem 1.4rem; margin: 1.6rem 0; }
+.toc h2 { font-family: var(--font-mono); font-size: .68rem; font-weight: 700; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--ink-faint); border: 0; margin: 0 0 .3rem; padding: 0; }
+.toc ol { margin: 0; padding-left: 1.3rem; } .toc li { margin: .15rem 0; }
+.toc a { text-decoration: none; } .toc a:hover { text-decoration: underline; }
+
+footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: .82rem; color: var(--ink-faint); }

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$pagetitle$</title>
+<style>
+$foundation$
+</style>
+<style>
+$fonts$
+$handout-css$
+</style>
+<template id="font-licenses"><pre>$font-licenses$</pre></template>
+</head>
+<body>
+<div class="toolbar" aria-label="Document controls">
+  <button id="print" type="button">Print / save PDF</button>
+  <button class="scheme-toggle" id="scheme-toggle" type="button">Scheme: auto</button>
+</div>
+<div class="page">
+<main>
+$body$
+</main>
+</div>
+<script>
+(function () {
+  document.getElementById('print').addEventListener('click', function () { window.print(); });
+  var btn = document.getElementById('scheme-toggle');
+  var states = ['auto', 'light', 'dark'], i = 0;
+  btn.addEventListener('click', function () {
+    i = (i + 1) % states.length;
+    document.documentElement.style.colorScheme = states[i] === 'auto' ? '' : states[i];
+    btn.textContent = 'Scheme: ' + states[i];
+  });
+})();
+</script>
+</body>
+</html>
