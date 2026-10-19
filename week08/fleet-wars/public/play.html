@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fleet Wars</title>
-<script src="/common.js?v=4"></script>
-<script src="/warmup-ui.js?v=4"></script>
+<script src="/common.js?v=5"></script>
+<script src="/warmup-ui.js?v=5"></script>
 <style>
-  main { max-width:520px; margin:0 auto; padding:16px; display:grid; gap:12px; }
+  main { max-width:520px; margin:0 auto; padding:16px; display:grid; grid-template-columns:minmax(0, 1fr); gap:12px; }
   h1 { font-size:22px; margin:0; }
   .row { display:flex; align-items:center; gap:10px; }
   .route { display:grid; grid-template-columns: 1fr auto; gap:4px 10px; align-items:center; }
@@ -20,6 +20,12 @@
   .pill { display:inline-block; padding:4px 10px; border-radius:999px; font-weight:600; color:#fff; }
   .disabled { opacity:.35; }
   svg { width:100%; height:auto; }
+  input { min-width:0; }
+  #warm .card { grid-template-columns:minmax(0, 1fr); } #bval { width:0; }
+  /* The map is drawn at 600px wide and scaled down on phones, so enlarge its labels. */
+  svg .elabel { font-size:23px; } svg .esub { font-size:18px; } svg .nlabel { font-size:24px; }
+  #final { text-align:center; }
+  #final .big { font-size:40px; }
 </style>
 </head>
 <body>
@@ -38,7 +44,10 @@
       <div id="teammates" class="muted" style="font-size:14px"></div>
     </div>
 
-    <div class="card" style="display:grid; gap:14px; margin-top:12px">
+    <div id="wormNews" class="card" style="margin-top:12px; border-color:var(--worm); color:var(--worm); font-weight:700; text-align:center" hidden>The wormhole just opened! C→D now takes 0 minutes.</div>
+    <div id="final" class="card" style="margin-top:12px" hidden></div>
+
+    <div id="controls" class="card" style="display:grid; gap:14px; margin-top:12px">
       <div class="muted" style="font-size:14px">Drag to split your fleet. Shares are normalized to 100%. "Share" means the share of <b>all</b> cars in the class on that road.</div>
       <div class="route" id="r0"><b>Via C: A → C → B</b><span class="time"></span><span class="muted formula">A→C: 40 × share + C→B: 45</span><input type="range" min="0" max="100" value="50"><span class="muted share"></span></div>
       <div class="route" id="r1"><b>Via D: A → D → B</b><span class="time"></span><span class="muted formula">A→D: 45 + D→B: 40 × share</span><input type="range" min="0" max="100" value="50"><span class="muted share"></span></div>
@@ -55,7 +64,7 @@
 <script>
 let id = null; try { id = localStorage.getItem("fw-id"); } catch {}
 let name = null; try { name = localStorage.getItem("fw-name"); } catch {}
-let state = null, lastRoundNo = null, dragging = false, offset = 0;
+let state = null, lastRoundNo = null, dragging = false, offset = 0, lastWorm = null, wormNewsUntil = 0;
 const sliders = [0, 1, 2].map((i) => document.querySelector(`#r${i} input`));
 
 let joining = false;
@@ -134,6 +143,25 @@ function render() {
     row.querySelector(".time").textContent = live?.times[i] != null ? `${fmt(live.times[i])} min` : "";
     sliders[i].disabled = r.status !== "running" || (i === 2 && !r.wormhole);
   });
+  // Flag a mid-round wormhole opening for 8 seconds.
+  const wkey = `${r.startedAt}-${r.wormhole}`;
+  if (lastWorm && lastWorm !== wkey && lastWorm.startsWith(`${r.startedAt}-`) && r.wormhole) wormNewsUntil = Date.now() + 8000;
+  lastWorm = wkey;
+  document.getElementById("wormNews").hidden = Date.now() > wormNewsUntil || r.status !== "running";
+  // Finished round: replace the sliders with the result.
+  const ended = r.status === "ended";
+  const hist = ended ? state.history.find((h) => h.no === r.no) : null;
+  document.getElementById("controls").hidden = ended;
+  const fin = document.getElementById("final");
+  fin.hidden = !hist;
+  if (hist) {
+    const rank = hist.scores.findIndex((s) => s.company === c.name) + 1;
+    const mine = hist.scores[rank - 1];
+    const who = solo ? "Your" : "Your company's";
+    fin.innerHTML = `<div class="muted">${who} score (avg commute, second half)</div><div class="big">${fmt(mine?.score)} min</div>
+      <div style="font-size:22px; font-weight:700; margin-top:6px">${rank === 1 ? "🏆 1st place" : `${rank} of ${hist.scores.length}`}</div>
+      <div class="muted" style="margin-top:6px">Market equilibrium ${fmt(r.benchmark.ne)} · planner ${fmt(r.benchmark.planner, 2)}</div>`;
+  }
   // Inline style so a stale cached stylesheet can never leave the row visible.
   document.getElementById("r2").style.display = r.wormhole ? "" : "none";
   document.getElementById("key").innerHTML = networkKey(r.wormhole);

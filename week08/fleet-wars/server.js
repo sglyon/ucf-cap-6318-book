@@ -126,6 +126,13 @@ function endRound() {
     const a = round.acc[c.id];
     return { company: c.name, size: c.members.length, members: c.members.map((id) => players.get(id)?.name), score: a && a.n ? a.sum / a.n : null };
   }).sort((a, b) => (a.score ?? 1e9) - (b.score ?? 1e9));
+  // A round stopped before the scoring window has no scores: drop it so history and round numbers stay clean.
+  if (scores.every((s) => s.score === null)) {
+    round.discarded = true;
+    roundNo -= 1;
+    for (let i = tickLog.length - 1; i >= 0; i--) if (tickLog[i].round === round.no) tickLog.splice(i, 1);
+    return;
+  }
   history.push({ no: round.no, companies: round.companies.length, players: round.companies.reduce((a, c) => a + c.members.length, 0), wormhole: round.wormhole, realized, ...round.benchmark, scores });
 }
 
@@ -274,6 +281,7 @@ const server = http.createServer(async (req, res) => {
       players.delete(b.id);
       // Drop them from the running round too, so they stop counting as traffic or team size.
       if (round) for (const c of round.companies) c.members = c.members.filter((m) => m !== b.id);
+      W.drop(b.id);
       broadcast();
       return json(res, 200, { ok: true });
     }

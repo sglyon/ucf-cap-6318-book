@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fleet Wars Screen</title>
-<script src="/common.js?v=4"></script>
-<script src="/warmup-ui.js?v=4"></script>
+<script src="/common.js?v=5"></script>
+<script src="/warmup-ui.js?v=5"></script>
 <script src="/qrcode.js"></script>
 <style>
   body { font-size:18px; }
@@ -28,7 +28,23 @@
   #warm { grid-column:1 / -1; grid-row:2 / 4; min-height:0; }
   body.warm main > section, body.warm main > .side { display:none !important; }
   body:not(.warm) #warm { display:none; }
-  #warm table { width:100%; }
+  #warm table:not(.matrix) { width:100%; }
+  .boardnote { font-size:14px; margin-bottom:4px; }
+  #board tr.win td { color:var(--good); font-weight:700; }
+  .dense td { padding:2px 4px; font-size:15px; }
+  #clock.name { font-size:34px; max-width:360px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  #chartCard { grid-column:1 / -1; height:200px; }
+  /* 1280x720 and other short projectors: smaller chart and map, drop the history table (it is also in the CSVs). */
+  @media (max-height: 820px) {
+    main { padding:12px 16px; gap:10px; }
+    h1 { font-size:24px; }
+    .big { font-size:42px; }
+    #chartCard { height:130px; }
+    #histCard { display:none !important; }
+    canvas { min-height:0; }
+    .side { grid-template-rows:auto minmax(0, 1fr); gap:10px; }
+    #qr img { width:84px; height:84px; }
+  }
   #lobby { position:fixed; inset:0; background:var(--bg); display:flex; align-items:center; justify-content:center; gap:64px; padding:32px; z-index:10; }
   #lobby[hidden] { display:none; }
   #bigqr img { display:block; width:min(64vh, 560px); height:min(64vh, 560px); border-radius:16px; image-rendering:pixelated; }
@@ -69,17 +85,17 @@
   <div class="side">
     <section class="card bench">
       <div><span class="muted">All selfish</span><b id="bSelfish" style="color:var(--bad)">–</b></div>
-      <div><span class="muted">Equilibrium for this market</span><b id="bNe" style="color:var(--warn)">–</b></div>
+      <div><span class="muted">Market equilibrium</span><b id="bNe" style="color:var(--warn)">–</b></div>
       <div><span class="muted">Social planner</span><b id="bPlanner" style="color:var(--good)">–</b></div>
     </section>
     <section class="card" style="overflow:auto; min-height:0">
-      <table><thead><tr><th>Company</th><th class="n">Size</th><th class="n">Now</th><th class="n">Score</th></tr></thead><tbody id="board"></tbody></table>
-      <div class="muted" style="font-size:14px; margin-top:6px">Score is the company's average commute over the second half of the round. Lower wins.</div>
+      <div class="muted boardnote">Score = company's average commute over the second half of the round. Lower wins.</div>
+      <table id="boardTable"><thead><tr><th>Company</th><th class="n">Size</th><th class="n">Now</th><th class="n">Score</th></tr></thead><tbody id="board"></tbody></table>
     </section>
-    <section class="card" style="display:grid; grid-template-rows:auto 1fr; min-height:0"><div class="muted">History</div><div style="overflow:auto"><table><thead><tr><th>Round</th><th class="n">Companies</th><th>Wormhole</th><th class="n">Realized</th><th class="n">Equilibrium</th><th class="n">Planner</th></tr></thead><tbody id="hist"></tbody></table></div></section>
+    <section id="histCard" class="card" style="display:grid; grid-template-rows:auto 1fr; min-height:0"><div class="muted">History</div><div style="overflow:auto"><table><thead><tr><th>Round</th><th class="n">Companies</th><th>Wormhole</th><th class="n">Realized</th><th class="n">Equilibrium</th><th class="n">Planner</th></tr></thead><tbody id="hist"></tbody></table></div></section>
   </div>
 
-  <section class="card" style="grid-column:1 / -1; height:200px"><canvas id="chart"></canvas></section>
+  <section id="chartCard" class="card"><canvas id="chart"></canvas></section>
 </main>
 <script>
 let state = null, offset = 0, joinUrl = null, lobbyForced = null, lastRoundNo = null;
@@ -125,7 +141,13 @@ function render() {
   const live = r?.live;
   document.getElementById("avg").textContent = live ? `${fmt(live.avg)} min` : "–";
   const left = r && r.status === "running" ? Math.max(0, (r.endsAt - (Date.now() + offset)) / 1000) : null;
-  document.getElementById("clock").textContent = left === null ? (r ? "done" : "–") : `${Math.ceil(left)}s`;
+  // When a round ends, the clock slot announces the winner.
+  const hist = r && r.status === "ended" ? state.history.find((h) => h.no === r.no) : null;
+  const top = hist?.scores[0];
+  const clock = document.getElementById("clock");
+  clock.classList.toggle("name", !!top);
+  document.getElementById("clockLabel").textContent = top ? `Winner · ${fmt(top.score)} min` : "Time left";
+  clock.textContent = top ? (top.size === 1 ? top.members[0] : `${top.company} company`) : left === null ? "–" : `${Math.ceil(left)}s`;
   drawNetwork(document.getElementById("net"), live?.edges, r ? r.wormhole : state.config.wormhole, { showFlows: !!live });
   const bm = r?.benchmark;
   document.getElementById("bSelfish").textContent = bm ? fmt(bm.selfish) : "–";
@@ -139,10 +161,11 @@ function render() {
       const done = r.status === "ended" ? state.history.find((h) => h.no === r.no)?.scores.find((s) => s.company === c.name)?.score : null;
       return { c, now, done };
     }).sort((a, b) => (a.done ?? a.now ?? 1e9) - (b.done ?? b.now ?? 1e9));
-    board.innerHTML = rows.map(({ c, now, done }) => {
+    document.getElementById("boardTable").classList.toggle("dense", rows.length > 6);
+    board.innerHTML = rows.map(({ c, now, done }, i) => {
       const solo = c.members.length === 1;
       const sw = solo ? "" : `<span class="swatch" style="background:${COLORS[c.name] || "var(--accent)"}"></span>`;
-      return `<tr><td>${sw}${c.name}</td><td class="n">${c.members.length}</td><td class="n">${fmt(now)}</td><td class="n"><b>${done != null ? fmt(done) : ""}</b></td></tr>`;
+      return `<tr class="${r.status === "ended" && i === 0 && done != null ? "win" : ""}"><td>${sw}${c.name}</td><td class="n">${c.members.length}</td><td class="n">${fmt(now)}</td><td class="n"><b>${done != null ? fmt(done) : ""}</b></td></tr>`;
     }).join("");
   } else {
     board.innerHTML = state.players.map((p) => `<tr><td>${p.name}</td><td></td><td></td><td></td></tr>`).join("");

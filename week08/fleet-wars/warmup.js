@@ -111,15 +111,15 @@ module.exports = function createWarmup(players) {
       const cells = [[0, 0], [0, 0]];
       const outcomes = {}; // playerId -> {mine, theirs, payoff, role}
       for (const [a, b] of round.pairs) {
-        const ra = choices.has(a) ? choices.get(a) : null;
+        const ra = a && choices.has(a) ? choices.get(a) : null;
         const rb = b && choices.has(b) ? choices.get(b) : null;
         if (ra === null && rb === null) continue; // neither chose
         // If only one side chose, a bot stands in for the other.
         const ra2 = ra ?? botAction(g, 0), rb2 = rb ?? botAction(g, 1);
-        const aName = ra === null ? "Bot (stand-in)" : name(a), bName = !b ? "Bot" : rb === null ? "Bot (stand-in)" : name(b);
+        const aName = !a ? "Bot" : ra === null ? "Bot (stand-in)" : name(a), bName = !b ? "Bot" : rb === null ? "Bot (stand-in)" : name(b);
         cells[ra2][rb2] += 1;
         const [pa, pb] = g.payoff[ra2][rb2];
-        if (ra !== null) { outcomes[a] = { role: 0, mine: ra2, theirs: rb2, payoff: pa, partner: bName }; scores.set(a, (scores.get(a) || 0) + pa); }
+        if (a && ra !== null) { outcomes[a] = { role: 0, mine: ra2, theirs: rb2, payoff: pa, partner: bName }; scores.set(a, (scores.get(a) || 0) + pa); }
         if (b && rb !== null) { outcomes[b] = { role: 1, mine: rb2, theirs: ra2, payoff: pb, partner: aName }; scores.set(b, (scores.get(b) || 0) + pb); }
       }
       const byRole = [[0, 0], [0, 0]];
@@ -134,6 +134,23 @@ module.exports = function createWarmup(players) {
     if (g && GAMES[g] && g !== gameKey) { gameKey = g; scores.clear(); }
     // Clear the current round when the selection changes, so the projector never mixes game types.
     if (round && (round.status === "open" || round.kind !== mode || (mode === "matrix" && round.game !== gameKey))) round = null;
+  }
+
+  // A removed player leaves the open round; their partner faces the bot.
+  function drop(id) {
+    choices.delete(id);
+    if (!round || round.status !== "open") return;
+    round.roster = round.roster.filter((x) => x !== id);
+    if (round.kind !== "matrix") return;
+    for (const pr of round.pairs) {
+      const i = pr.indexOf(id);
+      if (i < 0) continue;
+      pr[i] = null;
+      const other = pr[1 - i];
+      if (other) round.roles[other] = { role: 1 - i, partner: null };
+    }
+    round.pairs = round.pairs.filter((pr) => pr[0] || pr[1]);
+    delete round.roles[id];
   }
 
   function reset() { round = null; roundNo = 0; choices.clear(); scores.clear(); history.length = 0; }
@@ -162,5 +179,5 @@ module.exports = function createWarmup(players) {
       : { round: h.no, game: h.game, n: "", avg: "", target: "", winners: "", cells: JSON.stringify(h.cells), row_actions: JSON.stringify(h.byRole[0]), col_actions: JSON.stringify(h.byRole[1]) });
   }
 
-  return { start, submit, reveal, setMode, reset, publicState, exportRows, choices };
+  return { start, submit, reveal, setMode, reset, drop, publicState, exportRows, choices };
 };

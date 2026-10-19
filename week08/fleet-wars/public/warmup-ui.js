@@ -4,19 +4,21 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&
 const WARM_CSS = `
 .wbig { font-size:28px; font-weight:700; }
 .matrix { border-collapse:separate; border-spacing:6px; margin:0 auto; }
-.matrix th { font-weight:600; color:var(--muted); padding:4px 8px; }
+.matrix th { font-weight:600; color:var(--muted); padding:4px 8px; border:none; }
 .matrix td { background:var(--card); border:2px solid var(--line); border-radius:10px; padding:10px 12px; text-align:center; font-variant-numeric:tabular-nums; min-width:96px; }
-.matrix td.ne { border-color:var(--good); }
+.matrix td.ne { border:4px solid var(--good); box-shadow:0 0 0 3px color-mix(in srgb, var(--good) 25%, transparent); }
 .matrix td.hit { background:color-mix(in srgb, var(--accent) 18%, var(--card)); border-color:var(--accent); }
 .matrix .pay b { font-size:1.1em; }
 .matrix .count { display:block; font-size:2em; font-weight:800; }
 .choice { display:grid; gap:10px; }
 .choice button { padding:18px; font-size:20px; font-weight:600; }
 .choice button.sel { background:var(--accent); color:#fff; border-color:transparent; }
-.hist { display:flex; align-items:flex-end; gap:3px; height:260px; position:relative; border-bottom:2px solid var(--line); }
-.hist .bar { flex:1; background:var(--accent); border-radius:4px 4px 0 0; min-height:0; }
-.hist .mark { position:absolute; bottom:-4px; top:0; border-left:3px dashed; }
-.hist .mark span { position:absolute; top:-22px; left:4px; white-space:nowrap; font-size:14px; font-weight:600; }
+.hist { display:flex; align-items:flex-end; gap:3px; height:300px; position:relative; border-bottom:2px solid var(--line); }
+.hist .bar { flex:1; background:color-mix(in srgb, var(--muted) 45%, var(--card)); border-radius:4px 4px 0 0; min-height:0; }
+.hist .mark { position:absolute; bottom:-4px; top:0; border-left:5px solid; }
+.hist .mark span { position:absolute; top:-26px; left:6px; white-space:nowrap; font-size:20px; font-weight:700; }
+.progress { height:14px; border-radius:999px; background:var(--line); overflow:hidden; }
+.progress div { height:100%; background:var(--accent); transition:width .3s; }
 .axis { display:flex; justify-content:space-between; color:var(--muted); font-size:13px; margin-top:4px; }
 `;
 document.head.insertAdjacentHTML("beforeend", `<style>${WARM_CSS}</style>`);
@@ -43,13 +45,15 @@ function histogram(values, marks) {
   for (const v of values) bins[Math.min(19, Math.floor(v / 5))] += 1;
   const max = Math.max(1, ...bins);
   return `<div class="hist">${bins.map((b) => `<div class="bar" style="height:${(b / max) * 100}%" title="${b}"></div>`).join("")}
-    ${marks.map(([v, label, color], i) => `<div class="mark" style="left:${v}%; border-color:${color}"><span style="color:${color}; top:${i % 2 ? -42 : -22}px">${label}</span></div>`).join("")}</div>
+    ${marks.map(([v, label, color], i) => `<div class="mark" style="left:${v}%; border-color:${color}"><span style="color:${color}; top:${i % 2 ? -52 : -26}px">${label}</span></div>`).join("")}</div>
     <div class="axis"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>`;
 }
 
 // ---------------------------------------------------------------- phone
 
 let warmKey = null;
+// Remember my own answers per round, so a reload or the reveal can show them.
+const myPick = (no, v) => { try { if (v === undefined) return localStorage.getItem(`fw-w-${no}`); localStorage.setItem(`fw-w-${no}`, v); } catch {} return null; };
 function renderWarmPlay(el, state, myId) {
   const w = state.warmup, r = w.round;
   const key = r ? `${r.no}-${r.status}` : "none";
@@ -72,17 +76,19 @@ function renderWarmPlay(el, state, myId) {
           e.preventDefault();
           const v = el.querySelector("#bval").value;
           const res = await post("/api/w/submit", { id: myId, value: v });
+          if (!res.error) myPick(r.no, v);
           el.querySelector("#bmsg").textContent = res.error || `Locked in: ${v}. You can change it until the reveal.`;
         };
       }
       if (submitted && !el.querySelector("#bmsg").textContent) el.querySelector("#bmsg").textContent = "Locked in. You can change it until the reveal.";
     } else if (warmKey !== key) {
       warmKey = key;
-      const res = r.result;
+      const res = r.result, mine = submitted ? myPick(r.no) : null;
       el.innerHTML = `<div class="card" style="display:grid; gap:8px">
         <div class="muted">Round ${r.no} results</div>
         <div>Average: <b>${fmt(res.avg)}</b></div>
         <div>2/3 of the average: <b class="wbig">${fmt(res.target)}</b></div>
+        ${mine !== null && mine !== "" ? `<div>Your guess: <b>${esc(mine)}</b>, off by <b>${fmt(Math.abs(Number(mine) - res.target))}</b></div>` : ""}
         <div>Winner${res.winners.length > 1 ? "s" : ""}: <b>${res.winners.map(esc).join(", ") || "–"}</b></div></div>`;
     }
     return;
@@ -103,9 +109,14 @@ function renderWarmPlay(el, state, myId) {
         <div id="mmsg" class="muted"></div></div>`;
       el.querySelectorAll(".choice button").forEach((btn) => (btn.onclick = async () => {
         const res = await post("/api/w/submit", { id: myId, value: Number(btn.dataset.a) });
-        if (!res.error) el.querySelectorAll(".choice button").forEach((b) => b.classList.toggle("sel", b === btn));
+        if (!res.error) { myPick(r.no, btn.dataset.a); el.querySelectorAll(".choice button").forEach((b) => b.classList.toggle("sel", b === btn)); }
         el.querySelector("#mmsg").textContent = res.error || "Locked in. You can change it until the reveal.";
       }));
+      const prev = submitted ? myPick(r.no) : null;
+      if (prev !== null) {
+        el.querySelectorAll(".choice button").forEach((b) => b.classList.toggle("sel", b.dataset.a === prev));
+        el.querySelector("#mmsg").textContent = "Locked in. You can change it until the reveal.";
+      }
     }
   } else if (warmKey !== key) {
     warmKey = key;
@@ -132,11 +143,11 @@ function renderWarmScreen(el, state) {
       <section class="card" style="display:grid; gap:14px; align-content:start">
         <div style="font-size:30px; font-weight:800">Guess 2/3 of the average</div>
         ${r.status === "open"
-          ? `<div class="big">${k} / ${n} submitted</div><div class="muted" style="font-size:20px">Pick a number from 0 to 100 on your phone. Closest to 2/3 of the class average wins.</div>`
+          ? `<div class="big">${k} / ${n} submitted</div><div class="progress"><div style="width:${n ? (k / n) * 100 : 0}%"></div></div><div class="muted" style="font-size:20px">Pick a number from 0 to 100 on your phone. Closest to 2/3 of the class average wins.</div>`
           : `<div style="display:flex; gap:40px"><div><div class="muted">Average</div><div class="big">${fmt(res.avg)}</div></div><div><div class="muted">2/3 of average</div><div class="big" style="color:var(--accent)">${fmt(res.target)}</div></div><div><div class="muted">Winner</div><div style="font-size:28px; font-weight:700; margin-top:10px">${res.winners.map(esc).join(", ") || "–"}</div></div></div>
              <div style="margin-top:48px">${histogram(res.values, [[res.target, `2/3 avg ${fmt(res.target)}`, "var(--accent)"], [res.avg, `avg ${fmt(res.avg)}`, "var(--muted)"], [0.4, "NE 0", "var(--good)"]])}</div>`}
       </section>
-      <section class="card" style="align-content:start"><div class="muted">Rounds</div><table><thead><tr><th>#</th><th class="n">n</th><th class="n">Avg</th><th class="n">Target</th><th>Winner</th></tr></thead><tbody>${past}</tbody></table></section></div>`;
+      <section class="card" style="align-content:start"><div class="muted">Rounds</div><table><thead><tr><th>#</th><th class="n">n</th><th class="n">Avg</th><th class="n">Target</th><th>Winner</th></tr></thead><tbody>${past}</tbody></table>${past ? "" : `<div class="muted" style="margin-top:8px">Results appear here after each reveal.</div>`}</section></div>`;
     return;
   }
   const g = w.games[r.game];
@@ -146,12 +157,12 @@ function renderWarmScreen(el, state) {
   el.innerHTML = `<div style="display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:16px; height:100%">
     <section class="card" style="display:grid; gap:16px; align-content:start">
       <div style="font-size:30px; font-weight:800">${esc(g.name)} <span class="muted" style="font-size:20px; font-weight:400">Round ${r.no} · random partners · payoffs in ${esc(g.unit)}</span></div>
-      ${r.status === "open" ? `<div class="big">${k} / ${n} chose</div>` : `<div class="muted" style="font-size:18px">Big numbers count how many pairs landed in each cell. Green outline = pure Nash equilibrium${g.nash.length ? "" : " (there is none)"}.</div>`}
+      ${r.status === "open" ? `<div class="big">${k} / ${n} chose</div><div class="progress"><div style="width:${n ? (k / n) * 100 : 0}%"></div></div>` : `<div class="muted" style="font-size:18px">Big numbers count how many pairs landed in each cell. Green outline = pure Nash equilibrium${g.nash.length ? "" : " (there is none)"}.</div>`}
       <div style="font-size:22px">${matrixTable(g, { counts: res ? res.cells : null, showNe: r.status === "revealed" })}</div>
       ${res ? `<div style="font-size:20px">${esc(g.rowLabel)}: <b>${pct(res.byRole[0])}%</b> ${esc(g.actions[0][0])} · ${esc(g.colLabel)}: <b>${pct(res.byRole[1])}%</b> ${esc(g.actions[1][0])}</div>` : ""}
     </section>
     <div style="display:grid; gap:16px; align-content:start">
-      <section class="card"><div class="muted">Leaderboard (total ${esc(g.unit)})</div><table><tbody>${w.leaderboard.map((l) => `<tr><td>${esc(l.name)}</td><td class="n"><b>${l.score}</b></td></tr>`).join("")}</tbody></table></section>
-      <section class="card"><div class="muted">Share choosing the first action, by round</div><table><thead><tr><th>#</th><th class="n">${esc(g.rowLabel)}: ${esc(g.actions[0][0])}</th><th class="n">${esc(g.colLabel)}: ${esc(g.actions[1][0])}</th></tr></thead><tbody>${series}</tbody></table></section>
+      <section class="card" ${w.leaderboard.length ? "" : "hidden"}><div class="muted">Leaderboard (total ${esc(g.unit)})</div><table><tbody>${w.leaderboard.map((l) => `<tr><td>${esc(l.name)}</td><td class="n"><b>${l.score}</b></td></tr>`).join("")}</tbody></table></section>
+      <section class="card" ${series ? "" : "hidden"}><div class="muted">Share choosing the first action, by round</div><table><thead><tr><th>#</th><th class="n">${esc(g.rowLabel)}: ${esc(g.actions[0][0])}</th><th class="n">${esc(g.colLabel)}: ${esc(g.actions[1][0])}</th></tr></thead><tbody>${series}</tbody></table></section>
     </div></div>`;
 }

@@ -78,13 +78,14 @@ function drawSeries(canvas, round) {
   ctx.clearRect(0, 0, w, h);
   const css = getComputedStyle(document.documentElement);
   const fg = css.getPropertyValue("--muted").trim(), line = css.getPropertyValue("--accent").trim();
-  const lo = 60, hi = 90, pad = { l: 36, r: 110, t: 10, b: 22 };
+  const lo = 60, hi = 90, pad = { l: 40, r: 150, t: 10, b: 24 };
   const X = (t) => pad.l + (t / (round ? round.duration : 90)) * (w - pad.l - pad.r);
   const Y = (v) => pad.t + (1 - (Math.min(hi, Math.max(lo, v)) - lo) / (hi - lo)) * (h - pad.t - pad.b);
-  ctx.font = "12px system-ui"; ctx.fillStyle = fg; ctx.strokeStyle = fg; ctx.globalAlpha = 0.35;
-  for (let v = lo; v <= hi; v += 5) { ctx.beginPath(); ctx.moveTo(pad.l, Y(v)); ctx.lineTo(w - pad.r, Y(v)); ctx.stroke(); }
+  ctx.font = "15px system-ui"; ctx.fillStyle = fg; ctx.strokeStyle = fg; ctx.globalAlpha = 0.35;
+  const step = h < 170 ? 10 : 5; // fewer gridlines on short projectors
+  for (let v = lo; v <= hi; v += step) { ctx.beginPath(); ctx.moveTo(pad.l, Y(v)); ctx.lineTo(w - pad.r, Y(v)); ctx.stroke(); }
   ctx.globalAlpha = 1;
-  for (let v = lo; v <= hi; v += 5) ctx.fillText(v, 6, Y(v) + 4);
+  for (let v = lo; v <= hi; v += step) ctx.fillText(v, 6, Y(v) + 4);
   if (!round) return;
   // Half-time marker: scoring starts here.
   ctx.setLineDash([2, 4]); ctx.globalAlpha = 0.5;
@@ -100,8 +101,8 @@ function drawSeries(canvas, round) {
   for (const [v, label, c] of marks.sort((a, b) => b[0] - a[0])) {
     ctx.strokeStyle = c; ctx.fillStyle = c; ctx.setLineDash([6, 5]);
     ctx.beginPath(); ctx.moveTo(pad.l, Y(v)); ctx.lineTo(w - pad.r, Y(v)); ctx.stroke();
-    const ty = Math.max(Y(v) + 4, lastY + 14); lastY = ty;
-    ctx.fillText(`${label} ${v.toFixed(1)}`, w - pad.r + 6, ty);
+    const ty = Math.max(Y(v) + 5, lastY + 17); lastY = ty;
+    ctx.fillText(`${label} ${v.toFixed(label === "planner" ? 2 : 1)}`, w - pad.r + 6, ty);
   }
   ctx.setLineDash([]); ctx.strokeStyle = line; ctx.lineWidth = 3;
   ctx.beginPath();
