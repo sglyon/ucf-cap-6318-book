@@ -1,52 +1,50 @@
-# Fleet Wars: instructor script
+# Fleet Wars: run of show
 
 ## Before class
-- `git pull`, then `PUBLIC_URL=https://<device>.<tailnet>.ts.net ADMIN_KEY=<key> node server.js`
-- Start the funnel: `/Applications/Tailscale.app/Contents/MacOS/Tailscale funnel --bg 3000`
-- Projector (extended display): `localhost:3000/screen`. Laptop: `localhost:3000/admin?key=<key>`
-- Test by scanning the QR code on your phone with Wi-Fi off, then remove yourself in the console
+- `git pull`
+- `PUBLIC_URL=https://<device>.<tailnet>.ts.net ADMIN_KEY=<key> node server.js`
+- `/Applications/Tailscale.app/Contents/MacOS/Tailscale funnel --bg 3000`
+- Projector (extended display): `localhost:3000/screen`
+- Laptop: `localhost:3000/admin?key=<key>`
+- Scan the QR code with your phone on cellular to test, then remove yourself in the console
 
-## Setup (2 min)
-- Students scan the QR code and enter a name
-- Rules: you route a fleet of cars from A to B. Lower average commute wins
-- Point at the map: blue roads cost 40 × the share of **all** cars on them, gray roads always cost 45
-- Only the second half of each round counts, so experimenting early is free
+## 1. Join (2 min)
+- Projector shows the big QR code. Wait until every name is on screen
+- Say: route your fleet A→B with the sliders, lowest company average wins, only the second half of each round counts
+- Point at the map key: blue roads congest, gray roads are fixed at 45
 
-## Round 1: solo, no wormhole (60s)
-- Expect: the class settles near 50/50 at 65 min
-- Ask: nobody coordinated, so why did traffic balance itself?
-- Point: this is a Nash equilibrium, because no one can cut their own time by switching
+## 2. Round 1: solo, wormhole closed (60s)
+- Console: preset 1, then Start round
+- Projector: the average settles at 65
+- Pause and discuss
 
-## Round 2: solo, wormhole opened mid-round (90s)
-- Load preset 1 again (wormhole closed) and start. About 20 seconds in, click the wormhole button in the console to open it
-- Expect: a rush into the wormhole, and the average climbs toward 80
-- Ask: everyone got a new free road. Why is everyone worse off?
-- Point: Braess's paradox. Taking A→C→D→B is each driver's dominant strategy, yet everyone ends up worse off
-- Ask: what is the Price of Anarchy? Use this round's realized average from the history table divided by the planner's 64.69, roughly 80 / 64.69 ≈ 1.24
+## 3. Round 2: solo, wormhole opened mid-round (90s)
+- Console: preset 1, then Start round
+- About 20s in, click the wormhole button to open it
+- Projector: the average climbs toward 80
+- Pause and discuss Braess's paradox and the Price of Anarchy (history table vs. the planner line)
 
-## Round 3: 4 companies, wormhole open (60s)
-- Teams sit together and can talk. Everyone scores on their company's average
-- Expect: the average falls toward the 73.8 equilibrium line
-- Ask: same roads and same drivers. What changed?
-- Point: a bigger fleet feels the congestion it imposes on its own cars, so part of the externality is internalized
+## 4. Round 3: 4 companies (60s)
+- Console: preset 3, then Start round
+- Have teammates move to sit together (names and colors are on their phones)
+- Projector: watch the average against the 73.8 equilibrium line
 
-## Round 4: 2 companies (60s)
-- Expect: about 67.5
+## 5. Round 4: 2 companies (60s)
+- Console: preset 4, then Start round. Regroup seats
 
-## Round 5: one company, the whole class (60s)
-- The class is now the social planner
-- Expect: they settle at 65 by abandoning the wormhole
-- Reveal: the optimum is 64.69, with 1/8 of cars on the wormhole
-  - Average cost is 65 − 5z + 20z², minimized at z = 1/8
-  - The L08.02 notebook gets this wrong (it says 65)
-- Ask: did merging hurt or help commuters? When is market concentration good for everyone?
+## 6. Round 5: one company (60s)
+- Console: preset 5, then Start round
+- Projector: they will likely settle at 65
+- Reveal: the optimum is 64.69 with 1/8 of cars on the wormhole (this corrects L08.02's figure of 65)
 
-## Wrap-up (3 min)
-- The projector's history table shows that more concentration brought the equilibrium closer to the planner's optimum
-- Discussion: Waze routes each driver selfishly. Would you use an app that routed you for total welfare at your own expense?
-- Optional: export `ticks.csv` from the console for homework, e.g. plotting convergence or computing each round's Price of Anarchy
+## 7. Wrap-up (3 min)
+- Projector: the history table lists all rounds
+- Discuss market structure vs. congestion
+- Console: download the CSVs if you want them for homework
 
-## If something goes wrong
+## Press Q on the projector
+- Toggles the big join QR code for latecomers. Joining mid-round puts them in at the next round
+
+## Troubleshooting
 - A phone isn't updating: reload it
-- A ghost or duplicate player: remove them in the console
-- Fewer than 8 students: the solo equilibrium is below 80 (each fleet is a big share). The equilibrium line already accounts for this
+- A duplicate or ghost player: remove them in the console
