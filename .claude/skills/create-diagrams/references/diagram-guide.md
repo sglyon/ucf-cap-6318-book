@@ -18,17 +18,73 @@ Aim for 2-4 diagrams per lecture part. Use diagrams where they genuinely aid und
 
 - Store SVGs in `weekWW/img/` (e.g., `week08/img/prisoners_dilemma_payoffs.svg`)
 - Use lowercase, underscore-separated filenames
-- Embed in lecture notebooks (markdown cells) using the MyST figure directive:
+- Embed using the native attachment recipe below under **Notebook Downloads** (visible Markdown image cell with `label`/`caption`/`diagram_source` metadata, plus a following notebook-only caption cell tagged `remove-cell`) — that is the single authoritative recipe; do not duplicate or diverge from it here.
+- Regenerate the attachment's base64 from the canonical SVG after every edit, and run the mandatory round-trip verification in [`../SKILL.md`](../SKILL.md)'s Workflow step 6 (actual site download, isolated nbconvert, no kernel) before considering a diagram done.
 
-````markdown
-```{figure} img/diagram_name.svg
-:label: fig-descriptive-label
-:width: 95%
-:align: center
+## Notebook Downloads
 
-Caption describing what the diagram shows.
+For notebooks that visitors download from the site, embed each SVG as a base64
+`image/svg+xml` markdown-cell attachment. Keep the SVG in `weekWW/img/` as the
+editable source. The image cell itself carries only the image, nothing else:
+
+```markdown
+![A short description](attachment:diagram_name.svg)
 ```
-````
+
+Give that cell a stable `id` (for example, `diagram-name`) and metadata:
+
+```json
+{
+  "label": "fig-descriptive-label",
+  "caption": "Caption describing what the diagram shows.",
+  "diagram_source": "img/diagram_name.svg"
+}
+```
+
+MyST resolves the attachment and uses `label` and `caption` to create a numbered
+figure. Jupyter renders the attached SVG without a kernel, network access, or
+neighboring files. The metadata alone supplies the website's anchor — never add
+a `<span>` or `<a>` inside the image cell itself, that duplicates the label.
+
+Two more cells complete the pattern, each independent from the image cell
+(never merged into it):
+
+- A **following** Markdown cell with id `diagram-name-caption`, the caption as
+  its source, and `{"tags": ["remove-cell"]}` as its metadata. Jupyter displays
+  this caption; MyST hides the extra cell to avoid duplication.
+- Only when the figure needs a `#fig-descriptive-label` link usable from
+  plain-Jupyter prose, a **preceding** Markdown cell with id `diagram-name-anchor`
+  and metadata `{"tags": ["remove-cell"]}`, whose source is a valid self-linking
+  anchor:
+
+  ```markdown
+  <a name="fig-descriptive-label" href="#fig-descriptive-label" tabindex="-1" title="Notebook diagram anchor">&#8203;</a>
+  ```
+
+  The explicit `href` gives MyST's link parser a URL (otherwise it flags a
+  "Link has no URL" diagnostic), `tabindex="-1"` keeps it out of the notebook's
+  tab order, and `remove-cell` keeps it off the built site, which already has
+  the metadata-supplied anchor. Omit this cell entirely when nothing needs to
+  link to the figure by id.
+
+Use nonempty reference text, such as `[the diagram below](#fig-descriptive-label)`,
+so references remain visible in standard Jupyter too.
+
+Run `uv run python scripts/sync_diagram_attachments.py` after editing SVGs or
+captions and before a direct MyST build. `make build` and `make run` do this
+automatically. The script refreshes attachments and notebook-only captions from
+the source SVGs and figure metadata. PNG, JPEG, GIF, and WebP figures can use the
+same recipe with their matching MIME types. For ordinary Markdown images within
+a prose cell, store their files in `img/`, use `attachment:filename.png` in the
+image link, and record `"attachment_sources": {"filename.png": "img/filename.png"}`
+in cell metadata. These images do not need figure or caption metadata. Preserve
+original remote URLs in `attachment_source_urls` (or `diagram_source_url` for a
+figure), along with any existing attribution in the prose or caption.
+
+Validate the actual `.ipynb` files linked by each built page's
+`frontmatter.exports`: open an isolated copy in Jupyter, or render it with
+nbconvert and check that every diagram is an embedded SVG image. Also verify
+that the website still has one caption per figure and resolved cross-references.
 
 ## Visual Style Conventions
 
@@ -90,6 +146,7 @@ Always use white background: `<rect width="W" height="H" rx="12" fill="#FFFFFF"/
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 WIDTH HEIGHT"
+     width="WIDTH" height="HEIGHT"
      font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
   <defs>
     <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
@@ -118,6 +175,7 @@ After creating any SVG, validate it visually before embedding. Check for:
 - Proper spacing between cards/sections
 - Readable font sizes
 - Correct color usage per conventions above
+- Explicit `width`/`height` attributes on the `<svg>` root matching the `viewBox` dimensions — without them browsers report a ~237–300px natural size, so the image renders too small wherever intrinsic size is used (including the downloaded-notebook attachment)
 
 ## Reference Examples
 
