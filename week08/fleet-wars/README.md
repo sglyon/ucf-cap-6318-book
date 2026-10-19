@@ -57,6 +57,8 @@ Add `?poll` to any page URL to force polling instead of Server-Sent Events.
 
 ## Suggested run of show (about 15 to 20 minutes)
 
+A bullet-point teaching script is in [INSTRUCTOR.md](INSTRUCTOR.md).
+
 The console has preset buttons for each step. Load a preset, then press **Start round**. 60 to 90 seconds per round works well.
 
 1. **Solo, no wormhole.** They should find the 50/50 split at 65 quickly. Ask: why didn't anyone need to coordinate?
