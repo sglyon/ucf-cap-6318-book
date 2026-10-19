@@ -12,76 +12,42 @@
 
 ## Overview
 
-So far in this course you have learned to represent social and economic systems as networks, and simulate them with agent-based models. Over the coming weeks you will add game theory, AI agents, and platform economics to that toolkit. This project asks you to use those tools to answer a question of your own choosing.
+Use the course's tools—networks, agent-based models, game theory, AI agents, or platform economics—to answer a social or economic question of your own choosing. Over six weeks (weeks 8-13), investigate one question carefully, then push beyond your first result with robustness checks or extensions.
 
-The project runs for six weeks, from week 8 through week 13. That is enough time to go *deep*: to pick one question you care about, answer it carefully, and then push further with robustness checks and extensions.
-
-The project is also designed with AI in mind. You have access to tools that can write a working notebook, a tidy README, and a confident paragraph of interpretation in a few minutes. That's great news for your productivity. It also means a polished notebook, by itself, does not tell me much about what *you* understand.
-
-So this project is designed around the parts of computational social science that AI does not do for you:
-
-- Choosing a question worth asking
-- Deciding which model or data can actually answer it
-- Checking whether the numbers on your screen are right
-- Explaining what a result means, what it doesn't mean, and why
-- Telling a clear story that ends in a takeaway: what should someone do or believe after reading your report?
-
-You are encouraged to use AI heavily for the rest. In exchange, the bar is high. Loading a dataset, computing some centralities, making a few plots, and providing interpretation/intuition is a starting point for this project, not a finished one.
-
-## Learning Objectives
-
-By completing this project, you will:
-
-1. Formulate a focused, answerable question about a social or economic system
-2. Select and justify a computational approach from the course (networks, ABMs, game theory, AI agents, platforms and markets)
-3. Implement that approach in reproducible code
-4. Verify your results against theory, baselines, or known cases
-5. Communicate findings, uncertainty, and limitations with a clear narrative and conclusions a reader can act on
-6. Defend your design choices and results in conversation
+You are encouraged to use AI heavily. You remain responsible for choosing a worthwhile question, justifying your approach, verifying results, and explaining a clear takeaway. A polished notebook alone is not enough: your analysis must have depth, and every team member must understand and defend the work.
 
 ## Instructions
 
-1. **Pick a question, not a dataset.** Start from something about how people, firms, or institutions interact that you find puzzling. Then ask which course tools could shed light on it. Strong questions are specific and could come out more than one way:
+1. **Pick a question, not a dataset.** Start with something puzzling about how people, firms, or institutions interact. Strong questions are specific and could come out more than one way:
    - "Did the 2021 chip shortage propagate through the U.S. input-output network the way the production network model predicts?"
    - "In a Schelling-style model, does letting agents communicate with neighbors (via an LLM) speed up or slow down segregation?"
-   - "Do LLM bidders in a first-price auction shade their bids the way Bayes-Nash equilibrium says they should?"
    - "How much of a ride-share platform's subsidy is needed to tip a two-sided market, and how sensitive is that to the cross-side network effect?"
-   - "Do weak ties act as bridges between communities in a real collaboration network?"
 
-2. **Go deep in one core course topic.** Your analysis must center on one of the course's main toolkits:
+2. **Go deep in one core course topic.** Center your analysis on one toolkit:
    - Networks (weeks 3-5): graph metrics, ties and homophily, structural balance, production networks
    - Agent-based models (weeks 6-7)
    - Game theory (weeks 8-9): Nash and mixed equilibria, network traffic, auctions
    - AI agents (weeks 10-11): LLM agents, tool use, multi-agent systems, evaluation
    - Platforms and marketplaces (weeks 12-13): network effects, tipping, pricing, matching
 
-   Your project must go deep in one of these topics. We recommend bringing in a concept or technique from a second topic as well (e.g., an agent-based model on a real network, LLM agents playing a game). Avoid a shallow tour of several topics; it will score lower than a thorough treatment of one. Note that you will start the project before we cover AI agents and platforms; it is fine to propose a topic from those units, and you can refine it at the check-in.
+   A second topic is encouraged (e.g., an ABM on a real network), but depth matters more than breadth. You may propose topics from units we haven't covered yet and refine them at the check-in.
 
-3. **Ground your work in something real.** Do at least one of the following:
+3. **Ground your work in evidence or theory.** Do at least one:
    - Analyze a real dataset
-   - Calibrate a model's parameters to real data or published estimates
-   - Compare a model's output to a known empirical pattern or theoretical prediction
+   - Calibrate model parameters to real data or published estimates
+   - Compare model output to a known empirical pattern or theoretical prediction
 
-   A purely hypothetical model with arbitrary parameters is not enough on its own.
+   A hypothetical model with arbitrary parameters is not enough on its own.
 
-4. **Define a minimum result and a stretch goal.** In your proposal, state the smallest result that would answer your question (your "minimum viable result") and what you'd do with extra time. Get the minimum working first. Most of the depth this project asks for comes from what you do *after* your first result: robustness checks, extensions, and explanations of surprises.
+4. **Define a minimum result and a stretch goal.** State the smallest result that would answer your question (your "minimum viable result") and what you'd do with extra time. Get the minimum working first, then add robustness checks, extensions, or explanations of surprises.
 
-5. **Verify every headline claim.** AI tools make it easy to produce numbers that look right and aren't. For each main result, show at least one independent check. Examples:
-   - Reproduce a known result or closed-form solution on a toy case before running the real one
-   - Compare against a simple baseline (random graph, rule-based agent, theoretical equilibrium)
-   - Vary seeds, parameters, or prompts and report how much the result moves
-   - Write tests for the core functions (`@test` in Julia, `assert`/`pytest` in Python)
-   - Hand-compute one case and confirm the code agrees
+5. **Verify every headline claim.** For each main result, show at least one independent check: reproduce a known solution on a toy case, compare against a simple baseline, vary seeds/parameters/prompts, test core functions, or hand-compute a case. Report failed checks and explain what you learned.
 
-   If a check fails, that's not a disaster. Report it and explain what you learned. A well-documented failure beats an unverified success.
+6. **Keep a decision log as you go.** In `DECISIONS.md`, record choices that shape the project, including accepting or rejecting AI suggestions. Each entry needs a date, the decision, alternatives considered, and your reasoning. Five to fifteen entries is typical; full prompt transcripts are not required.
 
-6. **Keep a decision log as you go.** Maintain a `DECISIONS.md` file in your repository. Add an entry whenever you make a choice that shapes the project: picking a dataset, dropping a research question, changing a model assumption, accepting or rejecting something an AI tool suggested. Each entry needs a date, the decision, the alternatives you considered, and why you chose what you did. Five to fifteen entries is typical. You do not need to submit full prompt transcripts.
+7. **Use Git from day one.** Work in a shared GitHub repository; if private, add me as a collaborator. Commit regularly so your history shows your process. Seek help early if you need a Git introduction.
 
-7. **Use Git from day one.** Work in a shared GitHub repository (public or private; if private, add me as a collaborator). Commit regularly. Your commit history is part of how I see your process. If you are not comfortable using Git and GitHub, request office hours time with the instructional team early so we can get you set up.
-
-8. **Hit the milestones.** The project has two checkpoints before the final submission. They exist to catch problems early, not to add paperwork. See [Milestones and Timeline](#milestones-and-timeline).
-
-9. **Write for a reader who will act on your results.** Communication quality is a major part of this project, not an afterthought. Your report should read as a narrative, not a log of everything you computed. Every section should build toward your main takeaway, and your conclusion should answer: what should someone do, or believe differently, after reading this? A correct analysis with no clear takeaway is an incomplete project.
+8. **Write toward a takeaway.** Build a narrative that answers: what should someone do or believe differently after reading your report? A correct analysis without a clear takeaway is incomplete.
 
 ## Milestones and Timeline
 
@@ -107,8 +73,6 @@ One to two pages, written by your team (not drafted by AI and lightly edited; I'
 4. Your minimum viable result and your stretch goal
 5. The biggest risk to the project and your fallback plan
 6. A short team agreement: how you'll split work, how often you'll meet, how you'll handle disagreements
-
-**Tip:** Give the proposal real time. It is only one or two pages, but it is where you make the decisions that shape the rest of the project. A team that has a specific question, data in hand, and a clear minimum result on November 1 will have a much easier time executing over the following four weeks than a team that is still deciding what to study.
 
 ### M2: Check-in (due Nov 15)
 
@@ -189,86 +153,33 @@ Every team member should be able to answer questions about any part of the proje
 
 The project is worth 100 points (30% of your course grade).
 
-| Component | Points | Graded |
-| --- | --- | --- |
-| M1: Proposal | 10 | Team |
-| M2: Check-in | 10 | Team |
-| Final submission | 50 | Team |
-| Presentation | 10 | Team |
-| Individual defense | 15 | Individual |
-| Process (decision log, commits, contribution) | 5 | Individual |
+| Component | Points | Basis for grading |
+| --- | ---: | --- |
+| M1: Proposal | 10 | Focused question, appropriate method, confirmed data access, realistic minimum result, and credible fallback |
+| M2: Check-in | 10 | Working pipeline, preliminary result, and an honest assessment with concrete next steps |
+| Final submission | 50 | Criteria below |
+| Presentation | 10 | Clear story within 15 minutes; effective slides explain the main result, verification, and takeaway |
+| Individual defense | 15 | Explains choices and code across the project, including teammates' work, and reasons through "what if" questions |
+| Process | 5 | Substantive, dated decision log kept throughout the project, sustained Git contributions, and consistent contribution statements |
 
-### M1: Proposal (10 points)
+The first four components are graded as a team; defense and process are graded individually.
 
-- **Full credit:** a specific, answerable question; a method that fits it; data you have in hand; a realistic minimum result; a credible risk and fallback
-- **Partial credit:** vague question, unclear data access, or a scope that clearly won't fit six weeks. You'll get feedback either way; the point is to fix this early.
+| Final submission criterion | Points | Full-credit standard |
+| --- | ---: | --- |
+| Question and approach | 10 | Specific, motivated question; method justified against alternatives; assumptions stated and defended |
+| Depth and correctness | 10 | Correct analysis beyond a first result through robustness checks, extensions, or investigation of surprises |
+| Verification | 10 | Independent checks for every headline claim, tests of core functions, and honest reporting of failures or sensitivities |
+| Communication and conclusions | 15 | Clear narrative, informative figures and captions, specific limitations, and a useful takeaway no stronger than the evidence supports |
+| Reproducibility and code | 5 | Documented, organized functions and an environment that lets me clone the repo and re-run the notebook, including cached API responses |
 
-### M2: Check-in (10 points)
-
-- **Full credit:** code runs end to end on real inputs; a real (if rough) result; an honest memo with a concrete plan
-- **Partial credit:** pipeline incomplete or results are placeholders; memo is vague about what's left
-
-### Final Submission (50 points)
-
-**Question and approach (10 points)**
-
-- *Excellent (9-10):* question is specific and well-motivated; method choice is justified against alternatives; assumptions are stated and defended
-- *Good (7-8):* reasonable question and method with some justification
-- *Needs work (0-6):* question is vague or the method doesn't fit it
-
-**Depth and correctness of analysis (10 points)**
-
-- *Excellent (9-10):* goes clearly beyond a first result: robustness checks, extensions, or a careful investigation of a surprise; methods applied correctly and with insight
-- *Good (7-8):* solid, correct analysis of the core question with some follow-up
-- *Satisfactory (5-6):* correct but shallow; stops at the first result
-- *Needs work (0-4):* errors in method or interpretation
-
-**Verification (10 points)**
-
-- *Excellent (9-10):* every headline claim has an independent check; tests cover core functions; failures or sensitivities are reported honestly
-- *Good (7-8):* main results checked; some tests
-- *Needs work (0-6):* results are asserted without checks
-
-**Communication, narrative, and conclusions (15 points)**
-
-- *Excellent (14-15):* the report tells a clear story that builds to a specific, well-supported takeaway; conclusions say what a reader should do or believe and are worded no more strongly than the evidence supports; figures with informative captions; discussion separates what the results show from what they don't; limitations are specific, not boilerplate
-- *Good (11-13):* clear and organized with a takeaway, minor gaps
-- *Satisfactory (8-10):* organized, but the takeaway is vague or overstated
-- *Needs work (0-7):* hard to follow, results presented without interpretation, or no clear takeaway
-
-**Reproducibility and code quality (5 points)**
-
-- *Full credit:* I can clone the repo, instantiate the environment, and re-run the notebook (with cached API responses if applicable); code is organized into documented functions
-- *Partial credit:* runs with manual fixes, or code is disorganized
-
-### Presentation (10 points)
-
-- Clear story within time; main result, its verification, and the takeaway come through; slides support rather than repeat the talk
-
-### Individual Defense (15 points)
-
-- *Excellent (14-15):* answers confidently about any part of the project, including parts a teammate built; explains why choices were made, not only what was done; can reason about "what if" questions on the spot
-- *Good (11-13):* solid on own work, some hesitation on other parts
-- *Satisfactory (8-10):* can describe what was done but struggles to explain why
-- *Needs work (0-7):* cannot explain significant parts of the submitted work
-
-### Process (5 points)
-
-- Decision log has substantive, dated entries made over the course of the project (not written the night before); commit history shows sustained contribution; contribution statements are consistent across the team
+Full credit requires meeting the listed standard. Partial credit reflects the extent and significance of missing, weak, or incorrect work. Correct analysis that stops at a first result earns reduced credit for depth.
 
 ## Tips for Success
 
-1. **Start early:** Six weeks feels like a lot. It isn't, once you account for finding data, getting it into the right shape, two milestones, and Thanksgiving.
-2. **Get to a first result fast:** Aim to have *something* running end to end within the first two weeks. Depth comes from iterating on a working pipeline, not from planning the perfect one.
-3. **Use AI as a collaborator, not an oracle:** Ask it to explain, propose alternatives, write a first draft of a function, or critique your plan. Then check its work. If you can't tell whether its answer is right, that's a signal to slow down and learn the concept.
-4. **Ask AI to attack your results:** "Here is my finding and my method. What are three ways this could be wrong?" is one of the most useful prompts you can write. Then go check.
-5. **Write the decision log in the moment:** A two-line entry right after a decision takes thirty seconds. Reconstructing ten of them the night before the deadline is painful and obvious.
-6. **Communicate with your team:** Meet regularly. Make sure everyone understands every part of the project; you'll each be asked about all of it.
-7. **Keep it focused:** One question answered well beats three answered superficially.
-8. **Iterate on figures:** Your first plot is rarely your best. Every figure should have a point; say what it is in the caption.
-9. **Treat surprises as gifts:** If your result contradicts the theory, that's often the most interesting part of the project. Dig in before you "fix" it.
-10. **Come to office hours:** Especially between the proposal and the check-in. Ten minutes of conversation can save a week of heading in the wrong direction.
-11. **Have fun:** This is your chance to spend real time on something you find interesting. Choose a question you're genuinely curious about!
+1. **Reach a first result early.** Aim for an end-to-end pipeline within the first two weeks so you have time to investigate and refine it.
+2. **Ask AI to challenge your results.** Try: "Here is my finding and method. What are three ways this could be wrong?" Then check.
+3. **Investigate surprises.** If a result contradicts theory, understand why before you "fix" it.
+4. **Use office hours.** Especially between the proposal and check-in: ten minutes of conversation can save a week of work.
 
 ## Academic Integrity
 
