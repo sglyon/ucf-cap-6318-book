@@ -12,7 +12,7 @@
 - Console → "L08.01 warm-ups" card. Click a game, then **Start warm-up round**, then **Reveal** when the count says everyone is in
 - Students can change their answer until you reveal. The projector shows only how many are in until then
 - Each matrix round re-pairs students randomly and randomizes Row/Column. An odd student plays a bot
-- **Opener: 2/3 of the average.** Before the IDDS section. Run 3 rounds back to back and watch the target shrink
+- **Opener: 2/3 of the average.** Start of lecture. Run 3 rounds back to back and watch the target shrink; point back to it at the IDDS section
 - **Prisoner's dilemma.** Right before the PD slide. One or two rounds, then reveal the cell counts
 - **Marketing game.** Before IDDS on the marketing game. Two or three rounds; Firm 2 players should drift to Upscale
 - **Matching pennies.** At the matching pennies section. Five or more quick rounds; watch the H share per role head toward 50%
