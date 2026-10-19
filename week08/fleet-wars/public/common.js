@@ -114,6 +114,7 @@ const BASE_CSS = `
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#111113; --card:#1b1b1f; --fg:#ededef; --muted:#9b9ba3; --line:#2e2e35; --accent:#7b9cff; --road:#7b9cff; --worm:#f06cc1; --fixed:#6b6b73; } }
 :root[data-theme="dark"] { --fixed:#6b6b73; --bg:#111113; --card:#1b1b1f; --fg:#ededef; --muted:#9b9ba3; --line:#2e2e35; --accent:#7b9cff; --road:#7b9cff; --worm:#f06cc1; }
 * { box-sizing:border-box; }
+[hidden] { display:none !important; }
 body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.4 system-ui, -apple-system, Segoe UI, sans-serif; }
 .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; }
 .muted { color:var(--muted); }
@@ -129,8 +130,8 @@ svg .esub { fill:var(--muted); font:13px system-ui; }
 document.head.insertAdjacentHTML("beforeend", `<style>${BASE_CSS}</style>`);
 
 // One-line key for the network colors.
-const NETWORK_KEY = `<div class="muted" style="font-size:14px; display:flex; gap:16px; flex-wrap:wrap; margin-top:6px">
+const networkKey = (wormhole) => `<div class="muted" style="font-size:14px; display:flex; gap:16px; flex-wrap:wrap; margin-top:6px">
   <span><span class="swatch" style="background:var(--road)"></span>Congestible: 40 × share of all cars</span>
   <span><span class="swatch" style="background:var(--fixed)"></span>Fixed: always 45 min</span>
-  <span><span class="swatch" style="background:var(--worm)"></span>Wormhole: 0 min</span>
+  ${wormhole ? '<span><span class="swatch" style="background:var(--worm)"></span>Wormhole: 0 min</span>' : ""}
   <span>Line width = traffic</span></div>`;

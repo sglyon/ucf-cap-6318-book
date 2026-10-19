@@ -76,7 +76,6 @@
   <section class="card" style="grid-column:1 / -1; height:200px"><canvas id="chart"></canvas></section>
 </main>
 <script>
-document.getElementById("key").innerHTML = NETWORK_KEY;
 let state = null, offset = 0, joinUrl = null, lobbyForced = null, lastRoundNo = null;
 function setJoinUrl(url) {
   if (url === joinUrl) return;
@@ -102,7 +101,9 @@ function render() {
   document.getElementById("lobbyCount").textContent = `${state.players.length} joined`;
   document.getElementById("lobbyNames").innerHTML = state.players.map((p) => `<span>${p.name}</span>`).join("");
   document.getElementById("roundTag").textContent = r ? `Round ${r.no}${r.status === "ended" ? " · finished" : ""}` : `${state.players.length} joined`;
-  document.getElementById("wormTag").hidden = !(r ? r.wormhole : state.config.wormhole);
+  const worm = r ? r.wormhole : state.config.wormhole;
+  document.getElementById("wormTag").hidden = !worm;
+  document.getElementById("key").innerHTML = networkKey(worm);
   const live = r?.live;
   document.getElementById("avg").textContent = live ? `${fmt(live.avg)} min` : "–";
   const left = r && r.status === "running" ? Math.max(0, (r.endsAt - (Date.now() + offset)) / 1000) : null;

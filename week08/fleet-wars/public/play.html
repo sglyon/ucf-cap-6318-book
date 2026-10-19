@@ -79,7 +79,6 @@ function shares() {
 }
 function showShares() { shares().forEach((s, i) => (document.querySelector(`#r${i} .share`).textContent = `${Math.round(s * 100)}% of your cars`)); }
 
-document.getElementById("key").innerHTML = NETWORK_KEY;
 connect((s) => {
   state = s; offset = s.serverTime - Date.now();
   // New round: reset sliders to the server's starting split.
@@ -120,6 +119,7 @@ function render() {
     sliders[i].disabled = r.status !== "running" || (i === 2 && !r.wormhole);
   });
   document.getElementById("r2").hidden = !r.wormhole;
+  document.getElementById("key").innerHTML = networkKey(r.wormhole);
   showShares();
   drawNetwork(document.getElementById("net"), live?.edges, r.wormhole, { showFlows: r.info !== "own" });
 }
