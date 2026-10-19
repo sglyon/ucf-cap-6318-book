@@ -51,12 +51,13 @@
     <div id="join"><div><div class="muted">Join on your phone</div><div style="font-size:26px; font-weight:700" id="url"></div></div><div id="qr"></div></div>
   </header>
 
-  <section class="card" style="display:grid; grid-template-rows:auto 1fr; min-height:0">
+  <section class="card" style="display:grid; grid-template-rows:auto 1fr auto; min-height:0">
     <div style="display:flex; justify-content:space-between; align-items:end">
       <div><div class="muted">Class average commute</div><div class="big" id="avg">–</div></div>
       <div style="text-align:right"><div class="muted" id="clockLabel">Time left</div><div class="big" id="clock">–</div></div>
     </div>
     <svg id="net"></svg>
+    <div id="key"></div>
   </section>
 
   <div class="side">
@@ -75,6 +76,7 @@
   <section class="card" style="grid-column:1 / -1; height:200px"><canvas id="chart"></canvas></section>
 </main>
 <script>
+document.getElementById("key").innerHTML = NETWORK_KEY;
 let state = null, offset = 0, joinUrl = null, lobbyForced = null, lastRoundNo = null;
 function setJoinUrl(url) {
   if (url === joinUrl) return;

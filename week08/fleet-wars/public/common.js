@@ -39,24 +39,29 @@ function drawNetwork(svg, edges, wormhole, opts = {}) {
   const N = { A: [70, 170], B: [530, 170], D: [300, 45], C: [300, 295] };
   const e = edges || { AC: 0, CB: 45, AD: 45, DB: 0, CD: 0, flowAC: 0, flowCB: 0, flowAD: 0, flowDB: 0, flowCD: 0 };
   const showFlows = opts.showFlows !== false;
+  // [from, to, minutes, share of cars, kind]; variable roads cost 40 × share of all cars.
   const list = [
-    ["A", "D", e.AD, e.flowAD, "45"],
-    ["D", "B", e.DB, e.flowDB, "40·x"],
-    ["A", "C", e.AC, e.flowAC, "40·x"],
-    ["C", "B", e.CB, e.flowCB, "45"],
+    ["A", "D", e.AD, e.flowAD, "fixed"],
+    ["D", "B", e.DB, e.flowDB, "var"],
+    ["A", "C", e.AC, e.flowAC, "var"],
+    ["C", "B", e.CB, e.flowCB, "fixed"],
   ];
-  if (wormhole) list.push(["C", "D", 0, e.flowCD, "0"]);
-  const line = ([a, b, t, f, label]) => {
+  if (wormhole) list.push(["C", "D", 0, e.flowCD, "worm"]);
+  const line = ([a, b, t, f, kind]) => {
     const [x1, y1] = N[a], [x2, y2] = N[b];
     const w = showFlows ? 3 + 34 * (f || 0) : 4;
-    const isWorm = a === "C" && b === "D";
-    const stroke = isWorm ? "var(--worm)" : "var(--road)";
-    const [lx, ly] = { AD: [140, 66], DB: [460, 66], AC: [140, 284], CB: [460, 284], CD: [360, 172] }[a + b];
-    const minutes = showFlows ? `${fmt(t, 1)} min` : label;
-    const pct = showFlows ? `${Math.round((f || 0) * 100)}%` : "";
-    return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${w}" stroke-linecap="round" ${isWorm ? 'stroke-dasharray="2 10"' : ""} opacity="0.9"/>
-      <text x="${lx}" y="${ly - 6}" text-anchor="middle" class="elabel">${minutes}</text>
-      <text x="${lx}" y="${ly + 14}" text-anchor="middle" class="esub">${showFlows ? pct + " of cars" : label}</text>`;
+    const stroke = { var: "var(--road)", fixed: "var(--fixed)", worm: "var(--worm)" }[kind];
+    const [lx, ly] = { AD: [128, 66], DB: [472, 66], AC: [118, 300], CB: [482, 300], CD: [385, 172] }[a + b];
+    const share = Math.round((f || 0) * 100);
+    const main = {
+      var: showFlows ? `40 × ${share}% = ${fmt(t, 1)} min` : "40 × share of cars",
+      fixed: "45 min, fixed",
+      worm: "0 min",
+    }[kind];
+    const sub = showFlows ? `${share}% of cars` : { var: "gets slower with traffic", fixed: "never congests", worm: "teleporter" }[kind];
+    return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${w}" stroke-linecap="round" ${kind === "worm" ? 'stroke-dasharray="2 10"' : ""} opacity="0.9"/>
+      <text x="${lx}" y="${ly - 6}" text-anchor="middle" class="elabel" fill="${kind === "var" ? "var(--road)" : "var(--fg)"}">${main}</text>
+      <text x="${lx}" y="${ly + 14}" text-anchor="middle" class="esub">${sub}</text>`;
   };
   const node = (k) => `<circle cx="${N[k][0]}" cy="${N[k][1]}" r="22" class="node"/><text x="${N[k][0]}" y="${N[k][1] + 7}" text-anchor="middle" class="nlabel">${k}</text>`;
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
@@ -105,9 +110,9 @@ function drawSeries(canvas, round) {
 }
 
 const BASE_CSS = `
-:root { --bg:#f7f7f5; --card:#fff; --fg:#1b1b18; --muted:#6b6b66; --line:#e2e2dc; --accent:#3e63dd; --road:#3e63dd; --worm:#d6409f; --good:#30a46c; --warn:#e0a100; --bad:#e5484d; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#111113; --card:#1b1b1f; --fg:#ededef; --muted:#9b9ba3; --line:#2e2e35; --accent:#7b9cff; --road:#7b9cff; --worm:#f06cc1; } }
-:root[data-theme="dark"] { --bg:#111113; --card:#1b1b1f; --fg:#ededef; --muted:#9b9ba3; --line:#2e2e35; --accent:#7b9cff; --road:#7b9cff; --worm:#f06cc1; }
+:root { --fixed:#9a9a92; --bg:#f7f7f5; --card:#fff; --fg:#1b1b18; --muted:#6b6b66; --line:#e2e2dc; --accent:#3e63dd; --road:#3e63dd; --worm:#d6409f; --good:#30a46c; --warn:#e0a100; --bad:#e5484d; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#111113; --card:#1b1b1f; --fg:#ededef; --muted:#9b9ba3; --line:#2e2e35; --accent:#7b9cff; --road:#7b9cff; --worm:#f06cc1; --fixed:#6b6b73; } }
+:root[data-theme="dark"] { --fixed:#6b6b73; --bg:#111113; --card:#1b1b1f; --fg:#ededef; --muted:#9b9ba3; --line:#2e2e35; --accent:#7b9cff; --road:#7b9cff; --worm:#f06cc1; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.4 system-ui, -apple-system, Segoe UI, sans-serif; }
 .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; }
@@ -117,8 +122,15 @@ button.primary { background:var(--accent); color:#fff; border-color:transparent;
 input, select { font:inherit; padding:8px 10px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--fg); }
 svg .node { fill:var(--card); stroke:var(--fg); stroke-width:2; }
 svg .nlabel { fill:var(--fg); font:700 20px system-ui; }
-svg .elabel { fill:var(--fg); font:600 16px system-ui; }
+svg .elabel { font:600 16px system-ui; }
 svg .esub { fill:var(--muted); font:13px system-ui; }
 .swatch { display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:6px; vertical-align:-1px; }
 `;
 document.head.insertAdjacentHTML("beforeend", `<style>${BASE_CSS}</style>`);
+
+// One-line key for the network colors.
+const NETWORK_KEY = `<div class="muted" style="font-size:14px; display:flex; gap:16px; flex-wrap:wrap; margin-top:6px">
+  <span><span class="swatch" style="background:var(--road)"></span>Congestible: 40 × share of all cars</span>
+  <span><span class="swatch" style="background:var(--fixed)"></span>Fixed: always 45 min</span>
+  <span><span class="swatch" style="background:var(--worm)"></span>Wormhole: 0 min</span>
+  <span>Line width = traffic</span></div>`;
