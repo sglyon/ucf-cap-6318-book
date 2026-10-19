@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fleet Wars Admin</title>
-<script src="/common.js?v=3"></script>
+<script src="/common.js?v=4"></script>
 <style>
   main { max-width:760px; margin:0 auto; padding:16px; display:grid; gap:12px; }
   h1 { margin:0; font-size:24px; }
@@ -22,6 +22,17 @@
 <main>
   <div class="row" style="justify-content:space-between"><h1>Fleet Wars console</h1><a href="/screen" target="_blank">Open projector view</a></div>
   <div class="card" id="status"></div>
+
+  <div class="card" style="display:grid; gap:12px">
+    <div class="row" style="justify-content:space-between"><b>L08.01 warm-ups</b><span id="wstatus" class="muted"></span></div>
+    <div class="row preset">
+      <button data-w='{"mode":"beauty"}'>2/3 of average</button>
+      <button data-w='{"mode":"matrix","game":"pd"}'>Prisoner's dilemma</button>
+      <button data-w='{"mode":"matrix","game":"market"}'>Marketing game</button>
+      <button data-w='{"mode":"matrix","game":"pennies"}'>Matching pennies</button>
+    </div>
+    <div class="row"><button class="primary" id="wstart">Start warm-up round</button><button id="wreveal">Reveal</button><span style="flex:1"></span><button id="tofleet">Switch everyone to Fleet Wars</button></div>
+  </div>
 
   <div class="card" style="display:grid; gap:12px">
     <div class="muted">Suggested sequence (click to load settings, then Start round)</div>
@@ -44,7 +55,7 @@
   <div class="card"><div class="muted" id="pcount">Players</div><ul id="players"></ul></div>
 
   <div class="card row">
-    <a id="exRounds" href="#">Download rounds CSV</a> · <a id="exTicks" href="#">Download tick-level CSV</a>
+    <a id="exRounds" href="#">Download rounds CSV</a> · <a id="exTicks" href="#">Download tick-level CSV</a> · <a id="exWarm" href="#">Download warm-ups CSV</a>
     <span style="flex:1"></span>
     <button id="resetScores">Reset rounds</button><button id="resetAll" class="danger">Reset everything</button>
   </div>
@@ -54,6 +65,11 @@ const key = new URLSearchParams(location.search).get("key") || "";
 const api = (a, d) => post(`/api/admin/${a}?key=${encodeURIComponent(key)}`, d).then((r) => { document.getElementById("msg").textContent = r.error || ""; return r; });
 document.getElementById("exRounds").href = `/export/rounds.csv?key=${encodeURIComponent(key)}`;
 document.getElementById("exTicks").href = `/export/ticks.csv?key=${encodeURIComponent(key)}`;
+document.getElementById("exWarm").href = `/export/warmups.csv?key=${encodeURIComponent(key)}`;
+document.querySelectorAll("[data-w]").forEach((b) => (b.onclick = () => api("w/mode", JSON.parse(b.dataset.w))));
+document.getElementById("wstart").onclick = () => api("w/start");
+document.getElementById("wreveal").onclick = () => api("w/reveal");
+document.getElementById("tofleet").onclick = () => api("activity", { activity: "fleet" });
 let state = null, offset = 0, editing = false;
 
 document.querySelectorAll(".preset button").forEach((b) => (b.onclick = () => api("config", JSON.parse(b.dataset.p))));
@@ -72,6 +88,11 @@ document.getElementById("resetAll").onclick = () => { if (document.getElementByI
 connect((s) => { state = s; offset = s.serverTime - Date.now(); render(); });
 function render() {
   const c = state.config, r = state.round;
+  const w = state.warmup, wr = w.round;
+  const wname = w.mode === "beauty" ? "2/3 of average" : w.gameName;
+  document.getElementById("wstatus").textContent = `Phones show: ${state.activity === "warmup" ? "warm-ups" : "Fleet Wars"} · Selected: ${wname}` +
+    (wr ? ` · Round ${wr.no} ${wr.status === "open" ? `open, ${wr.submitted.length}/${wr.roster.length} in` : "revealed"}` : "");
+  document.querySelectorAll("[data-w]").forEach((b) => { const d = JSON.parse(b.dataset.w); b.style.borderColor = d.mode === w.mode && (d.mode === "beauty" || d.game === w.gameKey) ? "var(--accent)" : ""; });
   if (!editing) {
     document.getElementById("companies").value = c.companies;
     document.getElementById("duration").value = c.duration;

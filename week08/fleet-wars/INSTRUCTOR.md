@@ -8,6 +8,16 @@
 - Laptop: `localhost:3000/admin?key=<key>`
 - Scan the QR code with your phone on cellular to test, then remove yourself in the console
 
+## L08.01 warm-ups (same app, students join once for the whole day)
+- Console → "L08.01 warm-ups" card. Click a game, then **Start warm-up round**, then **Reveal** when the count says everyone is in
+- Students can change their answer until you reveal. The projector shows only how many are in until then
+- Each matrix round re-pairs students randomly and randomizes Row/Column. An odd student plays a bot
+- **Opener: 2/3 of the average.** Before the IDDS section. Run 3 rounds back to back and watch the target shrink
+- **Prisoner's dilemma.** Right before the PD slide. One or two rounds, then reveal the cell counts
+- **Marketing game.** Before IDDS on the marketing game. Two or three rounds; Firm 2 players should drift to Upscale
+- **Matching pennies.** At the matching pennies section. Five or more quick rounds; watch the H share per role head toward 50%
+- Click **Switch everyone to Fleet Wars** (or start a Fleet Wars round) when you move to L08.02
+
 ## 1. Join (2 min)
 - Projector shows the big QR code. Wait until every name is on screen
 - Say: route your fleet A→B with the sliders, lowest company average wins, only the second half of each round counts

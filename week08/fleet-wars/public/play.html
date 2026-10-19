@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fleet Wars</title>
-<script src="/common.js?v=3"></script>
+<script src="/common.js?v=4"></script>
+<script src="/warmup-ui.js?v=4"></script>
 <style>
   main { max-width:520px; margin:0 auto; padding:16px; display:grid; gap:12px; }
   h1 { font-size:22px; margin:0; }
@@ -23,7 +24,7 @@
 </head>
 <body>
 <main>
-  <div class="row" style="justify-content:space-between"><h1>Fleet Wars</h1><span id="me" class="muted"></span></div>
+  <div class="row" style="justify-content:space-between"><h1 id="title">Fleet Wars</h1><span id="me" class="muted"></span></div>
 
   <section id="join" class="card" hidden>
     <p style="margin-top:0">You run a fleet of cars commuting from <b>A</b> to <b>B</b>. Split your fleet across routes to get the lowest average commute for your company.</p>
@@ -46,6 +47,8 @@
 
     <div class="card" style="margin-top:12px"><svg id="net"></svg><div id="key"></div></div>
   </section>
+
+  <section id="warm" hidden></section>
 
   <section id="wait" class="card" hidden><p style="margin:0" id="waitMsg">Waiting for the next round…</p></section>
 </main>
@@ -92,8 +95,16 @@ connect((s) => {
 function render() {
   const me = state && id && state.players.find((p) => p.id === id);
   document.getElementById("join").hidden = !!me;
-  if (!me) { document.getElementById("game").hidden = true; document.getElementById("wait").hidden = true; document.getElementById("me").textContent = ""; return; }
+  if (!me) { document.getElementById("game").hidden = true; document.getElementById("wait").hidden = true; document.getElementById("warm").hidden = true; document.getElementById("me").textContent = ""; return; }
   document.getElementById("me").textContent = me.name;
+  const warm = state.activity === "warmup";
+  document.getElementById("title").textContent = warm ? "Game Theory" : "Fleet Wars";
+  document.getElementById("warm").hidden = !warm;
+  if (warm) {
+    document.getElementById("game").hidden = true; document.getElementById("wait").hidden = true;
+    renderWarmPlay(document.getElementById("warm"), state, id);
+    return;
+  }
   const r = state.round;
   const inRound = r && me.company !== null && me.company !== undefined && r.companies[me.company]?.members.includes(id);
   document.getElementById("game").hidden = !inRound;

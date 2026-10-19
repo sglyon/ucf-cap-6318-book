@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fleet Wars Screen</title>
-<script src="/common.js?v=3"></script>
+<script src="/common.js?v=4"></script>
+<script src="/warmup-ui.js?v=4"></script>
 <script src="/qrcode.js"></script>
 <style>
   body { font-size:18px; }
@@ -24,6 +25,10 @@
   #qr img { display:block; width:104px; height:104px; border-radius:6px; image-rendering:pixelated; }
   .bench { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; text-align:center; }
   .bench div b { display:block; font-size:24px; }
+  #warm { grid-column:1 / -1; grid-row:2 / 4; min-height:0; }
+  body.warm main > section, body.warm main > .side { display:none !important; }
+  body:not(.warm) #warm { display:none; }
+  #warm table { width:100%; }
   #lobby { position:fixed; inset:0; background:var(--bg); display:flex; align-items:center; justify-content:center; gap:64px; padding:32px; z-index:10; }
   #lobby[hidden] { display:none; }
   #bigqr img { display:block; width:min(64vh, 560px); height:min(64vh, 560px); border-radius:16px; image-rendering:pixelated; }
@@ -37,7 +42,7 @@
 <div id="lobby" hidden>
   <div id="bigqr"></div>
   <div>
-    <h2>Fleet Wars</h2>
+    <h2 id="lobbyTitle">Fleet Wars</h2>
     <div class="muted" style="font-size:24px">Scan to join, or go to</div>
     <div id="lobbyUrl"></div>
     <div class="muted" id="lobbyCount" style="font-size:20px; margin-bottom:10px"></div>
@@ -50,6 +55,7 @@
     <div><h1>Fleet Wars <span id="roundTag" class="tag muted"></span><span id="wormTag" class="tag worm" hidden>Wormhole open</span></h1></div>
     <div id="join"><div><div class="muted">Join on your phone</div><div style="font-size:26px; font-weight:700" id="url"></div></div><div id="qr"></div></div>
   </header>
+  <div id="warm"></div>
 
   <section class="card" style="display:grid; grid-template-rows:auto 1fr auto; min-height:0">
     <div style="display:flex; justify-content:space-between; align-items:end">
@@ -96,10 +102,22 @@ connect((s) => { state = s; offset = s.serverTime - Date.now(); setJoinUrl((s.pu
 
 function render() {
   const r = state.round;
-  if (r && r.no !== lastRoundNo) { lastRoundNo = r.no; lobbyForced = null; } // a new round returns to the dashboard
-  document.getElementById("lobby").hidden = !(lobbyForced ?? !r);
+  const warm = state.activity === "warmup";
+  document.body.classList.toggle("warm", warm);
+  document.querySelector("header h1").firstChild.textContent = warm ? "Game Theory Warm-ups " : "Fleet Wars ";
+  document.getElementById("lobbyTitle").textContent = warm ? "Game Theory" : "Fleet Wars";
+  // A new round (Fleet Wars or warm-up) returns to the dashboard.
+  const roundKey = warm ? (state.warmup.round ? "w" + state.warmup.round.no : null) : (r ? "f" + r.no : null);
+  if (roundKey && roundKey !== lastRoundNo) { lastRoundNo = roundKey; lobbyForced = null; }
+  document.getElementById("lobby").hidden = !(lobbyForced ?? !roundKey);
   document.getElementById("lobbyCount").textContent = `${state.players.length} joined`;
   document.getElementById("lobbyNames").innerHTML = state.players.map((p) => `<span>${p.name}</span>`).join("");
+  if (warm) {
+    renderWarmScreen(document.getElementById("warm"), state);
+    document.getElementById("roundTag").textContent = `${state.players.length} joined`;
+    document.getElementById("wormTag").hidden = true;
+    return;
+  }
   document.getElementById("roundTag").textContent = r ? `Round ${r.no}${r.status === "ended" ? " · finished" : ""}` : `${state.players.length} joined`;
   const worm = r ? r.wormhole : state.config.wormhole;
   document.getElementById("wormTag").hidden = !worm;

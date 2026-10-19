@@ -39,6 +39,15 @@ The QR code encodes `PUBLIC_URL` if you set it, and otherwise whatever address y
 
 Add `?poll` to any page URL to force polling instead of Server-Sent Events.
 
+## L08.01 warm-ups
+
+The same server also runs quick warm-up games, so students join once for both lectures. Use the console's "L08.01 warm-ups" card:
+
+- **Guess 2/3 of the average:** everyone submits a number from 0 to 100. The reveal shows a histogram with the average, 2/3 of the average and the Nash equilibrium (0).
+- **2×2 games from L08.01:** prisoner's dilemma, the marketing game and matching pennies, with the notebook's payoffs. Each round pairs students at random and assigns Row or Column; an odd student out plays a bot. The reveal shows how many pairs landed in each cell, with pure Nash equilibria outlined, plus a points leaderboard.
+
+Results are exported in `warmups.csv`.
+
 ## The game
 
 - Total demand is normalized to 1 and split equally across the students in the round. Edges A-C and D-B cost `40 × (share of all cars on that edge)`, edges A-D and C-B cost 45, and the wormhole C-D costs 0. These are the notebook's numbers.

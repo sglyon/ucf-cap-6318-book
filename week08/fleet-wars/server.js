@@ -10,6 +10,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const G = require("./game.js");
+const createWarmup = require("./warmup.js");
 
 const PORT = Number(process.env.PORT || 3000);
 const ADMIN_KEY = process.env.ADMIN_KEY || "fleet";
@@ -21,6 +22,8 @@ const COMPANY_NAMES = ["Red", "Blue", "Green", "Gold", "Purple", "Orange", "Teal
 // ---------------------------------------------------------------- state
 
 const players = new Map(); // id -> {id, name, raw:[u,l,z], company, lastSeen}
+const W = createWarmup(players);
+let activity = "fleet"; // "fleet" | "warmup": what phones and the projector show
 let config = { companies: 0, wormhole: false, duration: 90, info: "full" }; // companies 0 = everyone solo
 let round = null; // current/last round
 let roundNo = 0;
@@ -130,6 +133,8 @@ function endRound() {
 
 function publicState() {
   return {
+    activity,
+    warmup: W.publicState(),
     config,
     publicUrl: PUBLIC_URL,
     serverTime: Date.now(),
@@ -185,6 +190,7 @@ const server = http.createServer(async (req, res) => {
   if (p === "/screen") return sendFile(res, "screen.html", "text/html");
   if (p === "/admin") return sendFile(res, "admin.html", "text/html");
   if (p === "/common.js") return sendFile(res, "common.js", "text/javascript");
+  if (p === "/warmup-ui.js") return sendFile(res, "warmup-ui.js", "text/javascript");
   if (p === "/qrcode.js") return sendFile(res, "qrcode.js", "text/javascript");
 
   if (p === "/state") return json(res, 200, publicState());
@@ -215,6 +221,14 @@ const server = http.createServer(async (req, res) => {
     return json(res, 200, { ok: true });
   }
 
+  if (req.method === "POST" && p === "/api/w/submit") {
+    const b = await body(req);
+    if (!players.has(b.id)) return json(res, 404, { error: "unknown player" });
+    const r = W.submit(b.id, b.value);
+    broadcast();
+    return json(res, r.error ? 400 : 200, r);
+  }
+
   if (p.startsWith("/api/admin/")) {
     if (!isAdmin) return json(res, 403, { error: "bad key" });
     const b = req.method === "POST" ? await body(req) : {};
@@ -239,19 +253,31 @@ const server = http.createServer(async (req, res) => {
       return json(res, 200, config);
     }
     if (action === "start") {
+      activity = "fleet";
       if (round && round.status === "running") endRound();
       const r = newRound();
       broadcast();
       return json(res, r.error ? 400 : 200, r);
     }
     if (action === "stop") { endRound(); broadcast(); return json(res, 200, { ok: true }); }
+    if (action === "activity") { activity = b.activity === "warmup" ? "warmup" : "fleet"; broadcast(); return json(res, 200, { activity }); }
+    if (action === "w/mode") { W.setMode(b.mode, b.game); activity = "warmup"; broadcast(); return json(res, 200, { ok: true }); }
+    if (action === "w/start") { activity = "warmup"; const r = W.start(); broadcast(); return json(res, r.error ? 400 : 200, r); }
+    if (action === "w/reveal") { W.reveal(); broadcast(); return json(res, 200, { ok: true }); }
+    if (action === "w/reset") { W.reset(); broadcast(); return json(res, 200, { ok: true }); }
     if (action === "kick") { players.delete(b.id); broadcast(); return json(res, 200, { ok: true }); }
     if (action === "reset") {
       round = null; roundNo = 0; history.length = 0; tickLog.length = 0;
-      if (b.players) players.clear();
+      if (b.players) { players.clear(); W.reset(); }
       broadcast();
       return json(res, 200, { ok: true });
     }
+  }
+
+  if (p === "/export/warmups.csv") {
+    if (!isAdmin) { res.writeHead(403); return res.end("bad key"); }
+    res.writeHead(200, { "content-type": "text/csv", "content-disposition": "attachment; filename=warmups.csv" });
+    return res.end(csv(W.exportRows()));
   }
 
   if (p === "/export/rounds.csv" || p === "/export/ticks.csv") {
