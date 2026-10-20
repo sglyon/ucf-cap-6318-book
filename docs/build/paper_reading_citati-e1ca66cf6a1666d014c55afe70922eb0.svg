@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 440" role="img" aria-labelledby="title desc" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title id="title">Getting read and getting cited</title><desc id="desc">In a larger pool, paper agents A and B have the same quality, age, field and positive author prestige. A has zero citations and B has eight, so B has a higher reading weight but random selection can still choose A. Age, citations, field trend and prestige affect reading. Quality, field trend and a base rate determine a separate citation probability; a random draw either adds one citation or leaves the count unchanged. Later researchers in the same step use the updated counts.</desc>
+<defs><filter id="shadow" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+<marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6 Z" fill="#10B981"/></marker></defs>
+<rect width="850" height="440" rx="12" fill="#FFFFFF"/>
+<text x="425" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Getting read and getting cited</text>
+<text x="425" y="57" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Suppose two papers have the same quality. Which gets read more often?</text>
+<rect x="20" y="95" width="220" height="226" rx="12" fill="#ECFDF5" stroke="#10B981" filter="url(#shadow)"/>
+<path d="M32 95 H228 Q240 95 240 107 V131 H20 V107 Q20 95 32 95 Z" fill="#10B981"/>
+<text x="130.0" y="119" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Paper agents</text>
+<rect x="270" y="95" width="240" height="226" rx="12" fill="#ECFDF5" stroke="#10B981" filter="url(#shadow)"/>
+<path d="M282 95 H498 Q510 95 510 107 V131 H270 V107 Q270 95 282 95 Z" fill="#10B981"/>
+<text x="390.0" y="119" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">1. Select what to read</text>
+<rect x="540" y="95" width="290" height="226" rx="12" fill="#ECFDF5" stroke="#10B981" filter="url(#shadow)"/>
+<path d="M552 95 H818 Q830 95 830 107 V131 H540 V107 Q540 95 552 95 Z" fill="#10B981"/>
+<text x="685.0" y="119" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">2. Decide whether to cite</text>
+<path d="M40 151 H99 L120 172 V242 H40 Z" fill="#FFFFFF" stroke="#10B981" stroke-width="1.5"/><path d="M99 151 V172 H120" fill="none" stroke="#10B981"/><text x="80" y="192" text-anchor="middle" font-size="13" font-weight="600" fill="#065F46">Paper A</text>
+<text x="80" y="222" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">0 citations</text>
+<path d="M140 151 H199 L220 172 V242 H140 Z" fill="#FFFFFF" stroke="#10B981" stroke-width="1.5"/><path d="M199 151 V172 H220" fill="none" stroke="#10B981"/><text x="180" y="192" text-anchor="middle" font-size="13" font-weight="600" fill="#065F46">Paper B</text>
+<text x="180" y="222" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">8 citations</text>
+<text x="130" y="145" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Two papers from a larger pool</text>
+<text x="130" y="269" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Same quality, age, field</text>
+<text x="130" y="290" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">and author prestige</text>
+<text x="390" y="156" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Age · citations</text>
+<text x="390" y="178" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Field trend · prestige</text>
+<rect x="290" y="197" width="200" height="51" rx="10" fill="#D1FAE5"/><text x="390" y="218" text-anchor="middle" font-size="11" font-weight="600" fill="#065F46">B has a higher reading weight</text>
+<text x="390" y="236" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">A can still be selected</text>
+<text x="390" y="277" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Random draw without replacement</text>
+<text x="390" y="298" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Each read adds 1 to reads</text>
+<path d="M240 209 H270" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M510 209 H540" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="685" y="156" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Base rate × quality × field trend</text>
+<text x="685" y="176" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">sets the citation probability</text>
+<polygon points="685,189 739,215 685,241 631,215" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5"/><text x="685" y="219" text-anchor="middle" font-size="10" font-weight="600" fill="#065F46">Random draw</text>
+<path d="M658 228 V251 H610 V267" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M712 228 V251 H760 V267" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="610" y="286" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">Cite</text>
+<text x="610" y="306" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Citations +1</text>
+<text x="760" y="286" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">Skip</text>
+<text x="760" y="306" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Count unchanged</text>
+<path d="M610 321 V368 H390 V321" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="500" y="390" text-anchor="middle" font-size="11" font-weight="600" fill="#065F46">Later researchers use updated citations in the same step</text>
+<text x="425" y="415" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">Getting read creates a chance to be cited. It does not guarantee a citation.</text>
+</svg>

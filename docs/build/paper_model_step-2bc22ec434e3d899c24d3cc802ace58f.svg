@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 390" role="img" aria-labelledby="title desc" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title id="title">One step in the paper model</title><desc id="desc">In execution order: advance time, update each field trend by a bounded random walk, age all existing papers, repeat reading and citation decisions for each researcher, then publish new papers with age, reads and citations set to zero. New papers first become available to read on the next step. Researchers are repeated events, not agents.</desc>
+<defs><filter id="shadow" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+<marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6 Z" fill="#10B981"/></marker></defs>
+<rect width="850" height="390" rx="12" fill="#FFFFFF"/>
+<text x="425" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">One step in the paper model</text>
+<text x="425" y="57" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">We publish new papers at the end. When can researchers first read them?</text>
+<rect x="20" y="115" width="138" height="145" rx="12" fill="#ECFDF5" stroke="#10B981" filter="url(#shadow)"/>
+<path d="M32 115 H146 Q158 115 158 127 V151 H20 V127 Q20 115 32 115 Z" fill="#10B981"/>
+<text x="89.0" y="139" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">1. Time</text>
+<text x="89.0" y="176" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Advance the</text>
+<text x="89.0" y="197" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">model clock</text>
+<rect x="188" y="115" width="138" height="145" rx="12" fill="#ECFDF5" stroke="#10B981" filter="url(#shadow)"/>
+<path d="M200 115 H314 Q326 115 326 127 V151 H188 V127 Q188 115 200 115 Z" fill="#10B981"/>
+<text x="257.0" y="139" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">2. Trends</text>
+<text x="257.0" y="176" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Random walk</text>
+<text x="257.0" y="197" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">for each field</text>
+<text x="257.0" y="218" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Bounds: 0.1 to 2</text>
+<rect x="356" y="115" width="138" height="145" rx="12" fill="#ECFDF5" stroke="#10B981" filter="url(#shadow)"/>
+<path d="M368 115 H482 Q494 115 494 127 V151 H356 V127 Q356 115 368 115 Z" fill="#10B981"/>
+<text x="425.0" y="139" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">3. Age</text>
+<text x="425.0" y="176" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">All existing</text>
+<text x="425.0" y="197" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">papers age</text>
+<text x="425.0" y="218" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">by one step</text>
+<rect x="524" y="115" width="138" height="145" rx="12" fill="#ECFDF5" stroke="#10B981" filter="url(#shadow)"/>
+<path d="M536 115 H650 Q662 115 662 127 V151 H524 V127 Q524 115 536 115 Z" fill="#10B981"/>
+<text x="593.0" y="139" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">4. Researchers</text>
+<text x="593.0" y="176" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Select and read</text>
+<text x="593.0" y="197" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Decide to cite</text>
+<text x="593.0" y="218" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Update counts</text>
+<rect x="692" y="115" width="138" height="145" rx="12" fill="#ECFDF5" stroke="#10B981" filter="url(#shadow)"/>
+<path d="M704 115 H818 Q830 115 830 127 V151 H692 V127 Q692 115 704 115 Z" fill="#10B981"/>
+<text x="761.0" y="139" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">5. Publish</text>
+<text x="761.0" y="176" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Add new papers</text>
+<text x="761.0" y="197" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Age = 0</text>
+<text x="761.0" y="218" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Reads = citations = 0</text>
+<path d="M158 186 H188" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M326 186 H356" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M494 186 H524" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M662 186 H692" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M532 108 V88 H654 V108" fill="none" stroke="#10B981" stroke-width="1.5"/>
+<text x="593" y="80" text-anchor="middle" font-size="10" font-weight="600" fill="#065F46">Repeat for each researcher</text>
+<path d="M761 260 V318 H89 V260" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="425" y="302" text-anchor="middle" font-size="11" font-weight="600" fill="#065F46">New papers become available to read on the next step</text>
+<text x="425" y="360" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Papers are the agents. Researchers are repeated reading and citation events.</text>
+</svg>
