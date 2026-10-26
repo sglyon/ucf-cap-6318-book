@@ -78,15 +78,33 @@ project:
       children:
         - file: week12/L12.01_platform_pricing.ipynb
         - file: week12/L12.02_matching_markets.ipynb
-    # - title: Reinforcement Learning
-    #   children:
-    #     - file: reinforcement_learning/rl.01.ipynb
-    #     - file: reinforcement_learning/rl.02-tdlearning.ipynb
-    #     - file: reinforcement_learning/rl.03_qlearning.ipynb
-    #     - file: reinforcement_learning/rl.04_career_rl.ipynb
-    #     - file: reinforcement_learning/rl.05_continuous_S.ipynb
-    #     - file: reinforcement_learning/rl.06_dqn_intro.ipynb
-    #     - file: reinforcement_learning/rl.07_deepmind.ipynb
+    - title: "Appendix: Game Theory"
+      children:
+        - file: week09/L09.02_markov_perf.ipynb
+    - title: "Appendix: Blockchains"
+      children:
+        - file: week11/L11.01_intro_to_blockchains.ipynb
+        - file: week12/L12.01-ethereum.ipynb
+        - file: week12/L12.02-defi.ipynb
+        - file: week12/L12.03-nft.ipynb
+    - title: "Appendix: Reinforcement Learning"
+      children:
+        - file: reinforcement_learning/rl.01.ipynb
+        - file: reinforcement_learning/rl.02-tdlearning.ipynb
+        - file: reinforcement_learning/rl.03_qlearning.ipynb
+        - file: reinforcement_learning/rl.04_career_rl.ipynb
+        - file: reinforcement_learning/rl.05_continuous_S.ipynb
+        - file: reinforcement_learning/rl.06_dqn_intro.ipynb
+        - file: reinforcement_learning/rl.07_deepmind.ipynb
+    - title: "Appendix: AI Agents"
+      children:
+        - file: weekA04/L.A04.01_production_safety_and_frontiers.ipynb
+        - file: weekAXX/L.A3.01_ai_agent_swarms_collective_intelligence.ipynb
+        - file: weekAXX/L.A3.02_game_theory_with_ai_agents.ipynb
+        - file: weekAXX/L.A3.03_digital_twins_and_simulation.ipynb
+        - file: weekAXX/L.A4.01_agentic_systems_in_production.ipynb
+        - file: weekAXX/L.A4.02_ethical_and_safety_considerations.ipynb
+        - file: weekAXX/L.A4.03_future_frontiers_research_directions.ipynb
 
 site:
   template: book-theme
