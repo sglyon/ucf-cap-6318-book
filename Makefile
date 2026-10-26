@@ -10,3 +10,7 @@ run:
 .PHONY: project-handout
 project-handout:
 	python3 scripts/build_project_handout.py -o _build/handouts/project-2026.html
+
+.PHONY: auctions
+auctions:
+	node week09/auction-room/server.js

@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bid · Classroom Auctions</title><link rel="stylesheet" href="/style.css"><script defer src="/common.js"></script></head>
+<body><main style="max-width:620px"><header><h1>Classroom Auctions</h1><span id="connection" role="status">Connecting…</span></header>
+<section id="join" class="panel"><h2>Take a seat at the auction</h2><p>Use a recognizable name. These are fake credits for real classroom items.</p><form id="joinForm"><label>Your name<input id="name" maxlength="30" autocomplete="nickname" required></label><button class="primary">Join auction</button></form></section>
+<div id="wallet" class="split" hidden><strong id="identity"></strong><span id="balance" class="number"></span></div>
+<p id="message" role="status" aria-live="polite"></p>
+<section class="panel"><div class="split"><span id="roundStatus" class="muted"></span><span id="participants" class="muted"></span></div><p id="format" class="tag"></p><h2 id="item">Connecting to the classroom…</h2><p id="rules"></p><div id="price" class="price"></div><p id="detail"></p><div id="clock" class="timer number"></div>
+<form id="bidForm" hidden><label id="amountLabel">Your bid in credits<input id="amount" type="number" min="1" step="1" inputmode="numeric" required></label><p id="ownBid" class="success"></p><button id="bidButton" class="primary" disabled>Place bid</button></form>
+<p class="muted">Sealed bids are final. Ties in sealed bids go to the bidder who joined first. Dutch accepts the first valid request received by the server.</p></section>
+<section><h2>Completed auctions</h2><ul id="history" class="list"></ul></section></main>
+<script>
+addEventListener('DOMContentLoaded',()=>{
+ let stop, previousRound;
+ function render(s){
+  common(s); const me=s.me,r=s.round;
+  $('join').hidden=!!me; $('wallet').hidden=!me;
+  if(me){$('identity').textContent=me.name;$('balance').textContent=`${me.balance} credits left`;}
+  $('bidForm').hidden=!me||r?.status!=='running';
+  if(!r||!me)return;
+  if(previousRound!==r.id){$('amount').value='';message('');previousRound=r.id;}
+  $('amountLabel').hidden=r.type==='dutch';$('amount').required=r.type!=='dutch';
+  $('amount').min=r.minimumBid??r.reserve;$('amount').max=me.balance;
+  $('amount').placeholder=`At least ${r.minimumBid??r.reserve}`;
+  $('bidButton').textContent=r.type==='dutch'?`Accept at ${r.price} credits`:r.type==='english'?'Place bid':'Lock in sealed bid';
+  $('ownBid').textContent=me.bid===null?'':r.type==='english'?'You lead this auction.':`Your bid: ${me.bid} credits · locked in`;
+  tick();
+ }
+ function start(){stop?.();stop=connect(render);}
+ $('joinForm').onsubmit=e=>{e.preventDefault();action(async()=>{const r=await post('/api/join',{name:$('name').value});token=r.token;localStorage.setItem('cap6318-auction-token',token);start();message('You have joined.',true);});};
+ $('bidForm').onsubmit=e=>{e.preventDefault();const r=state.round;const amount=r.type==='dutch'?r.price:Number($('amount').value);action(async()=>{await post('/api/bid',{roundId:r.id,amount});message(r.type==='dutch'?'Price accepted.':'Bid accepted.',true);});};
+ start();
+});
+</script></body></html>

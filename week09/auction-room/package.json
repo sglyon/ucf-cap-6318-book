@@ -1,0 +1,1 @@
+{"name":"classroom-auctions","version":"1.0.0","private":true,"description":"CAP-6318 week 9 classroom auctions, adapted from Fleet Wars","scripts":{"start":"node server.js","test":"node --test"},"engines":{"node":">=20.10"}}
