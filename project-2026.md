@@ -27,8 +27,8 @@ You are encouraged to use AI heavily. You remain responsible for choosing a wort
    - Networks (weeks 3-5): graph metrics, ties and homophily, structural balance, production networks
    - Agent-based models (weeks 6-7)
    - Game theory (weeks 8-9): Nash and mixed equilibria, network traffic, auctions
-   - AI agents (weeks 10-11): LLM agents, tool use, multi-agent systems, evaluation
-   - Platforms and marketplaces (weeks 12-13): network effects, tipping, pricing, matching
+   - Platforms and marketplaces (weeks 10-11): network effects, tipping, pricing, matching
+   - AI agents (weeks 12-13): LLM agents, tool use, multi-agent systems, evaluation
 
    A second topic is encouraged (e.g., an ABM on a real network), but depth matters more than breadth. You may propose topics from units we haven't covered yet and refine them at the check-in.
 
