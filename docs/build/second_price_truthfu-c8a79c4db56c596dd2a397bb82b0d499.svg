@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="480" rx="12" fill="#FFFFFF"/>
+
+  <text x="450" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Deviating From Truthful Bidding Never Helps</text>
+  <text x="450" y="54" text-anchor="middle" font-size="11" fill="#64748B">t = highest competing bid (fixed, set by the other bidders); v = bidder i&#8217;s true value</text>
+
+  <!-- ============================================================ -->
+  <!-- LEFT PANEL: underbidding b'' &lt; v                             -->
+  <!-- ============================================================ -->
+  <g transform="translate(30, 80)">
+    <rect width="410" height="370" rx="14" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="410" height="38" rx="14" fill="#F59E0B"/>
+    <rect y="26" width="410" height="12" fill="#F59E0B"/>
+    <text x="205" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">Underbidding: b&#8243; &lt; v</text>
+
+    <!-- number line -->
+    <line x1="40" y1="190" x2="370" y2="190" stroke="#94A3B8" stroke-width="2"/>
+    <polygon points="370,190 362,185 362,195" fill="#94A3B8"/>
+
+    <!-- points left to right: b'' (90), t (210), v (320) -->
+    <line x1="90" y1="180" x2="90" y2="200" stroke="#B91C1C" stroke-width="2"/>
+    <text x="90" y="215" text-anchor="middle" font-size="13" font-weight="700" fill="#B91C1C">b&#8243;</text>
+
+    <line x1="210" y1="175" x2="210" y2="205" stroke="#1E293B" stroke-width="2.5"/>
+    <text x="210" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">t</text>
+
+    <line x1="320" y1="180" x2="320" y2="200" stroke="#1D4ED8" stroke-width="2"/>
+    <text x="320" y="215" text-anchor="middle" font-size="13" font-weight="700" fill="#1D4ED8">v</text>
+
+    <!-- faint alternate underbid still above t: no change -->
+    <line x1="265" y1="103" x2="265" y2="117" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="265" y="92" text-anchor="middle" font-size="9" fill="#94A3B8">b&#8243;&#8322; (also works)</text>
+    <path d="M 255 78 Q 265 70 275 78" fill="none" stroke="#10B981" stroke-width="1.5"/>
+    <text x="265" y="62" text-anchor="middle" font-size="8" fill="#047857">same outcome: still wins, pays t</text>
+
+    <!-- bracket: t to v, truthful win region (green) -->
+    <path d="M 210 240 Q 265 258 320 240" fill="none" stroke="#10B981" stroke-width="2"/>
+    <text x="265" y="275" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">truthful: wins, payoff v&#8722;t &gt; 0</text>
+
+    <!-- bracket: b'' to t, forfeited region (red) -->
+    <path d="M 90 240 Q 150 258 210 240" fill="none" stroke="#B91C1C" stroke-width="2"/>
+    <text x="150" y="300" text-anchor="middle" font-size="9" font-weight="700" fill="#B91C1C">underbid here: loses,</text>
+    <text x="150" y="312" text-anchor="middle" font-size="9" font-weight="700" fill="#B91C1C">forfeits payoff v&#8722;t &gt; 0</text>
+
+    <rect x="25" y="325" width="360" height="27" rx="13" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1"/>
+    <text x="205" y="343" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">example of a harmful underbid (here b&#8243; &lt; t &lt; v)</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- RIGHT PANEL: overbidding b' &gt; v                              -->
+  <!-- ============================================================ -->
+  <g transform="translate(460, 80)">
+    <rect width="410" height="370" rx="14" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="410" height="38" rx="14" fill="#F59E0B"/>
+    <rect y="26" width="410" height="12" fill="#F59E0B"/>
+    <text x="205" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">Overbidding: b&#8242; &gt; v</text>
+
+    <!-- number line -->
+    <line x1="40" y1="190" x2="370" y2="190" stroke="#94A3B8" stroke-width="2"/>
+    <polygon points="370,190 362,185 362,195" fill="#94A3B8"/>
+
+    <!-- points left to right: v (90), t (210), b' (320) -->
+    <line x1="90" y1="180" x2="90" y2="200" stroke="#1D4ED8" stroke-width="2"/>
+    <text x="90" y="215" text-anchor="middle" font-size="13" font-weight="700" fill="#1D4ED8">v</text>
+
+    <line x1="210" y1="175" x2="210" y2="205" stroke="#1E293B" stroke-width="2.5"/>
+    <text x="210" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">t</text>
+
+    <line x1="320" y1="180" x2="320" y2="200" stroke="#B91C1C" stroke-width="2"/>
+    <text x="320" y="215" text-anchor="middle" font-size="13" font-weight="700" fill="#B91C1C">b&#8242;</text>
+
+    <!-- faint alternate overbid still below t: no change -->
+    <line x1="145" y1="103" x2="145" y2="117" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="145" y="92" text-anchor="middle" font-size="9" fill="#94A3B8">b&#8242;&#8322; (also works)</text>
+    <path d="M 135 78 Q 145 70 155 78" fill="none" stroke="#10B981" stroke-width="1.5"/>
+    <text x="145" y="62" text-anchor="middle" font-size="8" fill="#047857">same outcome: still loses, payoff 0</text>
+
+    <!-- bracket: v to t, truthful loses (green, no cost) -->
+    <path d="M 90 240 Q 150 258 210 240" fill="none" stroke="#10B981" stroke-width="2"/>
+    <text x="150" y="275" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">truthful: loses, payoff 0</text>
+
+    <!-- bracket: t to b', harmful win region (red) -->
+    <path d="M 210 240 Q 265 258 320 240" fill="none" stroke="#B91C1C" stroke-width="2"/>
+    <text x="265" y="300" text-anchor="middle" font-size="9" font-weight="700" fill="#B91C1C">overbid here: wins but pays t &gt; v,</text>
+    <text x="265" y="312" text-anchor="middle" font-size="9" font-weight="700" fill="#B91C1C">buys negative surplus v&#8722;t &lt; 0</text>
+
+    <rect x="25" y="325" width="360" height="27" rx="13" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1"/>
+    <text x="205" y="343" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">example of a harmful overbid (here v &lt; t &lt; b&#8242;)</text>
+  </g>
+
+  <text x="450" y="468" text-anchor="middle" font-size="9" font-style="italic" fill="#64748B">Bidding exactly b=t ties under the fixed rule (lower index wins); the winner then gets v&#8722;t, which is 0 only if v=t too. Truthful bidding is weakly dominant: deviations may tie its payoff, but cannot improve it.</text>
+</svg>
