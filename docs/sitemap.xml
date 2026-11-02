@@ -5,6 +5,9 @@
     <loc>http://localhost:3000</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/glossary</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/l01-02-setup</loc>
   </url>
   <url>
