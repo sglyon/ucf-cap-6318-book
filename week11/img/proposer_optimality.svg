@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="480" viewBox="0 0 980 480" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-green" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#16A34A"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="480" rx="12" fill="#FFFFFF"/>
+
+  <text x="490" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Proposer-Optimality in the 2&#215;2 Market</text>
+  <text x="490" y="54" text-anchor="middle" font-size="11" fill="#64748B">Same preferences, two stable matchings &#8212; whoever proposes gets their best stable outcome</text>
+
+  <!-- PANEL 1: Doctor-proposing -->
+  <g transform="translate(20, 75)">
+    <rect width="460" height="380" rx="14" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="38" rx="14" fill="#3B82F6"/>
+    <rect y="26" width="460" height="12" fill="#3B82F6"/>
+    <text x="230" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Doctor-Proposing DA</text>
+
+    <!-- matching edges (diagonal, doctor-optimal) -->
+    <line x1="106" y1="120" x2="354" y2="120" stroke="#16A34A" stroke-width="4" marker-end="url(#arrow-green)"/>
+    <line x1="106" y1="270" x2="354" y2="270" stroke="#16A34A" stroke-width="4" marker-end="url(#arrow-green)"/>
+
+    <!-- doctor nodes (highlighted: their best stable outcome) -->
+    <circle cx="80" cy="120" r="26" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
+    <text x="80" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">D1</text>
+    <text x="80" y="160" text-anchor="middle" font-size="11" fill="#1E40AF">H1 &#8827; H2</text>
+
+    <circle cx="80" cy="270" r="26" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
+    <text x="80" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">D2</text>
+    <text x="80" y="310" text-anchor="middle" font-size="11" fill="#1E40AF">H2 &#8827; H1</text>
+
+    <!-- hospital nodes (plain amber: not their best stable outcome) -->
+    <circle cx="380" cy="120" r="26" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5"/>
+    <text x="380" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#92400E">H1</text>
+    <text x="380" y="160" text-anchor="middle" font-size="11" fill="#92400E">D2 &#8827; D1</text>
+
+    <circle cx="380" cy="270" r="26" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5"/>
+    <text x="380" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#92400E">H2</text>
+    <text x="380" y="310" text-anchor="middle" font-size="11" fill="#92400E">D1 &#8827; D2</text>
+
+    <rect x="30" y="335" width="400" height="34" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+    <text x="230" y="357" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">&#956;<tspan baseline-shift="sub" font-size="smaller">D</tspan> = {(D1,H1), (D2,H2)}: every doctor gets its first choice</text>
+  </g>
+
+  <!-- PANEL 2: Hospital-proposing -->
+  <g transform="translate(500, 75)">
+    <rect width="460" height="380" rx="14" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="38" rx="14" fill="#F59E0B"/>
+    <rect y="26" width="460" height="12" fill="#F59E0B"/>
+    <text x="230" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Hospital-Proposing DA</text>
+
+    <!-- matching edges (cross, hospital-optimal) -->
+    <line x1="106" y1="120" x2="354" y2="270" stroke="#16A34A" stroke-width="4" marker-end="url(#arrow-green)"/>
+    <line x1="106" y1="270" x2="354" y2="120" stroke="#16A34A" stroke-width="4" marker-end="url(#arrow-green)"/>
+
+    <!-- doctor nodes (plain blue: not their best stable outcome) -->
+    <circle cx="80" cy="120" r="26" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2.5"/>
+    <text x="80" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#1E40AF">D1</text>
+    <text x="80" y="160" text-anchor="middle" font-size="11" fill="#1E40AF">H1 &#8827; H2</text>
+
+    <circle cx="80" cy="270" r="26" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2.5"/>
+    <text x="80" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#1E40AF">D2</text>
+    <text x="80" y="310" text-anchor="middle" font-size="11" fill="#1E40AF">H2 &#8827; H1</text>
+
+    <!-- hospital nodes (highlighted: their best stable outcome) -->
+    <circle cx="380" cy="120" r="26" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
+    <text x="380" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">H1</text>
+    <text x="380" y="160" text-anchor="middle" font-size="11" fill="#92400E">D2 &#8827; D1</text>
+
+    <circle cx="380" cy="270" r="26" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
+    <text x="380" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">H2</text>
+    <text x="380" y="310" text-anchor="middle" font-size="11" fill="#92400E">D1 &#8827; D2</text>
+
+    <rect x="30" y="335" width="400" height="34" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+    <text x="230" y="357" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">&#956;<tspan baseline-shift="sub" font-size="smaller">H</tspan> = {(D1,H2), (D2,H1)}: every hospital gets its first choice</text>
+  </g>
+</svg>

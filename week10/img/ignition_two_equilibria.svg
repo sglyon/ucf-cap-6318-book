@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="500" viewBox="0 0 860 500" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0, 9 4, 0 8" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0, 9 4, 0 8" fill="#D97706"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0, 9 4, 0 8" fill="#16A34A"/>
+    </marker>
+  </defs>
+
+  <rect width="860" height="500" rx="12" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="430" y="26" text-anchor="middle" font-size="19" font-weight="700" fill="#1E293B">Two Nash Equilibria in the Chicken-and-Egg Game</text>
+  <text x="430" y="44" text-anchor="middle" font-size="11.5" font-style="italic" fill="#64748B">Payoffs shown as (Restaurant, Diner)</text>
+
+  <!-- Diner column group label -->
+  <text x="508" y="64" text-anchor="middle" font-size="13" font-weight="600" fill="#92400E">Diner chooses</text>
+  <text x="370" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">Join</text>
+  <text x="645" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">Stay out</text>
+
+  <!-- Restaurant row group label (rotated) -->
+  <text x="40" y="212" text-anchor="middle" font-size="13" font-weight="600" fill="#1E40AF" transform="rotate(-90 40 212)">Restaurant chooses</text>
+  <text x="235" y="146" text-anchor="end" font-size="12" font-weight="600" fill="#475569">Join</text>
+  <text x="235" y="291" text-anchor="end" font-size="12" font-weight="600" fill="#475569">Stay out</text>
+
+  <!-- ================= Grid cells ================= -->
+  <!-- (Join, Join) - good equilibrium -->
+  <g>
+    <rect x="260" y="92" width="220" height="95" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="3" filter="url(#shadow)"/>
+    <text x="370" y="114" text-anchor="middle" font-size="10" fill="#15803D">(Join, Join)</text>
+    <text x="370" y="148" text-anchor="middle" font-size="20" font-weight="700" fill="#14532D">3, 3</text>
+    <text x="370" y="170" text-anchor="middle" font-size="9.5" fill="#15803D">Pareto-superior equilibrium</text>
+  </g>
+
+  <!-- (Join, Stay out) -->
+  <g>
+    <rect x="535" y="92" width="220" height="95" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="645" y="114" text-anchor="middle" font-size="10" fill="#94A3B8">(Join, Stay out)</text>
+    <text x="645" y="148" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">-2, 0</text>
+    <text x="645" y="170" text-anchor="middle" font-size="9.5" fill="#94A3B8">Restaurant joins alone</text>
+  </g>
+
+  <!-- (Stay out, Join) -->
+  <g>
+    <rect x="260" y="237" width="220" height="95" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="370" y="259" text-anchor="middle" font-size="10" fill="#94A3B8">(Stay out, Join)</text>
+    <text x="370" y="293" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">0, -2</text>
+    <text x="370" y="315" text-anchor="middle" font-size="9.5" fill="#94A3B8">Diner joins alone</text>
+  </g>
+
+  <!-- (Stay out, Stay out) - bad equilibrium -->
+  <g>
+    <rect x="535" y="237" width="220" height="95" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="3" filter="url(#shadow)"/>
+    <text x="645" y="259" text-anchor="middle" font-size="10" fill="#15803D">(Stay out, Stay out)</text>
+    <text x="645" y="293" text-anchor="middle" font-size="20" font-weight="700" fill="#14532D">0, 0</text>
+    <text x="645" y="315" text-anchor="middle" font-size="9.5" fill="#15803D">Self-sustaining but inefficient</text>
+  </g>
+
+  <!-- ================= Restaurant (row) best-response arrows: vertical, blue ================= -->
+  <line x1="370" y1="235" x2="370" y2="189" stroke="#3B82F6" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <line x1="645" y1="189" x2="645" y2="235" stroke="#3B82F6" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <text x="378" y="216" font-size="9.5" font-weight="600" fill="#1E40AF">Rest. BR: Join</text>
+  <text x="485" y="216" font-size="9.5" font-weight="600" fill="#1E40AF">Rest. BR: Stay out</text>
+
+  <!-- ================= Diner (column) best-response arrows: horizontal, amber ================= -->
+  <line x1="482" y1="139" x2="533" y2="139" stroke="#D97706" stroke-width="2.5" marker-start="url(#arrow-amber)"/>
+  <line x1="482" y1="284" x2="533" y2="284" stroke="#D97706" stroke-width="2.5" marker-end="url(#arrow-amber)"/>
+  <text x="507" y="116" text-anchor="middle" font-size="9.5" font-weight="600" fill="#92400E"><tspan x="507">Diner BR:</tspan><tspan x="507" dy="11">Join</tspan></text>
+  <text x="507" y="302" text-anchor="middle" font-size="9.5" font-weight="600" fill="#92400E"><tspan x="507">Diner BR:</tspan><tspan x="507" dy="11">Stay out</tspan></text>
+
+  <!-- Equilibrium callouts -->
+  <line x1="370" y1="189" x2="370" y2="210" stroke="#16A34A" stroke-width="0" opacity="0"/>
+  <rect x="260" y="358" width="220" height="40" rx="16" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+  <text x="370" y="375" text-anchor="middle" font-size="11.5" font-weight="700" fill="#14532D">Nash equilibrium</text>
+  <text x="370" y="391" text-anchor="middle" font-size="9.5" fill="#15803D">both sides best-respond by joining</text>
+
+  <rect x="535" y="358" width="220" height="40" rx="16" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+  <text x="645" y="375" text-anchor="middle" font-size="11.5" font-weight="700" fill="#14532D">Nash equilibrium</text>
+  <text x="645" y="391" text-anchor="middle" font-size="9.5" fill="#15803D">neither side wants to join alone</text>
+
+  <!-- Legend -->
+  <g transform="translate(60, 436)">
+    <line x1="0" y1="6" x2="30" y2="6" stroke="#3B82F6" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+    <text x="38" y="10" font-size="11" fill="#475569">Restaurant's best response (within a column)</text>
+
+    <line x1="420" y1="6" x2="450" y2="6" stroke="#D97706" stroke-width="2.5" marker-end="url(#arrow-amber)"/>
+    <text x="458" y="10" font-size="11" fill="#475569">Diner's best response (within a row)</text>
+  </g>
+  <g transform="translate(60, 462)">
+    <rect x="0" y="-2" width="18" height="14" rx="4" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+    <text x="26" y="10" font-size="11" fill="#475569">Mutual best response: neither player wants to deviate — two equilibria, one good and one bad</text>
+  </g>
+</svg>

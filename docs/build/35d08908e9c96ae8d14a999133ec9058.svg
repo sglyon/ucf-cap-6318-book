@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="700" viewBox="0 0 980 700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-slate" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#475569"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#16A34A"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="700" rx="12" fill="#FFFFFF"/>
+
+  <text x="490" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Deferred Acceptance, Round by Round</text>
+  <text x="490" y="54" text-anchor="middle" font-size="11" fill="#64748B">Doctor-proposing deferred acceptance on the tiny market from the previous slide</text>
+
+  <!-- ============================================================ -->
+  <!-- Reusable per-panel template is drawn explicitly per panel     -->
+  <!-- ============================================================ -->
+
+  <!-- PANEL 1: Round 1 -->
+  <g transform="translate(20, 75)">
+    <rect width="460" height="280" rx="14" fill="#F1F5F9" stroke="#475569" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="34" rx="14" fill="#475569"/>
+    <rect y="22" width="460" height="12" fill="#475569"/>
+    <text x="230" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Round 1</text>
+
+    <!-- edges -->
+    <line x1="86" y1="80" x2="374" y2="80" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,4"/>
+    <line x1="86" y1="150" x2="374" y2="80" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <line x1="86" y1="220" x2="374" y2="150" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+
+    <!-- reject X on the dashed line, well before H1, clear of the D2-H1 arrowhead -->
+    <line x1="223" y1="73" x2="237" y2="87" stroke="#DC2626" stroke-width="2.5"/>
+    <line x1="237" y1="73" x2="223" y2="87" stroke="#DC2626" stroke-width="2.5"/>
+
+    <!-- doctor nodes -->
+    <circle cx="70" cy="80" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D1</text>
+    <text x="70" y="104" text-anchor="middle" font-size="7.5" fill="#1E40AF">H1&#8827;H2&#8827;H3</text>
+
+    <circle cx="70" cy="150" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D2</text>
+    <text x="70" y="174" text-anchor="middle" font-size="7.5" fill="#1E40AF">H1&#8827;H2&#8827;H3</text>
+
+    <circle cx="70" cy="220" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="224" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D3</text>
+    <text x="70" y="244" text-anchor="middle" font-size="7.5" fill="#1E40AF">H2&#8827;H1&#8827;H3</text>
+
+    <!-- hospital nodes -->
+    <circle cx="390" cy="80" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H1</text>
+    <text x="390" y="104" text-anchor="middle" font-size="7.5" fill="#92400E">D2&#8827;D1&#8827;D3</text>
+
+    <circle cx="390" cy="150" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H2</text>
+    <text x="390" y="174" text-anchor="middle" font-size="7.5" fill="#92400E">D1&#8827;D3&#8827;D2</text>
+
+    <circle cx="390" cy="220" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="224" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H3</text>
+    <text x="390" y="244" text-anchor="middle" font-size="7.5" fill="#92400E">D3&#8827;D2&#8827;D1</text>
+
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">D1, D2 &#8594; H1: H1 holds D2, rejects D1. D3 &#8594; H2: H2 holds D3.</text>
+  </g>
+
+  <!-- PANEL 2: Round 2 -->
+  <g transform="translate(500, 75)">
+    <rect width="460" height="280" rx="14" fill="#F1F5F9" stroke="#475569" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="34" rx="14" fill="#475569"/>
+    <rect y="22" width="460" height="12" fill="#475569"/>
+    <text x="230" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Round 2</text>
+
+    <line x1="86" y1="150" x2="374" y2="80" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <line x1="86" y1="80" x2="374" y2="150" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <line x1="86" y1="220" x2="374" y2="150" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,4"/>
+
+    <!-- reject X on the dashed line, well before H2, clear of the D1-H2 arrowhead -->
+    <line x1="223" y1="178" x2="237" y2="192" stroke="#DC2626" stroke-width="2.5"/>
+    <line x1="237" y1="178" x2="223" y2="192" stroke="#DC2626" stroke-width="2.5"/>
+
+    <circle cx="70" cy="80" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D1</text>
+    <text x="70" y="104" text-anchor="middle" font-size="7.5" fill="#1E40AF">H1&#8827;H2&#8827;H3</text>
+
+    <circle cx="70" cy="150" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D2</text>
+    <text x="70" y="174" text-anchor="middle" font-size="7.5" fill="#1E40AF">H1&#8827;H2&#8827;H3</text>
+
+    <circle cx="70" cy="220" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="224" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D3</text>
+    <text x="70" y="244" text-anchor="middle" font-size="7.5" fill="#1E40AF">H2&#8827;H1&#8827;H3</text>
+
+    <circle cx="390" cy="80" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H1</text>
+    <text x="390" y="104" text-anchor="middle" font-size="7.5" fill="#92400E">D2&#8827;D1&#8827;D3</text>
+
+    <circle cx="390" cy="150" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H2</text>
+    <text x="390" y="174" text-anchor="middle" font-size="7.5" fill="#92400E">D1&#8827;D3&#8827;D2</text>
+
+    <circle cx="390" cy="220" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="224" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H3</text>
+    <text x="390" y="244" text-anchor="middle" font-size="7.5" fill="#92400E">D3&#8827;D2&#8827;D1</text>
+
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">Rejected D1 tries H2: H2 now holds D1 (prefers it), rejects D3.</text>
+  </g>
+
+  <!-- PANEL 3: Round 3 -->
+  <g transform="translate(20, 375)">
+    <rect width="460" height="280" rx="14" fill="#F1F5F9" stroke="#475569" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="34" rx="14" fill="#475569"/>
+    <rect y="22" width="460" height="12" fill="#475569"/>
+    <text x="230" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Round 3</text>
+
+    <line x1="86" y1="150" x2="374" y2="80" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <line x1="86" y1="80" x2="374" y2="150" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <line x1="86" y1="220" x2="374" y2="80" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,4"/>
+
+    <!-- reject X on the dashed line, well before H1, clear of the D2-H1 arrowhead -->
+    <line x1="223" y1="143" x2="237" y2="157" stroke="#DC2626" stroke-width="2.5"/>
+    <line x1="237" y1="143" x2="223" y2="157" stroke="#DC2626" stroke-width="2.5"/>
+
+    <circle cx="70" cy="80" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D1</text>
+    <text x="70" y="104" text-anchor="middle" font-size="7.5" fill="#1E40AF">H1&#8827;H2&#8827;H3</text>
+
+    <circle cx="70" cy="150" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D2</text>
+    <text x="70" y="174" text-anchor="middle" font-size="7.5" fill="#1E40AF">H1&#8827;H2&#8827;H3</text>
+
+    <circle cx="70" cy="220" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="224" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D3</text>
+    <text x="70" y="244" text-anchor="middle" font-size="7.5" fill="#1E40AF">H2&#8827;H1&#8827;H3</text>
+
+    <circle cx="390" cy="80" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H1</text>
+    <text x="390" y="104" text-anchor="middle" font-size="7.5" fill="#92400E">D2&#8827;D1&#8827;D3</text>
+
+    <circle cx="390" cy="150" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H2</text>
+    <text x="390" y="174" text-anchor="middle" font-size="7.5" fill="#92400E">D1&#8827;D3&#8827;D2</text>
+
+    <circle cx="390" cy="220" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="224" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H3</text>
+    <text x="390" y="244" text-anchor="middle" font-size="7.5" fill="#92400E">D3&#8827;D2&#8827;D1</text>
+
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">Rejected D3 tries H1: H1 prefers its held D2, rejects D3 again.</text>
+  </g>
+
+  <!-- PANEL 4: Round 4 (final) -->
+  <g transform="translate(500, 375)">
+    <rect width="460" height="280" rx="14" fill="#DCFCE7" stroke="#16A34A" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="34" rx="14" fill="#16A34A"/>
+    <rect y="22" width="460" height="12" fill="#16A34A"/>
+    <text x="230" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Round 4 &#8212; Final: Stable Matching</text>
+
+    <line x1="86" y1="150" x2="374" y2="80" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <line x1="86" y1="80" x2="374" y2="150" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <line x1="86" y1="220" x2="374" y2="220" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+
+    <circle cx="70" cy="80" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D1</text>
+    <text x="70" y="104" text-anchor="middle" font-size="7.5" fill="#1E40AF">H1&#8827;H2&#8827;H3</text>
+
+    <circle cx="70" cy="150" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D2</text>
+    <text x="70" y="174" text-anchor="middle" font-size="7.5" fill="#1E40AF">H1&#8827;H2&#8827;H3</text>
+
+    <circle cx="70" cy="220" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="224" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">D3</text>
+    <text x="70" y="244" text-anchor="middle" font-size="7.5" fill="#1E40AF">H2&#8827;H1&#8827;H3</text>
+
+    <circle cx="390" cy="80" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H1</text>
+    <text x="390" y="104" text-anchor="middle" font-size="7.5" fill="#92400E">D2&#8827;D1&#8827;D3</text>
+
+    <circle cx="390" cy="150" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H2</text>
+    <text x="390" y="174" text-anchor="middle" font-size="7.5" fill="#92400E">D1&#8827;D3&#8827;D2</text>
+
+    <circle cx="390" cy="220" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="224" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">H3</text>
+    <text x="390" y="244" text-anchor="middle" font-size="7.5" fill="#92400E">D3&#8827;D2&#8827;D1</text>
+
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">D3 tries H3: accepted. &#956;&#8321; = {(D1,H2),(D2,H1),(D3,H3)} is stable.</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(330, 685)">
+    <line x1="0" y1="0" x2="34" y2="0" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <text x="42" y="4" font-size="10.5" fill="#1E293B">tentative hold</text>
+    <line x1="170" y1="0" x2="204" y2="0" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,4"/>
+    <text x="212" y="4" font-size="10.5" fill="#1E293B">rejected, proposer tries again</text>
+  </g>
+</svg>

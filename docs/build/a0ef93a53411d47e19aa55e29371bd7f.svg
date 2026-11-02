@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="400" viewBox="0 0 980 400" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <marker id="arrowRedRoll" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="400" rx="12" fill="#FFFFFF"/>
+
+  <text x="490" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1E293B">Stability as a Landscape (Schematic)</text>
+  <text x="490" y="52" text-anchor="middle" font-size="11" fill="#64748B">A picture of which way small nudges roll — not a computed potential function</text>
+
+  <!-- landscape curve -->
+  <path d="M 55.0 100.0 C 59.2 126.7, 65.8 249.2, 80.0 260.0 C 94.2 270.8, 122.3 185.0, 140.0 165.0 C 157.7 145.0, 171.4 140.8, 186.4 140.0 C 201.4 139.2, 182.7 140.8, 230.0 160.0 C 277.3 179.2, 389.7 238.3, 470.0 255.0 C 550.3 271.7, 653.3 270.8, 711.6 260.0 C 769.9 249.2, 788.6 208.3, 820.0 190.0 C 851.4 171.7, 886.7 156.7, 900.0 150.0"
+        fill="none" stroke="#475569" stroke-width="3"/>
+
+  <!-- axis -->
+  <line x1="55" y1="340" x2="920" y2="340" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="80" y1="260" x2="80" y2="340" stroke="#16A34A" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="186.4" y1="140" x2="186.4" y2="340" stroke="#DC2626" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="711.6" y1="260" x2="711.6" y2="340" stroke="#16A34A" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <text x="80" y="358" text-anchor="middle" font-size="12" fill="#1E293B">n = 0</text>
+  <text x="186.4" y="358" text-anchor="middle" font-size="12" fill="#1E293B"><tspan font-style="italic">n</tspan><tspan baseline-shift="sub" font-size="9">L</tspan> &#8776; 0.13</text>
+  <text x="711.6" y="358" text-anchor="middle" font-size="12" fill="#1E293B"><tspan font-style="italic">n</tspan><tspan baseline-shift="sub" font-size="9">H</tspan> &#8776; 0.77</text>
+  <text x="490" y="378" text-anchor="middle" font-size="11" fill="#64748B">Expected/realized network size, n</text>
+
+  <!-- equilibrium points -->
+  <circle cx="80" cy="260" r="7" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+  <circle cx="186.4" cy="140" r="7" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+  <circle cx="711.6" cy="260" r="7" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+
+  <!-- state labels -->
+  <text x="80" y="288" text-anchor="middle" font-size="12" font-weight="bold" fill="#166534">Collapse</text>
+  <text x="80" y="302" text-anchor="middle" font-size="10.5" fill="#166534">(stable)</text>
+
+  <text x="186.4" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#991B1B">Critical mass</text>
+  <text x="186.4" y="108" text-anchor="middle" font-size="10.5" fill="#991B1B">(unstable)</text>
+
+  <text x="711.6" y="288" text-anchor="middle" font-size="12" font-weight="bold" fill="#166534">Tipped</text>
+  <text x="711.6" y="302" text-anchor="middle" font-size="10.5" fill="#166534">(stable)</text>
+
+  <!-- balls just left/right of the hilltop -->
+  <circle cx="158" cy="151" r="9" fill="#94A3B8" stroke="#475569" stroke-width="1.5"/>
+  <circle cx="216" cy="151" r="9" fill="#94A3B8" stroke="#475569" stroke-width="1.5"/>
+
+  <!-- dashed rolling arrows -->
+  <path d="M 150 158 C 130 180, 112 205, 100 228" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrowRedRoll)"/>
+  <path d="M 224 158 C 245 180, 262 200, 275 218" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrowRedRoll)"/>
+
+  <text x="128" y="262" text-anchor="middle" font-size="10.5" fill="#991B1B">rolls toward 0</text>
+  <text x="298" y="246" text-anchor="middle" font-size="10.5" fill="#991B1B">rolls toward <tspan font-style="italic">n</tspan><tspan baseline-shift="sub" font-size="8.5">H</tspan></text>
+</svg>

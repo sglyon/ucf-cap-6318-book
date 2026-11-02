@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="450" viewBox="0 0 900 450" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <marker id="arrowBlue2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrowAmber2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#F59E0B"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="450" rx="12" fill="#FFFFFF"/>
+
+  <text x="450" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1E293B">Map the Effects: Same-Side and Cross-Side</text>
+  <text x="450" y="52" text-anchor="middle" font-size="11" fill="#64748B">A template for Exercise 2 — fill in each blank sign box yourself</text>
+
+  <!-- Riders self-loop (same-side) -->
+  <path d="M 150 180 C 150 85 270 85 270 180" fill="none" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue2)"/>
+  <text x="210" y="78" text-anchor="middle" font-size="12" fill="#1E40AF">Riders &#8594; riders</text>
+  <rect x="192" y="100" width="36" height="24" rx="4" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="210" y="117" text-anchor="middle" font-size="12" fill="#64748B">&#177; ?</text>
+
+  <!-- Drivers self-loop (same-side) -->
+  <path d="M 630 180 C 630 85 750 85 750 180" fill="none" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrowAmber2)"/>
+  <text x="690" y="78" text-anchor="middle" font-size="12" fill="#92400E">Drivers &#8594; drivers</text>
+  <rect x="672" y="100" width="36" height="24" rx="4" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="690" y="117" text-anchor="middle" font-size="12" fill="#64748B">&#177; ?</text>
+
+  <!-- Riders cluster -->
+  <rect x="100" y="180" width="220" height="160" rx="14" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="210" y="202" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E40AF">Riders</text>
+  <circle cx="165" cy="260" r="13" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+  <circle cx="210" cy="285" r="13" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+  <circle cx="255" cy="260" r="13" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+
+  <!-- Drivers cluster -->
+  <rect x="580" y="180" width="220" height="160" rx="14" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="690" y="202" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400E">Drivers</text>
+  <circle cx="645" cy="260" r="13" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <circle cx="690" cy="285" r="13" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <circle cx="735" cy="260" r="13" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+
+  <!-- Cross-side: Riders -> Drivers -->
+  <line x1="320" y1="235" x2="578" y2="235" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue2)"/>
+  <text x="450" y="223" text-anchor="middle" font-size="12" fill="#1E40AF">Riders &#8594; drivers</text>
+  <rect x="432" y="243" width="36" height="24" rx="4" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="450" y="260" text-anchor="middle" font-size="12" fill="#64748B">&#177; ?</text>
+
+  <!-- Cross-side: Drivers -> Riders -->
+  <line x1="578" y1="300" x2="320" y2="300" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrowAmber2)"/>
+  <text x="450" y="348" text-anchor="middle" font-size="12" fill="#92400E">Drivers &#8594; riders</text>
+  <rect x="432" y="305" width="36" height="24" rx="4" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="450" y="322" text-anchor="middle" font-size="12" fill="#64748B">&#177; ?</text>
+
+  <text x="450" y="375" text-anchor="middle" font-size="11" fill="#64748B">Curved arrows: same-side effects within a group</text>
+  <text x="450" y="392" text-anchor="middle" font-size="11" fill="#64748B">Straight arrows: cross-side effects between groups</text>
+  <text x="450" y="420" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">Your job: decide whether each sign is positive or negative</text>
+</svg>

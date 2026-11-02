@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="590" viewBox="0 0 980 590" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-red" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="590" rx="12" fill="#FFFFFF"/>
+
+  <text x="490" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">A Tiny Market: Find the Block</text>
+  <text x="490" y="54" text-anchor="middle" font-size="11" fill="#64748B">Current matching &#956;&#8320; (slate) versus the blocking pair (D2, H1) (dashed red)</text>
+
+  <!-- Matching edges mu_0: D1-H1, D2-H2, D3-H3 -->
+  <line x1="244" y1="140" x2="736" y2="140" stroke="#475569" stroke-width="3"/>
+  <line x1="244" y1="260" x2="736" y2="260" stroke="#475569" stroke-width="3"/>
+  <line x1="244" y1="380" x2="736" y2="380" stroke="#475569" stroke-width="3"/>
+  <text x="490" y="132" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">&#956;&#8320;</text>
+  <text x="490" y="252" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">&#956;&#8320;</text>
+  <text x="490" y="372" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">&#956;&#8320;</text>
+
+  <!-- Blocking pair edge: D2 - H1, dashed red, diagonal, left fully clear of any callout -->
+  <line x1="244" y1="266" x2="736" y2="150" stroke="#DC2626" stroke-width="3" stroke-dasharray="7,5" marker-start="url(#arrow-red)" marker-end="url(#arrow-red)"/>
+
+  <!-- Doctor column -->
+  <g>
+    <circle cx="220" cy="140" r="24" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="220" y="146" text-anchor="middle" font-size="14" font-weight="700" fill="#1E40AF">D1</text>
+    <text x="220" y="184" text-anchor="middle" font-size="11" fill="#1E40AF">H1 &#8827; H2 &#8827; H3</text>
+
+    <circle cx="220" cy="260" r="24" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="220" y="266" text-anchor="middle" font-size="14" font-weight="700" fill="#1E40AF">D2</text>
+    <text x="220" y="304" text-anchor="middle" font-size="11" fill="#1E40AF">H1 &#8827; H2 &#8827; H3</text>
+
+    <circle cx="220" cy="380" r="24" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="220" y="386" text-anchor="middle" font-size="14" font-weight="700" fill="#1E40AF">D3</text>
+    <text x="220" y="424" text-anchor="middle" font-size="11" fill="#1E40AF">H2 &#8827; H1 &#8827; H3</text>
+  </g>
+
+  <!-- Hospital column -->
+  <g>
+    <circle cx="760" cy="140" r="24" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="760" y="146" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">H1</text>
+    <text x="760" y="184" text-anchor="middle" font-size="11" fill="#92400E">D2 &#8827; D1 &#8827; D3</text>
+
+    <circle cx="760" cy="260" r="24" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="760" y="266" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">H2</text>
+    <text x="760" y="304" text-anchor="middle" font-size="11" fill="#92400E">D1 &#8827; D3 &#8827; D2</text>
+
+    <circle cx="760" cy="380" r="24" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="760" y="386" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">H3</text>
+    <text x="760" y="424" text-anchor="middle" font-size="11" fill="#92400E">D3 &#8827; D2 &#8827; D1</text>
+  </g>
+
+  <!-- Why it's a block: callouts live entirely below the diagram, clear of every line and label -->
+  <text x="490" y="456" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">Why does (D2, H1) block &#956;&#8320;?</text>
+
+  <rect x="150" y="468" width="340" height="50" rx="10" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="320" y="489" text-anchor="middle" font-size="11" font-weight="700" fill="#991B1B">D2 prefers H1 to H2</text>
+  <text x="320" y="506" text-anchor="middle" font-size="9.5" fill="#991B1B">(its current match under &#956;&#8320;)</text>
+
+  <rect x="490" y="468" width="340" height="50" rx="10" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="660" y="489" text-anchor="middle" font-size="11" font-weight="700" fill="#991B1B">H1 prefers D2 to D1</text>
+  <text x="660" y="506" text-anchor="middle" font-size="9.5" fill="#991B1B">(its current match under &#956;&#8320;)</text>
+
+  <!-- Legend -->
+  <g transform="translate(300, 555)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#475569" stroke-width="3"/>
+    <text x="50" y="4" font-size="11" fill="#475569">current matching &#956;&#8320;</text>
+    <line x1="260" y1="0" x2="300" y2="0" stroke="#DC2626" stroke-width="3" stroke-dasharray="7,5"/>
+    <text x="310" y="4" font-size="11" fill="#991B1B">blocking pair (D2, H1)</text>
+  </g>
+</svg>

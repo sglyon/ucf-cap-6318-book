@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="375" viewBox="0 0 980 375" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <marker id="arrow-grey" markerWidth="12" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="375" rx="12" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="490" y="26" text-anchor="middle" font-size="19" font-weight="700" fill="#1E293B">A Restaurant Subsidy Deletes the Bad Equilibrium</text>
+  <text x="490" y="44" text-anchor="middle" font-size="11.5" font-style="italic" fill="#64748B">Payoffs shown as (Restaurant, Diner); Restaurant's join-alone payoff rises from -2 to 1</text>
+
+  <!-- ===================== BEFORE PANEL ===================== -->
+  <g transform="translate(20, 70)">
+    <text x="210" y="14" text-anchor="middle" font-size="14" font-weight="700" fill="#1E293B">Before: Two Equilibria</text>
+
+    <text x="150" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Diner: Join</text>
+    <text x="300" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Diner: Stay out</text>
+    <text x="15" y="124" text-anchor="middle" font-size="11" font-weight="600" fill="#475569" transform="rotate(-90 15 124)">Restaurant</text>
+    <text x="55" y="88" text-anchor="end" font-size="11" font-weight="600" fill="#475569">Join</text>
+    <text x="55" y="168" text-anchor="end" font-size="11" font-weight="600" fill="#475569">Stay out</text>
+
+    <!-- (Join, Join) good equilibrium -->
+    <g>
+      <rect x="65" y="50" width="170" height="68" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+      <text x="150" y="75" text-anchor="middle" font-size="16" font-weight="700" fill="#14532D">3, 3</text>
+      <text x="150" y="93" text-anchor="middle" font-size="9" fill="#15803D">Nash equilibrium</text>
+      <text x="150" y="107" text-anchor="middle" font-size="9" fill="#15803D">(Pareto-superior)</text>
+    </g>
+    <!-- (Join, Stay out) -->
+    <g>
+      <rect x="240" y="50" width="130" height="68" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+      <text x="305" y="75" text-anchor="middle" font-size="16" font-weight="700" fill="#1E293B">-2, 0</text>
+      <text x="305" y="95" text-anchor="middle" font-size="9" fill="#94A3B8">Rest. joins alone</text>
+    </g>
+    <!-- (Stay out, Join) -->
+    <g>
+      <rect x="65" y="130" width="170" height="68" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+      <text x="150" y="155" text-anchor="middle" font-size="16" font-weight="700" fill="#1E293B">0, -2</text>
+      <text x="150" y="175" text-anchor="middle" font-size="9" fill="#94A3B8">Diner joins alone</text>
+    </g>
+    <!-- (Stay out, Stay out) bad equilibrium -->
+    <g>
+      <rect x="240" y="130" width="130" height="68" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+      <text x="305" y="155" text-anchor="middle" font-size="16" font-weight="700" fill="#14532D">0, 0</text>
+      <text x="305" y="173" text-anchor="middle" font-size="9" fill="#15803D">Nash equilibrium</text>
+      <text x="305" y="186" text-anchor="middle" font-size="9" fill="#15803D">(self-sustaining)</text>
+    </g>
+  </g>
+
+  <!-- Arrow between panels -->
+  <line x1="450" y1="194" x2="530" y2="194" stroke="#475569" stroke-width="3" marker-end="url(#arrow-grey)"/>
+  <text x="490" y="176" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">subsidize</text>
+  <text x="490" y="216" text-anchor="middle" font-size="9.5" fill="#64748B">Restaurant join-alone</text>
+  <text x="490" y="229" text-anchor="middle" font-size="9.5" fill="#64748B">payoff: -2 &#8594; 1</text>
+
+  <!-- ===================== AFTER PANEL ===================== -->
+  <g transform="translate(540, 70)">
+    <text x="210" y="14" text-anchor="middle" font-size="14" font-weight="700" fill="#1E293B">After: One Equilibrium Survives</text>
+
+    <text x="150" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Diner: Join</text>
+    <text x="300" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Diner: Stay out</text>
+    <text x="15" y="124" text-anchor="middle" font-size="11" font-weight="600" fill="#475569" transform="rotate(-90 15 124)">Restaurant</text>
+    <text x="55" y="88" text-anchor="end" font-size="11" font-weight="600" fill="#475569">Join</text>
+    <text x="55" y="168" text-anchor="end" font-size="11" font-weight="600" fill="#475569">Stay out</text>
+
+    <!-- (Join, Join) sole equilibrium -->
+    <g>
+      <rect x="65" y="50" width="170" height="68" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
+      <text x="150" y="75" text-anchor="middle" font-size="16" font-weight="700" fill="#14532D">3, 3</text>
+      <text x="150" y="93" text-anchor="middle" font-size="9" fill="#15803D">Unique Nash</text>
+      <text x="150" y="107" text-anchor="middle" font-size="9" fill="#15803D">equilibrium</text>
+    </g>
+    <!-- (Join, Stay out) changed cell -->
+    <g>
+      <rect x="240" y="50" width="130" height="68" rx="8" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+      <text x="305" y="75" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">1, 0</text>
+      <text x="305" y="95" text-anchor="middle" font-size="9" fill="#92400E">-2 &#8594; 1</text>
+    </g>
+    <!-- (Stay out, Join) -->
+    <g>
+      <rect x="65" y="130" width="170" height="68" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+      <text x="150" y="155" text-anchor="middle" font-size="16" font-weight="700" fill="#1E293B">0, -2</text>
+      <text x="150" y="175" text-anchor="middle" font-size="9" fill="#94A3B8">Diner joins alone</text>
+    </g>
+    <!-- (Stay out, Stay out) deleted equilibrium -->
+    <g>
+      <rect x="240" y="130" width="130" height="68" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="2.5"/>
+      <text x="305" y="169" text-anchor="middle" font-size="16" font-weight="700" fill="#991B1B" text-decoration="line-through">0, 0</text>
+      <line x1="245" y1="134" x2="365" y2="194" stroke="#DC2626" stroke-width="2"/>
+    </g>
+
+    <rect x="40" y="210" width="340" height="46" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+    <text x="210" y="229" text-anchor="middle" font-size="10.5" font-weight="700" fill="#991B1B">Restaurants now prefer Join &#8212;</text>
+    <text x="210" y="245" text-anchor="middle" font-size="10.5" font-weight="700" fill="#991B1B">(Stay out, Stay out) unravels</text>
+  </g>
+
+  <!-- Bottom note -->
+  <text x="490" y="340" text-anchor="middle" font-size="11.5" font-weight="600" fill="#475569">Join becomes a dominant strategy for Restaurants, so Diners' best response is to join too</text>
+</svg>
