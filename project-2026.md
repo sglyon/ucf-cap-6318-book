@@ -138,7 +138,7 @@ Every team member should be able to answer questions about any part of the proje
   - ABMs with Agents.jl: L06.02, L07.01, L07.02
   - Game theory computation: L08.01, L09.01, L09.03, L09.04
   - LLM agents, tools, and evaluation: L.A1.03, L.A2.01, L.A2.02, L.A02.03
-  - Platforms and matching: L11.01, L11.02, L12.01, L12.02
+  - Platforms and matching: L10.01, L10.02, L11.01, L11.02
 - **Julia packages:** `Graphs.jl`, `SimpleWeightedGraphs.jl`, `Agents.jl`, `GameTheory.jl`, `DataFrames.jl`, `CSV.jl`, `Plots.jl`/`PlotlyBase.jl`, `Test` (stdlib)
 - **Python packages:** `pydantic-ai`, `networkx`, `pandas`, `pytest`
 - **Datasets:**

@@ -65,16 +65,16 @@
     <loc>http://localhost:3000/l09-04-game-theory-lab</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/l11-01-platform-economics</loc>
+    <loc>http://localhost:3000/l10-01-platform-economics</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/l11-02-ignition-and-tipping</loc>
+    <loc>http://localhost:3000/l10-02-ignition-and-tipping</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/l12-01-platform-pricing</loc>
+    <loc>http://localhost:3000/l11-01-platform-pricing</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/l12-02-matching-markets</loc>
+    <loc>http://localhost:3000/l11-02-matching-markets</loc>
   </url>
   <url>
     <loc>http://localhost:3000/l-a1-01-from-rule-based-to-learning-agents</loc>

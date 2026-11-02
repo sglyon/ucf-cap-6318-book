@@ -58,12 +58,12 @@ project:
         - file: week09/L09.04_game_theory_lab.ipynb
     - title: Platforms 1
       children:
-        - file: week11/L11.01_platform_economics.ipynb
-        - file: week11/L11.02_ignition_and_tipping.ipynb
+        - file: week10/L10.01_platform_economics.ipynb
+        - file: week10/L10.02_ignition_and_tipping.ipynb
     - title: Platforms 2
       children:
-        - file: week12/L12.01_platform_pricing.ipynb
-        - file: week12/L12.02_matching_markets.ipynb
+        - file: week11/L11.01_platform_pricing.ipynb
+        - file: week11/L11.02_matching_markets.ipynb
     - title: Agents 1
       children:
         - file: weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb
