@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <marker id="arrow-blue-out" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <polygon points="0 0, 8 3.5, 0 7" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrow-green-in" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <polygon points="0 0, 8 3.5, 0 7" fill="#16A34A"/>
+    </marker>
+    <marker id="arrow-grey-in" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <polygon points="0 0, 8 3.5, 0 7" fill="#94A3B8"/>
+    </marker>
+  </defs>
+  <rect width="900" height="420" rx="12" fill="#FFFFFF"/>
+
+  <text x="450" y="26" text-anchor="middle" font-size="19" font-weight="700" fill="#1E293B">High Degree Means Easy Reach, Not Easy Persuasion</text>
+  <text x="450" y="44" text-anchor="middle" font-size="11.5" font-style="italic" fill="#64748B">Same hub, same threshold &#964; = 0.3, viewed from each direction</text>
+
+  <!-- ===================== LEFT PANEL: outgoing reach ===================== -->
+  <g transform="translate(30, 70)">
+    <rect x="0" y="0" width="390" height="330" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="195" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1E293B">Outgoing: the hub is easy to reach from</text>
+
+    <g transform="translate(45, 15)">
+      <line x1="150" y1="150" x2="150.0" y2="55.0" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-blue-out)"/>
+      <line x1="150" y1="150" x2="205.8" y2="73.1" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-blue-out)"/>
+      <line x1="150" y1="150" x2="240.4" y2="120.6" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-blue-out)"/>
+      <line x1="150" y1="150" x2="240.4" y2="179.4" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-blue-out)"/>
+      <line x1="150" y1="150" x2="205.8" y2="226.9" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-blue-out)"/>
+      <line x1="150" y1="150" x2="150.0" y2="245.0" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-blue-out)"/>
+      <line x1="150" y1="150" x2="94.2" y2="226.9" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-blue-out)"/>
+      <line x1="150" y1="150" x2="59.6" y2="179.4" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-blue-out)"/>
+      <line x1="150" y1="150" x2="59.6" y2="120.6" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-blue-out)"/>
+      <line x1="150" y1="150" x2="94.2" y2="73.1" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-blue-out)"/>
+
+      <circle cx="150.0" cy="55.0" r="11" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <circle cx="205.8" cy="73.1" r="11" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <circle cx="240.4" cy="120.6" r="11" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <circle cx="240.4" cy="179.4" r="11" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <circle cx="205.8" cy="226.9" r="11" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <circle cx="150.0" cy="245.0" r="11" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <circle cx="94.2" cy="226.9" r="11" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <circle cx="59.6" cy="179.4" r="11" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <circle cx="59.6" cy="120.6" r="11" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <circle cx="94.2" cy="73.1" r="11" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+
+      <circle cx="150" cy="150" r="20" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
+      <text x="150" y="155" text-anchor="middle" font-size="13" font-weight="700" fill="#14532D">Hub</text>
+    </g>
+
+    <text x="195" y="300" text-anchor="middle" font-size="10.5" fill="#1E40AF">1 adopting hub exposes 10 neighbors at once: easy reach</text>
+  </g>
+
+  <!-- ===================== RIGHT PANEL: incoming persuasion ===================== -->
+  <g transform="translate(450, 70)">
+    <rect x="0" y="0" width="420" height="330" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="210" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1E293B">Incoming: the hub is hard to persuade</text>
+
+    <!-- small hub subgraph: arrows point FROM neighbors INTO the hub -->
+    <g transform="translate(40, 40)">
+      <line x1="140.0" y1="27.0" x2="140" y2="95" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow-green-in)"/>
+      <line x1="180.0" y1="40.0" x2="140" y2="95" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow-green-in)"/>
+      <line x1="204.7" y1="74.0" x2="140" y2="95" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow-grey-in)"/>
+      <line x1="204.7" y1="116.0" x2="140" y2="95" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow-grey-in)"/>
+      <line x1="180.0" y1="150.0" x2="140" y2="95" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow-grey-in)"/>
+      <line x1="140.0" y1="163.0" x2="140" y2="95" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow-grey-in)"/>
+      <line x1="100.0" y1="150.0" x2="140" y2="95" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow-grey-in)"/>
+      <line x1="75.3" y1="116.0" x2="140" y2="95" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow-grey-in)"/>
+      <line x1="75.3" y1="74.0" x2="140" y2="95" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow-grey-in)"/>
+      <line x1="100.0" y1="40.0" x2="140" y2="95" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arrow-grey-in)"/>
+
+      <circle cx="140.0" cy="27.0" r="9" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+      <circle cx="180.0" cy="40.0" r="9" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+      <circle cx="204.7" cy="74.0" r="9" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+      <circle cx="204.7" cy="116.0" r="9" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+      <circle cx="180.0" cy="150.0" r="9" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+      <circle cx="140.0" cy="163.0" r="9" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+      <circle cx="100.0" cy="150.0" r="9" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+      <circle cx="75.3" cy="116.0" r="9" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+      <circle cx="75.3" cy="74.0" r="9" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+      <circle cx="100.0" cy="40.0" r="9" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+
+      <circle cx="140" cy="95" r="17" fill="#FFFBEB" stroke="#F59E0B" stroke-width="3"/>
+      <text x="140" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">Hub</text>
+    </g>
+
+    <!-- threshold bars -->
+    <g transform="translate(30, 248)">
+      <text x="0" y="0" font-size="10.5" font-weight="700" fill="#475569">Hub (degree 10): needs &#8968;0.3&#215;10&#8969; = 3 adopting neighbors</text>
+      <rect x="0" y="10" width="200" height="14" rx="4" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+      <rect x="0" y="10" width="67" height="14" rx="4" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="212" y="21" text-anchor="start" font-size="9.5" fill="#475569">2 of 3 needed: not yet</text>
+    </g>
+    <g transform="translate(30, 292)">
+      <text x="0" y="0" font-size="10.5" font-weight="700" fill="#475569">Low-degree node (degree 2): needs &#8968;0.3&#215;2&#8969; = 1 adopting neighbor</text>
+      <rect x="0" y="10" width="200" height="14" rx="4" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+      <rect x="0" y="10" width="200" height="14" rx="4" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="212" y="21" text-anchor="start" font-size="9.5" fill="#14532D">1 of 1 needed: adopts</text>
+    </g>
+  </g>
+</svg>

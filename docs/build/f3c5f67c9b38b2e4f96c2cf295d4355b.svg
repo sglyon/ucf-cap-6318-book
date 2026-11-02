@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="978" height="360" viewBox="0 0 978 360" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <rect width="978" height="360" rx="12" fill="#FFFFFF"/>
+
+  <text x="489" y="26" text-anchor="middle" font-size="19" font-weight="700" fill="#1E293B">A Threshold Cascade Spreads, Then Stalls</text>
+  <text x="489" y="44" text-anchor="middle" font-size="11.5" font-style="italic" fill="#64748B">Node adopts when the adopting share of its neighbors is &#8805; &#964; = 0.5; seeds A, B adopt at t=0</text>
+
+  <!-- Panel 1: t = 0 -->
+  <g transform="translate(20, 68)">
+    <rect x="0" y="0" width="224" height="210" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="112" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1E293B">t = 0 (seeds adopt)</text>
+
+    <g stroke="#CBD5E1" stroke-width="2">
+      <line x1="25" y1="65" x2="25" y2="135"/>
+      <line x1="25" y1="65" x2="65" y2="100"/>
+      <line x1="25" y1="135" x2="65" y2="100"/>
+      <line x1="65" y1="100" x2="105" y2="100"/>
+      <line x1="105" y1="100" x2="145" y2="100"/>
+      <line x1="145" y1="100" x2="175" y2="75"/>
+      <line x1="175" y1="75" x2="175" y2="125"/>
+      <line x1="175" y1="75" x2="195" y2="100"/>
+      <line x1="175" y1="125" x2="195" y2="100"/>
+    </g>
+
+    <circle cx="25" cy="65" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="25" y="69" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">A</text>
+    <circle cx="25" cy="135" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="25" y="139" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">B</text>
+    <circle cx="65" cy="100" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="65" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">C</text>
+    <circle cx="105" cy="100" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="105" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">D</text>
+    <circle cx="145" cy="100" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="145" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">F</text>
+    <circle cx="175" cy="75" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="175" y="79" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">G</text>
+    <circle cx="175" cy="125" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="175" y="129" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">H</text>
+    <circle cx="195" cy="100" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="195" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">I</text>
+
+    <text x="112" y="192" text-anchor="middle" font-size="9.5" fill="#15803D">Adopted: {A, B}</text>
+  </g>
+
+  <!-- Panel 2: t = 1 -->
+  <g transform="translate(258, 68)">
+    <rect x="0" y="0" width="224" height="210" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="112" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1E293B">t = 1 (C joins)</text>
+
+    <g stroke="#CBD5E1" stroke-width="2">
+      <line x1="25" y1="65" x2="25" y2="135"/>
+      <line x1="25" y1="65" x2="65" y2="100"/>
+      <line x1="25" y1="135" x2="65" y2="100"/>
+      <line x1="65" y1="100" x2="105" y2="100"/>
+      <line x1="105" y1="100" x2="145" y2="100"/>
+      <line x1="145" y1="100" x2="175" y2="75"/>
+      <line x1="175" y1="75" x2="175" y2="125"/>
+      <line x1="175" y1="75" x2="195" y2="100"/>
+      <line x1="175" y1="125" x2="195" y2="100"/>
+    </g>
+
+    <circle cx="25" cy="65" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="25" y="69" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">A</text>
+    <circle cx="25" cy="135" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="25" y="139" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">B</text>
+    <circle cx="65" cy="100" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="65" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">C</text>
+    <circle cx="105" cy="100" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="105" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">D</text>
+    <circle cx="145" cy="100" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="145" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">F</text>
+    <circle cx="175" cy="75" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="175" y="79" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">G</text>
+    <circle cx="175" cy="125" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="175" y="129" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">H</text>
+    <circle cx="195" cy="100" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="195" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">I</text>
+
+    <text x="112" y="192" text-anchor="middle" font-size="9.5" fill="#15803D">C: 2/3 neighbors adopted &#8805; 0.5</text>
+  </g>
+
+  <!-- Panel 3: t = 2 -->
+  <g transform="translate(496, 68)">
+    <rect x="0" y="0" width="224" height="210" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="112" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1E293B">t = 2 (D joins)</text>
+
+    <g stroke="#CBD5E1" stroke-width="2">
+      <line x1="25" y1="65" x2="25" y2="135"/>
+      <line x1="25" y1="65" x2="65" y2="100"/>
+      <line x1="25" y1="135" x2="65" y2="100"/>
+      <line x1="65" y1="100" x2="105" y2="100"/>
+      <line x1="105" y1="100" x2="145" y2="100"/>
+      <line x1="145" y1="100" x2="175" y2="75"/>
+      <line x1="175" y1="75" x2="175" y2="125"/>
+      <line x1="175" y1="75" x2="195" y2="100"/>
+      <line x1="175" y1="125" x2="195" y2="100"/>
+    </g>
+
+    <circle cx="25" cy="65" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="25" y="69" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">A</text>
+    <circle cx="25" cy="135" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="25" y="139" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">B</text>
+    <circle cx="65" cy="100" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="65" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">C</text>
+    <circle cx="105" cy="100" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="105" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">D</text>
+    <circle cx="145" cy="100" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="145" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">F</text>
+    <circle cx="175" cy="75" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="175" y="79" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">G</text>
+    <circle cx="175" cy="125" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="175" y="129" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">H</text>
+    <circle cx="195" cy="100" r="11" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="195" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">I</text>
+
+    <text x="112" y="192" text-anchor="middle" font-size="9.5" fill="#15803D">D: 1/2 neighbors adopted &#8805; 0.5</text>
+  </g>
+
+  <!-- Panel 4: t = 3 (final) -->
+  <g transform="translate(734, 68)">
+    <rect x="0" y="0" width="224" height="210" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="112" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1E293B">t = 3 (F joins; stalls)</text>
+
+    <g stroke="#CBD5E1" stroke-width="2">
+      <line x1="25" y1="65" x2="25" y2="135"/>
+      <line x1="25" y1="65" x2="65" y2="100"/>
+      <line x1="25" y1="135" x2="65" y2="100"/>
+      <line x1="65" y1="100" x2="105" y2="100"/>
+      <line x1="105" y1="100" x2="145" y2="100"/>
+      <line x1="145" y1="100" x2="175" y2="75"/>
+      <line x1="175" y1="75" x2="175" y2="125"/>
+      <line x1="175" y1="75" x2="195" y2="100"/>
+      <line x1="175" y1="125" x2="195" y2="100"/>
+    </g>
+
+    <circle cx="25" cy="65" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="25" y="69" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">A</text>
+    <circle cx="25" cy="135" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="25" y="139" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">B</text>
+    <circle cx="65" cy="100" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="65" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">C</text>
+    <circle cx="105" cy="100" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="105" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">D</text>
+    <circle cx="145" cy="100" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="145" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#14532D">F</text>
+    <circle cx="175" cy="75" r="11" fill="#FEE2E2" stroke="#DC2626" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="175" y="79" text-anchor="middle" font-size="10.5" font-weight="700" fill="#991B1B">G</text>
+    <circle cx="175" cy="125" r="11" fill="#FEE2E2" stroke="#DC2626" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="175" y="129" text-anchor="middle" font-size="10.5" font-weight="700" fill="#991B1B">H</text>
+    <circle cx="195" cy="100" r="11" fill="#FEE2E2" stroke="#DC2626" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="195" y="104" text-anchor="middle" font-size="10.5" font-weight="700" fill="#991B1B">I</text>
+
+    <text x="112" y="162" text-anchor="middle" font-size="9" fill="#15803D">F: 1/2 &#8805; 0.5 &#8594; adopted</text>
+    <text x="112" y="176" text-anchor="middle" font-size="9" fill="#991B1B">G: 1/3 &lt; 0.5 &#8594; never adopts</text>
+    <text x="112" y="192" text-anchor="middle" font-size="9.5" fill="#475569">Adopted: {A, B, C, D, F}</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(20, 320)">
+    <circle cx="8" cy="0" r="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+    <text x="24" y="4" font-size="11" fill="#475569">Adopted</text>
+    <circle cx="140" cy="0" r="8" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="156" y="4" font-size="11" fill="#475569">Not yet adopted</text>
+    <circle cx="320" cy="0" r="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="336" y="4" font-size="11" fill="#475569">Resistant triangle (G, H, I): each needs the other two, so the cascade never reaches them</text>
+  </g>
+</svg>

@@ -27,8 +27,8 @@ You are encouraged to use AI heavily. You remain responsible for choosing a wort
    - Networks (weeks 3-5): graph metrics, ties and homophily, structural balance, production networks
    - Agent-based models (weeks 6-7)
    - Game theory (weeks 8-9): Nash and mixed equilibria, network traffic, auctions
-   - AI agents (weeks 10-11): LLM agents, tool use, multi-agent systems, evaluation
-   - Platforms and marketplaces (weeks 12-13): network effects, tipping, pricing, matching
+   - Platforms and marketplaces (weeks 10-11): network effects, tipping, pricing, matching
+   - AI agents (weeks 12-13): LLM agents, tool use, multi-agent systems, evaluation
 
    A second topic is encouraged (e.g., an ABM on a real network), but depth matters more than breadth. You may propose topics from units we haven't covered yet and refine them at the check-in.
 
@@ -138,7 +138,7 @@ Every team member should be able to answer questions about any part of the proje
   - ABMs with Agents.jl: L06.02, L07.01, L07.02
   - Game theory computation: L08.01, L09.01, L09.03, L09.04
   - LLM agents, tools, and evaluation: L.A1.03, L.A2.01, L.A2.02, L.A02.03
-  - Platforms and matching: L11.01, L11.02, L12.01, L12.02
+  - Platforms and matching: L10.01, L10.02, L11.01, L11.02
 - **Julia packages:** `Graphs.jl`, `SimpleWeightedGraphs.jl`, `Agents.jl`, `GameTheory.jl`, `DataFrames.jl`, `CSV.jl`, `Plots.jl`/`PlotlyBase.jl`, `Test` (stdlib)
 - **Python packages:** `pydantic-ai`, `networkx`, `pandas`, `pytest`
 - **Datasets:**

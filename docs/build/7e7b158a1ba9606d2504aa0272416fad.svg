@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="580" viewBox="0 0 920 580" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <rect width="920" height="580" rx="12" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16A34A"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <text x="460" y="34" font-size="20" font-weight="bold" fill="#1E293B" text-anchor="middle">The Cross-Side Externality</text>
+  <text x="460" y="54" font-size="11" fill="#64748B" text-anchor="middle">Raising p<tspan baseline-shift="sub" font-size="8">B</tspan> shrinks the buyer side — and every seller completes fewer transactions</text>
+
+  <!-- Platform hub -->
+  <rect x="340" y="90" width="240" height="100" rx="14" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+  <text x="460" y="122" font-size="15" font-weight="bold" fill="#334155" text-anchor="middle">Platform</text>
+  <text x="460" y="146" font-size="12" fill="#334155" text-anchor="middle">profit = (p<tspan baseline-shift="sub" font-size="9">B</tspan> + p<tspan baseline-shift="sub" font-size="9">S</tspan> − c)·D<tspan baseline-shift="sub" font-size="9">B</tspan>·D<tspan baseline-shift="sub" font-size="9">S</tspan></text>
+  <text x="460" y="166" font-size="10.5" fill="#64748B" text-anchor="middle">chooses p<tspan baseline-shift="sub" font-size="8">B</tspan> and p<tspan baseline-shift="sub" font-size="8">S</tspan></text>
+
+  <!-- Buyers cluster -->
+  <rect x="40" y="260" width="250" height="170" rx="14" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+  <text x="165" y="285" font-size="15" font-weight="bold" fill="#1E40AF" text-anchor="middle">Buyers</text>
+  <circle cx="110" cy="320" r="12" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+  <circle cx="165" cy="320" r="12" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+  <circle cx="220" cy="320" r="12" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+  <circle cx="137" cy="355" r="12" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+  <circle cx="193" cy="355" r="12" fill="#FEE2E2" stroke="#DC2626" stroke-width="2" stroke-dasharray="3,2"/>
+  <text x="165" y="410" font-size="11" fill="#1E40AF" text-anchor="middle">one buyer leaves (D<tspan baseline-shift="sub" font-size="8">B</tspan> falls)</text>
+
+  <!-- Sellers cluster -->
+  <rect x="630" y="260" width="250" height="170" rx="14" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+  <text x="755" y="285" font-size="15" font-weight="bold" fill="#92400E" text-anchor="middle">Sellers</text>
+  <circle cx="700" cy="320" r="12" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+  <circle cx="755" cy="320" r="12" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+  <circle cx="810" cy="320" r="12" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+  <circle cx="727" cy="355" r="12" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+  <circle cx="783" cy="355" r="12" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+  <text x="755" y="400" font-size="11" fill="#92400E" text-anchor="middle">no seller leaves —</text>
+  <text x="755" y="415" font-size="11" fill="#92400E" text-anchor="middle">each trades with fewer buyers</text>
+
+  <!-- Forward (solid green) chain: Platform raises p_B -->
+  <path d="M370,190 C300,215 235,230 185,258" fill="none" stroke="#16A34A" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="225" y="192" font-size="11" fill="#16A34A" text-anchor="middle">raise p<tspan baseline-shift="sub" font-size="8">B</tspan>:</text>
+  <text x="225" y="206" font-size="11" fill="#16A34A" text-anchor="middle">some buyers leave</text>
+
+  <path d="M290,330 L628,330" fill="none" stroke="#16A34A" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="460" y="310" font-size="11" fill="#16A34A" text-anchor="middle">every seller completes fewer transactions</text>
+  <text x="460" y="324" font-size="11" fill="#16A34A" text-anchor="middle">(volume D<tspan baseline-shift="sub" font-size="8">B</tspan>·D<tspan baseline-shift="sub" font-size="8">S</tspan> falls)</text>
+
+  <!-- Reverse (dashed gray) chain: Platform raises p_S -->
+  <path d="M550,190 C620,215 685,230 735,258" fill="none" stroke="#94A3B8" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow-gray)"/>
+  <text x="695" y="192" font-size="11" fill="#64748B" text-anchor="middle">raise p<tspan baseline-shift="sub" font-size="8">S</tspan>:</text>
+  <text x="695" y="206" font-size="11" fill="#64748B" text-anchor="middle">some sellers leave</text>
+
+  <path d="M628,395 L290,395" fill="none" stroke="#94A3B8" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow-gray)"/>
+  <text x="460" y="416" font-size="11" fill="#64748B" text-anchor="middle">every buyer completes fewer transactions</text>
+  <text x="460" y="430" font-size="11" fill="#64748B" text-anchor="middle">(volume D<tspan baseline-shift="sub" font-size="8">B</tspan>·D<tspan baseline-shift="sub" font-size="8">S</tspan> falls)</text>
+
+  <text x="460" y="458" font-size="12" fill="#475569" text-anchor="middle" font-style="italic">"the same logic runs from sellers back to buyers"</text>
+
+  <!-- Bottom summary -->
+  <rect x="110" y="490" width="700" height="56" rx="10" fill="#F1F5F9" stroke="#475569" stroke-width="1.5"/>
+  <text x="460" y="513" font-size="12.5" fill="#334155" text-anchor="middle">Profit multiplies D<tspan baseline-shift="sub" font-size="9">B</tspan> and D<tspan baseline-shift="sub" font-size="9">S</tspan> together</text>
+  <text x="460" y="531" font-size="12.5" fill="#334155" text-anchor="middle">losing participants on either side shrinks transaction volume — and profit — for both</text>
+</svg>
