@@ -14,3 +14,7 @@ project-handout:
 .PHONY: auctions
 auctions:
 	node week09/auction-room/server.js
+
+.PHONY: platforms
+platforms:
+	node week10/platform-room/server.js

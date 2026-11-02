@@ -1,0 +1,1 @@
+{"name":"platform-room","version":"1.0.0","private":true,"description":"CAP-6318 week 10 Platform Room: Walk the Line + Price Structure, adapted from week09/auction-room","scripts":{"start":"node server.js","test":"node --test"},"engines":{"node":">=20.10"}}

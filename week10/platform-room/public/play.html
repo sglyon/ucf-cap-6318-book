@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Play · Platform Room</title><link rel="stylesheet" href="/style.css"><script defer src="/common.js"></script></head>
+<body><main style="max-width:620px"><header><h1>Platform Room</h1><span id="connection" role="status">Connecting…</span></header>
+<section id="join" class="panel"><h2>Join the room</h2><p>You'll be assigned a group (market or side) and a private taste for the network good. Only you see your taste.</p><form id="joinForm"><label>Your name<input id="name" maxlength="30" autocomplete="nickname" required></label><button class="primary">Join</button></form></section>
+<div id="wallet" class="split" hidden><strong id="identity"></strong><span id="score" class="number"></span></div>
+<p id="message" role="status" aria-live="polite"></p>
+<section id="game" class="panel" hidden>
+ <div class="split"><span id="roundStatus" class="muted"></span><span id="participants" class="muted"></span></div>
+ <p id="groupTag" class="tag"></p>
+ <h2 id="headline">Waiting for the instructor…</h2>
+ <div class="taste-line"><span id="taste"></span><span id="priceLine"></span></div>
+ <p id="expected"></p>
+ <div class="price" id="value"></div>
+ <div id="clock" class="timer number"></div>
+ <form id="choiceForm" class="choice-buttons" hidden>
+  <button type="button" id="joinBtn" class="join">Join</button>
+  <button type="button" id="outBtn" class="out">Stay out</button>
+ </form>
+ <p id="lastResult" class="success"></p>
+</section>
+<section id="waiting" class="panel"><p class="muted">Keep this page open. The instructor controls when rounds start. Your decision counts until the deadline — the last choice you make wins, and no choice counts as staying out.</p></section>
+<script>
+addEventListener('DOMContentLoaded', () => {
+ let stop, previousRound, previousChoice;
+ function render(s) {
+  tickConnection();
+  const me = s.me, r = s.round;
+  $('join').hidden = !!me; $('wallet').hidden = !me; $('game').hidden = !me; $('waiting').hidden = !!me;
+  $('participants').textContent = `${s.players.length} player${s.players.length === 1 ? '' : 's'} in the room`;
+  if (!me) return;
+  $('identity').textContent = me.name;
+  $('score').textContent = `score ${me.score.toFixed(2)}`;
+  $('roundStatus').textContent = r ? (r.status === 'running' ? `Round ${r.no} \u2022 open` : `Round ${r.no} \u2022 closed`) : 'Waiting for the instructor';
+  const left = r?.status === 'running' ? Math.max(0, Math.ceil((r.endsAt - Date.now() - offset) / 1000)) : null;
+  $('clock').textContent = left === null ? 'Between rounds' : left ? `${left}s remaining` : 'Closing\u2026';
+  if (!r) { $('headline').textContent = 'Waiting for the instructor to start a round.'; $('groupTag').textContent = `Group: ${me.group}`; $('taste').textContent = ''; $('priceLine').textContent = ''; $('expected').textContent = ''; $('value').textContent = ''; $('value').style.color = ''; $('choiceForm').hidden = true; renderLastResult(me); return; }
+  let p, announced, params, groupLabel, inThisRound = true;
+  if (r.mode === 'walk') {
+   const market = r.markets.find(m => m.market === me.group);
+   if (!market) { inThisRound = false; } else {
+    groupLabel = `Market ${me.group}`; p = market.p; announced = market.nE; params = { a: 0.1, b: 1.0 };
+   }
+  } else {
+   groupLabel = me.group === 'D' ? 'Diners' : 'Restaurants';
+   p = me.group === 'D' ? r.pD : r.pR;
+   announced = me.group === 'D' ? r.nRe : r.nDe;
+   params = me.group === 'D' ? s.price.paramsD : s.price.paramsR;
+  }
+  $('groupTag').textContent = groupLabel || `Group: ${me.group}`;
+  if (!inThisRound) { $('headline').textContent = 'You are not part of this round.'; $('choiceForm').hidden = true; renderLastResult(me); return; }
+  $('headline').textContent = r.mode === 'walk' ? `Market ${me.group}` : (me.group === 'D' ? 'You are a diner' : 'You are a restaurant');
+  $('taste').textContent = `your taste x = ${me.x.toFixed(3)}`;
+  $('priceLine').textContent = `price p = ${p.toFixed(2)}`;
+  $('expected').textContent = r.mode === 'walk' ? `announced expected adoption n\u1d49 = ${pct(announced)}` : `announced share of the other side = ${pct(announced)}`;
+  const value = me.x * networkValue(announced, params.a, params.b);
+  $('value').textContent = `value ${value.toFixed(3)} vs price ${p.toFixed(2)}`;
+  $('value').style.color = value >= p ? 'var(--good)' : 'var(--bad)';
+  if (previousRound !== r.id) { previousRound = r.id; previousChoice = null; message(''); }
+  $('choiceForm').hidden = r.status !== 'running';
+  $('joinBtn').disabled = $('outBtn').disabled = r.status !== 'running' || left === 0;
+  $('joinBtn').setAttribute('aria-pressed', me.choice === 'join'); $('outBtn').setAttribute('aria-pressed', me.choice === 'out');
+  $('joinBtn').style.outline = me.choice === 'join' ? '3px solid var(--good)' : ''; $('outBtn').style.outline = me.choice === 'out' ? '3px solid var(--bad)' : '';
+  renderLastResult(me);
+ }
+ function renderLastResult(me) {
+  const lr = me.lastResult;
+  if (!lr) { $('lastResult').textContent = ''; return; }
+  const share = lr.mode === 'walk' ? pct(lr.n) : pct(lr.n);
+  $('lastResult').textContent = `Round ${lr.no}: ${lr.joined ? 'you joined' : 'you stayed out'} \u2022 realized adoption ${share} \u2022 you earned ${money(lr.earned)}`;
+ }
+ async function choose(c) { const r = state.round; action(async () => { await post('/api/choose', { roundId: r.id, choice: c }); }); }
+ $('joinBtn').onclick = () => choose('join'); $('outBtn').onclick = () => choose('out');
+ function start() { stop?.(); stop = connect(render); }
+ $('joinForm').onsubmit = e => { e.preventDefault(); action(async () => { const r = await post('/api/join', { name: $('name').value }); token = r.token; localStorage.setItem('cap6318-platform-token', token); start(); message('You have joined.', true); }); };
+ start();
+});
+</script></body></html>

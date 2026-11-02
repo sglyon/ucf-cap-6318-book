@@ -1,0 +1,135 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Instructor · Platform Room</title><link rel="stylesheet" href="/style.css"><script defer src="/common.js"></script></head>
+<body><main>
+<header><h1>Instructor console</h1><div><a href="/screen" target="_blank" rel="noopener">Open projector</a> · <span id="connection" role="status">Connecting…</span></div></header>
+<p id="message" role="status" aria-live="polite"></p>
+<div class="grid">
+<div>
+ <section class="panel">
+  <div class="split"><span id="roundStatus"></span><span id="participants"></span></div>
+  <p id="modeTag" class="tag"></p>
+  <div id="clock" class="timer number"></div>
+  <form id="startForm" class="actions"><label style="flex:1;min-width:160px">Round length (seconds)<input id="duration" type="number" value="25" min="5" max="120" required></label><button id="startBtn" class="primary">Start round</button><button id="closeBtn" type="button">Close and settle now</button></form>
+  <p class="muted">A round locks in the price/expectation settings at the moment it starts; edit them before clicking Start.</p>
+  <label class="split" style="align-items:center"><span>Reveal theory overlay</span><input id="revealToggle" type="checkbox" style="width:auto;min-height:0"></label>
+ </section>
+
+ <section class="panel">
+  <h2>Mode</h2>
+  <label>Game mode<select id="modeSelect"><option value="walk">Walk the Line (one-sided)</option><option value="price">Price Structure (two-sided)</option></select></label>
+  <p class="muted">Mode can only change between rounds; switching reassigns everyone's group.</p>
+ </section>
+
+ <section class="panel" id="walkPanel">
+  <h2>Walk the Line</h2>
+  <label class="split" style="align-items:center"><span>Split into two markets (A/B)</span><input id="twoMarket" type="checkbox" style="width:auto;min-height:0"></label>
+  <button id="dealBtn" type="button">Deal tastes now</button>
+  <p class="muted">Tastes redeal automatically at the next round start if group membership changed.</p>
+  <div id="marketForms"></div>
+ </section>
+
+ <section class="panel" id="pricePanel" hidden>
+  <h2>Price Structure</h2>
+  <label>Price level L<input id="levelInput" type="number" step="0.01" min="0" max="10"></label>
+  <label>Structure s (0 = free for diners, 1 = free for restaurants)<input id="structureInput" type="range" min="0" max="1" step="0.01"></label>
+  <div class="actions"><button id="presetFreeD" type="button">Free for diners</button><button id="presetEven" type="button">Even</button><button id="presetFreeR" type="button">Free for restaurants</button></div>
+  <div class="fields"><label>Expected diner share (shown to restaurants)<input id="nDeInput" type="number" step="0.01" min="0" max="1"></label><label>Expected restaurant share (shown to diners)<input id="nReInput" type="number" step="0.01" min="0" max="1"></label></div>
+  <details><summary>Network-value parameters (calibrated; editable)</summary>
+   <div class="fields"><label>a_D<input id="aD" type="number" step="0.01" min="0" max="10"></label><label>b_D<input id="bD" type="number" step="0.01" min="0" max="10"></label></div>
+   <div class="fields"><label>a_R<input id="aR" type="number" step="0.01" min="0" max="10"></label><label>b_R<input id="bR" type="number" step="0.01" min="0" max="10"></label></div>
+   <button id="savePriceParams" type="button">Save parameters</button>
+  </details>
+ </section>
+</div>
+
+<aside>
+ <section class="panel"><h2>Players</h2><div style="max-height:360px;overflow:auto"><table style="width:100%;border-collapse:collapse" id="playersTable"><thead><tr><th style="text-align:left">Name</th><th style="text-align:left">Group</th><th style="text-align:left">x</th><th style="text-align:left">Responded</th><th style="text-align:right">Score</th></tr></thead><tbody id="playersBody"></tbody></table></div></section>
+ <section class="panel"><h2>Round history</h2><ul id="history" class="list"></ul></section>
+ <section class="panel"><h2>Session</h2>
+  <button id="resetHistoryBtn" type="button">Reset history (keep players)</button>
+  <button id="backup" type="button">Download private session backup</button>
+  <details><summary>Start a new class session</summary><p>Clears every player, score, and history entry. Download a backup first if needed.</p><label>Type NEW SESSION<input id="confirmation" autocomplete="off"></label><button id="newSessionBtn" type="button">Reset session</button></details>
+ </section>
+</aside>
+</div>
+</main>
+<script>
+addEventListener('DOMContentLoaded', () => {
+ const admin = (a, b = {}) => post('/api/admin/' + a + '?key=' + encodeURIComponent(key), b);
+ let loadedOnce = false;
+ function render(s) {
+  tickConnection();
+  const r = s.round, running = r?.status === 'running';
+  $('participants').textContent = `${s.players.length} player${s.players.length === 1 ? '' : 's'} joined`;
+  $('roundStatus').textContent = r ? (running ? `Round ${r.no} \u2022 open` : `Round ${r.no} \u2022 closed`) : 'Ready for class';
+  $('modeTag').textContent = s.mode === 'walk' ? (s.twoMarket ? 'Walk the Line \u2022 two markets' : 'Walk the Line \u2022 one market') : 'Price Structure';
+  const left = running ? Math.max(0, Math.ceil((r.endsAt - Date.now() - offset) / 1000)) : null;
+  $('clock').textContent = left === null ? 'Between rounds' : left ? `${left}s remaining` : 'Closing\u2026';
+  $('startBtn').disabled = running || !s.players.length;
+  $('closeBtn').disabled = !running;
+  $('revealToggle').checked = s.revealTheory;
+  $('modeSelect').disabled = running; $('modeSelect').value = s.mode;
+  $('twoMarket').disabled = running || s.mode !== 'walk'; $('twoMarket').checked = s.twoMarket;
+  $('dealBtn').disabled = running;
+  $('walkPanel').hidden = s.mode !== 'walk'; $('pricePanel').hidden = s.mode !== 'price';
+  if (!loadedOnce) {
+   $('levelInput').value = s.price.L; $('structureInput').value = s.price.s;
+   $('nDeInput').value = s.price.nDe; $('nReInput').value = s.price.nRe;
+   $('aD').value = s.price.paramsD.a; $('bD').value = s.price.paramsD.b;
+   $('aR').value = s.price.paramsR.a; $('bR').value = s.price.paramsR.b;
+   loadedOnce = true;
+  }
+  const marketLabels = s.twoMarket ? ['A', 'B'] : ['A'];
+  $('marketForms').innerHTML = marketLabels.map(m => {
+   const market = s.walk[m];
+   const activeVolunteer = running && r.mode === 'walk' && r.markets.some(rm => rm.market === m);
+   return `<fieldset style="border:1px solid var(--line);border-radius:10px;padding:12px;margin:14px 0" data-market="${m}">
+    <legend>Market ${m}</legend>
+    <div class="fields"><label>Price p<input class="mP" type="number" step="0.01" min="0" max="10" value="${market.p}" ${running ? 'disabled' : ''}></label>
+    <label>Expected n\u1d49<input class="mNE" type="number" step="0.01" min="0" max="1" value="${market.nE}" ${running ? 'disabled' : ''}></label></div>
+    <div class="actions"><button type="button" class="saveMarket" ${running ? 'disabled' : ''}>Save market ${m}</button><button type="button" class="knifeEdge" ${running ? 'disabled' : ''}>Set n\u1d49 = n\u2097</button>
+    ${activeVolunteer ? `<button type="button" class="volunteerPlus">Volunteer +1</button><button type="button" class="volunteerMinus">Volunteer \u22121</button>` : ''}</div>
+    <p class="muted">Last realized: ${market.history.length ? pct(market.history[market.history.length - 1].nRealized) : '\u2014'}</p>
+   </fieldset>`;
+  }).join('');
+  $('marketForms').querySelectorAll('.saveMarket').forEach(btn => btn.onclick = () => {
+   const fs = btn.closest('fieldset'), m = fs.dataset.market;
+   action(async () => { await admin('market', { market: m, p: Number(fs.querySelector('.mP').value), nE: Number(fs.querySelector('.mNE').value) }); message(`Market ${m} saved.`, true); });
+  });
+  $('marketForms').querySelectorAll('.knifeEdge').forEach(btn => btn.onclick = () => {
+   const m = btn.closest('fieldset').dataset.market;
+   action(async () => { await admin('knifeEdge', { market: m }); message(`Market ${m} set to n\u2097.`, true); });
+  });
+  $('marketForms').querySelectorAll('.volunteerPlus').forEach(btn => btn.onclick = () => { const m = btn.closest('fieldset').dataset.market; action(async () => { await admin('volunteer', { market: m, delta: 1 }); message('Volunteer +1 applied.', true); }); });
+  $('marketForms').querySelectorAll('.volunteerMinus').forEach(btn => btn.onclick = () => { const m = btn.closest('fieldset').dataset.market; action(async () => { await admin('volunteer', { market: m, delta: -1 }); message('Volunteer \u22121 applied.', true); }); });
+  const respondedByGroup = {};
+  for (const p of s.playersPrivate) respondedByGroup[p.id] = p.respondedThisRound;
+  $('playersBody').innerHTML = s.playersPrivate.map(p => `<tr><td>${esc(p.name)}</td><td>${esc(p.group ?? '')}</td><td class="number">${p.x.toFixed(3)}</td><td>${p.respondedThisRound ? (p.choice === 'join' ? 'Join' : 'Stay out') : '\u2014'}</td><td class="number" style="text-align:right">${p.score.toFixed(2)}</td></tr>`).join('') || '<tr><td colspan="5">No players yet.</td></tr>';
+  const histItems = s.mode === 'walk'
+   ? [...s.walk.A.history.map(h => ({ ...h, market: 'A' })), ...s.walk.B.history.map(h => ({ ...h, market: 'B' }))].sort((a, b) => a.no - b.no)
+   : s.price.history;
+  $('history').innerHTML = histItems.slice().reverse().slice(0, 12).map(h => s.mode === 'walk'
+   ? `<li>Round ${h.no} \u00b7 Market ${h.market}<br>p=${h.p.toFixed(2)} n\u1d49=${pct(h.nE)} \u2192 realized ${pct(h.nRealized)} (${h.joinCount}/${h.N}${h.volunteerAdj ? `, volunteer ${h.volunteerAdj > 0 ? '+1' : '\u22121'}` : ''})</li>`
+   : `<li>Round ${h.no} \u00b7 s=${h.s.toFixed(2)}<br>n_D ${pct(h.nD)} \u00b7 n_R ${pct(h.nR)} \u00b7 revenue ${h.revenue.toFixed(2)}</li>`
+  ).join('') || '<li>No completed rounds yet.</li>';
+ }
+ connectAdmin(render);
+ $('startForm').onsubmit = e => { e.preventDefault(); action(async () => { await admin('start', { duration: Number($('duration').value) }); message('Round started.', true); }); };
+ $('closeBtn').onclick = () => action(async () => { await admin('close'); message('Round settled.', true); });
+ $('revealToggle').onchange = () => action(async () => { await admin('reveal', { on: $('revealToggle').checked }); });
+ $('modeSelect').onchange = () => action(async () => { await admin('mode', { mode: $('modeSelect').value }); loadedOnce = false; message(`Mode set to ${$('modeSelect').value === 'walk' ? 'Walk the Line' : 'Price Structure'}.`, true); });
+ $('twoMarket').onchange = () => action(async () => { await admin('split', { twoMarket: $('twoMarket').checked }); message('Market split updated.', true); });
+ $('dealBtn').onclick = () => action(async () => { await admin('deal'); message('Tastes dealt.', true); });
+ $('presetFreeD').onclick = () => action(async () => { await admin('preset', { name: 'free-diners' }); loadedOnce = false; message('Preset: free for diners.', true); });
+ $('presetEven').onclick = () => action(async () => { await admin('preset', { name: 'even' }); loadedOnce = false; message('Preset: even.', true); });
+ $('presetFreeR').onclick = () => action(async () => { await admin('preset', { name: 'free-restaurants' }); loadedOnce = false; message('Preset: free for restaurants.', true); });
+ $('structureInput').onchange = () => action(async () => { await admin('priceParams', { s: Number($('structureInput').value) }); message('Structure saved.', true); });
+ $('levelInput').onchange = () => action(async () => { await admin('priceParams', { L: Number($('levelInput').value) }); message('Price level saved.', true); });
+ $('nDeInput').onchange = () => action(async () => { await admin('priceParams', { nDe: Number($('nDeInput').value) }); message('Expected diner share saved.', true); });
+ $('nReInput').onchange = () => action(async () => { await admin('priceParams', { nRe: Number($('nReInput').value) }); message('Expected restaurant share saved.', true); });
+ $('savePriceParams').onclick = () => action(async () => { await admin('priceParams', { paramsD: { a: Number($('aD').value), b: Number($('bD').value) }, paramsR: { a: Number($('aR').value), b: Number($('bR').value) } }); message('Network-value parameters saved.', true); });
+ $('resetHistoryBtn').onclick = () => action(async () => { await admin('resetHistory'); message('History reset; players kept.', true); });
+ $('newSessionBtn').onclick = () => action(async () => { await admin('newSession', { confirm: $('confirmation').value }); $('confirmation').value = ''; loadedOnce = false; message('New session ready.', true); });
+ $('backup').onclick = () => action(async () => { const res = await fetch('/api/backup?key=' + encodeURIComponent(key)); if (!res.ok) throw new Error('Incorrect instructor key.'); const url = URL.createObjectURL(await res.blob()); const a = document.createElement('a'); a.href = url; a.download = 'platform-room-session.json'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); });
+ if (!key) message('Open the instructor URL printed in the server terminal to enable controls.');
+});
+</script></body></html>

@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Projector · Platform Room</title><link rel="stylesheet" href="/style.css"><script defer src="/common.js"></script><script defer src="/qrcode.js"></script></head>
+<body class="screen"><div class="screen-shell">
+<header><h1>Platform Room</h1><span id="connection" role="status">Connecting…</span></header>
+<div class="screen-body">
+<section class="screen-main">
+ <div class="status-row"><span id="roundStatus"></span><span id="modeTag" class="tag"></span><span id="participants" class="muted"></span></div>
+ <div class="headline-row" id="bigNumbers"></div>
+ <div class="chart-area" id="chartArea">
+  <div class="chart-bars" id="bars" hidden></div>
+  <div class="chart-seesaw" id="seesaw" hidden></div>
+  <div class="chart-main" id="chart"></div>
+ </div>
+</section>
+<aside class="screen-aside">
+ <div class="qr-badge" id="qrBadge" role="button" tabindex="0" aria-expanded="false">
+  <div class="qr-badge-row"><span id="qr"></span><div><div style="font-weight:700">Join on your phone</div><div class="qr-url" id="joinUrl"></div></div></div>
+ </div>
+ <section class="leaderboard-panel"><h2>Leaderboard</h2><ol id="leaderboard" class="list leaderboard"></ol></section>
+</aside>
+</div>
+</div>
+<script>
+addEventListener('DOMContentLoaded', () => {
+ let lastUrl, qrForcedOpen = null; // null = auto (collapse once a round has started), true/false = manual override
+ function qrShouldExpand(s) { return qrForcedOpen !== null ? qrForcedOpen : !s.round; }
+ $('qrBadge').onclick = () => { qrForcedOpen = !($('qrBadge').classList.contains('expanded')); render(window.__lastState); };
+ $('qrBadge').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('qrBadge').click(); } };
+ function render(s) {
+  if (!s) return;
+  window.__lastState = s;
+  tickConnection();
+  const r = s.round, running = r?.status === 'running', justClosed = r && r.status === 'ended';
+  $('participants').textContent = `${s.players.length} player${s.players.length === 1 ? '' : 's'}`;
+  $('roundStatus').textContent = r ? (running ? `Round ${r.no} \u2022 open` : `Round ${r.no} \u2022 closed`) : 'Waiting for the instructor';
+  $('modeTag').textContent = s.mode === 'walk' ? (s.twoMarket ? 'Walk the Line \u2022 two markets' : 'Walk the Line \u2022 one market') : 'Price Structure \u2022 two-sided';
+  const left = running ? Math.max(0, Math.ceil((r.endsAt - Date.now() - offset) / 1000)) : null;
+
+  const expand = qrShouldExpand(s);
+  $('qrBadge').classList.toggle('expanded', expand);
+  $('qrBadge').setAttribute('aria-expanded', expand);
+  $('leaderboard').innerHTML = s.leaderboard.map(p => `<li><span>${esc(p.name)} <span class="muted">(${esc(p.group ?? '')})</span></span><strong class="number">${p.score.toFixed(2)}</strong></li>`).join('') || '<li>No scores yet.</li>';
+
+  if (s.mode === 'walk') {
+   $('bars').hidden = true; $('seesaw').hidden = true;
+   const markets = [{ label: 'A', color: 'var(--marketA)', p: s.walk.A.p, history: s.walk.A.history }];
+   if (s.twoMarket) markets.push({ label: 'B', color: 'var(--marketB)', p: s.walk.B.p, history: s.walk.B.history });
+   $('chart').innerHTML = cobwebChart(markets, { revealTheory: s.revealTheory, highlightLast: justClosed });
+   if (running) {
+    $('bigNumbers').innerHTML = `<div><div class="countdown-big">${left}s</div><div class="headline-label">remaining</div></div>` +
+     r.markets.map(m => `<div><div class="response-big">${m.responded}/${m.N}</div><div class="headline-label">Market ${m.market} responded</div></div>`).join('');
+   } else {
+    $('bigNumbers').innerHTML = markets.map(m => {
+     const hist = m.label === 'A' ? s.walk.A.history : s.walk.B.history;
+     const last = hist[hist.length - 1];
+     const nE = m.label === 'A' ? s.walk.A.nE : s.walk.B.nE;
+     return `<div><div class="headline-label">Market ${m.label}</div><div class="headline-number" style="color:${m.color}">${last ? pct(last.nRealized) : '\u2014'}</div><div class="headline-secondary">realized \u00b7 next announced ${pct(nE)}</div></div>`;
+    }).join('');
+   }
+  } else {
+   $('bars').hidden = false; $('seesaw').hidden = false;
+   const last = s.price.history[s.price.history.length - 1];
+   const nD = last ? last.nD : 0, nR = last ? last.nR : 0;
+   $('bars').innerHTML = `
+    <div class="bar-row"><span class="label">Diners</span><div class="bar-track"><div class="bar-fill D" style="width:${pct(nD)}"></div></div><strong class="number" style="width:52px;font-size:18px">${pct(nD)}</strong></div>
+    <div class="bar-row"><span class="label">Restaurants</span><div class="bar-track"><div class="bar-fill R" style="width:${pct(nR)}"></div></div><strong class="number" style="width:52px;font-size:18px">${pct(nR)}</strong></div>`;
+   $('seesaw').innerHTML = seesawChart(s.price.s, s.price.L);
+   const theoryPath = s.revealTheory ? simulateTwoSided({
+    nDe: s.price.history.length ? s.price.history[0].nDe : s.price.nDe, nRe: s.price.history.length ? s.price.history[0].nRe : s.price.nRe,
+    L: s.price.L, s: s.price.s, paramsD: s.price.paramsD, paramsR: s.price.paramsR,
+    ND: s.players.filter(p => p.group === 'D').length || 1, NR: s.players.filter(p => p.group === 'R').length || 1,
+    rounds: Math.max(1, s.price.history.length),
+   }) : null;
+   $('chart').innerHTML = phaseChart(s.price.history, theoryPath, { highlightLast: justClosed });
+   if (running) {
+    $('bigNumbers').innerHTML = `<div><div class="countdown-big">${left}s</div><div class="headline-label">remaining</div></div>` +
+     `<div><div class="response-big">${r.respondedD}/${r.ND}</div><div class="headline-label">diners responded</div></div>` +
+     `<div><div class="response-big">${r.respondedR}/${r.NR}</div><div class="headline-label">restaurants responded</div></div>`;
+   } else {
+    $('bigNumbers').innerHTML =
+     `<div><div class="headline-label">Diners</div><div class="headline-number" style="color:var(--marketA)">${pct(nD)}</div></div>` +
+     `<div><div class="headline-label">Restaurants</div><div class="headline-number" style="color:var(--marketB)">${pct(nR)}</div></div>` +
+     `<div class="headline-secondary">platform revenue this round: <strong>${last ? last.revenue.toFixed(2) : '\u2014'}</strong> \u00b7 price level L = ${s.price.L.toFixed(2)} (unchanged)</div>`;
+   }
+  }
+
+  const url = (s.publicUrl || location.origin) + '/';
+  if (lastUrl !== url) {
+   lastUrl = url;
+   try { const qr = qrcode(0, 'M'); qr.addData(url); qr.make(); $('qr').innerHTML = `<img alt="Scan to join Platform Room" src="${qr.createDataURL(8, 24)}">`; } catch { $('qr').textContent = 'Use the join URL below.'; }
+  }
+  $('joinUrl').textContent = url;
+ }
+ connect(render);
+});
+</script></body></html>
