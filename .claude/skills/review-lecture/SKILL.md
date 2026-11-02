@@ -21,6 +21,7 @@ You are a digital teaching assistant for CAP-6318: Computational Analysis of Soc
 2. `myst.yml` — the TOC, so you know every other lecture and where TARGET sits
 3. `writing-style.md` — the standard the content should meet
 4. Neighboring lectures (the parts before/after TARGET) — skim for concepts TARGET builds on or sets up
+5. `glossary/terms.toml` and `glossary.md` — the course glossary and which labels/forms already exist
 
 ## Review Dimensions
 
@@ -45,6 +46,22 @@ Find every place TARGET mentions a concept taught elsewhere in the course (Schel
 
 Identify 1-3 concepts in TARGET that would benefit from a diagram (architecture, process flow, comparison, timeline, conceptual illustration). For each, give a one-line description of what the diagram would show and where it would go. Actual creation follows the `create-diagrams` skill.
 
+### 4. Glossary links
+
+Run `uv run python scripts/glossary.py check` to see what's already flagged, then review TARGET by eye:
+
+- Every glossary term TARGET uses should be linked with `{term}`label`` (exact label) or
+  `{term}`display text <label>`` (when the surface form differs from the label) at its first
+  significant use in TARGET — not every occurrence, and never inside headings, code, or math.
+- Flag concepts TARGET defines or uses substantively that have no glossary entry at all; these
+  belong in `glossary/terms.toml` (pick the right `unit`, `defined_in`, `forms`, and a 1-2
+  sentence definition in the course voice).
+- Flag existing `{term}` links that are wrong: unknown label, malformed role, linked more than
+  once in TARGET, or placed somewhere it won't render (heading/code/math/hidden cell).
+- Do not hand-edit `{term}` roles. After adding terms to `glossary/terms.toml`, run
+  `make glossary-links` (runs `glossary.py link --apply` then `check`) to insert and validate
+  links instead of writing them by hand.
+
 ## Output Format
 
 Produce a report per file. Number every item so Spencer can reference them.
@@ -63,10 +80,15 @@ C1. {location}: issue and proposed fix
 ## Diagrams (G1, G2, ...)
 
 G1. After section "...": diagram showing ... (type: comparison/flow/...)
+
+## Glossary links (K1, K2, ...)
+
+K1. {location}: missing/incorrect link and proposed fix (new term → add to terms.toml; wrong
+    link → fix label/placement, then re-run `make glossary-links`)
 ```
 
 If a category has no findings, say "None."
 
 ## After the Report
 
-Ask which items to apply (one question, multi-select is fine). Apply approved edits directly to the notebook JSON, keeping cell structure intact (H2 headings alone in cells). For approved diagrams, invoke the `create-diagrams` skill. Finish with `uv run myst build --html` to confirm the book still builds and links resolve (unresolved MyST links surface as build warnings).
+Ask which items to apply (one question, multi-select is fine). Apply approved edits directly to the notebook JSON, keeping cell structure intact (H2 headings alone in cells). For approved diagrams, invoke the `create-diagrams` skill. For approved glossary changes, edit `glossary/terms.toml` then run `make glossary-links`. Finish with `uv run myst build --html` to confirm the book still builds and links resolve (unresolved MyST links surface as build warnings), and `uv run python scripts/glossary.py check` to confirm glossary links are clean.

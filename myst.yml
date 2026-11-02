@@ -18,6 +18,7 @@ project:
         - Valorum Data
   toc:
     - file: week01/L01.01_welcome.ipynb
+    - file: glossary.md
     - title: Julia 1
       children:
         - file: week01/L01.02_setup.ipynb

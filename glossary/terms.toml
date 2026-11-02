@@ -1,0 +1,1432 @@
+# Units in course order. `lectures` lists the lecture paths exactly as they appear in myst.yml.
+
+[[unit]]
+title = "Julia"
+lectures = ["week01/L01.01_welcome.ipynb",
+            "week01/L01.02_setup.ipynb",
+            "week01/L01.03_julia_basics.ipynb",
+            "week02/L02.01_julia_types_methods.ipynb",
+            "week02/L02.02_code_organization.ipynb",
+            "week02/L02.03_julia_packages.ipynb"]
+
+[[unit]]
+title = "Networks"
+lectures = ["week03/L03.01_graphs.ipynb",
+            "week03/L03.02_strong_weak_ties.ipynb",
+            "week04/L04.01_homophily.ipynb",
+            "week04/L04.02_weighted_graphs.ipynb",
+            "week04/L04.03_structural_balance.ipynb",
+            "week05/L05.01_production_networks.ipynb"]
+
+[[unit]]
+title = "Agent-Based Models"
+lectures = ["week06/L06.01_abm_concepts.ipynb",
+            "week06/L06.02_schelling_agents.ipynb",
+            "week07/L07.01_abm_money.ipynb",
+            "week07/L07.02_abm_paper_virality.ipynb"]
+
+[[unit]]
+title = "Game Theory"
+lectures = ["week08/L08.01_game_theory_intro.ipynb",
+            "week08/L08.02_network_traffic.ipynb",
+            "week09/L09.01_mixed_strategies.ipynb",
+            "week09/L09.03_auctions.ipynb",
+            "week09/L09.04_game_theory_lab.ipynb"]
+
+[[unit]]
+title = "Platforms and Marketplaces"
+lectures = ["week10/L10.01_platform_economics.ipynb",
+            "week10/L10.02_ignition_and_tipping.ipynb",
+            "week11/L11.01_platform_pricing.ipynb",
+            "week11/L11.02_matching_markets.ipynb"]
+
+[[unit]]
+title = "AI Agents"
+lectures = ["weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb",
+            "weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb",
+            "weekA01/L.A1.03_multi_agent_conversations.ipynb",
+            "weekA02/L.A2.01_function_calling_and_tools.ipynb",
+            "weekA02/L.A2.02_type_safe_agents_pydantic_patterns.ipynb",
+            "weekA02/L.A02.03_evaluations.ipynb",
+            "weekA03/L.A03.01_MCP_with_fastmcp.ipynb",
+            "weekA03/L.A03.02_ai_agent_security.ipynb"]
+
+[[term]]
+label = "Julia"
+unit = "Julia"
+defined_in = "week01/L01.03_julia_basics.ipynb"
+definition = '''A general-purpose programming language built for numerical computation: as easy to read and write as Python, but compiled to run as fast as C.'''
+forms = ["Julia"]
+
+[[term]]
+label = "REPL"
+unit = "Julia"
+defined_in = "week01/L01.02_setup.ipynb"
+definition = '''Julia's Read-Eval-Print-Loop, the interactive `julia>` prompt where you type an expression and immediately see its value.'''
+forms = ["REPL", "Julia REPL"]
+
+[[term]]
+label = "tuple"
+unit = "Julia"
+defined_in = "week01/L01.03_julia_basics.ipynb"
+definition = '''An immutable, ordered collection written with parentheses, e.g. `(1, 2, "hello")`; unlike an array, a tuple is not meant to be updated or used in linear algebra.'''
+forms = ["tuple", "tuples"]
+
+[[term]]
+label = "Dict"
+unit = "Julia"
+defined_in = "week01/L01.03_julia_basics.ipynb"
+definition = '''A collection that maps keys to values, created with `Dict(key => value, ...)`; also called a dictionary.'''
+forms = ["Dict"]
+
+[[term]]
+label = "named tuple"
+unit = "Julia"
+defined_in = "week01/L01.03_julia_basics.ipynb"
+definition = '''A hybrid of a {term}`tuple` and a {term}`Dict`: an ordered, immutable collection whose elements have names, created with `(name = value, ...)`.'''
+forms = ["named tuple", "NamedTuple"]
+
+[[term]]
+label = "package"
+unit = "Julia"
+defined_in = "week01/L01.03_julia_basics.ipynb"
+definition = '''A unit of reusable Julia code published and installed through Julia's package manager ({term}`Pkg`), extending the language with new types and functions.'''
+forms = ["package", "packages"]
+
+[[term]]
+label = "standard library"
+unit = "Julia"
+defined_in = "week01/L01.03_julia_basics.ipynb"
+definition = '''The set of {term}`packages <package>` (e.g. `Dates`) that ship bundled with Julia itself, already installed and ready to `using`.'''
+forms = ["standard library"]
+
+[[term]]
+label = "Pkg"
+unit = "Julia"
+defined_in = "week02/L02.03_julia_packages.ipynb"
+definition = '''Julia's built-in package manager, used to add, remove, and update {term}`packages <package>` — either as the `Pkg` module (`Pkg.add(...)`) or the `]` REPL mode.'''
+forms = ["Pkg", "package manager"]
+
+[[term]]
+label = "environment"
+unit = "Julia"
+defined_in = "week02/L02.03_julia_packages.ipynb"
+definition = '''An isolated, named set of installed packages and their versions, described by {term}`Project.toml` and {term}`Manifest.toml`, so different projects can depend on different package sets without conflict.'''
+forms = ["environment", "environments"]
+scope = "unit"
+
+[[term]]
+label = "Project.toml"
+unit = "Julia"
+defined_in = "week02/L02.03_julia_packages.ipynb"
+definition = '''The TOML file listing an {term}`environment`'s direct package dependencies as `NAME = UUID` pairs; created and updated automatically by {term}`Pkg`.'''
+forms = ["Project.toml"]
+
+[[term]]
+label = "Manifest.toml"
+unit = "Julia"
+defined_in = "week02/L02.03_julia_packages.ipynb"
+definition = '''The companion file to {term}`Project.toml` that pins the exact version of every package, direct and indirect, in an {term}`environment`, so it can be reproduced exactly.'''
+forms = ["Manifest.toml"]
+
+[[term]]
+label = "package composability"
+unit = "Julia"
+defined_in = "week01/L01.03_julia_basics.ipynb"
+definition = '''The property that packages and built-in code get the same treatment in Julia, so a package can operate on types defined by a completely different package (e.g. plotting a `DataFrame`).'''
+forms = ["package composability"]
+
+[[term]]
+label = "type"
+unit = "Julia"
+defined_in = "week02/L02.01_julia_types_methods.ipynb"
+definition = '''What kind of object lives at a given memory address. Julia uses a value's type to decide which syntax and which {term}`methods <method>` apply to it.'''
+forms = ["types", "type system"]
+scope = "unit"
+
+[[term]]
+label = "type hierarchy"
+unit = "Julia"
+defined_in = "week02/L02.01_julia_types_methods.ipynb"
+definition = '''The tree of Julia {term}`types <type>` rooted at `Any` (every object) with `Union{}` at the bottom (no objects); every type has at most one parent.'''
+forms = ["type hierarchy"]
+
+[[term]]
+label = "abstract type"
+unit = "Julia"
+defined_in = "week02/L02.01_julia_types_methods.ipynb"
+definition = '''A {term}`type` that can never be instantiated directly; it organizes related {term}`composite types <composite type>` into a family and lets you define shared {term}`methods <method>` for the whole family at once.'''
+forms = ["abstract type", "abstract types"]
+
+[[term]]
+label = "primitive type"
+unit = "Julia"
+defined_in = "week02/L02.01_julia_types_methods.ipynb"
+definition = '''A built-in {term}`type` representing a fixed collection of bits, e.g. `Float64`, `Bool`, `Int8`; defined by Julia itself, not typically created by users.'''
+forms = ["primitive type", "primitive types"]
+
+[[term]]
+label = "composite type"
+unit = "Julia"
+defined_in = "week02/L02.01_julia_types_methods.ipynb"
+definition = '''A {term}`type` with named fields holding related data, defined with `struct Name ... end`; an instance is treated and passed around as a single value.'''
+forms = ["composite type", "struct"]
+
+[[term]]
+label = "multiple dispatch"
+unit = "Julia"
+defined_in = "week02/L02.01_julia_types_methods.ipynb"
+definition = '''Choosing which {term}`method` of a function runs based on the types of *all* its arguments, not just the first. Julia's core design idea.'''
+forms = ["multiple dispatch"]
+
+[[term]]
+label = "method"
+unit = "Julia"
+defined_in = "week02/L02.01_julia_types_methods.ipynb"
+definition = '''One specific implementation of a function, specialized to a particular combination of argument types (e.g. `isint(x::Integer) = true`); a function can have many methods, chosen by {term}`multiple dispatch`.'''
+forms = ["method", "methods"]
+scope = ["week02/L02.01_julia_types_methods.ipynb", "week02/L02.02_code_organization.ipynb"]
+
+[[term]]
+label = "module"
+unit = "Julia"
+defined_in = "week02/L02.02_code_organization.ipynb"
+definition = '''A named namespace (`module Name ... end`) that bundles related code so its contents don't automatically pollute the caller's session; members are reached via `Module.name` or brought in with `using`.'''
+forms = ["module", "modules"]
+scope = "unit"
+
+[[term]]
+label = "include"
+unit = "Julia"
+defined_in = "week02/L02.02_code_organization.ipynb"
+definition = '''A function that evaluates the code in a `.jl` file as if it were pasted directly into the current session — the basic tool for splitting code across files.'''
+forms = ["include"]
+scope = "unit"
+
+[[term]]
+label = "export"
+unit = "Julia"
+defined_in = "week02/L02.02_code_organization.ipynb"
+definition = '''Listing a name inside a {term}`module` with the `export` keyword so it is added automatically to a caller's namespace when they run `using ModuleName`.'''
+forms = ["export", "exported"]
+scope = "unit"
+
+[[term]]
+label = "TOML"
+unit = "Julia"
+defined_in = "week02/L02.03_julia_packages.ipynb"
+definition = '''"Tom's Obvious Markup Language" — the plain-text configuration format used by {term}`Project.toml` and {term}`Manifest.toml` to describe a Julia {term}`environment`.'''
+forms = ["TOML"]
+
+[[term]]
+label = "graph theory"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''The branch of mathematics that studies {term}`graphs <graph>`: collections of {term}`nodes <node>` and the {term}`edges <edge>` that connect them. It is the language this course uses for networks.'''
+forms = ["graph theory"]
+
+[[term]]
+label = "graph"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A structure that records relationships between a collection of items: each item is a {term}`node` and each relationship is an {term}`edge`.'''
+forms = ["graph", "graphs"]
+scope = ["Networks", "Agent-Based Models", "Game Theory", "Platforms and Marketplaces", "AI Agents"]
+
+[[term]]
+label = "node"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A single item in a {term}`graph`, connected to other nodes by {term}`edges <edge>`. Graphs.jl calls these "vertices."'''
+forms = ["node", "nodes", "vertex", "vertices"]
+scope = ["Networks", "Game Theory", "Platforms and Marketplaces", "AI Agents"]
+
+[[term]]
+label = "edge"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A relationship between two {term}`nodes <node>` in a {term}`graph`; may be directed or undirected, weighted or unweighted, and in a {term}`signed graph` labeled `+` or `-`.'''
+forms = ["edge", "edges"]
+scope = ["Networks", "Game Theory", "Platforms and Marketplaces"]
+
+[[term]]
+label = "adjacency matrix"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A matrix $A\in\{0,1\}^{N\times N}$ for a graph of $N$ nodes, with $A_{ij}=1$ if there is an edge between nodes $i$ and $j$. A {term}`weighted graph` generalizes the entries to real-valued weights.'''
+forms = ["adjacency matrix", "weighted adjacency matrix"]
+
+[[term]]
+label = "degree"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''The number of {term}`edges <edge>` connected to a {term}`node`, $\sum_j A_{ij}$; a basic measure of node importance. High-degree nodes are often called hubs.'''
+forms = ["degree"]
+scope = "unit"
+
+[[term]]
+label = "path"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A flow from one {term}`node` to another across a sequence of {term}`edges <edge>`.'''
+forms = ["path"]
+scope = "unit"
+
+[[term]]
+label = "cycle"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A {term}`path` that starts and ends at the same {term}`node`.'''
+forms = ["cycle", "cycles"]
+scope = "unit"
+
+[[term]]
+label = "tree"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A {term}`connected graph` with no {term}`cycles <cycle>`; a tree on $N$ nodes has exactly $N-1$ edges, the minimum needed to stay connected.'''
+forms = ["tree"]
+scope = "unit"
+
+[[term]]
+label = "connected graph"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A {term}`graph` in which there is a {term}`path` between every pair of {term}`nodes <node>`, so any node can be reached from any other.'''
+forms = ["connected graph", "connectedness"]
+
+[[term]]
+label = "distance (graph)"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''The length of the shortest {term}`path` between two {term}`nodes <node>`, where length is the number of edge-steps along the path.'''
+forms = ["distance"]
+scope = ["week03/L03.01_graphs.ipynb", "week03/L03.02_strong_weak_ties.ipynb", "week04/L04.01_homophily.ipynb", "week04/L04.02_weighted_graphs.ipynb"]
+
+[[term]]
+label = "breadth-first search"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''An algorithm that computes distances from a starting {term}`node` by visiting nodes layer by layer, in order of increasing {term}`distance <distance (graph)>`.'''
+forms = ["breadth-first search", "BFS"]
+
+[[term]]
+label = "directed graph"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A {term}`graph` in which each {term}`edge` has a direction, so a connection flows from one specific node to another rather than being symmetric.'''
+forms = ["directed graph", "directed"]
+
+[[term]]
+label = "component (graph)"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A self-contained subset of {term}`nodes <node>` such that every node in it has a {term}`path` to every other, and the subset is not part of any larger such subset.'''
+forms = ["component", "components", "connected component", "connected components"]
+scope = "unit"
+
+[[term]]
+label = "giant component"
+unit = "Networks"
+defined_in = "week03/L03.01_graphs.ipynb"
+definition = '''A single {term}`component <component (graph)>` containing most of a network's nodes, with the rest scattered in small components or isolated — a common structure in real-world networks.'''
+forms = ["giant component"]
+
+[[term]]
+label = "triangle (graph)"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''The smallest structure involving more than two {term}`nodes <node>`: three nodes joined by either two edges (open triangle) or three edges (closed triangle).'''
+forms = ["triangle", "open triangle", "closed triangle", "triangles"]
+scope = ["week03/L03.02_strong_weak_ties.ipynb", "week04/L04.01_homophily.ipynb", "week04/L04.03_structural_balance.ipynb"]
+
+[[term]]
+label = "triadic closure"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''The empirical tendency for an edge B-C to form when edges A-B and A-C already exist — the open side of a {term}`triangle <triangle (graph)>` tends to close.'''
+forms = ["triadic closure"]
+
+[[term]]
+label = "clustering coefficient"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''The fraction of a node's (or graph's) possible {term}`triangles <triangle (graph)>` that are actually closed; equivalently, the probability that two random friends of a node are themselves friends.'''
+forms = ["clustering coefficient", "local clustering coefficient", "global clustering coefficient"]
+
+[[term]]
+label = "bridge (graph)"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''An {term}`edge` that, if removed, would split the nodes it connects into different {term}`components <component (graph)>` of the graph. Contrast with the weaker {term}`local bridge`.'''
+forms = ["bridge", "true bridge"]
+scope = "unit"
+
+[[term]]
+label = "local bridge"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''An edge A-B that is a local bridge if A and B have no neighbors in common — a looser, more common relative of a true {term}`bridge <bridge (graph)>`.'''
+forms = ["local bridge", "local bridges"]
+
+[[term]]
+label = "strong tie"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''A label on an {term}`edge` marking a close friendship, as opposed to a {term}`weak tie`.'''
+forms = ["strong tie", "strong ties"]
+
+[[term]]
+label = "weak tie"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''A label on an {term}`edge` marking an acquaintance rather than a close friendship. A {term}`local bridge` must be a weak tie.'''
+forms = ["weak tie", "weak ties"]
+
+[[term]]
+label = "Strong Triadic Closure Property"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''A node A violates this property if it has {term}`strong ties <strong tie>` to both B and C but there is no edge at all, strong or weak, between B and C; a node satisfies it if it never violates it.'''
+forms = ["Strong Triadic Closure Property", "Strong Triadic Closure"]
+
+[[term]]
+label = "graph partitioning"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''The algorithmic problem of breaking a {term}`graph` into tightly-knit regions, typically by removing {term}`local bridges <local bridge>` (divisive methods) or growing regions from a seed node (agglomerative methods).'''
+forms = ["graph partitioning"]
+
+[[term]]
+label = "betweenness centrality"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''For node $v$, $C_B(v)=\sum_{s\ne v\ne t}\sigma_{st}(v)/\sigma_{st}$, where $\sigma_{st}$ is the number of shortest paths between $s$ and $t$ and $\sigma_{st}(v)$ is the number passing through $v$; captures how much flow passes through a node.'''
+forms = ["betweenness centrality"]
+
+[[term]]
+label = "Girvan-Newman algorithm"
+unit = "Networks"
+defined_in = "week03/L03.02_strong_weak_ties.ipynb"
+definition = '''A divisive {term}`graph partitioning` algorithm that repeatedly removes the edges with highest {term}`betweenness centrality` and recomputes centrality on the resulting pieces.'''
+forms = ["Girvan-Newman", "Girvan-Newman algorithm"]
+
+[[term]]
+label = "homophily"
+unit = "Networks"
+defined_in = "week04/L04.01_homophily.ipynb"
+definition = '''The tendency for connected {term}`nodes <node>` to be more similar to each other than nodes further apart in the network — "we are similar to our friends."'''
+forms = ["homophily"]
+
+[[term]]
+label = "inverse homophily"
+unit = "Networks"
+defined_in = "week04/L04.01_homophily.ipynb"
+definition = '''A pattern in which the observed cross-characteristic edge share is well above the {term}`random-formation benchmark`, i.e. more cross-type edges than random mixing would predict.'''
+forms = ["inverse homophily"]
+
+[[term]]
+label = "random-formation benchmark"
+unit = "Networks"
+defined_in = "week04/L04.01_homophily.ipynb"
+definition = '''The cross-characteristic edge probability $2p_x(1-p_x)$ expected if each edge endpoint's type were drawn independently from the population share $p_x$ of characteristic $X$; the comparison point used to test for {term}`homophily`.'''
+forms = ["random-formation benchmark", "independent-endpoint benchmark"]
+
+[[term]]
+label = "weighted graph"
+unit = "Networks"
+defined_in = "week04/L04.02_weighted_graphs.ipynb"
+definition = '''A {term}`graph` in which each {term}`edge` carries a numeric weight denoting strength, rather than just presence or absence of a connection.'''
+forms = ["weighted graph"]
+
+[[term]]
+label = "shortest path"
+unit = "Networks"
+defined_in = "week04/L04.02_weighted_graphs.ipynb"
+definition = '''In a {term}`weighted graph` with edge weights $w_{ab}$, the path between two nodes that minimizes the sum $\sum w_{ab}$ of weights along it, rather than the number of edges.'''
+forms = ["shortest path"]
+
+[[term]]
+label = "Bellman equation"
+unit = "Networks"
+defined_in = "week04/L04.02_weighted_graphs.ipynb"
+definition = '''The recursive restriction $J(v)=\min_{n\in F_v} w_{vn}+J(n)$ satisfied by the {term}`cost-to-go` function $J$, where $F_v$ is the set of nodes reachable from $v$; used to compute {term}`shortest paths <shortest path>` by guess-and-iterate.'''
+forms = ["Bellman equation"]
+
+[[term]]
+label = "cost-to-go"
+unit = "Networks"
+defined_in = "week04/L04.02_weighted_graphs.ipynb"
+definition = '''$J(v)$, the minimum cumulative weight needed to travel from node $v$ to a fixed destination along a {term}`weighted graph`.'''
+forms = ["cost-to-go"]
+
+[[term]]
+label = "structural balance"
+unit = "Networks"
+defined_in = "week04/L04.03_structural_balance.ipynb"
+definition = '''A complete {term}`signed graph` satisfies the Structural Balance Property if every set of three nodes has exactly one or three positive edges among them.'''
+forms = ["structural balance", "Structural Balance Property"]
+scope = "unit"
+
+[[term]]
+label = "signed graph"
+unit = "Networks"
+defined_in = "week04/L04.03_structural_balance.ipynb"
+definition = '''An undirected {term}`graph` where every {term}`edge` is labeled `+` (friends) or `-` (enemies); {term}`structural balance` analysis restricts attention to complete signed graphs.'''
+forms = ["signed graph", "signed graphs"]
+
+[[term]]
+label = "Balance Theorem"
+unit = "Networks"
+defined_in = "week04/L04.03_structural_balance.ipynb"
+definition = '''If a labeled complete graph is balanced, then either all pairs of nodes are friends, or the nodes split into two groups X and Y such that every pair within X or within Y are friends and every pair across X and Y are enemies.'''
+forms = ["Balance Theorem"]
+
+[[term]]
+label = "eigenvalue"
+unit = "Networks"
+defined_in = "week05/L05.01_production_networks.ipynb"
+definition = '''For $A\in\mathbb{R}^{n\times n}$, a scalar $\lambda\in\mathbb{C}$ with $Ae=\lambda e$ for some nonzero vector $e$ (the {term}`eigenvector`). The set of all eigenvalues is $A$'s spectrum, $\sigma(A)$.'''
+forms = ["eigenvalue", "eigenvalues"]
+
+[[term]]
+label = "eigenvector"
+unit = "Networks"
+defined_in = "week05/L05.01_production_networks.ipynb"
+definition = '''A nonzero vector $e$ satisfying $Ae=\lambda e$ for an {term}`eigenvalue` $\lambda$; a vector $\epsilon$ with $A'\epsilon=\lambda\epsilon$ is a left-eigenvector.'''
+forms = ["eigenvector", "eigenvectors", "left-eigenvector"]
+
+[[term]]
+label = "spectral radius"
+unit = "Networks"
+defined_in = "week05/L05.01_production_networks.ipynb"
+definition = '''$r(A)\equiv\max\{|\lambda|:\lambda\in\sigma(A)\}$, the largest-magnitude {term}`eigenvalue` of $A$; governs convergence of $x_{t+1}=Ax_t$ and of the {term}`Neumann series lemma`.'''
+forms = ["spectral radius"]
+
+[[term]]
+label = "Neumann series lemma"
+unit = "Networks"
+defined_in = "week05/L05.01_production_networks.ipynb"
+definition = '''If $A\in\mathbb{R}^{n\times n}$ and $r(A)<1$, then $I-A$ is nonsingular and $(I-A)^{-1}=\sum_{m=0}^{\infty}A^m$.'''
+forms = ["Neumann series lemma", "NSL"]
+
+[[term]]
+label = "input-output coefficient"
+unit = "Networks"
+defined_in = "week05/L05.01_production_networks.ipynb"
+definition = '''$a_{ij}=\dfrac{\text{value of sector }j\text{'s inputs from sector }i}{\text{total sales of sector }j}$, the entry of the input-output matrix $A$ recording how much sector $j$ buys from sector $i$ per dollar of its own sales.'''
+forms = ["input-output coefficient"]
+
+[[term]]
+label = "Leontief model"
+unit = "Networks"
+defined_in = "week05/L05.01_production_networks.ipynb"
+definition = '''A family of production-network models (Leontief, 1941) built on an input-output table, used to analyze an economy as sectors linked by intermediate-good flows.'''
+forms = ["Leontief model", "Leontief"]
+
+[[term]]
+label = "Leontief inverse"
+unit = "Networks"
+defined_in = "week05/L05.01_production_networks.ipynb"
+definition = '''The matrix $L\equiv(I-A)^{-1}$ that maps a final-demand vector $d$ to the equilibrium output vector $x^*=Ld$, given input-output coefficient matrix $A$ with $r(A)<1$.'''
+forms = ["Leontief inverse"]
+
+[[term]]
+label = "eigenvector centrality"
+unit = "Networks"
+defined_in = "week05/L05.01_production_networks.ipynb"
+definition = '''A node-importance measure equal to the dominant {term}`eigenvector` of a graph's (weighted) {term}`adjacency matrix` — a node scores higher if it connects to other highly central nodes.'''
+forms = ["eigenvector centrality"]
+
+[[term]]
+label = "demand shock"
+unit = "Networks"
+defined_in = "week05/L05.01_production_networks.ipynb"
+definition = '''A one-time change $\Delta d$ in the final-demand vector; the resulting change in equilibrium output is $\Delta x=L\Delta d$, decomposable round-by-round via the {term}`Neumann series lemma` as $\Delta d+A\Delta d+A^2\Delta d+\cdots$.'''
+forms = ["demand shock"]
+
+[[term]]
+label = "model"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''A simplified mathematical object — equations, rules, or distributional assumptions — that approximates a real-world system well enough to reason about it. A model describes how likely different outcomes are, not one exact outcome.'''
+forms = ["model", "models"]
+scope = "unit"
+
+[[term]]
+label = "equation-based model"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''A {term}`model` that describes each agent's decision-making with equations, typically a constrained optimization problem, plus equations for how agents interact. Precise but hard to calibrate at scale. Contrast with {term}`agent-based model (ABM)`.'''
+forms = ["equation based model", "equation-based model", "equation based models"]
+
+[[term]]
+label = "agent-based model (ABM)"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''A {term}`model` that specifies rules for how individual agents respond to their state and environment, rather than solving a global optimization problem. Built from three pieces: {term}`agents <agent (ABM)>`, an {term}`environment <environment (ABM)>`, and {term}`rules <rule (ABM)>`.'''
+forms = ["agent based model", "agent based models", "agent-based model", "agent-based models", "ABM", "ABMs"]
+
+[[term]]
+label = "agent (ABM)"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''An autonomous, reactive entity in an {term}`agent-based model (ABM)` with its own {term}`agent state` at each time step, aware of that state and able to communicate select properties to other agents.'''
+forms = ["agent", "agents"]
+scope = "unit"
+
+[[term]]
+label = "environment (ABM)"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''The space an {term}`agent <agent (ABM)>` acts in — natural or artificial (a grid, a market, a network). Its properties can be fixed or varying, and agents can observe and respond to them.'''
+forms = ["environment"]
+scope = "unit"
+
+[[term]]
+label = "rule (ABM)"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''The equations or functions that update an {term}`agent <agent (ABM)>`'s state between time steps $t$ and $t+1$. Shared across agents of a type but applied to each agent's own state, often involving neighbors or randomness.'''
+forms = ["rule", "rules", "update rule"]
+scope = "unit"
+
+[[term]]
+label = "agent state"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''The current values of an {term}`agent <agent (ABM)>`'s properties at a given time step — e.g. position, happiness, wealth, citation count.'''
+forms = ["agent state", "state"]
+scope = ["week06/L06.01_abm_concepts.ipynb"]
+
+[[term]]
+label = "emergence"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''A complex, often surprising aggregate pattern — or, at large enough scale, a qualitatively new capability — that arises from simple local rules or from scale, without being intended or designed by any individual part. Segregation in the {term}`Schelling segregation model` is the canonical example; new reasoning or tool-use abilities appearing once a language model crosses a size threshold are another.'''
+forms = ["emergence", "emergent", "emerges", "emergent capabilities", "emergent abilities"]
+
+[[term]]
+label = "heterogeneity"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''Variation across {term}`agents <agent (ABM)>` in properties or behavior. {term}`Agent-based models <agent-based model (ABM)>` capture heterogeneity directly, which is why individual differences, not just population averages, can drive social outcomes.'''
+forms = ["heterogeneity", "heterogeneous"]
+
+[[term]]
+label = "path dependence"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''The property that history and timing shape outcomes: small early differences — who acts first, an early lead in adoption or citations — can compound into large differences later.'''
+forms = ["path dependence", "path-dependent"]
+
+[[term]]
+label = "Schelling segregation model"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.01_abm_concepts.ipynb"
+definition = '''An {term}`agent-based model (ABM)`, proposed by Thomas Schelling in 1969, where agents of two types live on a grid and relocate if fewer than a threshold share of their neighbors share their type. Mild individual preferences produce strong neighborhood segregation, a classic case of {term}`emergence`.'''
+forms = ["Schelling segregation model", "Schelling model", "Schelling's model"]
+
+[[term]]
+label = "GridSpace"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.02_schelling_agents.ipynb"
+definition = '''A grid-based {term}`environment <environment (ABM)>` in Agents.jl where each agent occupies a cell and has `nearby_agents` it can interact with; the grid can be bounded or periodic (opposite edges wrap around, like Pac-Man).'''
+forms = ["GridSpace", "grid space"]
+
+[[term]]
+label = "step function"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.02_schelling_agents.ipynb"
+definition = '''The function(s) that advance an {term}`agent-based model (ABM)` by one time step: `agent_step!` defines how a single agent updates itself, while `step!`/`run!` apply it (and any `model_step!`) across all agents and collect data.'''
+forms = ["agent_step!", "model_step!"]
+
+[[term]]
+label = "Agents.jl"
+unit = "Agent-Based Models"
+defined_in = "week06/L06.02_schelling_agents.ipynb"
+definition = '''A Julia library for building and running {term}`agent-based models <agent-based model (ABM)>`: agent macros, built-in environments like {term}`GridSpace`, schedulers that set agent activation order, and visualization/exploration tools.'''
+forms = ["Agents.jl"]
+
+[[term]]
+label = "power law"
+unit = "Agent-Based Models"
+defined_in = "week07/L07.01_abm_money.ipynb"
+definition = '''A distribution where a small number of agents hold a disproportionately large share of some quantity (wealth, citations) while most agents have very little — the "rich get richer" pattern.'''
+forms = ["power law", "power-law"]
+
+[[term]]
+label = "preferential attachment"
+unit = "Agent-Based Models"
+defined_in = "week07/L07.02_abm_paper_virality.ipynb"
+definition = '''A selection rule where agents, papers, or nodes with more existing connections or citations are more likely to gain new ones — "rich get richer." Drives the citation counts in the paper-virality model.'''
+forms = ["preferential attachment"]
+
+[[term]]
+label = "money model"
+unit = "Agent-Based Models"
+defined_in = "week07/L07.01_abm_money.ipynb"
+definition = '''A minimal {term}`agent-based model (ABM)` with no {term}`environment <environment (ABM)>`: $N$ agents each start with 1 unit of wealth, and each step an agent with wealth gives 1 unit to a randomly chosen agent. Despite the symmetric rule, wealth concentrates into a {term}`power law` after a few steps. Also called the wealth exchange model.'''
+forms = ["money model", "wealth exchange model"]
+
+[[term]]
+label = "calibration"
+unit = "Agent-Based Models"
+defined_in = "week07/L07.02_abm_paper_virality.ipynb"
+definition = '''Fitting a {term}`model`'s parameters to match statistics observed in real data, rather than choosing them arbitrarily.'''
+forms = ["calibration", "calibrate", "calibrated"]
+
+[[term]]
+label = "citation network"
+unit = "Agent-Based Models"
+defined_in = "week07/L07.02_abm_paper_virality.ipynb"
+definition = '''A directed {term}`graph` where nodes are papers and an edge from paper A to paper B means A cites B; since papers can only cite earlier work, the graph has no cycles in time.'''
+forms = ["citation network", "citation graph"]
+
+[[term]]
+label = "viral paper"
+unit = "Agent-Based Models"
+defined_in = "week07/L07.02_abm_paper_virality.ipynb"
+definition = '''In the paper-virality model, a paper whose citation count grows quickly early in its life, in contrast to a {term}`sleeping beauty`.'''
+forms = ["viral paper", "viral papers"]
+
+[[term]]
+label = "sleeping beauty"
+unit = "Agent-Based Models"
+defined_in = "week07/L07.02_abm_paper_virality.ipynb"
+definition = '''In the paper-virality model, a paper that is cited rarely at first but accumulates citations later — the opposite pattern from a {term}`viral paper`.'''
+forms = ["sleeping beauty", "sleeping beauties"]
+
+[[term]]
+label = "game theory"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''The study of strategic interaction: how decision-makers choose when each one's {term}`payoff` depends on what the others do. A {term}`game` writes such a situation down precisely.'''
+forms = ["game theory"]
+
+[[term]]
+label = "game"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''A description of a strategic environment: a finite set of $N$ {term}`players <player>`, a feasible action set $S_i$ for each, and a payoff function $p_i:\Sigma\to\mathbb{R}$ for each.'''
+forms = ["game", "games"]
+scope = "unit"
+
+[[term]]
+label = "player"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''One of the $N$ decision-makers in a {term}`game`, each with their own action set and payoff function.'''
+forms = ["player", "players"]
+scope = "unit"
+
+[[term]]
+label = "strategy"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''A {term}`player`'s choice from their feasible action set $S_i$; in a {term}`dynamic game`, a complete plan of action at every decision point.'''
+forms = ["strategy", "strategies"]
+scope = "unit"
+
+[[term]]
+label = "payoff"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''The numerical reward $p_i(\sigma)$ a {term}`player` receives for a given outcome $\sigma$ of the {term}`game`.'''
+forms = ["payoff", "payoffs"]
+scope = "unit"
+
+[[term]]
+label = "payoff matrix"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''A matrix $P_i\in\mathbb{R}^{M_1\times M_2}$ giving player $i$'s {term}`payoff` for each combination of the two players' actions; row $i$ is player 1's action, column $j$ is player 2's.'''
+forms = ["payoff matrix"]
+
+[[term]]
+label = "best response"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''The action for a {term}`player` that yields the highest {term}`payoff` given the strategy, or belief about the strategy, of the other players.'''
+forms = ["best response", "best responses"]
+
+[[term]]
+label = "dominant strategy"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''A {term}`strategy` that is a {term}`best response` no matter what the other players do; strictly dominant if it is always strictly better than every alternative.'''
+forms = ["dominant strategy", "dominating strategy", "strictly dominating"]
+
+[[term]]
+label = "Nash equilibrium"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''A strategy profile $\sigma$ such that each player's $\sigma_i$ is a {term}`best response` to everyone else's $\sigma_{-i}$; no player wants to unilaterally deviate.'''
+forms = ["Nash equilibrium", "Nash equilibria", "NE"]
+
+[[term]]
+label = "iterated deletion of dominated strategies"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''An algorithm that repeatedly removes, for each player, any {term}`strategy` dominated given the opponents' remaining strategies, until a unique profile (a {term}`Nash equilibrium`) or an empty set remains.'''
+forms = ["iterated deletion of dominated strategies", "iterated elimination"]
+
+[[term]]
+label = "pure strategy"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''Choosing one action outright with certainty, as opposed to randomizing over actions with a {term}`mixed strategy`.'''
+forms = ["pure strategy", "pure strategies"]
+
+[[term]]
+label = "mixed strategy"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''A probability distribution over a {term}`player`'s set of {term}`pure strategies <pure strategy>`, $\sigma_i\in\triangle(S_i)\subseteq[0,1]^{M_i}$; a pure strategy is the degenerate special case.'''
+forms = ["mixed strategy", "mixed strategies"]
+
+[[term]]
+label = "bimatrix"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''For an $N$-player {term}`game` with $N_i$ strategies each, an array holding every player's {term}`payoff` directly in each cell, avoiding the separate-{term}`payoff matrix`-per-player bookkeeping.'''
+forms = ["bimatrix"]
+
+[[term]]
+label = "support enumeration"
+unit = "Game Theory"
+defined_in = "week08/L08.01_game_theory_intro.ipynb"
+definition = '''An algorithm (used by `GameTheory.jl`'s `support_enumeration`) that computes every {term}`Nash equilibrium` of a {term}`game`, pure or mixed.'''
+forms = ["support enumeration"]
+
+[[term]]
+label = "social welfare"
+unit = "Game Theory"
+defined_in = "week08/L08.02_network_traffic.ipynb"
+definition = '''The aggregate, summed {term}`payoff` across all players in a {term}`game`.'''
+forms = ["social welfare"]
+
+[[term]]
+label = "social planner"
+unit = "Game Theory"
+defined_in = "week08/L08.02_network_traffic.ipynb"
+definition = '''A hypothetical authority that chooses actions for all agents to maximize {term}`social welfare`, rather than letting each agent act in their own self-interest.'''
+forms = ["social planner"]
+
+[[term]]
+label = "social optimum"
+unit = "Game Theory"
+defined_in = "week08/L08.02_network_traffic.ipynb"
+definition = '''The outcome a {term}`social planner` would choose — the one maximizing total {term}`social welfare` — as opposed to the possibly worse outcome reached at a {term}`Nash equilibrium`.'''
+forms = ["social optimum"]
+
+[[term]]
+label = "Braess' paradox"
+unit = "Game Theory"
+defined_in = "week08/L08.02_network_traffic.ipynb"
+definition = '''The counterintuitive result that adding capacity, a new link, to a network can make the {term}`Nash equilibrium` outcome worse for everyone.'''
+forms = ["Braess' paradox", "Braess's paradox"]
+
+[[term]]
+label = "price of anarchy"
+unit = "Game Theory"
+defined_in = "week08/L08.02_network_traffic.ipynb"
+definition = '''The ratio $\text{PoA}=\dfrac{\text{Worst Nash Equilibrium Cost}}{\text{Social Optimum Cost}}$, measuring how much self-interested behavior degrades outcomes compared to central coordination.'''
+forms = ["price of anarchy", "PoA"]
+
+[[term]]
+label = "zero-sum game"
+unit = "Game Theory"
+defined_in = "week09/L09.01_mixed_strategies.ipynb"
+definition = '''A {term}`game` in which the payoffs of all players always sum to zero — one player's gain is exactly another's loss.'''
+forms = ["zero-sum game", "zero-sum"]
+
+[[term]]
+label = "expected payoff"
+unit = "Game Theory"
+defined_in = "week09/L09.01_mixed_strategies.ipynb"
+definition = '''A player's {term}`payoff` averaged over the probabilities implied by a {term}`mixed strategy`, e.g. $p_1(H\mid q)=-1\cdot q+1\cdot(1-q)$ for player 1 facing opponent mix $q$.'''
+forms = ["expected payoff", "expected payoffs"]
+
+[[term]]
+label = "indifference"
+unit = "Game Theory"
+defined_in = "week09/L09.01_mixed_strategies.ipynb"
+definition = '''The requirement that, in a {term}`mixed strategy` {term}`Nash equilibrium`, every {term}`pure strategy` a player mixes over yields the same {term}`expected payoff`; otherwise the player would switch entirely to the better one.'''
+forms = ["indifference", "indifferent"]
+scope = "unit"
+
+[[term]]
+label = "commitment"
+unit = "Game Theory"
+defined_in = "week09/L09.01_mixed_strategies.ipynb"
+definition = '''The ability of a {term}`player` to credibly bind themselves to a stated {term}`strategy` before others act, which can change what other players rationally do in response.'''
+forms = ["commitment"]
+scope = "unit"
+
+[[term]]
+label = "dynamic game"
+unit = "Game Theory"
+defined_in = "week09/L09.01_mixed_strategies.ipynb"
+definition = '''A {term}`game` in which players make choices sequentially, at different known times, rather than simultaneously.'''
+forms = ["dynamic game", "dynamic games"]
+
+[[term]]
+label = "extensive form"
+unit = "Game Theory"
+defined_in = "week09/L09.01_mixed_strategies.ipynb"
+definition = '''A representation of a {term}`dynamic game` as a tree, where nodes are decision points and branches are the actions available at each node.'''
+forms = ["extensive form"]
+
+[[term]]
+label = "backward induction"
+unit = "Game Theory"
+defined_in = "week09/L09.01_mixed_strategies.ipynb"
+definition = '''The method for solving a {term}`dynamic game`'s {term}`extensive form` by reasoning from the last decision nodes back to the first, determining each player's optimal choice given what happens afterward.'''
+forms = ["backward induction", "work backward"]
+
+[[term]]
+label = "credible"
+unit = "Game Theory"
+defined_in = "week09/L09.01_mixed_strategies.ipynb"
+definition = '''A strategy or threat that a player would actually be willing to carry out if called upon, as opposed to one that is part of a {term}`Nash equilibrium` on paper but irrational to execute.'''
+forms = ["credible", "not credible", "non-credible"]
+scope = "unit"
+
+[[term]]
+label = "auction"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''A market mechanism between one seller and many buyers in which rules determine how buyers signal willingness to pay, used especially when a good's {term}`valuation` is private.'''
+forms = ["auction", "auctions"]
+scope = "unit"
+
+[[term]]
+label = "valuation"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''A bidder's private dollar value for winning the auctioned item, $v_i$.'''
+forms = ["valuation"]
+scope = "unit"
+
+[[term]]
+label = "English auction"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''An ascending-price {term}`auction`: the auctioneer calls increasingly higher prices, bidders indicate willingness to pay, and it ends when no one outbids the current highest bid.'''
+forms = ["English auction", "ascending auction", "Ascending"]
+scope = ["Game Theory"]
+
+[[term]]
+label = "Dutch auction"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''A descending-price {term}`auction`: price starts high and falls until a bidder accepts the current price, ending the auction there.'''
+forms = ["Dutch auction", "descending auction", "Descending-bid"]
+scope = ["Game Theory"]
+
+[[term]]
+label = "first-price auction"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''A sealed-bid {term}`auction` where all bidders submit bids simultaneously; the highest bidder wins and pays the amount of their own bid.'''
+forms = ["first-price auction", "first-price sealed-bid auction", "First price, sealed-bid"]
+
+[[term]]
+label = "second-price auction"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''A sealed-bid {term}`auction`, also called a Vickrey auction, where all bidders submit bids simultaneously; the highest bidder wins but pays the amount of the second-highest bid. {term}`Truth-telling <truth-telling>` is a weakly dominant strategy here.'''
+forms = ["second-price auction", "Vickrey auction", "Vickrey"]
+
+[[term]]
+label = "truth-telling"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''Bidding exactly one's true {term}`valuation`, $b_i=v_i$; a weakly dominant strategy in a {term}`second-price auction`.'''
+forms = ["truth-telling", "truthful bidding"]
+
+[[term]]
+label = "bid shading"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''Bidding below one's true {term}`valuation`, as is optimal in a {term}`first-price auction`, trading off the risk of losing against the size of the payoff from winning.'''
+forms = ["bid shading", "shading your bid", "shade"]
+scope = ["Game Theory"]
+
+[[term]]
+label = "revelation principle"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''The principle that, to derive optimal bidding, attention can be restricted to strategies derived directly from a bidder's true {term}`valuation`, since such a strategy's expected payoff is at least as good as one based on any other value.'''
+forms = ["revelation principle"]
+
+[[term]]
+label = "revenue equivalence"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''The result that, under equilibrium bidding, a seller's expected revenue is the same across {term}`first-price auction`, {term}`second-price auction`, and {term}`all-pay auction` formats.'''
+forms = ["revenue equivalence"]
+
+[[term]]
+label = "all-pay auction"
+unit = "Game Theory"
+defined_in = "week09/L09.03_auctions.ipynb"
+definition = '''An {term}`auction` format in which every bidder pays their bid regardless of outcome, but only the highest bidder wins the item. Also satisfies {term}`revenue equivalence`.'''
+forms = ["all-pay auction"]
+
+[[term]]
+label = "platform"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''A business that creates value by connecting two or more distinct groups who need each other, rather than by transforming inputs into outputs along one chain. Contrast with {term}`pipe`.'''
+forms = ["platform", "platforms"]
+scope = "unit"
+
+[[term]]
+label = "pipe"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''A business that creates value by transforming inputs into outputs along one production chain, so no participant's value depends on who else shows up. Contrast with {term}`platform`.'''
+forms = ["pipe"]
+scope = "unit"
+
+[[term]]
+label = "matchmaker"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''What a {term}`platform` is: an intermediary whose product is the connection itself, since each side joins partly because the other side is there.'''
+forms = ["matchmaker", "matchmaking"]
+
+[[term]]
+label = "network effect"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''One participant's presence changing another participant's value from joining a network. Splits into a {term}`same-side network effect` (within a group) and a {term}`cross-side network effect` (across groups).'''
+forms = ["network effect", "network effects"]
+
+[[term]]
+label = "same-side network effect"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''A {term}`network effect` running among participants in the same group; can be positive (more gamers, more fun) or negative (more riders, more congestion).'''
+forms = ["same-side network effect", "same-side network effects", "same-side effect"]
+
+[[term]]
+label = "cross-side network effect"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''A {term}`network effect` running from one group to another: more drivers improve service for riders, more riders create earnings for drivers. The feedback can reinforce itself across sides.'''
+forms = ["cross-side network effect", "cross-side network effects", "cross-side effect"]
+
+[[term]]
+label = "fulfilled-expectations equilibrium"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''An adoption level $n^*$ at which expected and realized network size agree: $n^*=g(n^*;p)$. Expectations determine adoption; adoption then confirms or contradicts the expectation.'''
+forms = ["fulfilled-expectations equilibrium", "fulfilled-expectations"]
+
+[[term]]
+label = "critical mass"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''The unstable middle {term}`fulfilled-expectations equilibrium`: below it, adoption collapses toward zero; above it, feedback pushes adoption toward the high equilibrium.'''
+forms = ["critical mass"]
+
+[[term]]
+label = "tipping"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''Self-reinforcing movement of adoption toward a high, or low, equilibrium once {term}`critical mass` is crossed.'''
+forms = ["tipping"]
+
+[[term]]
+label = "chicken-and-egg problem"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''The platform-launch problem in which neither side will join without the other already present — diners won't carry a card few restaurants accept, restaurants won't accept a card few diners carry.'''
+forms = ["chicken-and-egg problem", "chicken-and-egg"]
+
+[[term]]
+label = "price level"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''How much a {term}`platform` collects in total across both sides of an interaction, $p_B+p_S$. Contrast with {term}`price structure`.'''
+forms = ["price level"]
+
+[[term]]
+label = "price structure"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''How a {term}`platform`'s total price is divided between sides. Holding the {term}`price level` fixed, changing the split can still change participation because of a {term}`cross-side network effect`.'''
+forms = ["price structure"]
+
+[[term]]
+label = "multihoming"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.01_platform_economics.ipynb"
+definition = '''Participating on more than one {term}`platform` at once (e.g. riders install both Uber and Lyft). Multihoming weakens the feedback that locks a market into one winner and shapes who a platform subsidizes under a {term}`competitive bottleneck`.'''
+forms = ["multihoming"]
+
+[[term]]
+label = "equilibrium selection"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.02_ignition_and_tipping.ipynb"
+definition = '''The problem of which {term}`Nash equilibrium` a coordination game settles into when more than one exists, e.g. choosing between everyone joining and everyone staying out in the {term}`chicken-and-egg problem`.'''
+forms = ["equilibrium selection"]
+
+[[term]]
+label = "lock-in"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.02_ignition_and_tipping.ipynb"
+definition = '''The outcome in which later adopters rationally follow a lead created by earlier, possibly random, accidents, so a market settles on one {term}`platform` even absent a quality difference.'''
+forms = ["lock-in"]
+
+[[term]]
+label = "increasing returns"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.02_ignition_and_tipping.ipynb"
+definition = '''A dynamic in which a platform's attractiveness grows more than proportionally with its installed base, modeled as adoption probability $P(A\mid t)=n_A(t)^\gamma/(n_A(t)^\gamma+n_B(t)^\gamma)$ with $\gamma>1$.'''
+forms = ["increasing returns"]
+
+[[term]]
+label = "winner-take-all"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.02_ignition_and_tipping.ipynb"
+definition = '''The prediction that strong {term}`network effects <network effect>` concentrate an entire market on a single {term}`platform`. Not automatic: {term}`multihoming` and local network effects can break it.'''
+forms = ["winner-take-all"]
+
+[[term]]
+label = "threshold adoption rule"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.02_ignition_and_tipping.ipynb"
+definition = '''A diffusion model where node $i$ adopts once at least a fraction $\tau$ of its neighbors have adopted: $\sum_{j\in N(i)}a_j(t)/|N(i)|\ge\tau$. Shows how network topology, not just seed count, shapes {term}`critical mass`.'''
+forms = ["threshold rule", "threshold cascade", "threshold adoption rule", "threshold adoption", "fractional threshold"]
+
+[[term]]
+label = "two-sided market"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.01_platform_pricing.ipynb"
+definition = '''A market in which a {term}`platform`'s profit depends on participation from two distinct groups whose demands interact, formalized by the Rochet-Tirole model $\pi(p_B,p_S)=(p_B+p_S-c)D_B(p_B)D_S(p_S)$.'''
+forms = ["two-sided market", "two-sided markets"]
+
+[[term]]
+label = "cross-side externality"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.01_platform_pricing.ipynb"
+definition = '''The effect a price change on one side of a {term}`two-sided market` has on the other side's value through shared volume: raising $p_B$ loses buyer sales directly *and* reduces every seller's completed transactions, even though no seller left.'''
+forms = ["cross-side externality"]
+
+[[term]]
+label = "competitive bottleneck"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.01_platform_pricing.ipynb"
+definition = '''The pattern where platforms court the side that {term}`single-homes <single-homing>` and tax the side that {term}`multihomes <multihoming>`, because access to single-homers is what rival platforms compete over.'''
+forms = ["competitive bottleneck", "competitive-bottleneck"]
+
+[[term]]
+label = "single-homing"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.01_platform_pricing.ipynb"
+definition = '''Participating on only one {term}`platform`. Contrast with {term}`multihoming`; single-homers are the users platforms court with low or negative prices under a {term}`competitive bottleneck`.'''
+forms = ["single-homing", "single-homers"]
+
+[[term]]
+label = "stable matching"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''A matching $\mu$ pairing each member of one side with one of the other side such that it contains no {term}`blocking pair`.'''
+forms = ["stable matching"]
+
+[[term]]
+label = "blocking pair"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''A pair $(d,h)$, from opposite sides of a matching market, such that $d$ prefers $h$ to its current match and $h$ prefers $d$ to its current match — both would rather abandon the matching and pair with each other.'''
+forms = ["blocking pair", "blocking pairs"]
+
+[[term]]
+label = "deferred acceptance"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''Gale and Shapley's algorithm: unmatched proposers propose to their best remaining choice each round; receivers tentatively hold their best offer and reject the rest; the process always terminates at a {term}`stable matching`.'''
+forms = ["deferred acceptance", "Deferred-Acceptance Algorithm"]
+
+[[term]]
+label = "proposer-optimality"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''The property that the side that proposes in {term}`deferred acceptance` ends up with its best outcome among all {term}`stable matchings <stable matching>` — the choice of who proposes is itself a form of market power.'''
+forms = ["proposer-optimality"]
+
+[[term]]
+label = "strategy-proofness"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''The property that truthful preference reporting is a dominant strategy for the proposing side in {term}`deferred acceptance`.'''
+forms = ["strategy-proof", "strategy-proofness"]
+
+[[term]]
+label = "repugnant market"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''A market, such as organ transplants, where using prices to clear supply and demand is illegal or socially unacceptable, motivating {term}`stable matching`-based market design instead of pricing.'''
+forms = ["repugnant market", "repugnant markets", "repugnant"]
+
+[[term]]
+label = "large language model, LLM"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb"
+definition = '''A neural network trained to predict the next token in a sequence. At scale this simple objective produces a general-purpose reasoning engine.'''
+forms = ["LLM", "LLMs", "large language model"]
+
+[[term]]
+label = "token"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb"
+definition = '''The unit an {term}`LLM <large language model, LLM>` predicts and consumes, roughly a word piece. {term}`Context windows <context window>` and API costs are measured in tokens.'''
+forms = ["token", "tokens"]
+scope = "unit"
+
+[[term]]
+label = "context window"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb"
+definition = '''The maximum number of {term}`tokens <token>` an LLM can see at once, its working memory. Long conversations eventually fall outside it.'''
+forms = ["context window"]
+
+[[term]]
+label = "prompt"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb"
+definition = '''Natural-language instructions that tell an {term}`LLM <large language model, LLM>` what to do. Prompting is programming in natural language with probabilistic outcomes.'''
+forms = ["prompt", "prompting"]
+scope = "unit"
+
+[[term]]
+label = "system prompt"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.03_multi_agent_conversations.ipynb"
+definition = '''The instructions that set an {term}`AI agent`'s persistent role and behavior, separate from the per-turn user message.'''
+forms = ["system prompt"]
+
+[[term]]
+label = "in-context learning"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb"
+definition = '''Teaching an {term}`LLM <large language model, LLM>` a new task by showing examples directly in the {term}`prompt`, with no retraining needed. Also called few-shot prompting.'''
+forms = ["in-context learning", "few-shot"]
+
+[[term]]
+label = "chain-of-thought reasoning"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb"
+definition = '''Asking a model to show its reasoning steps before answering; each step becomes context for the next and improves accuracy on complex tasks.'''
+forms = ["chain-of-thought", "CoT"]
+
+[[term]]
+label = "hallucination"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb"
+definition = '''An {term}`LLM <large language model, LLM>` generating confident, plausible-sounding text that is factually wrong — most dangerous when it invents citations or data.'''
+forms = ["hallucinate", "hallucination"]
+
+[[term]]
+label = "knowledge cutoff"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb"
+definition = '''The date after which an {term}`LLM <large language model, LLM>` has seen no training data, so it cannot know later events, papers, or statistics.'''
+forms = ["knowledge cutoff"]
+
+[[term]]
+label = "retrieval-augmented generation, RAG"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb"
+definition = '''Augmenting an {term}`LLM <large language model, LLM>` with a retrieval step: search a knowledge base for relevant text, inject it as context, then generate an answer grounded in that text.'''
+forms = ["RAG", "retrieval-augmented generation"]
+
+[[term]]
+label = "embedding"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb"
+definition = '''A function $f:\text{Text}\to\mathbb{R}^d$ mapping text to a vector so that texts with similar meaning land close together.'''
+forms = ["embedding", "embeddings"]
+
+[[term]]
+label = "cosine similarity"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb"
+definition = '''A similarity score between two vectors, $\cos(\mathbf{a},\mathbf{b})=\dfrac{\mathbf{a}\cdot\mathbf{b}}{\lVert\mathbf{a}\rVert\,\lVert\mathbf{b}\rVert}$, ranging from $-1$ to $1$; used to rank {term}`embeddings <embedding>` by meaning.'''
+forms = ["cosine similarity"]
+
+[[term]]
+label = "chunking"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb"
+definition = '''Splitting a document into smaller, focused pieces before {term}`embedding`, so retrieval can return precise passages instead of whole documents.'''
+forms = ["chunking", "chunk", "chunks"]
+scope = "unit"
+
+[[term]]
+label = "vector store"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb"
+definition = '''A system that stores {term}`embeddings <embedding>` alongside their source text and supports fast similarity search over them. Also called a vector database.'''
+forms = ["vector store", "vector database"]
+
+[[term]]
+label = "parametric knowledge"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.02_rag_pattern_augmented_knowledge.ipynb"
+definition = '''What an {term}`LLM <large language model, LLM>` "knows" from training, encoded in its weights — fast and broad, but frozen at training time and prone to {term}`hallucination`.'''
+forms = ["parametric knowledge"]
+
+[[term]]
+label = "multi-agent system"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.03_multi_agent_conversations.ipynb"
+definition = '''A collection of {term}`AI agents <AI agent>`, each with a distinct role, that communicate to solve problems no single agent could solve alone.'''
+forms = ["multi-agent system", "multi-agent conversations"]
+
+[[term]]
+label = "AI agent"
+unit = "AI Agents"
+defined_in = "weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb"
+definition = '''An {term}`LLM <large language model, LLM>` wrapped with a role, {term}`system prompt`, memory, and often tools, that pursues a task rather than just answering one prompt. Distinct from the {term}`agent <agent (ABM)>` of the Agent-Based Models unit, which follows fixed rules rather than reasoning with an LLM.'''
+forms = ["agent", "AI agent", "learning agent"]
+scope = "unit"
+
+[[term]]
+label = "tool use"
+unit = "AI Agents"
+defined_in = "weekA02/L.A2.01_function_calling_and_tools.ipynb"
+definition = '''Giving an {term}`LLM <large language model, LLM>` access to external functions it can invoke, described to it via a {term}`JSON Schema`, so it can act instead of just generating text. Also called function calling.'''
+forms = ["tool use", "function calling", "tool call"]
+scope = "unit"
+
+[[term]]
+label = "JSON Schema"
+unit = "AI Agents"
+defined_in = "weekA02/L.A2.01_function_calling_and_tools.ipynb"
+definition = '''A structured, machine-readable description of a function's name, purpose, and parameters that tells an {term}`LLM <large language model, LLM>` how to call it correctly.'''
+forms = ["JSON schema", "JSON Schema"]
+
+[[term]]
+label = "structured output"
+unit = "AI Agents"
+defined_in = "weekA02/L.A2.02_type_safe_agents_pydantic_patterns.ipynb"
+definition = '''Forcing an {term}`LLM <large language model, LLM>`'s response to conform to a predefined schema, e.g. a Pydantic model, instead of free text, so the result is guaranteed parseable and valid.'''
+forms = ["structured output", "output_type"]
+
+[[term]]
+label = "type safety"
+unit = "AI Agents"
+defined_in = "weekA02/L.A2.02_type_safe_agents_pydantic_patterns.ipynb"
+definition = '''Validating every input and output against a defined schema before it is used, so invalid data is rejected immediately instead of corrupting state downstream. Also called validation-first development.'''
+forms = ["type safety", "type-safe"]
+
+[[term]]
+label = "dependency injection"
+unit = "AI Agents"
+defined_in = "weekA02/L.A2.02_type_safe_agents_pydantic_patterns.ipynb"
+definition = '''Passing an {term}`AI agent`'s external resources — database, API keys, config — in explicitly at run time rather than hard-coding them, so tools stay testable and swappable.'''
+forms = ["dependency injection"]
+
+[[term]]
+label = "evaluation"
+unit = "AI Agents"
+defined_in = "weekA02/L.A02.03_evaluations.ipynb"
+definition = '''Systematic testing of a non-deterministic AI system: a dataset of cases run through the system and scored by evaluators, analogous to a test suite. Also called evals.'''
+forms = ["evaluation", "evals"]
+scope = "unit"
+
+[[term]]
+label = "deterministic evaluator"
+unit = "AI Agents"
+defined_in = "weekA02/L.A02.03_evaluations.ipynb"
+definition = '''A code-based check with a clear pass/fail rule — exact match, type check, format validation — used in an {term}`evaluation` when correctness is objective.'''
+forms = ["deterministic evaluator", "deterministic evaluators"]
+
+[[term]]
+label = "LLM-as-judge"
+unit = "AI Agents"
+defined_in = "weekA02/L.A02.03_evaluations.ipynb"
+definition = '''Using a second {term}`LLM <large language model, LLM>` to score an output against a rubric when correctness is subjective, such as tone or faithfulness, rather than exact-match checkable.'''
+forms = ["LLM as judge", "LLM-as-judge"]
+
+[[term]]
+label = "span-based evaluation"
+unit = "AI Agents"
+defined_in = "weekA02/L.A02.03_evaluations.ipynb"
+definition = '''Checking an {term}`AI agent`'s execution trace — which tools it called, in what order — rather than just its final output, to catch right answers reached the wrong way.'''
+forms = ["span-based evaluation"]
+
+[[term]]
+label = "Model Context Protocol, MCP"
+unit = "AI Agents"
+defined_in = "weekA03/L.A03.01_MCP_with_fastmcp.ipynb"
+definition = '''A standard protocol, "USB-C for AI," for exposing tools, resources, and prompts to any AI client, so a tool is written once and used by many agents and apps.'''
+forms = ["Model Context Protocol", "MCP"]
+
+[[term]]
+label = "MCP server"
+unit = "AI Agents"
+defined_in = "weekA03/L.A03.01_MCP_with_fastmcp.ipynb"
+definition = '''A process, built with e.g. FastMCP, that exposes a set of tools, resources, and prompts over the {term}`MCP <Model Context Protocol, MCP>` for any compatible client to call.'''
+forms = ["MCP server"]
+
+[[term]]
+label = "prompt injection"
+unit = "AI Agents"
+defined_in = "weekA03/L.A03.02_ai_agent_security.ipynb"
+definition = '''An attack where malicious text manipulates an {term}`LLM <large language model, LLM>` into ignoring its instructions and following the attacker's instead, because the model cannot distinguish trusted instructions from untrusted data.'''
+forms = ["prompt injection"]
+
+[[term]]
+label = "indirect prompt injection"
+unit = "AI Agents"
+defined_in = "weekA03/L.A03.02_ai_agent_security.ipynb"
+definition = '''{term}`Prompt injection <prompt injection>` hidden inside external content an agent processes — an email, a web page, a GitHub issue — rather than typed directly by the user; the dangerous, hard-to-detect form.'''
+forms = ["indirect prompt injection", "indirect injection"]
+
+[[term]]
+label = "lethal trifecta"
+unit = "AI Agents"
+defined_in = "weekA03/L.A03.02_ai_agent_security.ipynb"
+definition = '''The combination of access to private data, exposure to untrusted content, and the ability to exfiltrate data in one {term}`AI agent`; each is fine alone, but all three together make data theft near-inevitable.'''
+forms = ["lethal trifecta"]
+
+[[term]]
+label = "spotlighting"
+unit = "AI Agents"
+defined_in = "weekA03/L.A03.02_ai_agent_security.ipynb"
+definition = '''A defense that wraps untrusted content in explicit markers and instructs the model never to follow instructions found inside them.'''
+forms = ["spotlighting"]
+
+[[term]]
+label = "dual LLM pattern"
+unit = "AI Agents"
+defined_in = "weekA03/L.A03.02_ai_agent_security.ipynb"
+definition = '''A defense that splits an agent into a privileged LLM, which has tools but never sees untrusted data, and a quarantined LLM, which sees untrusted data but has no tools, connected only by clean symbolic references.'''
+forms = ["dual LLM pattern", "dual LLM"]
+
+[[term]]
+label = "confused deputy"
+unit = "AI Agents"
+defined_in = "weekA03/L.A03.02_ai_agent_security.ipynb"
+definition = '''A security failure where an {term}`AI agent` has legitimate tool access but is tricked, via injected instructions, into using it on the attacker's behalf instead of the user's.'''
+forms = ["confused deputy"]
+
+[[term]]
+label = "principle of least privilege"
+unit = "AI Agents"
+defined_in = "weekA03/L.A03.02_ai_agent_security.ipynb"
+definition = '''Giving an {term}`AI agent` only the minimum tools and data access it needs for its task — the core defensive design rule against excessive agency.'''
+forms = ["least privilege", "principle of least privilege"]
+
+[[term]]
+label = "sandboxing"
+unit = "AI Agents"
+defined_in = "weekA02/L.A2.01_function_calling_and_tools.ipynb"
+definition = '''Running agent-executed code or tools in an isolated environment with limited resources and no access to the host system, to contain damage if the agent is compromised.'''
+forms = ["sandboxing", "sandboxed"]

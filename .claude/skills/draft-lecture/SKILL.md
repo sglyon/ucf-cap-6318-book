@@ -112,3 +112,20 @@ These conventions constrain the outline (Phase 3) and govern any scaffold (Phase
 ## Cross-References
 
 Link to other lectures with relative MyST links: `[link text](../week08/L08.01_game_theory_intro.ipynb)`. An empty-text link `[](...)` renders the target page title. For section-level targets, add a label line `(sec-my-label)=` above the heading in the target notebook and reference `[](../weekWW/file.ipynb#sec-my-label)`.
+
+## Glossary
+
+Course terminology lives in `glossary/terms.toml`, the source of truth for `glossary.md` and
+for automatic `{term}` links. When drafting introduces a new course term (not already a
+glossary label), add it to `glossary/terms.toml`: pick the lecture that defines it best as
+`defined_in`, choose `forms` covering every surface spelling/plural that should link, and
+write a 1-2 sentence definition in the course voice. Do not hand-write `{term}` roles or edit
+`glossary.md` directly — after adding or editing terms, run:
+
+```bash
+make glossary-links   # inserts {term} links at first use, then validates
+```
+
+`scripts/glossary.py check` enforces: exact-label matches, well-formed roles, no links inside
+headings/code/math, and at most one link per term per lecture. Fix any reported errors before
+finishing the outline/scaffold.

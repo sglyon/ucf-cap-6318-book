@@ -1,11 +1,20 @@
 build:
 	uv run python scripts/sync_diagram_attachments.py
+	uv run python scripts/glossary.py render
+	uv run python scripts/glossary.py check
 	uv run myst build --html
 	rsync -az --delete --info=progress2 ./_build/html/ ./docs/
 
 run:
 	uv run python scripts/sync_diagram_attachments.py
+	uv run python scripts/glossary.py render
+	uv run python scripts/glossary.py check
 	uv run myst build --html --execute --strict
+
+.PHONY: glossary-links
+glossary-links:
+	uv run python scripts/glossary.py link --apply
+	uv run python scripts/glossary.py check
 
 .PHONY: project-handout
 project-handout:
