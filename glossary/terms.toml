@@ -1174,6 +1174,13 @@ definition = '''A market, such as organ transplants, where using prices to clear
 forms = ["repugnant market", "repugnant markets", "repugnant"]
 
 [[term]]
+label = "cascade"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.02_ignition_and_tipping.ipynb"
+definition = '''A chain reaction of adoption across a network: each adopter can push a neighbor past their threshold, and that neighbor can push the next. Whether a cascade spreads or dies depends on thresholds, seed placement, and network structure.'''
+forms = ["cascade", "cascades"]
+
+[[term]]
 label = "critical mass frontier"
 unit = "Platforms and Marketplaces"
 defined_in = "week10/L10.02_ignition_and_tipping.ipynb"

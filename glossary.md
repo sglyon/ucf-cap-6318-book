@@ -414,6 +414,9 @@ behavioral externality
 blocking pair
 : A pair $(d,h)$, from opposite sides of a matching market, such that $d$ prefers $h$ to its current match and $h$ prefers $d$ to its current match — both would rather abandon the matching and pair with each other. *Introduced in* [Matching Markets: When Prices Can't Do the Job](week11/L11.02_matching_markets.ipynb).
 
+cascade
+: A chain reaction of adoption across a network: each adopter can push a neighbor past their threshold, and that neighbor can push the next. Whether a cascade spreads or dies depends on thresholds, seed placement, and network structure. *Introduced in* [Ignition: Chicken-and-Egg, Lock-In, and Tipping](week10/L10.02_ignition_and_tipping.ipynb).
+
 chicken-and-egg problem
 : The platform-launch problem in which neither side will join without the other already present — diners won't carry a card few restaurants accept, restaurants won't accept a card few diners carry. *Introduced in* [Platforms and Matchmakers](week10/L10.01_platform_economics.ipynb).
 
