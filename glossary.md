@@ -456,6 +456,9 @@ market-clearing prices
 matchmaker
 : What a {term}`platform` is: an intermediary whose product is the connection itself, since each side joins partly because the other side is there. *Introduced in* [Platforms and Matchmakers](week10/L10.01_platform_economics.ipynb).
 
+membership externality
+: A cross-side effect that works through the decision to join: when a platform charges to join, each member's demand depends directly on how many members the other side has. *Introduced in* [Platform Pricing: Who Pays, Who Gets Paid](week11/L11.01_platform_pricing.ipynb).
+
 multihoming
 : Participating on more than one {term}`platform` at once (e.g. riders install both Uber and Lyft). Multihoming weakens the feedback that locks a market into one winner and shapes who a platform subsidizes under a {term}`competitive bottleneck`. *Introduced in* [Platforms and Matchmakers](week10/L10.01_platform_economics.ipynb).
 
@@ -503,6 +506,9 @@ tipping
 
 two-sided market
 : A market in which a {term}`platform`'s profit depends on participation from two distinct groups whose demands interact, formalized by the Rochet-Tirole model $\pi(p_B,p_S)=(p_B+p_S-c)D_B(p_B)D_S(p_S)$. *Introduced in* [Platform Pricing: Who Pays, Who Gets Paid](week11/L11.01_platform_pricing.ipynb).
+
+usage externality
+: A cross-side effect that works through the number of transactions: with per-interaction prices, each side's willingness to transact depends only on its own price, and the other side matters because volume is the product of the two. *Introduced in* [Platform Pricing: Who Pays, Who Gets Paid](week11/L11.01_platform_pricing.ipynb).
 
 usage fee
 : A charge per interaction on a {term}`platform`. Rewards make it negative. Contrast with {term}`access fee`. *Introduced in* [Platform Pricing: Who Pays, Who Gets Paid](week11/L11.01_platform_pricing.ipynb).

@@ -1188,6 +1188,20 @@ definition = '''A charge for joining a {term}`platform`, paid regardless of how 
 forms = ["access fee", "access fees"]
 
 [[term]]
+label = "usage externality"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.01_platform_pricing.ipynb"
+definition = '''A cross-side effect that works through the number of transactions: with per-interaction prices, each side's willingness to transact depends only on its own price, and the other side matters because volume is the product of the two.'''
+forms = ["usage externality", "usage externalities"]
+
+[[term]]
+label = "membership externality"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.01_platform_pricing.ipynb"
+definition = '''A cross-side effect that works through the decision to join: when a platform charges to join, each member's demand depends directly on how many members the other side has.'''
+forms = ["membership externality", "membership externalities"]
+
+[[term]]
 label = "usage fee"
 unit = "Platforms and Marketplaces"
 defined_in = "week11/L11.01_platform_pricing.ipynb"
