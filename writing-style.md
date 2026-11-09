@@ -62,6 +62,10 @@ The course successfully makes advanced topics accessible to graduate students fr
 - Anticipates student misconceptions
 - Builds suspense and curiosity
 
+**Banned Words and Labels**:
+- Never use "actual" or "actually". Drop the word, or say what kind: real, observed, measured
+- Never prefix section headings with "Reveal". Name the result itself (e.g. "Lock-In without a Quality Difference")
+
 ### 2. Narrative Structure
 
 **"Hook → Build → Reveal" Pattern**
