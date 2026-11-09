@@ -93,7 +93,7 @@ ISBN: 9781633691728
 Authors: David Sparks Evans, Richard Schmalensee
 Publisher: Harvard Business Review Press
 Publication Date: 2016
-Notes: This is optional, supplementary reading. Referenced in all four Platforms and Marketplaces lectures (ch. 1-3, 5, and 11)
+Notes: This is optional, supplementary reading. Referenced in all four Platforms and Marketplaces lectures (ch. 1-3, 5, and 6)
 
 **Who Gets What--and why** (cited as **Roth**)
 Subtitle: The New Economics of Matchmaking and Market Design
@@ -203,7 +203,7 @@ Reading abbreviations: **EK** = Easley and Kleinberg, *Networks, Crowds, and Mar
 | 8 | Game Theory 1 | EK ch. 6 (games and Nash equilibrium) and ch. 8 (network traffic and Braess' paradox) |
 | 9 | Game Theory 2 | EK ch. 6 (mixed strategies) and ch. 9 (auctions); Ljungqvist and Sargent, *Recursive Macroeconomic Theory*, ch. 7 (Markov perfect equilibrium) |
 | 10 | Platforms and Marketplaces 1 | EK ch. 17 (network effects) and ch. 19 (cascading behavior); [Katz and Shapiro (1985)](https://idv.sinica.edu.tw/kongpin/teaching/io/KatzShapiro1.pdf); Arthur (1989), "Competing Technologies, Increasing Returns, and Lock-In by Historical Events"; ES ch. 1-3 and 5 (optional) |
-| 11 | Platforms and Marketplaces 2 | EK ch. 17 (pricing) and ch. 10 (matching markets); [Rochet and Tirole, *Two-Sided Markets: An Overview*](https://web.mit.edu/14.271/www/rochet_tirole.pdf); [Hagiu and Wright (2014)](https://www.hbs.edu/ris/Publication%20Files/15-037_cb5afe51-6150-4be9-ace2-39c6a8ace6d4.pdf); Gale and Shapley (1962), "College Admissions and the Stability of Marriage"; [Nobel Prize 2012, *Stable Allocations and the Practice of Market Design*](https://www.nobelprize.org/uploads/2018/06/popular-economicsciences2012.pdf); ES ch. 11 and Roth (optional) |
+| 11 | Platforms and Marketplaces 2 | EK ch. 17 (pricing) and ch. 10 (matching markets); [Rochet and Tirole, *Two-Sided Markets: An Overview*](https://web.mit.edu/14.271/www/rochet_tirole.pdf); [Hagiu and Wright (2014)](https://www.hbs.edu/ris/Publication%20Files/15-037_cb5afe51-6150-4be9-ace2-39c6a8ace6d4.pdf); Gale and Shapley (1962), "College Admissions and the Stability of Marriage"; [Nobel Prize 2012, *Stable Allocations and the Practice of Market Design*](https://www.nobelprize.org/uploads/2018/06/popular-economicsciences2012.pdf); ES ch. 6 and Roth (optional) |
 | 12 | AI Agents 1 | Vaswani et al. (2017), ["Attention Is All You Need"](https://arxiv.org/abs/1706.03762); Brown et al. (2020), ["Language Models are Few-Shot Learners"](https://arxiv.org/abs/2005.14165); Lewis et al. (2020), ["Retrieval-Augmented Generation"](https://arxiv.org/abs/2005.11401); Gao et al. (2023), [RAG survey](https://arxiv.org/abs/2312.10997) |
 | 13 | AI Agents 2 | [OpenAI function calling guide](https://platform.openai.com/docs/guides/function-calling); [Anthropic tool use docs](https://docs.anthropic.com/claude/docs/tool-use); Schick et al. (2023), ["Toolformer"](https://arxiv.org/abs/2302.04761); [PydanticAI docs](https://ai.pydantic.dev/) including [evals](https://ai.pydantic.dev/evals/index.md); [Model Context Protocol spec](https://modelcontextprotocol.io/) and [FastMCP docs](https://gofastmcp.com/); Willison (2025), ["The Lethal Trifecta"](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/); [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) |
 | 14, 15, 16 | Student Project Presentations | No new reading; review lecture notes and project guidelines |

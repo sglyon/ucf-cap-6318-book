@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="700" viewBox="0 0 980 700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-green" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#16A34A"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="700" rx="12" fill="#FFFFFF"/>
+
+  <text x="490" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">An Ascending-Price Auction, Round by Round</text>
+  <text x="490" y="54" text-anchor="middle" font-size="11" fill="#64748B">Buyer values for sellers a, b, c: x=(12,4,2), y=(8,7,6), z=(7,5,2). Gray edges are preferred sellers; a dashed red ring marks a constricted set</text>
+
+  <!-- PANEL 1: Round 0 -->
+  <g transform="translate(20, 75)">
+    <rect width="460" height="280" rx="14" fill="#F1F5F9" stroke="#475569" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="34" rx="14" fill="#475569"/>
+    <rect y="22" width="460" height="12" fill="#475569"/>
+    <text x="230" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Round 0 &#8212; Prices (0, 0, 0)</text>
+
+    <!-- edges: x-a, y-a, z-a -->
+    <line x1="86" y1="80" x2="374" y2="80" stroke="#475569" stroke-width="2"/>
+    <line x1="86" y1="150" x2="374" y2="80" stroke="#475569" stroke-width="2"/>
+    <line x1="86" y1="220" x2="374" y2="80" stroke="#475569" stroke-width="2"/>
+
+    <!-- constricted-set rings: buyers x,y,z and seller a -->
+    <circle cx="70" cy="80" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+    <circle cx="70" cy="150" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+    <circle cx="70" cy="220" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+    <circle cx="390" cy="80" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+
+    <!-- buyer nodes -->
+    <circle cx="70" cy="80" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">x</text>
+    <circle cx="70" cy="150" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">y</text>
+    <circle cx="70" cy="220" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">z</text>
+
+    <!-- seller nodes with price badges -->
+    <circle cx="390" cy="80" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">a</text>
+    <text x="420" y="84" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
+    <circle cx="390" cy="150" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">b</text>
+    <text x="420" y="154" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
+    <circle cx="390" cy="220" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">c</text>
+    <text x="420" y="224" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
+
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">S = {x,y,z} all prefer only a: N(S) = {a}, |N(S)| &lt; |S| &#8594; raise price of a</text>
+  </g>
+
+  <!-- PANEL 2: Round 1 -->
+  <g transform="translate(500, 75)">
+    <rect width="460" height="280" rx="14" fill="#F1F5F9" stroke="#475569" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="34" rx="14" fill="#475569"/>
+    <rect y="22" width="460" height="12" fill="#475569"/>
+    <text x="230" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Round 1 &#8212; Prices (1, 0, 0)</text>
+
+    <!-- edges: x-a, y-a, y-b, z-a -->
+    <line x1="86" y1="80" x2="374" y2="80" stroke="#475569" stroke-width="2"/>
+    <line x1="86" y1="150" x2="374" y2="80" stroke="#475569" stroke-width="2"/>
+    <line x1="86" y1="150" x2="374" y2="150" stroke="#475569" stroke-width="2"/>
+    <line x1="86" y1="220" x2="374" y2="80" stroke="#475569" stroke-width="2"/>
+
+    <!-- constricted-set rings: buyers x,z and seller a -->
+    <circle cx="70" cy="80" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+    <circle cx="70" cy="220" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+    <circle cx="390" cy="80" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+
+    <circle cx="70" cy="80" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">x</text>
+    <circle cx="70" cy="150" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">y</text>
+    <circle cx="70" cy="220" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">z</text>
+
+    <circle cx="390" cy="80" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">a</text>
+    <text x="420" y="84" text-anchor="start" font-size="9" fill="#92400E">p = 1</text>
+    <circle cx="390" cy="150" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">b</text>
+    <text x="420" y="154" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
+    <circle cx="390" cy="220" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">c</text>
+    <text x="420" y="224" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
+
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">S = {x,z} still prefer only a: N(S) = {a} &#8594; raise price of a again</text>
+  </g>
+
+  <!-- PANEL 3: Round 2 -->
+  <g transform="translate(20, 375)">
+    <rect width="460" height="280" rx="14" fill="#F1F5F9" stroke="#475569" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="34" rx="14" fill="#475569"/>
+    <rect y="22" width="460" height="12" fill="#475569"/>
+    <text x="230" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Round 2 &#8212; Prices (2, 0, 0)</text>
+
+    <!-- edges: x-a, y-b, z-a, z-b -->
+    <line x1="86" y1="80" x2="374" y2="80" stroke="#475569" stroke-width="2"/>
+    <line x1="86" y1="150" x2="374" y2="150" stroke="#475569" stroke-width="2"/>
+    <line x1="86" y1="220" x2="374" y2="80" stroke="#475569" stroke-width="2"/>
+    <line x1="86" y1="220" x2="374" y2="150" stroke="#475569" stroke-width="2"/>
+
+    <!-- constricted-set rings: buyers x,y,z and sellers a,b -->
+    <circle cx="70" cy="80" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+    <circle cx="70" cy="150" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+    <circle cx="70" cy="220" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+    <circle cx="390" cy="80" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+    <circle cx="390" cy="150" r="22" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+
+    <circle cx="70" cy="80" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">x</text>
+    <circle cx="70" cy="150" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">y</text>
+    <circle cx="70" cy="220" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">z</text>
+
+    <circle cx="390" cy="80" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">a</text>
+    <text x="420" y="84" text-anchor="start" font-size="9" fill="#92400E">p = 2</text>
+    <circle cx="390" cy="150" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">b</text>
+    <text x="420" y="154" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
+    <circle cx="390" cy="220" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">c</text>
+    <text x="420" y="224" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
+
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">S = {x,y,z}: N(S) = {a,b}, still |N(S)| &lt; |S| &#8594; raise prices of a and b</text>
+  </g>
+
+  <!-- PANEL 4: Round 3 (final, market clears) -->
+  <g transform="translate(500, 375)">
+    <rect width="460" height="280" rx="14" fill="#DCFCE7" stroke="#16A34A" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="34" rx="14" fill="#16A34A"/>
+    <rect y="22" width="460" height="12" fill="#16A34A"/>
+    <text x="230" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Round 3 &#8212; Prices (3, 1, 0): Market Clears</text>
+
+    <!-- non-matching preferred ties, thin gray: y-b, z-a -->
+    <line x1="86" y1="150" x2="374" y2="150" stroke="#94A3B8" stroke-width="1.5"/>
+    <line x1="86" y1="220" x2="374" y2="80" stroke="#94A3B8" stroke-width="1.5"/>
+
+    <!-- matching, bold green with arrowheads: x-a, y-c, z-b -->
+    <line x1="86" y1="80" x2="374" y2="80" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <line x1="86" y1="150" x2="374" y2="220" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <line x1="86" y1="220" x2="374" y2="150" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+
+    <circle cx="70" cy="80" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">x</text>
+    <circle cx="70" cy="150" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">y</text>
+    <circle cx="70" cy="220" r="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <text x="70" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">z</text>
+
+    <circle cx="390" cy="80" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">a</text>
+    <text x="420" y="84" text-anchor="start" font-size="9" fill="#92400E">p = 3</text>
+    <circle cx="390" cy="150" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">b</text>
+    <text x="420" y="154" text-anchor="start" font-size="9" fill="#92400E">p = 1</text>
+    <circle cx="390" cy="220" r="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="390" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">c</text>
+    <text x="420" y="224" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
+
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">Perfect matching: x&#8211;a, y&#8211;c, z&#8211;b. Total value 12+6+5 = 23</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(290, 685)">
+    <line x1="0" y1="0" x2="34" y2="0" stroke="#475569" stroke-width="2"/>
+    <text x="42" y="4" font-size="10.5" fill="#1E293B">preferred-seller edge</text>
+    <line x1="195" y1="0" x2="229" y2="0" stroke="#16A34A" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <text x="237" y="4" font-size="10.5" fill="#1E293B">final matching</text>
+    <circle cx="395" cy="0" r="9" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="410" y="4" font-size="10.5" fill="#1E293B">node in a constricted set</text>
+  </g>
+</svg>

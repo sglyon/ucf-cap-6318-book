@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500"
+     width="900" height="500"
+     font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="500" rx="12" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Fleet Cards: The Price Structure Flipped</text>
+  <text x="450" y="52" text-anchor="middle" font-size="11.5" fill="#64748B">As fleets grew more price-sensitive (b_B rose), the model predicts p_B* falls and p_S* rises</text>
+
+  <!-- Legend -->
+  <rect x="540" y="62" width="12" height="12" rx="2" fill="#BFDBFE" stroke="#3B82F6"/>
+  <text x="558" y="72" font-size="10" fill="#475569">Fleets pay</text>
+  <rect x="650" y="62" width="12" height="12" rx="2" fill="#FDE68A" stroke="#F59E0B"/>
+  <text x="668" y="72" font-size="10" fill="#475569">Truck stops pay</text>
+
+  <!-- Row 1: 1970s checks -->
+  <text x="40" y="108" font-size="13" font-weight="600" fill="#1E293B">1970s: Paper Checks</text>
+  <text x="40" y="124" font-size="10" fill="#475569">fleets pay</text>
+  <text x="40" y="138" font-size="10" fill="#475569">stops subsidized</text>
+  <rect x="300" y="92" width="560" height="32" rx="6" fill="#BFDBFE" stroke="#3B82F6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="580" y="112" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">fleets pay the full fee</text>
+
+  <!-- Row 2: fleet cards to late 1990s -->
+  <text x="40" y="168" font-size="13" font-weight="600" fill="#1E293B">Fleet Cards, to the Late 1990s</text>
+  <text x="40" y="184" font-size="10" fill="#475569">roughly even split</text>
+  <rect x="300" y="152" width="280" height="32" fill="#BFDBFE" stroke="#3B82F6" stroke-width="1.5"/>
+  <rect x="580" y="152" width="280" height="32" fill="#FDE68A" stroke="#F59E0B" stroke-width="1.5"/>
+  <rect x="300" y="152" width="560" height="32" rx="6" fill="none" stroke="#94A3B8" stroke-width="1" filter="url(#shadow)"/>
+  <line x1="580" y1="152" x2="580" y2="184" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="3,2"/>
+  <text x="580" y="172" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">~</text>
+
+  <!-- Trigger callout -->
+  <rect x="300" y="200" width="560" height="38" rx="6" fill="#FEF2F2" stroke="#FCA5A5" stroke-dasharray="4,2"/>
+  <text x="580" y="215" text-anchor="middle" font-size="10.5" font-weight="600" fill="#B91C1C">Trigger: fuel prices + competition made fleets far more price sensitive</text>
+  <text x="580" y="229" text-anchor="middle" font-size="9.5" fill="#B91C1C">fleets' demand curve steepens, b_B rises</text>
+  <line x1="580" y1="238" x2="580" y2="252" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <!-- Row 3: ~2000 onward -->
+  <text x="40" y="276" font-size="13" font-weight="600" fill="#1E293B">~2000 Onward</text>
+  <text x="40" y="292" font-size="10" fill="#475569">fleets now price-sensitive</text>
+  <rect x="300" y="260" width="140" height="32" fill="#BFDBFE" stroke="#3B82F6" stroke-width="1.5"/>
+  <rect x="440" y="260" width="420" height="32" fill="#FDE68A" stroke="#F59E0B" stroke-width="1.5"/>
+  <rect x="300" y="260" width="560" height="32" rx="6" fill="none" stroke="#94A3B8" stroke-width="1" filter="url(#shadow)"/>
+  <text x="370" y="280" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">25%</text>
+  <text x="650" y="280" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">75%</text>
+
+  <!-- Numeric detail -->
+  <rect x="300" y="308" width="560" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="580" y="329" text-anchor="middle" font-size="11" fill="#1E293B">A typical $2.00 transaction: $0.50 from the fleet + $1.50 from the truck stop</text>
+
+  <!-- Summary band -->
+  <rect x="40" y="366" width="820" height="100" rx="10" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="450" y="394" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">A real industry ran our comparative static</text>
+  <text x="450" y="416" text-anchor="middle" font-size="11" fill="#475569">Fleets paid everything, then roughly half, then settled near 25% once they became price-sensitive</text>
+  <text x="450" y="436" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">b_B &#8593;&#8201;&#8658;&#8201;p_B* &#8595;,&#8201;p_S* &#8593;</text>
+  <text x="450" y="454" text-anchor="middle" font-size="9.5" fill="#64748B">(Evans &amp; Schmalensee, Matchmakers, ch. 6)</text>
+</svg>

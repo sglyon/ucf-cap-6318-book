@@ -402,6 +402,15 @@ zero-sum game
 ## Platforms and Marketplaces
 
 :::{glossary}
+access fee
+: A charge for joining a {term}`platform`, paid regardless of how many interactions follow. Contrast with {term}`usage fee`. *Introduced in* [Platform Pricing: Who Pays, Who Gets Paid](week11/L11.01_platform_pricing.ipynb).
+
+adverse selection
+: When hidden quality lowers what buyers will pay, the best sellers leave first, which lowers average quality and prices further. The "market for lemons" is the classic case. *Introduced in* [Matching Markets: When Prices Can't Do the Job](week11/L11.02_matching_markets.ipynb).
+
+behavioral externality
+: An uncompensated effect of what a participant *does* on others, such as fraud, harassment, or no-shows, as opposed to a {term}`network effect` from merely participating. Platforms govern these with screening, rules, ratings, and expulsion. *Introduced in* [Matching Markets: When Prices Can't Do the Job](week11/L11.02_matching_markets.ipynb).
+
 blocking pair
 : A pair $(d,h)$, from opposite sides of a matching market, such that $d$ prefers $h$ to its current match and $h$ prefers $d$ to its current match — both would rather abandon the matching and pair with each other. *Introduced in* [Matching Markets: When Prices Can't Do the Job](week11/L11.02_matching_markets.ipynb).
 
@@ -411,8 +420,14 @@ chicken-and-egg problem
 competitive bottleneck
 : The pattern where platforms court the side that {term}`single-homes <single-homing>` and tax the side that {term}`multihomes <multihoming>`, because access to single-homers is what rival platforms compete over. *Introduced in* [Platform Pricing: Who Pays, Who Gets Paid](week11/L11.01_platform_pricing.ipynb).
 
+constricted set
+: A group of buyers whose preferred sellers, taken together, number fewer than the buyers. Its presence is exactly what rules out a perfect matching. *Introduced in* [Matching Markets: When Prices Can't Do the Job](week11/L11.02_matching_markets.ipynb).
+
 critical mass
 : The unstable middle {term}`fulfilled-expectations equilibrium`: below it, adoption collapses toward zero; above it, feedback pushes adoption toward the high equilibrium. *Introduced in* [Platforms and Matchmakers](week10/L10.01_platform_economics.ipynb).
+
+critical mass frontier
+: For a two-sided platform, the curve of participation pairs separating starting points that grow toward high adoption from those that collapse. With two sides, {term}`critical mass` is a curve, not a number. *Introduced in* [Ignition: Chicken-and-Egg, Lock-In, and Tipping](week10/L10.02_ignition_and_tipping.ipynb).
 
 cross-side externality
 : The effect a price change on one side of a {term}`two-sided market` has on the other side's value through shared volume: raising $p_B$ loses buyer sales directly *and* reduces every seller's completed transactions, even though no seller left. *Introduced in* [Platform Pricing: Who Pays, Who Gets Paid](week11/L11.01_platform_pricing.ipynb).
@@ -435,6 +450,9 @@ increasing returns
 lock-in
 : The outcome in which later adopters rationally follow a lead created by earlier, possibly random, accidents, so a market settles on one {term}`platform` even absent a quality difference. *Introduced in* [Ignition: Chicken-and-Egg, Lock-In, and Tipping](week10/L10.02_ignition_and_tipping.ipynb).
 
+market-clearing prices
+: Prices at which the {term}`preferred-seller graph` contains a perfect matching, so every buyer can get a house they most prefer. The resulting assignment maximizes total valuation. *Introduced in* [Matching Markets: When Prices Can't Do the Job](week11/L11.02_matching_markets.ipynb).
+
 matchmaker
 : What a {term}`platform` is: an intermediary whose product is the connection itself, since each side joins partly because the other side is there. *Introduced in* [Platforms and Matchmakers](week10/L10.01_platform_economics.ipynb).
 
@@ -449,6 +467,9 @@ pipe
 
 platform
 : A business that creates value by connecting two or more distinct groups who need each other, rather than by transforming inputs into outputs along one chain. Contrast with {term}`pipe`. *Introduced in* [Platforms and Matchmakers](week10/L10.01_platform_economics.ipynb).
+
+preferred-seller graph
+: At given prices, the bipartite graph linking each buyer to every seller that gives that buyer the highest nonnegative payoff, value minus price. *Introduced in* [Matching Markets: When Prices Can't Do the Job](week11/L11.02_matching_markets.ipynb).
 
 price level
 : How much a {term}`platform` collects in total across both sides of an interaction, $p_B+p_S$. Contrast with {term}`price structure`. *Introduced in* [Platforms and Matchmakers](week10/L10.01_platform_economics.ipynb).
@@ -482,6 +503,9 @@ tipping
 
 two-sided market
 : A market in which a {term}`platform`'s profit depends on participation from two distinct groups whose demands interact, formalized by the Rochet-Tirole model $\pi(p_B,p_S)=(p_B+p_S-c)D_B(p_B)D_S(p_S)$. *Introduced in* [Platform Pricing: Who Pays, Who Gets Paid](week11/L11.01_platform_pricing.ipynb).
+
+usage fee
+: A charge per interaction on a {term}`platform`. Rewards make it negative. Contrast with {term}`access fee`. *Introduced in* [Platform Pricing: Who Pays, Who Gets Paid](week11/L11.01_platform_pricing.ipynb).
 
 winner-take-all
 : The prediction that strong {term}`network effects <network effect>` concentrate an entire market on a single {term}`platform`. Not automatic: {term}`multihoming` and local network effects can break it. *Introduced in* [Ignition: Chicken-and-Egg, Lock-In, and Tipping](week10/L10.02_ignition_and_tipping.ipynb).

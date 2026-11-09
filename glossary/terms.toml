@@ -1174,6 +1174,62 @@ definition = '''A market, such as organ transplants, where using prices to clear
 forms = ["repugnant market", "repugnant markets", "repugnant"]
 
 [[term]]
+label = "critical mass frontier"
+unit = "Platforms and Marketplaces"
+defined_in = "week10/L10.02_ignition_and_tipping.ipynb"
+definition = '''For a two-sided platform, the curve of participation pairs separating starting points that grow toward high adoption from those that collapse. With two sides, {term}`critical mass` is a curve, not a number.'''
+forms = ["critical mass frontier"]
+
+[[term]]
+label = "access fee"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.01_platform_pricing.ipynb"
+definition = '''A charge for joining a {term}`platform`, paid regardless of how many interactions follow. Contrast with {term}`usage fee`.'''
+forms = ["access fee", "access fees"]
+
+[[term]]
+label = "usage fee"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.01_platform_pricing.ipynb"
+definition = '''A charge per interaction on a {term}`platform`. Rewards make it negative. Contrast with {term}`access fee`.'''
+forms = ["usage fee", "usage fees"]
+
+[[term]]
+label = "preferred-seller graph"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''At given prices, the bipartite graph linking each buyer to every seller that gives that buyer the highest nonnegative payoff, value minus price.'''
+forms = ["preferred-seller graph", "preferred-seller graphs"]
+
+[[term]]
+label = "constricted set"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''A group of buyers whose preferred sellers, taken together, number fewer than the buyers. Its presence is exactly what rules out a perfect matching.'''
+forms = ["constricted set", "constricted sets"]
+
+[[term]]
+label = "market-clearing prices"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''Prices at which the {term}`preferred-seller graph` contains a perfect matching, so every buyer can get a house they most prefer. The resulting assignment maximizes total valuation.'''
+forms = ["market-clearing prices", "market-clearing"]
+
+[[term]]
+label = "adverse selection"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''When hidden quality lowers what buyers will pay, the best sellers leave first, which lowers average quality and prices further. The "market for lemons" is the classic case.'''
+forms = ["adverse selection", "lemons problem"]
+
+[[term]]
+label = "behavioral externality"
+unit = "Platforms and Marketplaces"
+defined_in = "week11/L11.02_matching_markets.ipynb"
+definition = '''An uncompensated effect of what a participant *does* on others, such as fraud, harassment, or no-shows, as opposed to a {term}`network effect` from merely participating. Platforms govern these with screening, rules, ratings, and expulsion.'''
+forms = ["behavioral externality", "behavioral externalities"]
+
+[[term]]
 label = "large language model, LLM"
 unit = "AI Agents"
 defined_in = "weekA01/L.A1.01_from_rule_based_to_learning_agents.ipynb"

@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-amber" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#B45309"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#16A34A"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="560" rx="12" fill="#FFFFFF"/>
+
+  <text x="500" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Hidden Quality Can Unravel a Market</text>
+  <text x="500" y="54" text-anchor="middle" font-size="11" fill="#64748B">The same starting point, with and without a way to tell hosts apart</text>
+
+  <!-- ============================================================ -->
+  <!-- LEFT PANEL: without reputation, the lemons spiral -->
+  <!-- ============================================================ -->
+  <g transform="translate(20, 75)">
+    <rect width="460" height="460" rx="14" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="34" rx="14" fill="#B45309"/>
+    <rect y="22" width="460" height="12" fill="#B45309"/>
+    <text x="230" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Without Reputation: The Lemons Spiral</text>
+
+    <!-- node 1: quality hidden -->
+    <rect x="135" y="52" width="190" height="44" rx="10" fill="#FFFFFF" stroke="#92400E" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="230" y="70" text-anchor="middle" font-size="10.5" font-weight="600" fill="#92400E">Quality is hidden</text>
+    <text x="230" y="84" text-anchor="middle" font-size="9" fill="#92400E">guests can't tell hosts apart</text>
+
+    <!-- arrow 1 -> 2 -->
+    <line x1="230" y1="96" x2="230" y2="128" stroke="#B45309" stroke-width="2" marker-end="url(#arrow-amber)"/>
+
+    <!-- node 2: pay average quality (loop top) -->
+    <rect x="135" y="130" width="190" height="46" rx="10" fill="#FFFFFF" stroke="#92400E" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="230" y="150" text-anchor="middle" font-size="10.5" font-weight="600" fill="#92400E">Guests pay the market's</text>
+    <text x="230" y="163" text-anchor="middle" font-size="10.5" font-weight="600" fill="#92400E">average quality</text>
+
+    <!-- arrow 2 -> 3 -->
+    <line x1="280" y1="176" x2="330" y2="228" stroke="#B45309" stroke-width="2" marker-end="url(#arrow-amber)"/>
+
+    <!-- node 3: best hosts leave -->
+    <rect x="250" y="230" width="190" height="54" rx="10" fill="#FFFFFF" stroke="#92400E" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="345" y="250" text-anchor="middle" font-size="10.5" font-weight="600" fill="#92400E">Best hosts' costs exceed</text>
+    <text x="345" y="263" text-anchor="middle" font-size="10.5" font-weight="600" fill="#92400E">that price &#8212; they leave</text>
+    <text x="345" y="276" text-anchor="middle" font-size="9" fill="#92400E">the lemons drive out the plums</text>
+
+    <!-- arrow 3 -> 4 -->
+    <line x1="250" y1="257" x2="210" y2="257" stroke="#B45309" stroke-width="2" marker-end="url(#arrow-amber)"/>
+
+    <!-- node 4: average quality falls -->
+    <rect x="20" y="230" width="190" height="54" rx="10" fill="#FFFFFF" stroke="#92400E" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="115" y="250" text-anchor="middle" font-size="10.5" font-weight="600" fill="#92400E">Average quality falls,</text>
+    <text x="115" y="263" text-anchor="middle" font-size="10.5" font-weight="600" fill="#92400E">so the price guests will</text>
+    <text x="115" y="276" text-anchor="middle" font-size="9" fill="#92400E">pay falls too</text>
+
+    <!-- arrow 4 -> 2, closing the loop -->
+    <path d="M 150 230 Q 170 195 180 176" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#arrow-amber)"/>
+
+    <!-- loop annotation -->
+    <g transform="translate(230, 360)">
+      <path d="M -26 0 A 26 26 0 1 1 26 0" fill="none" stroke="#92400E" stroke-width="2" marker-end="url(#arrow-amber)"/>
+      <text x="0" y="40" text-anchor="middle" font-size="10" font-weight="600" fill="#92400E">repeats, lower each lap</text>
+    </g>
+
+    <text x="230" y="435" text-anchor="middle" font-size="9.5" fill="#78350F">Every lap strips out the best remaining hosts, so the average &#8212; and the price guests will pay &#8212; keeps falling.</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- RIGHT PANEL: with reputation, the circuit breaker -->
+  <!-- ============================================================ -->
+  <g transform="translate(520, 75)">
+    <rect width="460" height="460" rx="14" fill="#ECFDF5" stroke="#16A34A" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="460" height="34" rx="14" fill="#16A34A"/>
+    <rect y="22" width="460" height="12" fill="#16A34A"/>
+    <text x="230" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">With Reputation: The Circuit Breaker</text>
+
+    <!-- node 1: quality hidden at first -->
+    <rect x="135" y="52" width="190" height="44" rx="10" fill="#FFFFFF" stroke="#065F46" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="230" y="70" text-anchor="middle" font-size="10.5" font-weight="600" fill="#065F46">Quality starts hidden</text>
+    <text x="230" y="84" text-anchor="middle" font-size="9" fill="#065F46">same as the spiral, at round 0</text>
+
+    <!-- arrow 1 -> 2 -->
+    <line x1="230" y1="96" x2="230" y2="128" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+    <!-- node 2: ratings reveal track record -->
+    <rect x="135" y="130" width="190" height="46" rx="10" fill="#FFFFFF" stroke="#065F46" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="230" y="150" text-anchor="middle" font-size="10.5" font-weight="600" fill="#065F46">Ratings reveal each host's</text>
+    <text x="230" y="163" text-anchor="middle" font-size="10.5" font-weight="600" fill="#065F46">own track record</text>
+
+    <!-- arrow 2 -> 3 -->
+    <line x1="280" y1="176" x2="330" y2="228" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+    <!-- node 3: pay by reputation -->
+    <rect x="250" y="230" width="190" height="54" rx="10" fill="#FFFFFF" stroke="#065F46" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="345" y="250" text-anchor="middle" font-size="10.5" font-weight="600" fill="#065F46">Guests pay each host by</text>
+    <text x="345" y="263" text-anchor="middle" font-size="10.5" font-weight="600" fill="#065F46">that record, not the average</text>
+    <text x="345" y="276" text-anchor="middle" font-size="9" fill="#065F46">price tracks the individual host</text>
+
+    <!-- arrow 3 -> 4 -->
+    <line x1="250" y1="257" x2="210" y2="257" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+    <!-- node 4: good hosts stay -->
+    <rect x="20" y="230" width="190" height="54" rx="10" fill="#FFFFFF" stroke="#065F46" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="115" y="250" text-anchor="middle" font-size="10.5" font-weight="600" fill="#065F46">Good hosts earn above</text>
+    <text x="115" y="263" text-anchor="middle" font-size="10.5" font-weight="600" fill="#065F46">cost, so they stay</text>
+    <text x="115" y="276" text-anchor="middle" font-size="9" fill="#065F46">average quality holds up</text>
+
+    <!-- broken return path: dashed stub with a break mark, loop does not close -->
+    <path d="M 150 230 Q 165 205 174 189" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,4"/>
+    <g transform="translate(164, 198) rotate(-32)">
+      <line x1="-7" y1="-7" x2="7" y2="7" stroke="#DC2626" stroke-width="2.5"/>
+      <line x1="-7" y1="7" x2="7" y2="-7" stroke="#DC2626" stroke-width="2.5"/>
+    </g>
+
+    <!-- loop annotation, mirrors left panel's icon + caption spot -->
+    <g transform="translate(230, 360)">
+      <path d="M -26 0 A 26 26 0 1 1 26 0" fill="none" stroke="#065F46" stroke-width="2" stroke-dasharray="6,5"/>
+      <line x1="-10" y1="-10" x2="10" y2="10" stroke="#DC2626" stroke-width="2.5"/>
+      <line x1="-10" y1="10" x2="10" y2="-10" stroke="#DC2626" stroke-width="2.5"/>
+      <text x="0" y="40" text-anchor="middle" font-size="10" font-weight="600" fill="#065F46">loop broken &#8212; no spiral</text>
+    </g>
+
+    <text x="230" y="435" text-anchor="middle" font-size="9.5" fill="#064E3B">Reputation prices each host on their own record, so staying above cost no longer requires out-earning the market average.</text>
+  </g>
+</svg>

@@ -64,6 +64,8 @@ project:
     - title: Platforms 2
       children:
         - file: week11/L11.01_platform_pricing.ipynb
+    - title: Platforms 3
+      children:
         - file: week11/L11.02_matching_markets.ipynb
     - title: Agents 1
       children:
