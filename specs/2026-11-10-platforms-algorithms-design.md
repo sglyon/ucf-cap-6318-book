@@ -76,7 +76,7 @@ Pattern mirrors BFS → Graphs.jl: students write `my_threshold_adoption`; the l
 - Tests:
   - `x^2 - 2`, start `1.0`, `steps=3` → `[1.0, 1.5, 1.4166666666666667, 1.4142156862745099]`.
   - Linear `x - 3`, start `0.0`, `steps=2` → `[0.0, 3.0, 3.0]` (one step for a line).
-- The √2 error table moves below the tests and uses a commented call, so the cell runs unsolved;
+- The √2 error table moves below the tests into a cell guarded on `nothing`, so the notebook runs unsolved;
   the "From One Equation to Two" text that cites the error column is reworded to state the
   convergence result without depending on the student's output.
 
