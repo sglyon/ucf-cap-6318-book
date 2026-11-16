@@ -3,6 +3,7 @@ build:
 	uv run python scripts/glossary.py render
 	uv run python scripts/glossary.py check
 	uv run myst build --html
+	uv run python scripts/inject_slide_mode.py
 	rsync -az --delete --info=progress2 ./_build/html/ ./docs/
 
 run:
@@ -10,6 +11,7 @@ run:
 	uv run python scripts/glossary.py render
 	uv run python scripts/glossary.py check
 	uv run myst build --html --execute --strict
+	uv run python scripts/inject_slide_mode.py
 
 .PHONY: glossary-links
 glossary-links:
