@@ -25,7 +25,7 @@ Networks lectures have at most one student-coded core algorithm each:
 
 The platforms unit matches this: **one student stub per lecture**. Existing extension exercises
 (`adoption_with_frictions`, `better_platform_loss_rate`, `proposer_advantage_experiment`, L10.01 Ex.4–5,
-L11.01 Ex.2–3, L11.02 Ex.4–6) stay unchanged.
+L11.01 Ex.2–3, L11.02 Ex.4–6, renumbered Ex.3–5 on 2026-11-16) stay unchanged.
 
 ## Stub conventions (from L03.01 / L04.02)
 
@@ -42,7 +42,7 @@ L11.01 Ex.2–3, L11.02 Ex.4–6) stay unchanged.
 |---|---|---|---|---|
 | A3 | L10.02 | Build 3 "A Threshold Rule" | `my_threshold_adoption` | worked code → stub + reference |
 | A4 | L11.01 | Build 3 "Detour: Newton's Method" | `newton_path` | worked code → stub |
-| A7 | L11.02 | Build 2 "Exercise 2: Hospitals Have Capacity" | `deferred_acceptance_capacities` | existing stub gains algorithm cell + tests |
+| A7 | L11.02 | Build 2 "Exercise 1: Two Stable Matchings" | `proposer_outcomes` | worked code → stub (revised 2026-11-16; see A7) |
 | A10 | L10.01 | "Let Expectations Update" | `adoption_path` | worked code → stub (taught next offering) |
 
 ### A3. Threshold cascade (L10.02 Build 3) — leaf rule relaxed
@@ -82,7 +82,15 @@ Pattern mirrors BFS → Graphs.jl: students write `my_threshold_adoption`; the l
 
 ### A7. Deferred acceptance with capacities (L11.02 Build 2)
 
-Already an exercise stub with no algorithm cell or tests. Leaf.
+Revised 2026-11-16: extending deferred acceptance to capacities proved too hard for students, so
+"Hospitals Have Capacity" became a worked example (`deferred_acceptance_capacities` implemented with
+step comments, checks run directly) and later exercises renumbered. The lecture's stub moved to
+Exercise 1: `proposer_outcomes(doctor_prefs, hospital_prefs)` runs deferred acceptance with each side
+proposing and returns both matchings in doctor → hospital form (hospital side converted with `invperm`).
+Its test calls `test_proposer_outcomes(proposer_outcomes)` directly instead of `run_tests()`. The 3×3
+test market has a 3-cycle hospital-proposing outcome so a missing `invperm` fails.
+
+Original A7 (superseded): already an exercise stub with no algorithm cell or tests. Leaf.
 
 - Algorithm cell:
   1. Every doctor starts unmatched with a pointer at their first choice.

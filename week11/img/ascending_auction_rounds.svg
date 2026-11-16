@@ -50,7 +50,7 @@
     <text x="390" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">c</text>
     <text x="420" y="224" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
 
-    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">S = {x,y,z} all prefer only a: N(S) = {a}, |N(S)| &lt; |S| &#8594; raise price of a</text>
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">T = {x,y,z} all prefer only a: N(T) = {a}, |N(T)| &lt; |T| &#8594; raise price of a</text>
   </g>
 
   <!-- PANEL 2: Round 1 -->
@@ -88,7 +88,7 @@
     <text x="390" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">c</text>
     <text x="420" y="224" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
 
-    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">S = {x,z} still prefer only a: N(S) = {a} &#8594; raise price of a again</text>
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">T = {x,z} still prefer only a: N(T) = {a} &#8594; raise price of a again</text>
   </g>
 
   <!-- PANEL 3: Round 2 -->
@@ -128,7 +128,7 @@
     <text x="390" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">c</text>
     <text x="420" y="224" text-anchor="start" font-size="9" fill="#92400E">p = 0</text>
 
-    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">S = {x,y,z}: N(S) = {a,b}, still |N(S)| &lt; |S| &#8594; raise prices of a and b</text>
+    <text x="230" y="265" text-anchor="middle" font-size="9.5" fill="#1E293B">T = {x,y,z}: N(T) = {a,b}, still |N(T)| &lt; |T| &#8594; raise prices of a and b</text>
   </g>
 
   <!-- PANEL 4: Round 3 (final, market clears) -->
