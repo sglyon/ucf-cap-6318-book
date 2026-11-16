@@ -68,7 +68,7 @@
   const UI_CSS = `
     .myst-slides-ui { font: 16px/1.4 system-ui, sans-serif; }
     .myst-slides-ui [hidden] { display: none !important; }
-    .myst-slides-ink { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 55;
+    .myst-slides-ink { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 55;
       display: block !important; pointer-events: none; }
     .myst-slides-ink[data-mode="annotate"], .myst-slides-ink[data-mode="board"] {
       pointer-events: auto; cursor: crosshair; touch-action: none; }

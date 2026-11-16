@@ -1,9 +1,13 @@
 // Whiteboard for slide mode: ink over the current slide ("annotate") or on a blank board
 // ("board"). Loaded on first use by slide-mode.js.
 //
-// Strokes are vectors in units of the window width, so they redraw in place when the window is
+// Strokes are vectors in units of the canvas width, so they redraw in place when the window is
 // resized (slide text scales with the window width too). Each surface (one per slide page, plus
 // one blank board per slide) keeps its own strokes and undo history until the page reloads.
+//
+// All geometry comes from the canvas's on-screen box, never innerWidth/innerHeight: on iPad
+// Safari the viewport units and innerHeight disagree while the toolbar shows, and any mismatch
+// stretches the canvas so ink lands progressively below the pen tip.
 
 const COLORS = [null, "#ef4444", "#3b82f6", "#22c55e", "#f59e0b"]; // null = white on dark, ink on light
 const PEN_WIDTH = 0.0025; // of window width: ~5px on a 1920px screen
@@ -22,6 +26,7 @@ export const createWhiteboard = (host) => {
   let erasing = false;
   let active = null; // stroke being drawn, or { erased } during an eraser gesture
   let lastPen = 0;
+  let box = { left: 0, top: 0, width: 1, height: 1 }; // canvas position on screen, in CSS px
 
   const surface = () => {
     const key = mode === "board" ? `board:${slideKey}` : slideKey;
@@ -33,7 +38,7 @@ export const createWhiteboard = (host) => {
   const dark = () => document.documentElement.classList.contains("dark");
 
   const drawSegment = (stroke, a, b) => {
-    const w = innerWidth;
+    const w = box.width;
     ctx.strokeStyle = stroke.color;
     ctx.lineWidth = stroke.width * w * (0.5 + b[2]);
     ctx.beginPath();
@@ -49,26 +54,30 @@ export const createWhiteboard = (host) => {
   };
 
   const redraw = () => {
-    const ratio = devicePixelRatio || 1;
-    if (canvas.width !== Math.round(innerWidth * ratio) || canvas.height !== Math.round(innerHeight * ratio)) {
-      canvas.width = Math.round(innerWidth * ratio);
-      canvas.height = Math.round(innerHeight * ratio);
-    }
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    ctx.clearRect(0, 0, innerWidth, innerHeight);
-    ctx.lineCap = ctx.lineJoin = "round";
-    if (mode === "board") {
-      ctx.fillStyle = dark() ? "#0f172a" : "#ffffff";
-      ctx.fillRect(0, 0, innerWidth, innerHeight);
-    }
     const strokes = surface()?.strokes ?? [];
-    strokes.forEach(drawStroke);
     canvas.dataset.mode = mode ?? "";
     canvas.dataset.erasing = erasing ? "true" : "";
     canvas.hidden = !mode && !strokes.length;
+    if (canvas.hidden) return;
+    box = canvas.getBoundingClientRect();
+    const ratio = devicePixelRatio || 1;
+    const [width, height] = [Math.round(box.width * ratio), Math.round(box.height * ratio)];
+    if (canvas.width !== width || canvas.height !== height) [canvas.width, canvas.height] = [width, height];
+    ctx.setTransform(canvas.width / box.width, 0, 0, canvas.height / box.height, 0, 0);
+    ctx.clearRect(0, 0, box.width, box.height);
+    ctx.lineCap = ctx.lineJoin = "round";
+    if (mode === "board") {
+      ctx.fillStyle = dark() ? "#0f172a" : "#ffffff";
+      ctx.fillRect(0, 0, box.width, box.height);
+    }
+    strokes.forEach(drawStroke);
   };
 
-  const point = (event) => [event.clientX / innerWidth, event.clientY / innerWidth, event.pointerType === "pen" ? event.pressure : 0.5];
+  const point = (event) => [
+    (event.clientX - box.left) / box.width,
+    (event.clientY - box.top) / box.width,
+    event.pointerType === "pen" ? event.pressure : 0.5,
+  ];
 
   const distance = (p, a, b) => {
     const [dx, dy] = [b[0] - a[0], b[1] - a[1]];
@@ -99,6 +108,9 @@ export const createWhiteboard = (host) => {
     if (event.pointerType === "pen") lastPen = Date.now();
     else if (event.pointerType === "touch" && Date.now() - lastPen < 1000) return; // palm resting while writing
     event.preventDefault();
+    // The canvas can move without a window resize (iPad toolbar); re-measure before each stroke.
+    const now = canvas.getBoundingClientRect();
+    if (["left", "top", "width", "height"].some((k) => now[k] !== box[k])) redraw();
     canvas.setPointerCapture(event.pointerId);
     if (erasing) {
       active = { erased: [] };
@@ -153,6 +165,7 @@ export const createWhiteboard = (host) => {
   };
 
   addEventListener("resize", redraw);
+  visualViewport?.addEventListener("resize", redraw);
 
   return {
     get mode() {
