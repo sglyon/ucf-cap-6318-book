@@ -108,7 +108,11 @@
     html { font-size: ${(1.15 * scale).toFixed(3)}vw !important; scroll-behavior: auto !important; }
     html, body { overflow: hidden !important; }
     body > :not(main):not(.myst-slides-ui):not(dialog) { display: none !important; }
-    main.article-grid, main > article.article-grid { display: block !important; }
+    /* Center each slide vertically. Pages of an oversized cell stay top-aligned so a short last
+       page does not jump; "safe" keeps a slide's top on screen while it is being measured. */
+    main.article-grid { display: ${page ? "block" : "flex"} !important; flex-direction: column;
+      justify-content: safe center; min-height: 100vh; min-height: 100dvh; }
+    main > article.article-grid { display: block !important; flex: none; }
     main > article { padding: ${PAD}px 0 !important; margin: 0 auto !important; min-height: 0 !important;
       width: min(64rem, 94vw); zoom: ${zoom}; }
     ${page ? `main.article-grid > article.content { padding: 0 !important; margin-top: ${PAD}px !important;
