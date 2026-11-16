@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 450" role="img" aria-labelledby="title desc" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<defs><filter id="shadow" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#10B981"/></marker></defs>
+<rect width="850" height="450" rx="12" fill="#FFFFFF"/>
+<title id="title">Who can receive the unit?</title><desc id="desc">Two model environments use the same one-unit transfer. In the nonspatial model, any agent can be chosen, including the donor. In the grid model, a recipient is chosen from nearby agents; one possible neighbor is illustrated, not a full neighborhood stencil. Opposite edges of the periodic grid connect. Agents remain at their positions.</desc>
+<text x="425" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Who can receive the unit?</text>
+<rect x="25" y="60" width="390" height="276" filter="url(#shadow)" rx="12" fill="#ECFDF5" stroke="#10B981"/>
+<rect x="435" y="60" width="390" height="276" filter="url(#shadow)" rx="12" fill="#ECFDF5" stroke="#10B981"/>
+<text x="220" y="87" text-anchor="middle" font-size="15" font-weight="600" fill="#065F46">No space</text>
+<text x="630" y="87" text-anchor="middle" font-size="15" font-weight="600" fill="#065F46">GridSpace</text>
+<path d="M210 184 L95 130" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M210 184 L280 128" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M210 184 L340 202" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M210 184 L145 239" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 3"/><circle cx="95" cy="130" r="24" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5"/><text x="95" y="134" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">B</text>
+<circle cx="280" cy="128" r="24" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5"/><text x="280" y="132" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">C</text>
+<circle cx="340" cy="202" r="24" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5"/><text x="340" y="206" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">D</text>
+<circle cx="145" cy="239" r="24" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5"/><text x="145" y="243" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">E</text>
+<circle cx="210" cy="184" r="24" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5"/><text x="210" y="188" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">A</text>
+<path d="M234 184 L315 197" stroke="#10B981" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<text x="287" y="174" text-anchor="middle" font-size="10" font-weight="400" fill="#065F46">1 unit</text>
+<text x="220" y="292" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Choose from all agents.</text>
+<text x="220" y="311" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">A can also select itself: no net change.</text>
+<rect x="480" y="108" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="540" y="108" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="600" y="108" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="660" y="108" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="720" y="108" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="480" y="153" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="540" y="153" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="600" y="153" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="660" y="153" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="720" y="153" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="480" y="198" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="540" y="198" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="600" y="198" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="660" y="198" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<rect x="720" y="198" width="60" height="45" rx="0" fill="#FFFFFF" stroke="#E2E8F0"/>
+<circle cx="630" cy="175" r="24" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5"/><text x="630" y="179" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">A</text>
+<circle cx="690" cy="175" r="24" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5"/><text x="690" y="179" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">B</text>
+<path d="M655 175 L662 175" stroke="#10B981" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<text x="630" y="267" text-anchor="middle" font-size="12" font-weight="400" fill="#475569">Choose from nearby agents.</text>
+<text x="630" y="286" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">One possible recipient shown.</text>
+<text x="630" y="305" text-anchor="middle" font-size="10" font-weight="400" fill="#475569">Schematic; not the full neighbor set.</text>
+<rect x="25" y="351" width="800" height="56" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+<circle cx="85" cy="379" r="24" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5"/><text x="85" y="383" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">L</text>
+<circle cx="355" cy="379" r="24" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5"/><text x="355" y="383" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">R</text>
+<path d="M61 379 L43 379 L43 357 L395 357 L395 379 L381 379" stroke="#10B981" stroke-width="2" fill="none" marker-end="url(#arrow)"/><text x="220" y="384" text-anchor="middle" font-size="11" font-weight="600" fill="#065F46">Opposite edges connect</text>
+<text x="612" y="376" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">Periodic grid: boundary neighbors can interact.</text>
+<text x="612" y="394" text-anchor="middle" font-size="11" font-weight="400" fill="#475569">The agents stay at their positions.</text>
+<text x="425" y="432" text-anchor="middle" font-size="13" font-weight="600" fill="#065F46">Now we change who can receive the unit. Does the total wealth change?</text>
+</svg>
