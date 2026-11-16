@@ -26,24 +26,24 @@
 
     <!-- doctor nodes (highlighted: their best stable outcome) -->
     <circle cx="80" cy="120" r="26" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
-    <text x="80" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">D1</text>
-    <text x="80" y="160" text-anchor="middle" font-size="11" fill="#1E40AF">H1 &#8827; H2</text>
+    <text x="80" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">d₁</text>
+    <text x="80" y="160" text-anchor="middle" font-size="11" fill="#1E40AF">h₁ &#8827; h₂</text>
 
     <circle cx="80" cy="270" r="26" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
-    <text x="80" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">D2</text>
-    <text x="80" y="310" text-anchor="middle" font-size="11" fill="#1E40AF">H2 &#8827; H1</text>
+    <text x="80" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">d₂</text>
+    <text x="80" y="310" text-anchor="middle" font-size="11" fill="#1E40AF">h₂ &#8827; h₁</text>
 
     <!-- hospital nodes (plain amber: not their best stable outcome) -->
     <circle cx="380" cy="120" r="26" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5"/>
-    <text x="380" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#92400E">H1</text>
-    <text x="380" y="160" text-anchor="middle" font-size="11" fill="#92400E">D2 &#8827; D1</text>
+    <text x="380" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#92400E">h₁</text>
+    <text x="380" y="160" text-anchor="middle" font-size="11" fill="#92400E">d₂ &#8827; d₁</text>
 
     <circle cx="380" cy="270" r="26" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5"/>
-    <text x="380" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#92400E">H2</text>
-    <text x="380" y="310" text-anchor="middle" font-size="11" fill="#92400E">D1 &#8827; D2</text>
+    <text x="380" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#92400E">h₂</text>
+    <text x="380" y="310" text-anchor="middle" font-size="11" fill="#92400E">d₁ &#8827; d₂</text>
 
     <rect x="30" y="335" width="400" height="34" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
-    <text x="230" y="357" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">&#956;<tspan baseline-shift="sub" font-size="smaller">D</tspan> = {(D1,H1), (D2,H2)}: every doctor gets its first choice</text>
+    <text x="230" y="357" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">&#956;<tspan baseline-shift="sub" font-size="smaller">D</tspan> = {(d₁,h₁), (d₂,h₂)}: every doctor gets its first choice</text>
   </g>
 
   <!-- PANEL 2: Hospital-proposing -->
@@ -59,23 +59,23 @@
 
     <!-- doctor nodes (plain blue: not their best stable outcome) -->
     <circle cx="80" cy="120" r="26" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2.5"/>
-    <text x="80" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#1E40AF">D1</text>
-    <text x="80" y="160" text-anchor="middle" font-size="11" fill="#1E40AF">H1 &#8827; H2</text>
+    <text x="80" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#1E40AF">d₁</text>
+    <text x="80" y="160" text-anchor="middle" font-size="11" fill="#1E40AF">h₁ &#8827; h₂</text>
 
     <circle cx="80" cy="270" r="26" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2.5"/>
-    <text x="80" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#1E40AF">D2</text>
-    <text x="80" y="310" text-anchor="middle" font-size="11" fill="#1E40AF">H2 &#8827; H1</text>
+    <text x="80" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#1E40AF">d₂</text>
+    <text x="80" y="310" text-anchor="middle" font-size="11" fill="#1E40AF">h₂ &#8827; h₁</text>
 
     <!-- hospital nodes (highlighted: their best stable outcome) -->
     <circle cx="380" cy="120" r="26" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
-    <text x="380" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">H1</text>
-    <text x="380" y="160" text-anchor="middle" font-size="11" fill="#92400E">D2 &#8827; D1</text>
+    <text x="380" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">h₁</text>
+    <text x="380" y="160" text-anchor="middle" font-size="11" fill="#92400E">d₂ &#8827; d₁</text>
 
     <circle cx="380" cy="270" r="26" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
-    <text x="380" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">H2</text>
-    <text x="380" y="310" text-anchor="middle" font-size="11" fill="#92400E">D1 &#8827; D2</text>
+    <text x="380" y="276" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">h₂</text>
+    <text x="380" y="310" text-anchor="middle" font-size="11" fill="#92400E">d₁ &#8827; d₂</text>
 
     <rect x="30" y="335" width="400" height="34" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
-    <text x="230" y="357" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">&#956;<tspan baseline-shift="sub" font-size="smaller">H</tspan> = {(D1,H2), (D2,H1)}: every hospital gets its first choice</text>
+    <text x="230" y="357" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">&#956;<tspan baseline-shift="sub" font-size="smaller">H</tspan> = {(d₁,h₂), (d₂,h₁)}: every hospital gets its first choice</text>
   </g>
 </svg>
