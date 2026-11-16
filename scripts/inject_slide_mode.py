@@ -1,7 +1,8 @@
 """Add slide mode to a built MyST site.
 
 book-theme has no hook for custom JavaScript, so after `myst build --html` this copies
-`slide-mode/slide-mode.js` into the site root and loads it from every page's <head>.
+`slide-mode/slide-mode.js` (and the whiteboard module it loads on demand) into the site root
+and loads it from every page's <head>.
 Safe to run repeatedly on the same build.
 """
 
@@ -14,15 +15,20 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SOURCE = ROOT / "slide-mode" / "slide-mode.js"
+SOURCES = {  # site asset -> source; slide-mode.js imports the whiteboard by this asset name
+    "slide-mode.js": ROOT / "slide-mode" / "slide-mode.js",
+    "slide-mode-whiteboard.js": ROOT / "slide-mode" / "whiteboard.js",
+}
 ASSET = "slide-mode.js"
 TAG_RE = re.compile(r'<script src="[^"]*' + re.escape(ASSET) + r'\?v=[0-9a-f]+"></script>')
 
 
 def inject(site: Path) -> int:
-    code = SOURCE.read_bytes()
-    version = hashlib.sha256(code).hexdigest()[:10]
-    shutil.copyfile(SOURCE, site / ASSET)
+    digest = hashlib.sha256()
+    for asset, source in SOURCES.items():
+        digest.update(source.read_bytes())
+        shutil.copyfile(source, site / asset)
+    version = digest.hexdigest()[:10]
     count = 0
     for page in site.rglob("index.html"):
         depth = len(page.relative_to(site).parts) - 1
