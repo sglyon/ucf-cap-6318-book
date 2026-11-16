@@ -300,7 +300,7 @@ bid shading
 : Bidding below one's true {term}`valuation`, as is optimal in a {term}`first-price auction`, trading off the risk of losing against the size of the payoff from winning. *Introduced in* [Auctions](week09/L09.03_auctions.ipynb).
 
 bimatrix
-: For an $N$-player {term}`game` with $N_i$ strategies each, an array holding every player's {term}`payoff` directly in each cell, avoiding the separate-{term}`payoff matrix`-per-player bookkeeping. *Introduced in* [Game Theory 1](week08/L08.01_game_theory_intro.ipynb).
+: For an $N$-player {term}`game` with $M_i$ strategies for player $i$, an array holding every player's {term}`payoff` directly in each cell, avoiding the separate-{term}`payoff matrix`-per-player bookkeeping. *Introduced in* [Game Theory 1](week08/L08.01_game_theory_intro.ipynb).
 
 Braess' paradox
 : The counterintuitive result that adding capacity, a new link, to a network can make the {term}`Nash equilibrium` outcome worse for everyone. *Introduced in* [Network Traffic with Game Theory](week08/L08.02_network_traffic.ipynb).
@@ -333,7 +333,7 @@ first-price auction
 : A sealed-bid {term}`auction` where all bidders submit bids simultaneously; the highest bidder wins and pays the amount of their own bid. *Introduced in* [Auctions](week09/L09.03_auctions.ipynb).
 
 game
-: A description of a strategic environment: a finite set of $N$ {term}`players <player>`, a feasible action set $S_i$ for each, and a payoff function $p_i:\Sigma\to\mathbb{R}$ for each. *Introduced in* [Game Theory 1](week08/L08.01_game_theory_intro.ipynb).
+: A description of a strategic environment: a finite set of $N$ {term}`players <player>`, a feasible action set $S_i$ for each, and a payoff function $p_i:\Sigma\to\mathbb{R}$ for each, where $\Sigma = \times_i S_i$ is the set of action profiles. *Introduced in* [Game Theory 1](week08/L08.01_game_theory_intro.ipynb).
 
 game theory
 : The study of strategic interaction: how decision-makers choose when each one's {term}`payoff` depends on what the others do. A {term}`game` writes such a situation down precisely. *Introduced in* [Game Theory 1](week08/L08.01_game_theory_intro.ipynb).

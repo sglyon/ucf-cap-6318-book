@@ -708,7 +708,7 @@ forms = ["game theory"]
 label = "game"
 unit = "Game Theory"
 defined_in = "week08/L08.01_game_theory_intro.ipynb"
-definition = '''A description of a strategic environment: a finite set of $N$ {term}`players <player>`, a feasible action set $S_i$ for each, and a payoff function $p_i:\Sigma\to\mathbb{R}$ for each.'''
+definition = '''A description of a strategic environment: a finite set of $N$ {term}`players <player>`, a feasible action set $S_i$ for each, and a payoff function $p_i:\Sigma\to\mathbb{R}$ for each, where $\Sigma = \times_i S_i$ is the set of action profiles.'''
 forms = ["game", "games"]
 scope = "unit"
 
@@ -789,7 +789,7 @@ forms = ["mixed strategy", "mixed strategies"]
 label = "bimatrix"
 unit = "Game Theory"
 defined_in = "week08/L08.01_game_theory_intro.ipynb"
-definition = '''For an $N$-player {term}`game` with $N_i$ strategies each, an array holding every player's {term}`payoff` directly in each cell, avoiding the separate-{term}`payoff matrix`-per-player bookkeeping.'''
+definition = '''For an $N$-player {term}`game` with $M_i$ strategies for player $i$, an array holding every player's {term}`payoff` directly in each cell, avoiding the separate-{term}`payoff matrix`-per-player bookkeeping.'''
 forms = ["bimatrix"]
 
 [[term]]

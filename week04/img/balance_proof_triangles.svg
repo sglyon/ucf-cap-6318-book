@@ -17,11 +17,11 @@
 <circle cx="145" cy="195" r="12" fill="#FFFFFF"/>
 <text x="145" y="200" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">+</text>
 <circle cx="145" cy="80" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
-<text x="145" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<text x="145" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">a</text>
 <circle cx="60" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
-<text x="60" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">B</text>
+<text x="60" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">b</text>
 <circle cx="230" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
-<text x="230" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">C</text>
+<text x="230" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">c</text>
 <text x="145" y="247" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">3 positive edges</text>
 </g>
 <g transform="translate(335,75)">
@@ -37,11 +37,11 @@
 <circle cx="145" cy="195" r="12" fill="#FFFFFF"/>
 <text x="145" y="200" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">+</text>
 <circle cx="145" cy="80" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
-<text x="145" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<text x="145" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">a</text>
 <circle cx="60" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
-<text x="60" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">D</text>
+<text x="60" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">d</text>
 <circle cx="230" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
-<text x="230" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">E</text>
+<text x="230" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">e</text>
 <text x="145" y="247" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">1 positive edge</text>
 </g>
 <g transform="translate(650,75)">
@@ -57,11 +57,11 @@
 <circle cx="145" cy="195" r="12" fill="#FFFFFF"/>
 <text x="145" y="200" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">−</text>
 <circle cx="145" cy="80" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
-<text x="145" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">A</text>
+<text x="145" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">a</text>
 <circle cx="60" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
-<text x="60" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">B</text>
+<text x="60" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">b</text>
 <circle cx="230" cy="195" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
-<text x="230" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">E</text>
+<text x="230" y="199" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">e</text>
 <text x="145" y="247" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">1 positive edge</text>
 </g>
 </svg>
